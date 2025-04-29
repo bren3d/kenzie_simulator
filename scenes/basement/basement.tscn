@@ -1,0 +1,256 @@
+[gd_scene load_steps=14 format=3 uid="uid://bd31f2ihbhefp"]
+
+[ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
+[ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
+[ext_resource type="Material" uid="uid://vxa7by78ukgl" path="res://resources/materials/wall_basement.tres" id="2_u5722"]
+[ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="4_gpc5m"]
+[ext_resource type="PackedScene" uid="uid://bvcyvaqhd75sm" path="res://scenes/alex/alex.tscn" id="4_u5722"]
+[ext_resource type="Texture2D" uid="uid://fxucieeglpwd" path="res://assets/textures/sky_debug/bg_debug_sky.png" id="6_wuaeu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w75rf"]
+diffuse_mode = 1
+specular_mode = 2
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("1_wuaeu")
+uv1_scale = Vector3(0.8, 1, 2)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.732044
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuaeu"]
+albedo_color = Color(0.611979, 0.611979, 0.611979, 1)
+albedo_texture = ExtResource("2_apig6")
+uv1_scale = Vector3(1, 0.5, 1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5722"]
+albedo_color = Color(0.101563, 0.0970662, 0.0970662, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olr0t"]
+albedo_color = Color(0.231771, 0.190841, 0.138217, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
+panorama = ExtResource("6_wuaeu")
+filter = false
+
+[sub_resource type="Sky" id="Sky_wuaeu"]
+sky_material = SubResource("PanoramaSkyMaterial_olr0t")
+
+[sub_resource type="Environment" id="Environment_u5722"]
+background_mode = 1
+sky = SubResource("Sky_wuaeu")
+ambient_light_source = 1
+ambient_light_color = Color(0.283854, 0.283854, 0.283854, 1)
+ambient_light_energy = 0.01
+reflected_light_source = 1
+
+[node name="Basement" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 1.85)
+use_collision = true
+size = Vector3(39.7, 0.1, 15.8)
+material = SubResource("StandardMaterial3D_w75rf")
+
+[node name="Ceiling" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 3.3, 0)
+visible = false
+use_collision = true
+size = Vector3(39.7, 0.1, 19.5)
+material = ExtResource("2_u5722")
+
+[node name="Basement" type="CSGCombiner3D" parent="Environment"]
+use_collision = true
+
+[node name="Walls" type="CSGCombiner3D" parent="Environment/Basement"]
+
+[node name="Wall1" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -6)
+size = Vector3(39.8, 3.5, 0.2)
+material = ExtResource("2_u5722")
+
+[node name="Wall2" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 9.8)
+size = Vector3(39.8, 3.5, 0.2)
+material = ExtResource("2_u5722")
+
+[node name="Wall3" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 1.6, 1.9)
+size = Vector3(16, 3.5, 0.2)
+material = ExtResource("2_u5722")
+
+[node name="Wall4" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.8, 1.6, 1.9)
+size = Vector3(15.9, 3.5, 0.2)
+material = ExtResource("2_u5722")
+
+[node name="Trim" type="CSGCombiner3D" parent="Environment/Basement"]
+
+[node name="Trim1" type="CSGBox3D" parent="Environment/Basement/Trim"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, -5.89)
+size = Vector3(39.8, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
+[node name="Trim2" type="CSGBox3D" parent="Environment/Basement/Trim"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 9.69)
+size = Vector3(39.8, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
+[node name="Trim3" type="CSGBox3D" parent="Environment/Basement/Trim"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.9, 0.65, 1.9)
+size = Vector3(15.8, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
+[node name="Trim4" type="CSGBox3D" parent="Environment/Basement/Trim"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.7, 0.65, 1.9)
+size = Vector3(15.8, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
+[node name="Holes" type="CSGCombiner3D" parent="Environment/Basement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+operation = 2
+
+[node name="Slider" type="CSGBox3D" parent="Environment/Basement/Holes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.4, -5.8)
+size = Vector3(3, 2.8, 3)
+material = ExtResource("2_u5722")
+
+[node name="WorkRoom" type="CSGBox3D" parent="Environment/Basement/Holes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.4, 10.4)
+size = Vector3(3, 2.8, 3)
+material = ExtResource("2_u5722")
+
+[node name="Bedroom" type="CSGBox3D" parent="Environment/Basement/Holes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.4, 10.4)
+size = Vector3(1.5, 2.8, 3)
+material = ExtResource("2_u5722")
+
+[node name="Bedroom" type="Node3D" parent="Environment"]
+
+[node name="Room" type="CSGCombiner3D" parent="Environment/Bedroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 0, 9.75)
+use_collision = true
+
+[node name="FloorBedroom" type="CSGBox3D" parent="Environment/Bedroom/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0, 3.95)
+use_collision = true
+size = Vector3(5.9, 0.1, 7.9)
+material = SubResource("StandardMaterial3D_w75rf")
+
+[node name="Walls" type="CSGCombiner3D" parent="Environment/Bedroom/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.6, 5.05)
+
+[node name="Wall1" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
+size = Vector3(0.2, 3.5, 7.8)
+material = ExtResource("2_u5722")
+
+[node name="Wall2" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.05)
+size = Vector3(0.2, 3.5, 7.9)
+material = ExtResource("2_u5722")
+
+[node name="Wall3" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.95, 0, 2.8)
+size = Vector3(0.2, 3.5, 6.1)
+material = ExtResource("2_u5722")
+
+[node name="Decor" type="Node3D" parent="Environment/Bedroom/Room"]
+
+[node name="Matress" type="CSGBox3D" parent="Environment/Bedroom/Room/Decor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 0.25, 5.85)
+use_collision = true
+size = Vector3(3.7, 0.4, 3.5)
+
+[node name="TV" type="CSGBox3D" parent="Environment/Bedroom/Room/Decor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.2, 5.6)
+size = Vector3(0.2, 1.1, 2.6)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="Dresser" type="CSGBox3D" parent="Environment/Bedroom/Room/Decor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.85, 0.7, 0.649999)
+size = Vector3(1, 1.3, 3.1)
+material = SubResource("StandardMaterial3D_olr0t")
+
+[node name="Ceiling2" type="CSGBox3D" parent="Environment/Bedroom/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 3.3, 4)
+use_collision = true
+size = Vector3(6.2, 0.1, 7.8)
+material = ExtResource("2_u5722")
+
+[node name="BedroomLight" type="OmniLight3D" parent="Environment/Bedroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.2, 13.75)
+light_energy = 1.5
+shadow_enabled = true
+omni_range = 7.0
+omni_attenuation = 0.0
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9)
+
+[node name="OmniLight3D1" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7, 3.1, 0)
+light_specular = 0.0
+shadow_enabled = true
+shadow_normal_bias = 5.084
+shadow_opacity = 0.4
+omni_range = 15.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8, 3.1, 0)
+light_specular = 0.0
+shadow_enabled = true
+shadow_normal_bias = 5.084
+shadow_opacity = 0.4
+omni_range = 15.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 3.1, 0)
+light_specular = 0.0
+shadow_enabled = true
+shadow_normal_bias = 5.084
+shadow_opacity = 0.4
+omni_range = 15.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2, 3.1, 0)
+light_specular = 0.0
+shadow_enabled = true
+shadow_normal_bias = 5.084
+shadow_opacity = 0.4
+omni_range = 15.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8, 3.1, 0)
+light_specular = 0.0
+shadow_enabled = true
+shadow_normal_bias = 5.084
+shadow_opacity = 0.4
+omni_range = 15.0
+omni_attenuation = 0.5
+
+[node name="Player" parent="." instance=ExtResource("4_gpc5m")]
+transform = Transform3D(-0.996195, 0, -0.0871558, 0, 1, 0, 0.0871558, 0, -0.996195, -12, 1.05, 2.5)
+
+[node name="PlayerLight" type="OmniLight3D" parent="Player"]
+visible = false
+light_bake_mode = 0
+omni_range = 7.5
+
+[node name="Alex" parent="." instance=ExtResource("4_u5722")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.7, 1.39918, -5.557)
+
+[node name="Alex2" parent="." instance=ExtResource("4_u5722")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.39918, 9.943)
+
+[node name="Alex3" parent="." instance=ExtResource("4_u5722")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.7, 1.39918, 0.643)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u5722")

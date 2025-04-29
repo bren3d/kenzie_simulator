@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://xwh1e8prdtms"]
+
+[ext_resource type="Shader" uid="uid://bhlyhqo4few2a" path="res://scripts/shaders/sky.gdshader" id="5_t5ptc"]
+[ext_resource type="Texture2D" uid="uid://co257yfucx0hs" path="res://assets/textures/sky_debug/bg_debug.png" id="6_1yooq"]
+[ext_resource type="Material" uid="uid://c725dpak600b7" path="res://resources/materials/water.tres" id="6_bq33v"]
+[ext_resource type="Script" uid="uid://bonm3nnrkoli1" path="res://scenes/world/whisper_player.gd" id="7_1yooq"]
+[ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="7_bq33v"]
+[ext_resource type="AudioStream" uid="uid://ckvxl2ni470q8" path="res://assets/sounds/whispers.wav" id="7_gb53w"]
+[ext_resource type="Environment" uid="uid://dgfubcsmnh20v" path="res://resources/environment.tres" id="7_j2gmx"]
+[ext_resource type="Material" uid="uid://lp4e4omgu5ri" path="res://resources/materials/ice.tres" id="8_j2gmx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_umvgx"]
+material = ExtResource("6_bq33v")
+size = Vector3(2000, 500, 2000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq33v"]
+render_priority = 0
+shader = ExtResource("5_t5ptc")
+shader_parameter/sky_texture = ExtResource("6_1yooq")
+shader_parameter/lock_aspect = false
+shader_parameter/aspect_ratio = 1.33333
+shader_parameter/fov = Vector2(180, 90)
+shader_parameter/tiling = Vector2i(1, 1)
+shader_parameter/offset = Vector2(0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j2gmx"]
+material = SubResource("ShaderMaterial_bq33v")
+flip_faces = true
+size = Vector3(1000, 1000, 1000)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bq33v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t5ptc"]
+radius = 200.0
+
+[node name="Dream" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("7_j2gmx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_specular = 0.228
+shadow_enabled = true
+shadow_blur = 1.306
+directional_shadow_split_1 = 0.499
+directional_shadow_split_2 = 0.417
+directional_shadow_split_3 = 0.56
+sky_mode = 1
+
+[node name="Sea" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -250, 0)
+mesh = SubResource("BoxMesh_umvgx")
+
+[node name="Player" parent="." instance=ExtResource("7_bq33v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9407e-08, 1, 0)
+wall_min_slide_angle = 0.785398
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+visible = false
+gi_mode = 2
+inner_radius = 3.0
+outer_radius = 5.0
+sides = 32
+ring_sides = 32
+material = ExtResource("8_j2gmx")
+
+[node name="Sky" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_j2gmx")
+
+[node name="WorldFloor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldFloor"]
+shape = SubResource("WorldBoundaryShape3D_bq33v")
+debug_color = Color(0.879183, 0.0825467, 0.932292, 0.42)
+debug_fill = false
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_t5ptc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player")]
+stream = ExtResource("7_gb53w")
+max_polyphony = 2
+script = ExtResource("7_1yooq")
+player = NodePath("../Player")
+min_volume = 0.0
+max_volume = 1.1
+min_distance = 50.0
+max_distance = 100.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 16.5409, 0)
+light_energy = 10.0
+light_indirect_energy = 10.0
+spot_range = 30.0
+spot_angle = 60.0
+spot_angle_attenuation = 2.07053

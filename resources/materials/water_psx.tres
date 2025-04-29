@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dw3bhy5nn61wb"]
+
+[ext_resource type="Shader" uid="uid://8wurxrdt48kc" path="res://scripts/shaders/water_psx.gdshader" id="1_3kpnr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l1o5p"]
+noise_type = 2
+fractal_type = 3
+domain_warp_frequency = -0.162
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vtae6"]
+noise = SubResource("FastNoiseLite_l1o5p")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3kpnr")
+shader_parameter/albedo = Color(0, 0.471674, 0.927083, 1)
+shader_parameter/water_texture1 = SubResource("NoiseTexture2D_vtae6")
+shader_parameter/scroll_speed1 = Vector2(0.05, 0)
+shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
+shader_parameter/blend_factor = 0.5
+shader_parameter/scale1 = Vector2(100, 100)
+shader_parameter/scale2 = Vector2(1, 1)
+shader_parameter/wave_strength = 0.05
+shader_parameter/wave_scale = 0.01
+shader_parameter/pixelation_level = 64
+shader_parameter/FoamSize = 0.5
+shader_parameter/WaterOpacity = 0.9
+shader_parameter/FoamGlowIntensity = 0.5

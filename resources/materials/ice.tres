@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://lp4e4omgu5ri"]
+
+[ext_resource type="Shader" uid="uid://ywnapuf8wasy" path="res://scripts/shaders/ice.gdshader" id="1_ukmie"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5qq27"]
+noise_type = 3
+seed = 3
+frequency = 0.0377
+fractal_type = 3
+fractal_lacunarity = 2.02
+fractal_gain = 0.049
+fractal_ping_pong_strength = 0.878
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 30.3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dlabj"]
+width = 128
+height = 128
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.3
+noise = SubResource("FastNoiseLite_5qq27")
+
+[resource]
+render_priority = -1
+shader = ExtResource("1_ukmie")
+shader_parameter/FresnelPower = 2.5
+shader_parameter/FresnelColor = Color(0.521569, 0.709804, 0.8, 1)
+shader_parameter/Color = Color(0.0745098, 0.262745, 0.372549, 1)
+shader_parameter/Tiling = Vector3(1, 1, 0)
+shader_parameter/Offset = Vector3(0, 0, 0)
+shader_parameter/Ice_Texture = SubResource("NoiseTexture2D_dlabj")
+shader_parameter/RefractionAmount = 1.0
+shader_parameter/Metallic = 0.134
+shader_parameter/Smoothness = 0.627
+shader_parameter/Normals = 0.77

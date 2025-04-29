@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cfjimdl338s0r"]
+
+[ext_resource type="Shader" uid="uid://cma2hvv23esnn" path="res://scripts/shaders/main_viewport.gdshader" id="1_vkoh4"]
+
+[resource]
+shader = ExtResource("1_vkoh4")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 1
