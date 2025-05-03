@@ -24,19 +24,6 @@ var time_scale: float = 1.0
 
 var timer_value: float = 0.0
 
-func unpause() -> void:
-	paused = false
-
-func pause() -> void:
-	paused = true
-
-func set_paused(val: bool) -> void:
-	paused = val
-	set_process(!paused and not Engine.is_editor_hint())
-
-func is_paused() -> bool:
-	return paused
-
 func _ready() -> void:
 	assert(Engine.is_editor_hint() or stat_name, "No stat name set.")
 	# Set again so _process does not run
@@ -60,6 +47,19 @@ func set_stat_name(val: String) -> void:
 	stat_name = val
 	set_name(stat_name)
 	update_configuration_warnings()
+
+func unpause() -> void:
+	set_paused(false)
+
+func pause() -> void:
+	set_paused(true)
+
+func set_paused(val: bool) -> void:
+	paused = val
+	set_process(!paused and not Engine.is_editor_hint())
+
+func is_paused() -> bool:
+	return paused
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbskxnfxqdpuv"
-path.s3tc="res://.godot/imported/Gradient_Sky-Night_02-512x512.png-174f28f2f092ccdc3a81825188c48d12.s3tc.ctex"
+path.s3tc="res://.godot/imported/Gradient_Sky-Night_02-512x512.png-d28b37b3c4026018ed13233f08a52354.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Gradient_Sky-Night_02-512x512.png"
-dest_files=["res://.godot/imported/Gradient_Sky-Night_02-512x512.png-174f28f2f092ccdc3a81825188c48d12.s3tc.ctex"]
+source_file="res://assets/textures/sky/Gradient_Sky-Night_02-512x512.png"
+dest_files=["res://.godot/imported/Gradient_Sky-Night_02-512x512.png-d28b37b3c4026018ed13233f08a52354.s3tc.ctex"]
 
 [params]
 

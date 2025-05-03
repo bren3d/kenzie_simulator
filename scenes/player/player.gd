@@ -17,8 +17,7 @@ var camera_sensitivity: float = 2.0
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var camera: Camera3D = $Camera3D
-@onready var interact_ray: RayCast3D = $Camera3D/InteractRay
-@onready var interact_label: Label = $UI/InteractMargin/InteractLabel
+@onready var interact_ray: InteractRay = $Camera3D/InteractRay
 
 var input_active: bool = true: set = set_input_active
 var camera_active: bool = true
@@ -27,12 +26,10 @@ var sprinting: bool = false
 var input_dir: Vector2 = Vector2.ZERO
 
 var can_interact: bool = true
-#var interactable: Interactable
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	Global.player = self
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.1)
 
 func _process(delta: float) -> void:
 	state_machine.update_process(delta)
@@ -55,19 +52,23 @@ func _mouse_exit() -> void:
 
 ## Moves camera based on given input event.
 func move_camera(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotation.y -= event.relative.x / 1000 * camera_sensitivity
 		if camera: 
 			camera.rotation.x -= event.relative.y / 1000 * camera_sensitivity
 		
 		rotation.x = clamp(rotation.x, -MAX_PITCH, MAX_PITCH)
-		if camera: 
+		if camera:
 			camera.rotation.x = clampf(camera.rotation.x, -MAX_PITCH, MAX_PITCH)
-			
-		# get_viewport().set_input_as_handled() # Do not handle input so Physics objects can pick them.
+
+func is_flashlight_active() -> bool:
+	return %Flashlight.visible
+
+func set_flashlight_active(val: bool) -> void:
+	%Flashlight.visible = val
 
 func toggle_flashlight() -> void:
-	%Flashlight.visible = !%Flashlight.visible
+	set_flashlight_active(! is_flashlight_active())
 
 func set_state(state_name: String) -> void:
 	state_machine.set_state(state_name)

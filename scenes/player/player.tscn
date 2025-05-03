@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3pgs8qgiescg"]
+[gd_scene load_steps=13 format=3 uid="uid://c3pgs8qgiescg"]
 
 [ext_resource type="Script" uid="uid://ttc2nvo6lgj7" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="Shader" uid="uid://cc3hold8rbr7a" path="res://scripts/shaders/text_wobble.gdshader" id="2_75vfm"]
 [ext_resource type="Script" uid="uid://bq6bav7hc4c24" path="res://scripts/states/state_machine.gd" id="2_p47bc"]
+[ext_resource type="Script" uid="uid://cv64jvy35hl0k" path="res://scripts/interact/interact_ray.gd" id="2_qek5x"]
 [ext_resource type="Script" uid="uid://3b7atary5jdb" path="res://scripts/states/player/moving.gd" id="3_75vfm"]
 [ext_resource type="Script" uid="uid://2aoajcpaxxu" path="res://scripts/states/player/cursor.gd" id="4_0owmy"]
 [ext_resource type="Script" uid="uid://b1cexupi2kvio" path="res://scripts/states/player/godmode.gd" id="5_qek5x"]
+[ext_resource type="Script" uid="uid://csnxtmdq582x7" path="res://scripts/states/player/interacting.gd" id="8_qek5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
@@ -16,6 +19,11 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_8afob")
 radial_segments = 16
 rings = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0owmy"]
+shader = ExtResource("2_75vfm")
+shader_parameter/wobble_intensity = 0.7
+shader_parameter/refresh_interval = 0.12
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_8afob")
@@ -33,7 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
 unique_name_in_owner = true
-visible = false
 light_size = 100.0
 light_specular = 0.1
 light_bake_mode = 0
@@ -46,10 +53,13 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 spot_angle_attenuation = 0.4
 
-[node name="InteractRay" type="RayCast3D" parent="Camera3D"]
-target_position = Vector3(0, 0, -200)
-collision_mask = 4
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" node_paths=PackedStringArray("interaction_label")]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -4096)
+collision_mask = 7
 collide_with_areas = true
+script = ExtResource("2_qek5x")
+interaction_label = NodePath("../../UI/InteractLabel")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -68,28 +78,27 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "STATE DEBUG"
 
-[node name="InteractMargin" type="MarginContainer" parent="UI"]
+[node name="InteractLabel" type="Label" parent="UI"]
+material = SubResource("ShaderMaterial_0owmy")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -12.5
-offset_top = -13.0
-offset_right = 12.5
-offset_bottom = 13.0
+offset_left = -320.0
+offset_top = -20.0
+offset_right = 320.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 12
-metadata/_edit_lock_ = true
-
-[node name="InteractLabel" type="Label" parent="UI/InteractMargin"]
-layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 10
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
+text = "interaction object text"
 horizontal_alignment = 1
 vertical_alignment = 2
+clip_text = true
+metadata/_edit_lock_ = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("debug_label")]
 script = ExtResource("2_p47bc")
@@ -108,3 +117,6 @@ metadata/_custom_type_script = "uid://benwkf4v500kg"
 [node name="Godmode" type="Node" parent="StateMachine"]
 script = ExtResource("5_qek5x")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
+
+[node name="Interacting" type="Node" parent="StateMachine"]
+script = ExtResource("8_qek5x")

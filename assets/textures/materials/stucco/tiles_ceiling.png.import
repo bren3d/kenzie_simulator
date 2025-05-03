@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ev5kp1da17mj"
-path.s3tc="res://.godot/imported/Fuzzy_Sky-Night_04-512x512.png-5df814be9477bc8b2395fdfe24119ce6.s3tc.ctex"
+uid="uid://bj8tnit1fhayj"
+path.s3tc="res://.godot/imported/tiles_ceiling.png-4afcbe358c1e87ae3b38fe9b28d4003b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Fuzzy_Sky-Night_04-512x512.png"
-dest_files=["res://.godot/imported/Fuzzy_Sky-Night_04-512x512.png-5df814be9477bc8b2395fdfe24119ce6.s3tc.ctex"]
+source_file="res://assets/textures/materials/stucco/tiles_ceiling.png"
+dest_files=["res://.godot/imported/tiles_ceiling.png-4afcbe358c1e87ae3b38fe9b28d4003b.s3tc.ctex"]
 
 [params]
 

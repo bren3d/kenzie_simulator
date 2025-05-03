@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dm4onov66tw25"]
+
+[ext_resource type="Texture2D" uid="uid://bj8tnit1fhayj" path="res://assets/textures/materials/stucco/tiles_ceiling.png" id="1_kdd3a"]
+
+[resource]
+albedo_texture = ExtResource("1_kdd3a")
+uv1_triplanar = true
+uv1_world_triplanar = true

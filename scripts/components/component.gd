@@ -11,3 +11,8 @@ func _notification(what: int) -> void:
 			get_parent().set_meta(get_tag(), self)
 		NOTIFICATION_UNPARENTED:
 			get_parent().set_meta(get_tag(), null)
+		
+		NOTIFICATION_EDITOR_PRE_SAVE: # Remove meta before save (prevents recursion issues)
+			get_parent().set_meta(get_tag(), null)
+		NOTIFICATION_EDITOR_POST_SAVE:
+			get_parent().set_meta(get_tag(), self)

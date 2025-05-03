@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqc8e6l1wfop8"
-path.s3tc="res://.godot/imported/plywood.png-5f0b57aef7bf813ae1833e7efbcffaac.s3tc.ctex"
+uid="uid://w37fe1qgy6rq"
+path.s3tc="res://.godot/imported/Gradient_Sky-Foggy_02-512x512.png-a0587a71bb41a94b4c7f6673d37e1ebc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/models/Materials/plywood.png"
-dest_files=["res://.godot/imported/plywood.png-5f0b57aef7bf813ae1833e7efbcffaac.s3tc.ctex"]
+source_file="res://assets/textures/sky/Gradient_Sky-Foggy_02-512x512.png"
+dest_files=["res://.godot/imported/Gradient_Sky-Foggy_02-512x512.png-a0587a71bb41a94b4c7f6673d37e1ebc.s3tc.ctex"]
 
 [params]
 

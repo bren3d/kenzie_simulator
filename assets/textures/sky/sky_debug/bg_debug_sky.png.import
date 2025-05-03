@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://box4g0rqhuqcx"
-path.s3tc="res://.godot/imported/wood_pallet.png-1e104e8e263c87921295941837fefa45.s3tc.ctex"
+uid="uid://fxucieeglpwd"
+path.s3tc="res://.godot/imported/bg_debug_sky.png-e59b52b6a399aabfb60ba17a0288f962.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/models/Materials/wood_pallet.png"
-dest_files=["res://.godot/imported/wood_pallet.png-1e104e8e263c87921295941837fefa45.s3tc.ctex"]
+source_file="res://assets/textures/sky/sky_debug/bg_debug_sky.png"
+dest_files=["res://.godot/imported/bg_debug_sky.png-e59b52b6a399aabfb60ba17a0288f962.s3tc.ctex"]
 
 [params]
 

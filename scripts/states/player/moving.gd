@@ -5,6 +5,7 @@ func _init() -> void:
 	name = &"Moving"
 
 func enter() -> void:
+	get_tree().set(&"mouse_mode", Input.MOUSE_MODE_CAPTURED)
 	player.input_active = true
 	player.input_dir = Input.get_vector(&"left", &"right", &"up", &"down")
 	player.sprinting = Input.is_action_pressed(&"sprint")
@@ -15,6 +16,10 @@ func exit() -> void:
 	player.sprinting = false
 
 func update_physics_process(delta: float) -> void:
+	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		transition_requested.emit(&"Cursor")
+		return
+	
 	if player.is_on_floor() and Input.is_action_just_pressed(&"jump"):
 		# TODO Transition to Jumping state
 		player.velocity.y = Player.JUMP_VELOCITY
@@ -29,13 +34,25 @@ func update_physics_process(delta: float) -> void:
 	player.move_and_slide()
 
 func on_unhandled_input(event: InputEvent) -> void:
+	
 	player.move_camera(event)
-	if event.is_action_pressed(&"flashlight"):
+	
+	if event.is_action_pressed(&"interact") and player.interact_ray.can_interact():
+		transition_requested.emit("Interacting")
+	
+	elif event.is_action_pressed(&"flashlight"):
 		player.toggle_flashlight()
+	
 	elif event.is_action(&"sprint"):
 		player.sprinting = event.is_pressed()
+	
 	elif event.is_action(&"left") or event.is_action(&"right") or event.is_action(&"up") or event.is_action(&"down"):
 		player.input_dir = Input.get_vector(&"left", &"right", &"up", &"down")
+	
+	elif event.is_action_pressed(&"ui_cancel"):
+		get_tree().set(&"mouse_mode", Input.MOUSE_MODE_VISIBLE)
+	
 	else:
 		return
+	
 	get_viewport().set_input_as_handled()

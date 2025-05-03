@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://xwh1e8prdtms"]
 
 [ext_resource type="Shader" uid="uid://bhlyhqo4few2a" path="res://scripts/shaders/sky.gdshader" id="5_t5ptc"]
-[ext_resource type="Texture2D" uid="uid://co257yfucx0hs" path="res://assets/textures/sky_debug/bg_debug.png" id="6_1yooq"]
+[ext_resource type="Texture2D" uid="uid://co257yfucx0hs" path="res://assets/textures/sky/sky_debug/bg_debug.png" id="6_1yooq"]
 [ext_resource type="Material" uid="uid://c725dpak600b7" path="res://resources/materials/water.tres" id="6_bq33v"]
 [ext_resource type="Script" uid="uid://bonm3nnrkoli1" path="res://scenes/world/whisper_player.gd" id="7_1yooq"]
 [ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="7_bq33v"]
