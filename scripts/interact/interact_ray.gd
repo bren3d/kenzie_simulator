@@ -31,6 +31,9 @@ func _init() -> void:
 func _ready() -> void:
 	if interaction_label:
 		interaction_label.text = ""
+		if not Engine.is_editor_hint():
+			DialogueManager.dialogue_started.connect(interaction_label.hide.unbind(1))
+			DialogueManager.dialogue_ended.connect(interaction_label.show.unbind(1))
 
 func _physics_process(delta: float) -> void:
 	var collider:= get_collider()

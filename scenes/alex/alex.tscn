@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://bvcyvaqhd75sm"]
+[gd_scene load_steps=10 format=4 uid="uid://bvcyvaqhd75sm"]
 
-[ext_resource type="Texture2D" uid="uid://bq6n5xh2b6uao" path="res://resources/models/alex_man_tex.png" id="1_oloo2"]
+[ext_resource type="Texture2D" uid="uid://bq6n5xh2b6uao" path="res://resources/models/alex/alex_man_tex.png" id="1_oloo2"]
+[ext_resource type="Script" uid="uid://chspbcvm5yyc" path="res://scenes/alex/alex.gd" id="1_uchuv"]
+[ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="3_pdr3l"]
+[ext_resource type="Script" uid="uid://buepc5xqp7mpu" path="res://scripts/components/dialogue_action.gd" id="4_pdr3l"]
+[ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/test.dialogue" id="5_jvb0o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ng2u"]
 resource_name = "hero.002"
@@ -106,7 +110,17 @@ bind/24/name = &"foot_right"
 bind/24/bone = -1
 bind/24/pose = Transform3D(0.999986, -0.00295927, 0.00426061, -0.00506842, -0.381396, 0.924397, -0.00111035, -0.924407, -0.381406, 0.159822, 0.112436, 0.0441756)
 
-[node name="Alex" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oloo2"]
+radius = 0.3
+height = 2.4
+
+[node name="Alex" type="StaticBody3D"]
+collision_layer = 5
+input_ray_pickable = false
+script = ExtResource("1_uchuv")
+
+[node name="Focus" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.1)
 
 [node name="rig" type="Node3D" parent="."]
 transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 0, 0)
@@ -292,3 +306,20 @@ bones/24/scale = Vector3(1, 1, 1)
 [node name="male_player" type="MeshInstance3D" parent="rig/Skeleton3D"]
 mesh = SubResource("ArrayMesh_c6cxf")
 skin = SubResource("Skin_a78f1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shape = SubResource("CapsuleShape3D_oloo2")
+
+[node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("collider_body")]
+script = ExtResource("3_pdr3l")
+collider_body = NodePath("..")
+max_interaction_distance = 2.0
+interaction_text = "Talk"
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="DialogueAction" type="Node" parent="."]
+script = ExtResource("4_pdr3l")
+dialogue_resource = ExtResource("5_jvb0o")
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"

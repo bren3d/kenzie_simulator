@@ -1,6 +1,8 @@
 @tool
 extends PlayerState
 
+var attempting_jump: bool
+
 func _init() -> void:
 	name = &"Moving"
 
@@ -9,6 +11,7 @@ func enter() -> void:
 	player.input_active = true
 	player.input_dir = Input.get_vector(&"left", &"right", &"up", &"down")
 	player.sprinting = Input.is_action_pressed(&"sprint")
+	attempting_jump = false
 
 func exit() -> void:
 	player.input_active = false
@@ -20,9 +23,11 @@ func update_physics_process(delta: float) -> void:
 		transition_requested.emit(&"Cursor")
 		return
 	
-	if player.is_on_floor() and Input.is_action_just_pressed(&"jump"):
+	if attempting_jump and player.is_on_floor():
 		# TODO Transition to Jumping state
 		player.velocity.y = Player.JUMP_VELOCITY
+	
+	attempting_jump = false
 	
 	var sprint_mult: float = 1.0 + float(player.sprinting) * (Player.RUN_SPEED_MULT - 1.0)
 	var direction: Vector3 = (player.transform.basis * Vector3(player.input_dir.x, 0, player.input_dir.y)).normalized() if player.input_dir else Vector3.ZERO 
@@ -37,7 +42,10 @@ func on_unhandled_input(event: InputEvent) -> void:
 	
 	player.move_camera(event)
 	
-	if event.is_action_pressed(&"interact") and player.interact_ray.can_interact():
+	if event.is_action_pressed(&"jump"):
+		attempting_jump = true
+	
+	elif event.is_action_pressed(&"interact") and player.interact_ray.can_interact():
 		transition_requested.emit("Interacting")
 	
 	elif event.is_action_pressed(&"flashlight"):

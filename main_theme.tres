@@ -1,10 +1,68 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cs71vbuo4vs0s"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cs71vbuo4vs0s"]
 
+[ext_resource type="Script" uid="uid://blbigvff5g5jn" path="res://scripts/UI/style_box_animation/stylebox_pointer.gd" id="1_58jnp"]
 [ext_resource type="FontFile" uid="uid://cd0tc48bscby0" path="res://assets/fonts/Lokka.otf" id="1_470mv"]
+[ext_resource type="FontFile" uid="uid://8i13bq40kytg" path="res://assets/fonts/CabinSketch-Regular.ttf" id="1_a2l2q"]
+
+[sub_resource type="StyleBox" id="StyleBox_58jnp"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("1_58jnp")
+draw_on_right = true
+pointer_size = Vector2(-64, 32)
+pointer_offset = Vector2(6, 0)
+duration_sec = 1.5
+move_distance = 48
+metadata/_custom_type_script = "uid://blbigvff5g5jn"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0omi4"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 
 [resource]
 default_font = ExtResource("1_470mv")
+Button/styles/focus = SubResource("StyleBox_58jnp")
+HeaderLarge/font_sizes/font_size = 16
+HeaderLarge/fonts/font = ExtResource("1_a2l2q")
+HeaderMedium/font_sizes/font_size = 16
+HeaderMedium/fonts/font = ExtResource("1_a2l2q")
+HeaderSmall/font_sizes/font_size = 16
+HeaderSmall/fonts/font = ExtResource("1_a2l2q")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.4)
 Label/constants/line_spacing = 0
 Label/constants/outline_size = 1
+MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 4
+MarginContainer/constants/margin_top = 4
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/selection_color = Color(0.1, 0.1, 1, 0.8)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 2
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/table_h_separation = 3
+RichTextLabel/constants/table_v_separation = 3
+RichTextLabel/constants/text_highlight_h_padding = 3
+RichTextLabel/constants/text_highlight_v_padding = 3
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_0omi4")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_0omi4")

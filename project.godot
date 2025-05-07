@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="hor"
-run/main_scene="uid://xwh1e8prdtms"
+run/main_scene="uid://bd31f2ihbhefp"
 run/main_loop_type="Master"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
@@ -24,6 +24,7 @@ buses/default_bus_layout="res://scripts/shaders/default_bus_layout.tres"
 [autoload]
 
 Global="*res://autoload/global.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
 
@@ -48,6 +49,10 @@ gdscript/warnings/enum_variable_without_default=0
 gdscript/warnings/empty_file=0
 gdscript/warnings/inference_on_variant=1
 
+[dialogue_manager]
+
+runtime/balloon_path="uid://dvw0futfnskdj"
+
 [display]
 
 window/size/viewport_width=640
@@ -57,7 +62,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/stairs/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/stairs/plugin.cfg")
 
 [file_customization]
 
@@ -197,6 +202,10 @@ console={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://resources/dialogue/test.dialogue")
 
 [layer_names]
 

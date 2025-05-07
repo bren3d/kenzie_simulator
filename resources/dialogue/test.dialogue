@@ -1,0 +1,15 @@
+~ start
+do player.camera_controller.focus_current_interactable()
+do player.camera_controller.set_zoom(2.0)
+Alex: [[Bleep|Blorg|Blop]] [[Blorg|Blop|Bleep]]
+Alex: Here are some paths.
+- Path one
+	Alex: You picked the first one.
+- Path two
+	Alex: You picked the second one.
+- What were the paths? => start
+- There is no path => finish
+Alex: Yummy shrimp brains.
+~ finish
+do player.camera_controller.release_all()
+=> END

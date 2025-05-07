@@ -14,4 +14,3 @@ void vertex() {
 	vec2 offset = random(mod(UV + time/10.0, refresh_interval));
 	VERTEX += offset * wobble_intensity;
 }
-

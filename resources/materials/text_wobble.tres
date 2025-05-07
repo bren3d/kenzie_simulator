@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c226dleep4n07"]
+
+[ext_resource type="Shader" uid="uid://cc3hold8rbr7a" path="res://scripts/shaders/text_wobble.gdshader" id="1_nw312"]
+
+[resource]
+shader = ExtResource("1_nw312")
+shader_parameter/wobble_intensity = 0.7
+shader_parameter/refresh_interval = 0.12

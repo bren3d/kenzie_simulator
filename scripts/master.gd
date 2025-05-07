@@ -110,4 +110,9 @@ func get_scene() -> Node:
 func set_scene(val: Node) -> void:
 	assert(scene != val)
 	scene = val
+	if not scene or scene.is_inside_tree():
+		current_scene = scene
+	
+	else:
+		scene.tree_entered.connect(set_current_scene.bind(scene), CONNECT_ONE_SHOT)
 	scene_changed.emit(scene)

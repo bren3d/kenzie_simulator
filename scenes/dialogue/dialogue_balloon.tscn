@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvw0futfnskdj"]
+
+[ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_a3k7w"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_0jqkb"]
+[ext_resource type="Material" uid="uid://c226dleep4n07" path="res://resources/materials/text_wobble.tres" id="2_a3k7w"]
+[ext_resource type="FontFile" uid="uid://8i13bq40kytg" path="res://assets/fonts/CabinSketch-Regular.ttf" id="2_o60ap"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="6_8wt55"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wt55"]
+content_margin_top = 4.0
+
+[node name="ExampleBalloon" type="CanvasLayer"]
+layer = 4
+script = ExtResource("1_a3k7w")
+
+[node name="Balloon" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dialogue" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Dialogue"]
+layout_mode = 2
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Dialogue/VBoxContainer"]
+unique_name_in_owner = true
+material = ExtResource("2_a3k7w")
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_o60ap")
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="DialogueLabel" parent="Balloon/Dialogue/VBoxContainer" instance=ExtResource("2_0jqkb")]
+unique_name_in_owner = true
+z_index = 1
+material = ExtResource("2_a3k7w")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/fill = SubResource("StyleBoxEmpty_8wt55")
+theme_override_styles/background = SubResource("StyleBoxEmpty_8wt55")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wt55")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wt55")
+text = "Dialogue..."
+fit_content = false
+horizontal_alignment = 1
+
+[node name="Responses" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -558.0
+offset_right = 324.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 2
+script = ExtResource("6_8wt55")
+response_template = NodePath("ResponseExample")
+next_action = &"ui_accept"
+hide_failed_responses = true
+
+[node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
+material = ExtResource("2_a3k7w")
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Response example"
+flat = true
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

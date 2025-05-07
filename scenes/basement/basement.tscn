@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bd31f2ihbhefp"]
+[gd_scene load_steps=44 format=3 uid="uid://bd31f2ihbhefp"]
 
 [ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
 [ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://m2fvd5j6jd46" path="res://addons/stairs/stairs.gd" id="5_6yijy"]
 [ext_resource type="Texture2D" uid="uid://fxucieeglpwd" path="res://assets/textures/sky/sky_debug/bg_debug_sky.png" id="6_wuaeu"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="7_olr0t"]
+[ext_resource type="Texture2D" uid="uid://ddigcfp2qesgo" path="res://assets/textures/materials/furniture/leather_01.jpg" id="7_xeobe"]
+[ext_resource type="FontFile" uid="uid://bj3co8un84e62" path="res://assets/fonts/Children.ttf" id="8_n7hqg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -63,6 +65,78 @@ albedo_color = Color(0.101563, 0.0970662, 0.0970662, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olr0t"]
 albedo_color = Color(0.231771, 0.190841, 0.138217, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acu8t"]
+albedo_color = Color(0.210938, 0.156624, 0.086792, 1)
+albedo_texture = ExtResource("7_xeobe")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.45972
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xeobe"]
+albedo_color = Color(0.09375, 0.0550804, 0.013916, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xeobe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a54wy"]
+albedo_texture = SubResource("PlaceholderTexture2D_xeobe")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_acu8t"]
+viewport_path = NodePath("Environment/Basement/Decor/Desks/DeskAlex/Monitor1/Screen/ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_inglc"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_acu8t")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3ijw5"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_inglc")
+size = Vector2(1.1, 0.6)
+
+[sub_resource type="Gradient" id="Gradient_xeobe"]
+offsets = PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.9, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.90625, 0, 1, 0.228882, 0.976563, 0, 1, 0, 0.989583, 0.89681, 1, 0.441964, 0.441964, 0.994187, 1, 1, 0, 0.859375, 1, 1, 0.09375, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n7hqg"]
+gradient = SubResource("Gradient_xeobe")
+width = 16
+height = 16
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n7hqg"]
+viewport_path = NodePath("Environment/Basement/Decor/Desks/DeskAlex/Monitor2/Screen/ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebucs"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_n7hqg")
+
+[sub_resource type="QuadMesh" id="QuadMesh_inglc"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ebucs")
+size = Vector2(1.1, 0.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a54wy"]
+viewport_path = NodePath("Environment/Basement/Decor/Desks/DeskPlayer/Monitor1/Screen/ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ijw5"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_a54wy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mey60"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_3ijw5")
+size = Vector2(1.1, 0.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ebucs"]
+viewport_path = NodePath("Environment/Basement/Decor/Desks/DeskPlayer/Monitor2/Screen/ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mey60"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ebucs")
+
+[sub_resource type="QuadMesh" id="QuadMesh_p2yxo"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_mey60")
+size = Vector2(1.1, 0.6)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_olr0t"]
 size = Vector3(0.2, 0.3, 0.2)
 
@@ -80,27 +154,31 @@ environment = SubResource("Environment_u5722")
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55, 0, 5.95)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55, 0, 6.2)
 use_collision = true
-size = Vector3(47, 0.1, 24)
+size = Vector3(47, 0.1, 24.5)
 material = SubResource("StandardMaterial3D_w75rf")
 
 [node name="Ceiling" type="Node3D" parent="Environment"]
+metadata/_edit_lock_ = true
 
 [node name="Ceiling" type="MeshInstance3D" parent="Environment/Ceiling"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.1, 3.3, 1.9)
 mesh = SubResource("QuadMesh_5fs4t")
 skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
 
 [node name="Ceiling2" type="MeshInstance3D" parent="Environment/Ceiling"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.4, 3.3, 13.9)
 mesh = SubResource("QuadMesh_xeobe")
 skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
 
 [node name="Ceiling3" type="MeshInstance3D" parent="Environment/Ceiling"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -23.6, 3.3, 5.9)
 mesh = SubResource("QuadMesh_xeobe")
 skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
 
 [node name="Basement" type="CSGCombiner3D" parent="Environment"]
 use_collision = true
@@ -112,61 +190,79 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -6)
 size = Vector3(39.8, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
+[node name="Trim1" type="CSGBox3D" parent="Environment/Basement/Walls/Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0.11)
+size = Vector3(39.8, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
 [node name="Wall2" type="CSGBox3D" parent="Environment/Basement/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 1.6, 9.8)
 size = Vector3(30, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
+[node name="Trim2" type="CSGBox3D" parent="Environment/Basement/Walls/Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0271502, -0.95, -0.110001)
+size = Vector3(30.0543, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
 [node name="Wall3" type="CSGBox3D" parent="Environment/Basement/Walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 1.6, 1.9)
-size = Vector3(16, 3.5, 0.2)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 1.6, 6.15)
+size = Vector3(24.5, 3.5, 0.2)
 material = ExtResource("2_u5722")
+
+[node name="Trim3" type="CSGBox3D" parent="Environment/Basement/Walls/Wall3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0999994, -0.95, 0.1)
+size = Vector3(23.9, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
 
 [node name="Wall4" type="CSGBox3D" parent="Environment/Basement/Walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.8, 1.6, 1.9)
-size = Vector3(15.9, 3.5, 0.2)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.8, 1.6, 0.95)
+size = Vector3(14, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
+[node name="Trim4" type="CSGBox3D" parent="Environment/Basement/Walls/Wall4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0224993, -0.95, -0.0999985)
+size = Vector3(14.05, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
 [node name="Wall5" type="CSGBox3D" parent="Environment/Basement/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1, 1.6, 17.8)
-size = Vector3(30, 3.5, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.525, 1.6, 18.3)
+size = Vector3(46.95, 3.5, 0.2)
 material = ExtResource("2_u5722")
+
+[node name="Trim5" type="CSGBox3D" parent="Environment/Basement/Walls/Wall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0249996, -0.95, -0.109999)
+size = Vector3(46.9, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
 
 [node name="Wall6" type="CSGBox3D" parent="Environment/Basement/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.045, 1.6, 12.495)
 size = Vector3(5.5, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
-[node name="Trim" type="CSGCombiner3D" parent="Environment/Basement"]
-
-[node name="Trim1" type="CSGBox3D" parent="Environment/Basement/Trim"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, -5.89)
-size = Vector3(39.8, 1.6, 0.01)
-material = SubResource("StandardMaterial3D_wuaeu")
-
-[node name="Trim2" type="CSGBox3D" parent="Environment/Basement/Trim"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.87285, 0.65, 9.69)
-size = Vector3(30.0543, 1.6, 0.01)
-material = SubResource("StandardMaterial3D_wuaeu")
-
-[node name="Trim3" type="CSGBox3D" parent="Environment/Basement/Trim"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.9, 0.65, 1.9)
-size = Vector3(15.8, 1.6, 0.01)
-material = SubResource("StandardMaterial3D_wuaeu")
-
-[node name="Trim4" type="CSGBox3D" parent="Environment/Basement/Trim"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.7, 0.65, 1.9)
-size = Vector3(15.8, 1.6, 0.01)
-material = SubResource("StandardMaterial3D_wuaeu")
-
-[node name="Trim5" type="CSGBox3D" parent="Environment/Basement/Trim"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1, 0.65, 17.69)
-size = Vector3(30, 1.6, 0.01)
-material = SubResource("StandardMaterial3D_wuaeu")
-
-[node name="Trim6" type="CSGBox3D" parent="Environment/Basement/Trim"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.155, 0.65, 12.4643)
+[node name="Trim6" type="CSGBox3D" parent="Environment/Basement/Walls/Wall6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0306997, -0.95, -0.11)
 size = Vector3(5.56146, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
+[node name="Wall7" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.35, 1.6, 7.85)
+size = Vector3(7.25, 3.5, 0.2)
+material = ExtResource("2_u5722")
+
+[node name="Trim7" type="CSGBox3D" parent="Environment/Basement/Walls/Wall7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150013, -0.95, -0.1)
+size = Vector3(7.28, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
+[node name="Wall8" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -26.9, 1.6, 13)
+size = Vector3(10.5, 3.5, 0.2)
+material = ExtResource("2_u5722")
+
+[node name="Trim8" type="CSGBox3D" parent="Environment/Basement/Walls/Wall8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0849991, -0.95, -0.1)
+size = Vector3(10.35, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
 
 [node name="Holes" type="CSGCombiner3D" parent="Environment/Basement"]
@@ -184,12 +280,12 @@ size = Vector3(3, 2.8, 3)
 material = ExtResource("2_u5722")
 
 [node name="Bedroom" type="CSGBox3D" parent="Environment/Basement/Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.4, 10.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9, 1.4, 10.4)
 size = Vector3(1.5, 2.8, 3)
 material = ExtResource("2_u5722")
 
 [node name="Bathroom" type="CSGBox3D" parent="Environment/Basement/Holes"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 1.4, 8.9)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 1.4, 6.4)
 size = Vector3(1.5, 2.8, 3)
 material = ExtResource("2_u5722")
 
@@ -204,6 +300,319 @@ script = ExtResource("5_6yijy")
 size = Vector3(3, 3.3, 5.2)
 material = SubResource("StandardMaterial3D_n7hqg")
 metadata/_custom_type_script = "uid://m2fvd5j6jd46"
+
+[node name="Decor" type="Node3D" parent="Environment/Basement"]
+
+[node name="TVSetup" type="CSGCombiner3D" parent="Environment/Basement/Decor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6, 0.45, -0.7)
+
+[node name="TV" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 1.55, -5.96046e-08)
+size = Vector3(0.2, 2.2, 5.4)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="Dresser" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, -0.05, -1.37091e-06)
+size = Vector3(1, 0.7, 3.6)
+material = SubResource("StandardMaterial3D_olr0t")
+
+[node name="Couch" type="CSGPolygon3D" parent="Environment/Basement/Decor/TVSetup"]
+transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, -0.5, -0.45, 0)
+polygon = PackedVector2Array(3.5, 0, 3.5, 0.8, 5, 0.8, 5, 0)
+mode = 1
+spin_degrees = 135.0
+spin_sides = 8
+material = SubResource("StandardMaterial3D_acu8t")
+
+[node name="CoffeeTable" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+size = Vector3(2.5, 0.8, 2.8)
+material = SubResource("StandardMaterial3D_xeobe")
+
+[node name="Desks" type="Node3D" parent="Environment/Basement/Decor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
+
+[node name="DeskAlex" type="CSGCombiner3D" parent="Environment/Basement/Decor/Desks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.55, 1)
+
+[node name="Desk" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskAlex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.1, 0.150001)
+size = Vector3(4, 1.2, 1)
+material = SubResource("StandardMaterial3D_a54wy")
+
+[node name="Chair" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskAlex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.375, -1.125)
+size = Vector3(1.2, 1.75, 1)
+material = SubResource("StandardMaterial3D_a54wy")
+
+[node name="Monitor1" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskAlex"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 0.0369763, 1.15, 0.37614)
+size = Vector3(1.15, 0.65, 0.05)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor1"]
+transform = Transform3D(-1, 0, -1.04308e-07, 0, 1, 0, 1.04308e-07, 0, -1, -7.15256e-07, 0, -0.026)
+mesh = SubResource("QuadMesh_3ijw5")
+
+[node name="ScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor1/Screen"]
+size = Vector2i(512, 256)
+
+[node name="Screen1" type="Control" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor1/Screen/ScreenViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor1/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_n7hqg")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor1/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.57)
+
+[node name="Label" type="Label" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor1/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("8_n7hqg")
+theme_override_font_sizes/font_size = 64
+text = "Alex Computer Monitor 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Monitor2" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskAlex"]
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, -1.11302, 1.15, 0.37614)
+size = Vector3(1.15, 0.65, 0.05)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor2"]
+transform = Transform3D(-1, 0, -1.04308e-07, 0, 1, 0, 1.04308e-07, 0, -1, -7.15256e-07, 0, -0.026)
+mesh = SubResource("QuadMesh_inglc")
+
+[node name="ScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor2/Screen"]
+size = Vector2i(512, 256)
+
+[node name="Screen1" type="Control" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor2/Screen/ScreenViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor2/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_n7hqg")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor2/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.57)
+
+[node name="Label" type="Label" parent="Environment/Basement/Decor/Desks/DeskAlex/Monitor2/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("8_n7hqg")
+theme_override_font_sizes/font_size = 64
+text = "Alex Computer Monitor 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="PC" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskAlex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.275, 1.125, 0.125)
+size = Vector3(0.5, 0.9, 0.85)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="PC2" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskAlex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.275, 1.125, 0.125)
+size = Vector3(0.5, 0.9, 0.85)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="DeskPlayer" type="CSGCombiner3D" parent="Environment/Basement/Decor/Desks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.55, 1)
+
+[node name="Desk" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.1, 0.150001)
+size = Vector3(4, 1.2, 1)
+material = SubResource("StandardMaterial3D_a54wy")
+
+[node name="Chair" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.375, -1.125)
+size = Vector3(1.2, 1.75, 1)
+material = SubResource("StandardMaterial3D_a54wy")
+
+[node name="Monitor1" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskPlayer"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 0.0369763, 1.15, 0.37614)
+size = Vector3(1.15, 0.65, 0.05)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor1"]
+transform = Transform3D(-1, 0, -1.04308e-07, 0, 1, 0, 1.04308e-07, 0, -1, -7.15256e-07, 0, -0.026)
+mesh = SubResource("QuadMesh_mey60")
+
+[node name="ScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor1/Screen"]
+size = Vector2i(512, 256)
+
+[node name="Screen1" type="Control" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor1/Screen/ScreenViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor1/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_n7hqg")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor1/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.57)
+
+[node name="Label" type="Label" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor1/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("8_n7hqg")
+theme_override_font_sizes/font_size = 64
+text = "Player Computer Monitor 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Monitor2" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskPlayer"]
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, -1.11302, 1.15, 0.37614)
+size = Vector3(1.15, 0.65, 0.05)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor2"]
+transform = Transform3D(-1, 0, -1.04308e-07, 0, 1, 0, 1.04308e-07, 0, -1, -7.15256e-07, 0, -0.026)
+mesh = SubResource("QuadMesh_p2yxo")
+
+[node name="ScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor2/Screen"]
+size = Vector2i(512, 256)
+
+[node name="Screen1" type="Control" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor2/Screen/ScreenViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor2/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_n7hqg")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor2/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.57)
+
+[node name="Label" type="Label" parent="Environment/Basement/Decor/Desks/DeskPlayer/Monitor2/Screen/ScreenViewport/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("8_n7hqg")
+theme_override_font_sizes/font_size = 64
+text = "Player Computer Monitor 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="PC" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.275, 1.125, 0.125)
+size = Vector3(0.5, 0.9, 0.85)
+material = SubResource("StandardMaterial3D_u5722")
+
+[node name="PC2" type="CSGBox3D" parent="Environment/Basement/Decor/Desks/DeskPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.275, 1.125, 0.125)
+size = Vector3(0.5, 0.9, 0.85)
+material = SubResource("StandardMaterial3D_u5722")
 
 [node name="Bedroom" type="Node3D" parent="Environment"]
 
@@ -221,35 +630,35 @@ material = SubResource("StandardMaterial3D_w75rf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.6, 5.05)
 
 [node name="Wall1" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
-size = Vector3(0.2, 3.5, 7.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8)
+size = Vector3(0.2, 3.5, 6.4)
 material = ExtResource("2_u5722")
 
 [node name="Wall2" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.05)
-size = Vector3(0.2, 3.5, 7.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.8)
+size = Vector3(0.2, 3.5, 6.4)
 material = ExtResource("2_u5722")
 
 [node name="Wall3" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.95, 0, 2.8)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.95, 0, 1.3)
 size = Vector3(0.2, 3.5, 6.1)
 material = ExtResource("2_u5722")
 
 [node name="Decor" type="Node3D" parent="Environment/Bedroom/Room"]
 
 [node name="Matress" type="CSGBox3D" parent="Environment/Bedroom/Room/Decor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 0.25, 5.85)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 0.25, 4.35)
 use_collision = true
 size = Vector3(3.7, 0.4, 3.5)
 
 [node name="TV" type="CSGBox3D" parent="Environment/Bedroom/Room/Decor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.2, 5.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.2, 4.35)
 size = Vector3(0.2, 1.1, 2.6)
 material = SubResource("StandardMaterial3D_u5722")
 
 [node name="Dresser" type="CSGBox3D" parent="Environment/Bedroom/Room/Decor"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.85, 0.7, 0.649999)
-size = Vector3(1, 1.3, 3.1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.85, 0.7, 0.574999)
+size = Vector3(0.85, 1.3, 3.1)
 material = SubResource("StandardMaterial3D_olr0t")
 
 [node name="LightSwitch" type="Area3D" parent="Environment/Bedroom/Room/Decor"]
@@ -268,7 +677,6 @@ script = ExtResource("7_olr0t")
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
 interaction_text = "Light Switch"
-auto_end_interaction = true
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
 [node name="TriggeredAction" type="Node" parent="Environment/Bedroom/Room/Decor/LightSwitch"]
@@ -278,19 +686,14 @@ method_name = "visible"
 toggle_mode = true
 metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"
 
-[node name="Ceiling" type="CSGBox3D" parent="Environment/Bedroom/Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 3.3, 4)
-visible = false
-use_collision = true
-size = Vector3(6.2, 0.1, 7.8)
-material = ExtResource("2_u5722")
-
 [node name="BedroomLight" type="OmniLight3D" parent="Environment/Bedroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.2, 13.75)
+visible = false
 light_energy = 1.5
 shadow_enabled = true
 omni_range = 7.0
 omni_attenuation = 0.0
+metadata/_edit_lock_ = true
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9)
@@ -341,18 +744,12 @@ omni_range = 15.0
 omni_attenuation = 0.5
 
 [node name="Player" parent="." instance=ExtResource("4_gpc5m")]
-transform = Transform3D(-0.996195, 0, -0.0871558, 0, 1, 0, 0.0871558, 0, -0.996195, -12, 1.05, 2.5)
+transform = Transform3D(-0.996195, 0, -0.0871558, 0, 1, 0, 0.0871558, 0, -0.996195, -5.5, 1.05, 7)
+
+[node name="Alex" parent="." instance=ExtResource("4_u5722")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 1.5, 9)
 
 [node name="Editor" type="Node3D" parent="."]
-
-[node name="Alex" parent="Editor" instance=ExtResource("4_u5722")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.7, 1.39918, -5.557)
-
-[node name="Alex2" parent="Editor" instance=ExtResource("4_u5722")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.7, 1.39918, 16.743)
-
-[node name="Alex3" parent="Editor" instance=ExtResource("4_u5722")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.7, 1.39918, 0.643)
 
 [node name="EditorLight1" type="DirectionalLight3D" parent="Editor"]
 transform = Transform3D(0.965926, -0.224144, 0.12941, 0, 0.5, 0.866025, -0.258819, -0.836516, 0.482963, -26.2, 9.6, 16.1)
