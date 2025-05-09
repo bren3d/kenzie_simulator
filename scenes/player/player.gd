@@ -17,7 +17,7 @@ var speed_mult: float = 1.0
 var speed: float = DEFAULT_SPEED
 
 @export_range(0.05, 10.0, 0.05, "or_greater", "exp" ) 
-var camera_sensitivity: float = 2.0
+var camera_sensitivity: float = 0.7
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var camera: Camera3D = $Camera3D
@@ -35,7 +35,7 @@ var can_interact: bool = true
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	
+	show_message("")
 	# Turn on to get rid of stutter when loading...
 	set_flashlight_active(true)
 	create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.2)
@@ -68,9 +68,9 @@ func set_camera_pitch(pitch: float) -> void:
 ## Moves camera based on given input event.
 func move_camera(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotation.y -= event.relative.x / 1000 * camera_sensitivity
+		rotation.y -= event.screen_relative.x / 1000 * camera_sensitivity
 		if camera: 
-			set_camera_pitch(camera.rotation.x - event.relative.y / 1000 * camera_sensitivity)
+			set_camera_pitch(camera.rotation.x - event.screen_relative.y / 1000 * camera_sensitivity)
 
 func focus_camera(focus_point: Vector3, zoom: float = 1.0) -> Tween:
 	if focus_point == camera.global_position:
@@ -109,3 +109,14 @@ func set_state(state_name: String) -> void:
 
 func set_input_active(act: bool) -> void:
 	input_active = act
+
+func show_message(text: String) -> void:
+	const FADE_IN_OUT_DURATION_SEC: float = 0.4
+	%MessageLabel.text = text
+	if not text:
+		%MessageLabel.modulate.a = 0.0
+		return
+	var tw: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+	tw.tween_property(%MessageLabel as Label, ^"modulate:a", 1.0, FADE_IN_OUT_DURATION_SEC)
+	tw.tween_interval(1.5)
+	tw.tween_property(%MessageLabel as Label, ^"modulate:a", 0.0, FADE_IN_OUT_DURATION_SEC)

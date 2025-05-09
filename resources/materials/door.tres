@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://deyp5ssqfa5tc"]
+
+[ext_resource type="Texture2D" uid="uid://cfsr5hf4q4n2p" path="res://assets/textures/materials/doors/wood_fancy_04.jpg" id="1_1cyjs"]
+[ext_resource type="Texture2D" uid="uid://cvi3bvien33e0" path="res://assets/textures/materials/doors/DoorNormal.jpg" id="2_snea2"]
+
+[resource]
+albedo_texture = ExtResource("1_1cyjs")
+normal_enabled = true
+normal_texture = ExtResource("2_snea2")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0

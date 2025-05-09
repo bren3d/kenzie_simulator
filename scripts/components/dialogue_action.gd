@@ -6,6 +6,7 @@ signal dialogue_finished
 
 @export var dialogue_resource: DialogueResource
 @export var section_title: String = ""
+@export var disabled: bool
 
 @export var camera_action: CameraAction
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	dialogue_finished.connect(interactable.end_interaction)
 
 func start(interactor: Object) -> void:
+	if disabled: return
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	var states: Dictionary = {
 		interactor = interactor, 
@@ -25,8 +27,10 @@ func start(interactor: Object) -> void:
 		}
 	if interactor is Player:
 		states.player = interactor
-	if get_parent().has_meta(&"DialogueFocus"):
-		states.focus_point = get_parent().get_meta(&"DialogueFocus")
+	if get_parent().has_meta(&"Focus"):
+		#set_focus
+		states.focus = get_parent().get_meta(&"Focus")
+		#states.focus_point = get_parent().get_meta(&"Focus").global_position
 	
 	if camera_action:
 		camera_action.focused.connect(DialogueManager.show_dialogue_balloon.bind(dialogue_resource, section_title, [states]), CONNECT_ONE_SHOT)

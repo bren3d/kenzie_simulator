@@ -1,6 +1,5 @@
 ~ start
-do player.camera_controller.focus_current_interactable()
-do player.camera_controller.set_zoom(2.0)
+do player.camera_controller.focus_zoom(focus, 2.0)
 Alex: [[Bleep|Blorg|Blop]] [[Blorg|Blop|Bleep]]
 Alex: Here are some paths.
 - Path one

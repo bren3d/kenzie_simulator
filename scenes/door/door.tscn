@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://bajg8364abgyt"]
+
+[ext_resource type="Script" uid="uid://cq664r6xwopst" path="res://scenes/door/door.gd" id="1_bsixq"]
+[ext_resource type="Material" uid="uid://deyp5ssqfa5tc" path="res://resources/materials/door.tres" id="2_bsixq"]
+[ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="4_iwle0"]
+[ext_resource type="Script" uid="uid://bqfvl3jtmmfg1" path="res://scripts/triggered_action.gd" id="6_5ht72"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_acu8t"]
+material = ExtResource("2_bsixq")
+size = Vector3(1.5, 2.7, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_366ik"]
+albedo_color = Color(0.731771, 0.731771, 0.731771, 1)
+metallic = 0.64
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gddbs"]
+material = SubResource("StandardMaterial3D_366ik")
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.25
+radial_segments = 8
+rings = 2
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="BoxMesh" id="BoxMesh_sdkf1"]
+material = SubResource("StandardMaterial3D_366ik")
+size = Vector3(0.25, 0.05, 0.025)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_acu8t"]
+size = Vector3(1.5, 2.7, 0.1)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_bsixq")
+tween_trans = 10
+tween_ease = 1
+overlay_material = null
+interaction_text = "open"
+auto_end_interaction = true
+
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+
+[node name="DoorMesh" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 0)
+mesh = SubResource("BoxMesh_acu8t")
+skeleton = NodePath("")
+
+[node name="HandleStemMesh" type="MeshInstance3D" parent="Hinge/DoorMesh"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.65, 0, 0)
+mesh = SubResource("CylinderMesh_gddbs")
+
+[node name="Handles" type="Node3D" parent="Hinge/DoorMesh/HandleStemMesh"]
+
+[node name="HandleMesh1" type="MeshInstance3D" parent="Hinge/DoorMesh/HandleStemMesh/Handles"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.1, -0.125, 0)
+mesh = SubResource("BoxMesh_sdkf1")
+skeleton = NodePath("../../..")
+
+[node name="HandleMesh2" type="MeshInstance3D" parent="Hinge/DoorMesh/HandleStemMesh/Handles"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.1, 0.125, 0)
+mesh = SubResource("BoxMesh_sdkf1")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 0)
+collision_layer = 5
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/StaticBody3D"]
+shape = SubResource("BoxShape3D_acu8t")
+
+[node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("collider_body")]
+script = ExtResource("4_iwle0")
+collider_body = NodePath("../Hinge/StaticBody3D")
+max_interaction_distance = 2.0
+interaction_text = "open"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="TriggeredAction" type="Node" parent="."]
+script = ExtResource("6_5ht72")
+target_node_path = NodePath("..")
+method_name = "toggle"
+metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"

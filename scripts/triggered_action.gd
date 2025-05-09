@@ -16,7 +16,11 @@ var action_trigger_callable: Callable = trigger
 
 @export_storage var arguments: Array
 
+## Target Node is passed as variable [code]target_node[/code].
+@export_multiline var condition_expression: String = ""
+
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	var interactable: Interactable = get_parent().get_meta(&"Interactable")
 	interactable.interaction_started.connect(trigger)
 

@@ -15,9 +15,9 @@ noise = SubResource("FastNoiseLite_nub3b")
 [resource]
 render_priority = 0
 shader = ExtResource("1_vbl8k")
-shader_parameter/highlight_color = Color(0.932292, 0.791249, 0.111681, 1)
+shader_parameter/highlight_color = Color(0.911458, 0.789886, 0.204129, 1)
 shader_parameter/speed = 2.0
-shader_parameter/fresnel_sharpness = 2.2
+shader_parameter/fresnel_sharpness = 0.7
 shader_parameter/fade_intensity = 4.0
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_nub3b")
 shader_parameter/noise_intensity = 0.2

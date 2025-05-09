@@ -21,6 +21,11 @@ var tw: Tween
 func _initialize() -> void:
 	if Engine.is_editor_hint(): return
 	
+	# Only runs when running the main scene.
+	if not "uid" in OS.get_cmdline_args()[0]:
+		scene = current_scene
+		return
+	
 	var svc: SubViewportContainer = SubViewportContainer.new()
 	svc.stretch = true
 	
@@ -110,9 +115,4 @@ func get_scene() -> Node:
 func set_scene(val: Node) -> void:
 	assert(scene != val)
 	scene = val
-	if not scene or scene.is_inside_tree():
-		current_scene = scene
-	
-	else:
-		scene.tree_entered.connect(set_current_scene.bind(scene), CONNECT_ONE_SHOT)
 	scene_changed.emit(scene)

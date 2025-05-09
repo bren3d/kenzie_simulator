@@ -14,6 +14,9 @@ signal interaction_ended
 
 @export var collider_body: CollisionObject3D : set = set_collider_body
 @export var mesh: MeshInstance3D
+@export var icon: Texture2D
+
+@export var overlay_material: Material
 
 @export_range(0.0, 5.0, 0.1, "or_greater", "suffix:m")
 var max_interaction_distance: float = 1.5
@@ -44,7 +47,8 @@ func end_interaction() -> void:
 
 func set_is_hovered(val: bool) -> void:
 	is_hovered = val
-	if mesh:		mesh.material_overlay = OUTLINE_MATERIAL if is_hovered else null
+	if mesh and overlay_material: 
+		mesh.material_overlay = overlay_material if is_hovered else null
 
 func set_collider_body(val: CollisionObject3D) -> void:
 	if collider_body == val: return

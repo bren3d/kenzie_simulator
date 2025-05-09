@@ -23,11 +23,7 @@ func is_focused() -> bool:
 
 func focus() -> void:
 	player = get_viewport().get_camera_3d().get_parent()
-	player.camera_controller.focus(global_position)
-	#set_physics_process(true)
-	#player = get_viewport().get_camera_3d().get_parent()
-	#create_tween().tween_callback(emit_signal.bind(&"focused"))\
-	#.set_delay(0.3)
+	player.camera_controller.focus(self)
 
 func release_focus() -> void:
 	player.clear_camera_zoom()

@@ -1,17 +1,21 @@
-[gd_scene load_steps=44 format=3 uid="uid://bd31f2ihbhefp"]
+[gd_scene load_steps=53 format=3 uid="uid://bd31f2ihbhefp"]
 
 [ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
 [ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
 [ext_resource type="Material" uid="uid://vxa7by78ukgl" path="res://resources/materials/wall_basement.tres" id="2_u5722"]
 [ext_resource type="Material" uid="uid://dm4onov66tw25" path="res://resources/materials/ceiling_basement.tres" id="3_6yijy"]
+[ext_resource type="Texture2D" uid="uid://dtueg1etmubsx" path="res://assets/textures/materials/floor/tile_modern_white.png" id="3_ebucs"]
 [ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="4_gpc5m"]
 [ext_resource type="PackedScene" uid="uid://bvcyvaqhd75sm" path="res://scenes/alex/alex.tscn" id="4_u5722"]
 [ext_resource type="Script" uid="uid://bqfvl3jtmmfg1" path="res://scripts/triggered_action.gd" id="5_6wvo0"]
 [ext_resource type="Script" uid="uid://m2fvd5j6jd46" path="res://addons/stairs/stairs.gd" id="5_6yijy"]
+[ext_resource type="PackedScene" uid="uid://bajg8364abgyt" path="res://scenes/door/door.tscn" id="6_a54wy"]
 [ext_resource type="Texture2D" uid="uid://fxucieeglpwd" path="res://assets/textures/sky/sky_debug/bg_debug_sky.png" id="6_wuaeu"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="7_olr0t"]
 [ext_resource type="Texture2D" uid="uid://ddigcfp2qesgo" path="res://assets/textures/materials/furniture/leather_01.jpg" id="7_xeobe"]
 [ext_resource type="FontFile" uid="uid://bj3co8un84e62" path="res://assets/fonts/Children.ttf" id="8_n7hqg"]
+[ext_resource type="Material" uid="uid://d3icvun78phst" path="res://resources/materials/outline.tres" id="10_acu8t"]
+[ext_resource type="Texture2D" uid="uid://g0yyg3dik3g8" path="res://assets/textures/materials/fence_chain_rusty.png" id="11_inglc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -39,6 +43,17 @@ uv1_triplanar_sharpness = 0.732044
 uv1_world_triplanar = true
 texture_filter = 5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2yxo"]
+render_priority = 1
+albedo_texture = ExtResource("3_ebucs")
+uv1_offset = Vector3(-0.1, 0, 0.15)
+uv1_triplanar = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_84r38"]
+material = SubResource("StandardMaterial3D_p2yxo")
+size = Vector2(7.2, 10.5)
+orientation = 1
+
 [sub_resource type="QuadMesh" id="QuadMesh_5fs4t"]
 material = ExtResource("3_6yijy")
 size = Vector2(40, 15.8)
@@ -46,6 +61,8 @@ size = Vector2(40, 15.8)
 [sub_resource type="QuadMesh" id="QuadMesh_xeobe"]
 material = ExtResource("3_6yijy")
 size = Vector2(27, 23.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84r38"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuaeu"]
 albedo_color = Color(0.611979, 0.611979, 0.611979, 1)
@@ -137,6 +154,16 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_mey60")
 size = Vector2(1.1, 0.6)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56uno"]
+transparency = 2
+alpha_scissor_threshold = 0.2
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("11_inglc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfjga"]
+render_priority = 1
+albedo_color = Color(0.242188, 0.242188, 0.242188, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_olr0t"]
 size = Vector3(0.2, 0.3, 0.2)
 
@@ -154,10 +181,15 @@ environment = SubResource("Environment_u5722")
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55, 0, 6.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 6.2)
 use_collision = true
 size = Vector3(47, 0.1, 24.5)
 material = SubResource("StandardMaterial3D_w75rf")
+metadata/_edit_lock_ = true
+
+[node name="KitchenFloor" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8, 0.051, 6.9)
+mesh = SubResource("QuadMesh_84r38")
 
 [node name="Ceiling" type="Node3D" parent="Environment"]
 metadata/_edit_lock_ = true
@@ -183,16 +215,22 @@ metadata/_edit_lock_ = true
 [node name="Basement" type="CSGCombiner3D" parent="Environment"]
 use_collision = true
 
+[node name="Ceiling4" type="CSGBox3D" parent="Environment/Basement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.475, 3.36, 6.175)
+visible = false
+size = Vector3(46.85, 0.1, 24.25)
+material = SubResource("StandardMaterial3D_84r38")
+
 [node name="Walls" type="CSGCombiner3D" parent="Environment/Basement"]
 
 [node name="Wall1" type="CSGBox3D" parent="Environment/Basement/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -6)
-size = Vector3(39.8, 3.5, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.575, 1.6, -6)
+size = Vector3(46.95, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
 [node name="Trim1" type="CSGBox3D" parent="Environment/Basement/Walls/Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0.11)
-size = Vector3(39.8, 1.6, 0.01)
+size = Vector3(47, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
 
 [node name="Wall2" type="CSGBox3D" parent="Environment/Basement/Walls"]
@@ -245,24 +283,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0306997, -0.95, -0.11)
 size = Vector3(5.56146, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
 
-[node name="Wall7" type="CSGBox3D" parent="Environment/Basement/Walls"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.35, 1.6, 7.85)
+[node name="Wall7" type="CSGBox3D" parent="Environment/Basement/Walls/Wall6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.645, 0, -13.305)
 size = Vector3(7.25, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
-[node name="Trim7" type="CSGBox3D" parent="Environment/Basement/Walls/Wall7"]
+[node name="Trim7" type="CSGBox3D" parent="Environment/Basement/Walls/Wall6/Wall7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150013, -0.95, -0.1)
 size = Vector3(7.28, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
 
 [node name="Wall8" type="CSGBox3D" parent="Environment/Basement/Walls"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -26.9, 1.6, 13)
-size = Vector3(10.5, 3.5, 0.2)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -26.9, 1.6, 6.075)
+size = Vector3(24.35, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
 [node name="Trim8" type="CSGBox3D" parent="Environment/Basement/Walls/Wall8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0849991, -0.95, -0.1)
-size = Vector3(10.35, 1.6, 0.01)
+size = Vector3(24.15, 1.6, 0.01)
+material = SubResource("StandardMaterial3D_wuaeu")
+
+[node name="Wall9" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.375, 1.6, 0.55)
+size = Vector3(7.35, 3.5, 0.2)
+material = ExtResource("2_u5722")
+
+[node name="Trim9" type="CSGBox3D" parent="Environment/Basement/Walls/Wall9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0.11)
+size = Vector3(7.3, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
 
 [node name="Holes" type="CSGCombiner3D" parent="Environment/Basement"]
@@ -270,28 +318,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 operation = 2
 
 [node name="Slider" type="CSGBox3D" parent="Environment/Basement/Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.4, -5.8)
-size = Vector3(3, 2.8, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.5, -5.8)
+size = Vector3(3, 2.701, 3)
 material = ExtResource("2_u5722")
 
 [node name="WorkRoom" type="CSGBox3D" parent="Environment/Basement/Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.4, 10.4)
-size = Vector3(3, 2.8, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.5, 10.4)
+size = Vector3(3, 2.701, 3)
 material = ExtResource("2_u5722")
 
+[node name="Door" parent="Environment/Basement/Holes/WorkRoom" node_paths=PackedStringArray("synced_door") instance=ExtResource("6_a54wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -0.6)
+locked = true
+synced_door = NodePath("../Door2")
+
+[node name="Door2" parent="Environment/Basement/Holes/WorkRoom" node_paths=PackedStringArray("synced_door") instance=ExtResource("6_a54wy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.75, 0, -0.6)
+locked = true
+synced_door = NodePath("../Door")
+opens_forward = false
+
 [node name="Bedroom" type="CSGBox3D" parent="Environment/Basement/Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9, 1.4, 10.4)
-size = Vector3(1.5, 2.8, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9, 1.5, 10.4)
+size = Vector3(1.5, 2.701, 3)
 material = ExtResource("2_u5722")
 
 [node name="Bathroom" type="CSGBox3D" parent="Environment/Basement/Holes"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 1.4, 6.4)
-size = Vector3(1.5, 2.8, 3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.75, 1.5, 6.4)
+size = Vector3(1.5, 2.701, 0.5)
 material = ExtResource("2_u5722")
 
+[node name="Door" parent="Environment/Basement/Holes/Bathroom" instance=ExtResource("6_a54wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
+
 [node name="StairsRail" type="CSGBox3D" parent="Environment/Basement/Holes"]
-transform = Transform3D(1, 0, -2.98023e-08, 2.58096e-08, 0.5, 0.866026, 1.49012e-08, -0.866025, 0.5, -10, 3.18349, 13.4912)
-size = Vector3(1.5, 5.6, 2.5)
+transform = Transform3D(1, 0, -2.98023e-08, 2.58096e-08, 0.5, 0.866026, 1.49012e-08, -0.866025, 0.5, -8.925, 3.13349, 13.5778)
+size = Vector3(3.65, 5.4, 2.5)
 material = ExtResource("2_u5722")
 
 [node name="Stairs" type="Node3D" parent="Environment/Basement"]
@@ -614,7 +676,92 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.275, 1.125, 0.125)
 size = Vector3(0.5, 0.9, 0.85)
 material = SubResource("StandardMaterial3D_u5722")
 
+[node name="Animals" type="Node3D" parent="Environment/Basement/Decor"]
+
+[node name="Cages" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals"]
+
+[node name="Cage1" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals/Cages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.8, -4.25)
+
+[node name="Fence" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+size = Vector3(1.5, 1.5, 1.5)
+material = SubResource("StandardMaterial3D_56uno")
+
+[node name="Bottom" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.576, 0)
+flip_faces = true
+size = Vector3(1.5, 0.05, 1.5)
+material = SubResource("StandardMaterial3D_nfjga")
+
+[node name="Cage2" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals/Cages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0.8, -4.25)
+
+[node name="Fence" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+size = Vector3(1.5, 1.5, 1.5)
+material = SubResource("StandardMaterial3D_56uno")
+
+[node name="Bottom" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.576, 0)
+flip_faces = true
+size = Vector3(1.5, 0.05, 1.5)
+material = SubResource("StandardMaterial3D_nfjga")
+
+[node name="Cage3" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals/Cages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0.8, -4.25)
+
+[node name="Fence" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+size = Vector3(1.5, 1.5, 1.5)
+material = SubResource("StandardMaterial3D_56uno")
+
+[node name="Bottom" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.576, 0)
+flip_faces = true
+size = Vector3(1.5, 0.05, 1.5)
+material = SubResource("StandardMaterial3D_nfjga")
+
+[node name="Misc" type="CSGCombiner3D" parent="Environment/Basement/Decor"]
+
+[node name="PinballMachine" type="CSGBox3D" parent="Environment/Basement/Decor/Misc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8, 1.05, -4)
+size = Vector3(2, 2, 3.5)
+material = SubResource("StandardMaterial3D_a54wy")
+
+[node name="LightSwitch" type="Area3D" parent="Environment/Basement/Decor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 1.8, 9.75)
+collision_layer = 5
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/LightSwitch"]
+shape = SubResource("BoxShape3D_olr0t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Basement/Decor/LightSwitch"]
+mesh = SubResource("BoxMesh_6yijy")
+
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/LightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("..")
+mesh = NodePath("../MeshInstance3D")
+overlay_material = ExtResource("10_acu8t")
+interaction_text = "Light Switch"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="TriggeredAction" type="Node" parent="Environment/Basement/Decor/LightSwitch"]
+script = ExtResource("5_6wvo0")
+target_node_path = NodePath("../../../../../Lights")
+method_name = "visible"
+toggle_mode = true
+metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"
+
+[node name="Door" parent="Environment/Basement" instance=ExtResource("6_a54wy")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -7, 1.4, 17.25)
+opens_forward = false
+max_rotation = 1.5708
+
 [node name="Bedroom" type="Node3D" parent="Environment"]
+metadata/_edit_lock_ = true
 
 [node name="Room" type="CSGCombiner3D" parent="Environment/Bedroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 0, 9.75)
@@ -630,8 +777,8 @@ material = SubResource("StandardMaterial3D_w75rf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.6, 5.05)
 
 [node name="Wall1" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8)
-size = Vector3(0.2, 3.5, 6.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
+size = Vector3(0.2, 3.5, 8.6)
 material = ExtResource("2_u5722")
 
 [node name="Wall2" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
@@ -643,6 +790,16 @@ material = ExtResource("2_u5722")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.95, 0, 1.3)
 size = Vector3(0.2, 3.5, 6.1)
 material = ExtResource("2_u5722")
+
+[node name="WorkshopHole" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225, 2.45)
+operation = 2
+size = Vector3(1, 2.75, 1.5)
+
+[node name="Ceiling" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.675, -1.85)
+visible = false
+size = Vector3(6.1, 0.14, 6.4)
 
 [node name="Decor" type="Node3D" parent="Environment/Bedroom/Room"]
 
@@ -676,6 +833,7 @@ mesh = SubResource("BoxMesh_6yijy")
 script = ExtResource("7_olr0t")
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
+overlay_material = ExtResource("10_acu8t")
 interaction_text = "Light Switch"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
@@ -685,6 +843,11 @@ target_node_path = NodePath("../../../../BedroomLight")
 method_name = "visible"
 toggle_mode = true
 metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"
+
+[node name="Door" parent="Environment/Bedroom/Room" instance=ExtResource("6_a54wy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.3, 1.4, 0)
+opens_forward = false
+max_rotation = 1.65806
 
 [node name="BedroomLight" type="OmniLight3D" parent="Environment/Bedroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.2, 13.75)
@@ -743,13 +906,33 @@ shadow_opacity = 0.4
 omni_range = 15.0
 omni_attenuation = 0.5
 
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8, 3.1, 11.3)
+light_specular = 0.0
+shadow_enabled = true
+shadow_normal_bias = 5.084
+shadow_opacity = 0.4
+omni_range = 15.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.45, 3.1, 11.3)
+light_specular = 0.0
+shadow_enabled = true
+shadow_normal_bias = 5.084
+shadow_opacity = 0.4
+omni_range = 15.0
+omni_attenuation = 0.5
+
 [node name="Player" parent="." instance=ExtResource("4_gpc5m")]
 transform = Transform3D(-0.996195, 0, -0.0871558, 0, 1, 0, 0.0871558, 0, -0.996195, -5.5, 1.05, 7)
+camera_sensitivity = 2.0
 
 [node name="Alex" parent="." instance=ExtResource("4_u5722")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 1.5, 9)
 
 [node name="Editor" type="Node3D" parent="."]
+visible = false
 
 [node name="EditorLight1" type="DirectionalLight3D" parent="Editor"]
 transform = Transform3D(0.965926, -0.224144, 0.12941, 0, 0.5, 0.866025, -0.258819, -0.836516, 0.482963, -26.2, 9.6, 16.1)

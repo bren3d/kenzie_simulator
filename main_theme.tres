@@ -1,8 +1,10 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cs71vbuo4vs0s"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cs71vbuo4vs0s"]
 
 [ext_resource type="Script" uid="uid://blbigvff5g5jn" path="res://scripts/UI/style_box_animation/stylebox_pointer.gd" id="1_58jnp"]
 [ext_resource type="FontFile" uid="uid://cd0tc48bscby0" path="res://assets/fonts/Lokka.otf" id="1_470mv"]
 [ext_resource type="FontFile" uid="uid://8i13bq40kytg" path="res://assets/fonts/CabinSketch-Regular.ttf" id="1_a2l2q"]
+[ext_resource type="Texture2D" uid="uid://dkg6ey7d1b7h6" path="res://assets/textures/UI/GlassStyleBoxHover.png" id="2_466ly"]
+[ext_resource type="Texture2D" uid="uid://dv0lf3ier16he" path="res://assets/textures/UI/GlassStyleBox.png" id="3_52mx2"]
 
 [sub_resource type="StyleBox" id="StyleBox_58jnp"]
 resource_local_to_scene = false
@@ -19,6 +21,46 @@ duration_sec = 1.5
 move_distance = 48
 metadata/_custom_type_script = "uid://blbigvff5g5jn"
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_py0i1"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("2_466ly")
+texture_margin_left = 22.0
+texture_margin_top = 20.0
+texture_margin_right = 22.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxwih"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("3_52mx2")
+texture_margin_left = 22.0
+texture_margin_top = 20.0
+texture_margin_right = 22.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt4o7"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("2_466ly")
+texture_margin_left = 22.0
+texture_margin_top = 20.0
+texture_margin_right = 22.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.594979, 0.549493, 0.661458, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0omi4"]
 content_margin_left = 0.0
 content_margin_top = 0.0
@@ -27,7 +69,14 @@ content_margin_bottom = 0.0
 
 [resource]
 default_font = ExtResource("1_470mv")
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
 Button/styles/focus = SubResource("StyleBox_58jnp")
+Button/styles/hover = SubResource("StyleBoxTexture_py0i1")
+Button/styles/normal = SubResource("StyleBoxTexture_sxwih")
+Button/styles/pressed = SubResource("StyleBoxTexture_rt4o7")
+CharacterLabel/base_type = &"RichTextLabel"
+CharacterLabel/constants/shadow_outline_size = 1
 HeaderLarge/font_sizes/font_size = 16
 HeaderLarge/fonts/font = ExtResource("1_a2l2q")
 HeaderMedium/font_sizes/font_size = 16
@@ -45,16 +94,16 @@ MarginContainer/constants/margin_top = 4
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
-RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0.592)
 RichTextLabel/colors/selection_color = Color(0.1, 0.1, 1, 0.8)
 RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
 RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
 RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
 RichTextLabel/constants/line_separation = 0
-RichTextLabel/constants/outline_size = 2
+RichTextLabel/constants/outline_size = 3
 RichTextLabel/constants/shadow_offset_x = 1
 RichTextLabel/constants/shadow_offset_y = 1
-RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/shadow_outline_size = 4
 RichTextLabel/constants/table_h_separation = 3
 RichTextLabel/constants/table_v_separation = 3
 RichTextLabel/constants/text_highlight_h_padding = 3

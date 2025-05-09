@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://bvcyvaqhd75sm"]
+[gd_scene load_steps=11 format=4 uid="uid://bvcyvaqhd75sm"]
 
 [ext_resource type="Texture2D" uid="uid://bq6n5xh2b6uao" path="res://resources/models/alex/alex_man_tex.png" id="1_oloo2"]
 [ext_resource type="Script" uid="uid://chspbcvm5yyc" path="res://scenes/alex/alex.gd" id="1_uchuv"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="3_pdr3l"]
+[ext_resource type="Material" uid="uid://d3icvun78phst" path="res://resources/materials/outline.tres" id="4_jvb0o"]
 [ext_resource type="Script" uid="uid://buepc5xqp7mpu" path="res://scripts/components/dialogue_action.gd" id="4_pdr3l"]
 [ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/test.dialogue" id="5_jvb0o"]
 
@@ -120,7 +121,7 @@ input_ray_pickable = false
 script = ExtResource("1_uchuv")
 
 [node name="Focus" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.779539, 0.1)
 
 [node name="rig" type="Node3D" parent="."]
 transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 0, 0)
@@ -314,6 +315,7 @@ shape = SubResource("CapsuleShape3D_oloo2")
 [node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("collider_body")]
 script = ExtResource("3_pdr3l")
 collider_body = NodePath("..")
+overlay_material = ExtResource("4_jvb0o")
 max_interaction_distance = 2.0
 interaction_text = "Talk"
 auto_end_interaction = false

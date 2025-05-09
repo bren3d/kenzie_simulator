@@ -1,6 +1,9 @@
 @tool
 extends PlayerState
 
+const MOUSE_VISIBLE_MOVEMENT_THRESHOLD_PIXELS: int = 500
+var mouse_events: InputEventMouseMotion = InputEventMouseMotion.new()
+
 func _init() -> void:
 	name = &"Interacting"
 
@@ -21,6 +24,7 @@ func update_physics_process(delta: float) -> void:
 	player.move_and_slide()
 
 func _on_dialogue_started(res: DialogueResource) -> void:
+	mouse_events.screen_relative = Vector2.ZERO
 	if not get_tree().root.window_input.is_connected(_on_root_input):
 		get_tree().root.window_input.connect(_on_root_input)
 
@@ -31,5 +35,7 @@ func _on_dialogue_ended(res: DialogueResource) -> void:
 
 func _on_root_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		get_tree().set(&"mouse_mode", Input.MOUSE_MODE_VISIBLE)
-		get_tree().root.window_input.disconnect(_on_root_input)
+		mouse_events.accumulate(event)
+		if abs(mouse_events.screen_relative.x) + abs(mouse_events.screen_relative.y) >= MOUSE_VISIBLE_MOVEMENT_THRESHOLD_PIXELS:
+			get_tree().set(&"mouse_mode", Input.MOUSE_MODE_VISIBLE)
+			get_tree().root.window_input.disconnect(_on_root_input)
