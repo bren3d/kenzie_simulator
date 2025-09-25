@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bvcyvaqhd75sm"]
+[gd_scene load_steps=12 format=4 uid="uid://bvcyvaqhd75sm"]
 
 [ext_resource type="Texture2D" uid="uid://bq6n5xh2b6uao" path="res://resources/models/alex/alex_man_tex.png" id="1_oloo2"]
 [ext_resource type="Script" uid="uid://chspbcvm5yyc" path="res://scenes/alex/alex.gd" id="1_uchuv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://d3icvun78phst" path="res://resources/materials/outline.tres" id="4_jvb0o"]
 [ext_resource type="Script" uid="uid://buepc5xqp7mpu" path="res://scripts/components/dialogue_action.gd" id="4_pdr3l"]
 [ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/test.dialogue" id="5_jvb0o"]
+[ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="7_qcd2o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ng2u"]
 resource_name = "hero.002"
@@ -316,12 +317,51 @@ shape = SubResource("CapsuleShape3D_oloo2")
 script = ExtResource("3_pdr3l")
 collider_body = NodePath("..")
 overlay_material = ExtResource("4_jvb0o")
-max_interaction_distance = 2.0
 interaction_text = "Talk"
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
-[node name="DialogueAction" type="Node" parent="."]
+[node name="DialogueAction" type="Node" parent="." node_paths=PackedStringArray("camera_action")]
 script = ExtResource("4_pdr3l")
 dialogue_resource = ExtResource("5_jvb0o")
+camera_action = NodePath("../CameraAction")
 metadata/_custom_type_script = "uid://buepc5xqp7mpu"
+
+[node name="CameraAction" type="Marker3D" parent="."]
+transform = Transform3D(0.965926, 9.1445e-09, 0.258819, -9.31322e-09, 1, -5.74208e-10, -0.258819, -1.8558e-09, 0.965926, 0, 0.597628, 0.930534)
+script = ExtResource("7_qcd2o")
+tween_duration_sec = 0.45
+ease_type = 1
+camera_properties = {
+&"attributes": null,
+&"compositor": null,
+&"cull_mask": 1048573,
+&"current": false,
+&"doppler_tracking": 0,
+&"environment": null,
+&"far": 4000.0,
+&"fov": 50.0,
+&"frustum_offset": Vector2(0, 0),
+&"h_offset": 0.0,
+&"keep_aspect": 1,
+&"near": 0.05,
+&"projection": 0,
+&"size": 1.0,
+&"v_offset": 0.0
+}
+keep_aspect = 1
+cull_mask = 1048573
+environment = null
+attributes = null
+compositor = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 50.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://p6kvdxghlvhe"

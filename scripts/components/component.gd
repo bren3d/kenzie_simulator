@@ -12,18 +12,17 @@ func has_component(tag: StringName) -> bool:
 func get_component(tag: StringName) -> Node:
 	return get_parent().get_meta(tag) if has_component(tag) else null
 
+static func node_component(parent_node: Node, tag: StringName) -> Node:
+	return parent_node.get_meta(tag) if parent_node.has_component(tag) else null
+
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_ENTER_TREE when not Engine.is_editor_hint():
 			get_parent().set_meta(get_tag(), self) # Reapply on enter tree due to HTML5 glitch.
 		NOTIFICATION_PARENTED:
 			get_parent().set_meta(get_tag(), self)
-			#if not Engine.is_editor_hint():
-				#print_debug("Parent set for %s | META: %s = %s" % [get_parent().name, get_tag(), get_parent().get_meta(get_tag())])
 		NOTIFICATION_UNPARENTED:
 			get_parent().set_meta(get_tag(), null)
-			#if not Engine.is_editor_hint():
-				#print_debug("UNparented set for %s | META: %s = %s" % [get_parent().name, get_tag(), self])
 		# Remove meta before save (prevents recursion issues)
 		NOTIFICATION_EDITOR_PRE_SAVE:
 			get_parent().set_meta(get_tag(), null)

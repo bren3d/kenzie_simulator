@@ -8,7 +8,6 @@ const DEBUG_SCENE_PATHS:PackedStringArray = [
 	"res://scenes/basement/basement.tscn",
 ]
 
-signal scene_changed(new_scene: Node)
 
 var scene: Node : set = set_scene, get = get_scene
 
@@ -115,4 +114,4 @@ func get_scene() -> Node:
 func set_scene(val: Node) -> void:
 	assert(scene != val)
 	scene = val
-	scene_changed.emit(scene)
+	scene_changed.emit()

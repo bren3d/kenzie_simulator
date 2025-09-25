@@ -13,8 +13,8 @@ signal dialogue_finished
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	assert(get_parent().has_meta(&"Interactable"))
-	var interactable: Interactable = get_parent().get_meta(&"Interactable") as Interactable
 	
+	var interactable:= get_parent().get_meta(&"Interactable") as Interactable
 	interactable.interaction_started.connect(start)
 	dialogue_finished.connect(interactable.end_interaction)
 
@@ -25,16 +25,14 @@ func start(interactor: Object) -> void:
 		interactor = interactor, 
 		interactable = get_parent(),
 		}
-	if interactor is Player:
-		states.player = interactor
+	
 	if get_parent().has_meta(&"Focus"):
-		#set_focus
 		states.focus = get_parent().get_meta(&"Focus")
-		#states.focus_point = get_parent().get_meta(&"Focus").global_position
 	
 	if camera_action:
-		camera_action.focused.connect(DialogueManager.show_dialogue_balloon.bind(dialogue_resource, section_title, [states]), CONNECT_ONE_SHOT)
+		camera_action.focus_entered.connect(DialogueManager.show_dialogue_balloon.bind(dialogue_resource, section_title, [states]), CONNECT_ONE_SHOT)
 		camera_action.focus()
+	
 	else:
 		DialogueManager.show_dialogue_balloon(dialogue_resource, section_title, [states])
 
@@ -42,20 +40,10 @@ func _on_dialogue_ended(dialogue: DialogueResource) -> void:
 	if dialogue_resource != dialogue: return
 	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
 	if camera_action:
+		camera_action.focus_released.connect(emit_signal.bind(&"dialogue_finished"), CONNECT_ONE_SHOT)
 		camera_action.release_focus()
-	dialogue_finished.emit()
+	else:
+		dialogue_finished.emit()
 
 func get_tag() -> StringName:
 	return &"Dialogue"
-
-#func _notification(what: int) -> void:
-	#match what:
-		#NOTIFICATION_PARENTED when not Engine.is_editor_hint():
-			#get_parent().set_meta(get_tag(), self)
-		#NOTIFICATION_UNPARENTED when not Engine.is_editor_hint():
-			#get_parent().set_meta(get_tag(), null)
-		#
-		#NOTIFICATION_EDITOR_PRE_SAVE when not Engine.is_editor_hint(): # Remove meta before save (prevents recursion issues)
-			#get_parent().set_meta(get_tag(), null)
-		#NOTIFICATION_EDITOR_POST_SAVE when not Engine.is_editor_hint():
-			#get_parent().set_meta(get_tag(), self)

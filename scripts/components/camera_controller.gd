@@ -146,8 +146,14 @@ func set_debug(val: bool) -> void:
 
 func _notification(what: int) -> void:
 	match what:
-		NOTIFICATION_READY:
-			set_physics_process(not Engine.is_editor_hint())
+		NOTIFICATION_ENTER_TREE when not Engine.is_editor_hint():	# Reapply on enter tree due to HTML5 glitch.
+			get_parent().set_meta(&"CameraAction", self) 
+		NOTIFICATION_PARENTED:
+			get_parent().set_meta(&"CameraAction", self)
+		NOTIFICATION_UNPARENTED:
+			get_parent().set_meta(&"CameraAction", null)
 		
-		NOTIFICATION_EDITOR_PRE_SAVE when camera:
-			default_fov = camera.fov
+		NOTIFICATION_EDITOR_PRE_SAVE: 							# Remove meta before save (prevents recursion issues)
+			get_parent().set_meta(&"CameraAction", null)
+		NOTIFICATION_EDITOR_POST_SAVE:
+			get_parent().set_meta(&"CameraAction", self)

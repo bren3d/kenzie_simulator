@@ -33,9 +33,14 @@ var input_dir: Vector2 = Vector2.ZERO
 
 var can_interact: bool = true
 
+func _init() -> void:
+	Global.player = self
+
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	
 	show_message("")
+	
 	# Turn on to get rid of stutter when loading...
 	set_flashlight_active(true)
 	create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.2)

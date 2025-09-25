@@ -46,13 +46,13 @@ func _draw(to_canvas_item: RID, rect: Rect2) -> void:
 
 
 func canvas_item_draw_pointer(parent_rid: RID, draw_on_right: bool = true) -> void:
+	
 	var SIZE: Vector2 = pointer_size
 	var POINTER_OFFSET_PIXELS: Vector2 = pointer_offset
 	var TIME_SECS: float = duration_sec
 	var MOVE_PIXELS: int = move_distance
 	var TOTAL_FRAMES: int = MOVE_PIXELS * 2
 	var SLICE_TIME_SECS: float = TIME_SECS / TOTAL_FRAMES
-
 	var draw_size: Vector2 = SIZE if draw_on_right else SIZE * Vector2(-1, 1)
 
 	var start_position: Vector2 = (get_current_item_drawn().size * Vector2.RIGHT) + POINTER_OFFSET_PIXELS if draw_on_right else -POINTER_OFFSET_PIXELS + Vector2(SIZE.x, 0)

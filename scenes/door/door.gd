@@ -4,6 +4,8 @@ class_name Door extends Node3D
 
 const HANDLE_ROTATION_RADS: float = deg_to_rad(-60.0)
 
+signal group_changed
+
 signal opened
 signal closed
 
@@ -13,22 +15,18 @@ signal door_unlocked
 @export_tool_button("Toggle Open/Closed", "MoveUp") 
 var toggle_callable: Callable = toggle
 
-@export var open: bool: set = set_open, get = is_open
+@export_storage var open: bool: set = set_open, get = is_open
 
 @export var locked: bool: set = set_locked
 
-@export var synced_door: Door:
+@export var group: DoorGroup:
 	set(val):
-		var previous_door: Door = synced_door
-		synced_door = val
-		if previous_door and previous_door != synced_door and previous_door.synced_door == self:
-			previous_door.synced_door = null
-		if synced_door and synced_door.synced_door != self:
-			synced_door.synced_door = self
-			synced_door.set_open(open)
-			synced_door.set_locked(locked)
+		if group: 	group.remove_door(self)
+		group = val
+		if group: 	group.add_door(self)
 
-@export_placeholder("Locked...") var locked_dialogue_text: String = "It's locked..."
+@export_placeholder("Locked...") 
+var locked_dialogue_text: String = "It's locked..."
 
 @export_group("Animation")
 
@@ -38,8 +36,12 @@ var toggle_callable: Callable = toggle
 		notify_property_list_changed()
 
 @export var opens_forward: bool = true
+
 @export_range(40.0, 180.0, 5.0, "radians_as_degrees") 
-var max_rotation: float = PI/1.6
+var max_rotation: float = PI/1.6:
+	set(val):
+		max_rotation = val
+		$Hinge.rotation.y = get_target_rotation()
 
 @export_subgroup("Tween Properties")
 
@@ -47,17 +49,45 @@ var max_rotation: float = PI/1.6
 @export var tween_trans: Tween.TransitionType = Tween.TRANS_ELASTIC
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
 
-func toggle() -> void:
+func interact(interactor: Object = null) -> void:
+	# TODO - add unlock check/action
+	pass
+	
+
+func toggle(interactor: Object = null) -> void:
 	if locked:
-		show_locked_dialogue()
+		animate_locked()
 		return
 	
 	open = !is_open()
+	_update_group()
 
-func show_locked_dialogue() -> void:
-	if Engine.is_editor_hint() or not locked_dialogue_text: return
+func _update_group() -> void:
+	if not group: return
+	group.update(self)
+
+#func attempt_unlock(interactor: Object = null) -> void:
+	## TODO - add unlock check
+	#
+	#print("Cannot toggle door open/closed while it is locked.")
+	#if locked_dialogue_text and interactor and interactor.has_method(&"show_message"):
+		#interactor.call(&"show_message", locked_dialogue_text)
+
+## Played when trying to enter locked door
+func animate_locked() -> void:
 	
-	DialogueManager.show_dialogue_balloon(DialogueManager.create_resource_from_text(tr(locked_dialogue_text)))
+	# TODO - Play locked sound
+	
+	const LOCKED_ANIMATION_DURATION_SEC: float = 0.4
+	const LOCKED_ROTATION_RADS: float = HANDLE_ROTATION_RADS / 5.0
+	var handles: Node3D = $Hinge/DoorMesh/HandleStemMesh/Handles
+	var tw:= create_tween()
+	tw.tween_property(handles, ^"rotation:y", LOCKED_ROTATION_RADS, LOCKED_ANIMATION_DURATION_SEC/4.0)
+	tw.tween_property(handles, ^"rotation:y", 0.0, LOCKED_ANIMATION_DURATION_SEC/4.0)
+	tw.tween_property(handles, ^"rotation:y", LOCKED_ROTATION_RADS, LOCKED_ANIMATION_DURATION_SEC/4.0)
+	tw.tween_property(handles, ^"rotation:y", 0.0, LOCKED_ANIMATION_DURATION_SEC/4.0)
+	
+
 
 func set_open(val: bool) -> void:
 	if open == val: return
@@ -68,10 +98,7 @@ func set_open(val: bool) -> void:
 	_update_interactable_text()
 	
 	if not disable_animation:
-		_animate.call_deferred()
-
-	if synced_door:
-		synced_door.set_open(open)
+		animate_open_close.call_deferred()
 	
 	if open:
 		opened.emit()  
@@ -83,49 +110,42 @@ func is_open() -> bool:
 
 func set_locked(val: bool) -> void:
 	if locked == val: return
-		
+	
 	locked = val
-	if synced_door:
-		synced_door.set_locked(locked)
 	
 	if locked:
 		door_locked.emit()
 	else:
 		door_unlocked.emit()
 
-func _animate() -> void:
+func animate_open_close() -> void:
 	var tw:= create_tween().set_trans(tween_trans).set_ease(tween_ease).set_parallel()
-	tw.tween_property($Hinge, ^"rotation:y", (-1.0 + 2.0 * float(opens_forward))*(max_rotation)*float(open), tween_duration_sec)
+	tw.tween_property($Hinge, ^"rotation:y", get_target_rotation(), tween_duration_sec)
 	tw.tween_property($Hinge/DoorMesh/HandleStemMesh/Handles, ^"rotation:y", HANDLE_ROTATION_RADS, tween_duration_sec/4.0)
 	tw.chain().tween_property($Hinge/DoorMesh/HandleStemMesh/Handles, ^"rotation:y", 0.0, tween_duration_sec/4.0)
 
+func get_target_rotation() -> float:
+	return (-1.0 + 2.0 * float(opens_forward))*(max_rotation)*float(open)
+
 func _update_interactable_text() -> void:
 	if not has_node(^"Interactable"): return
-	var interactable: Interactable = get_node(^"Interactable")
+	var interactable:= get_node(^"Interactable")
 	if locked:
-		interactable.interaction_text = "locked"
+		interactable.set(&"interaction_text", "locked")
 		return
-	interactable.interaction_text = "close" if open else "open"
+	interactable.set(&"interaction_text", "close" if open else "open")
+
+func get_interaction_text() -> String:
+	if locked:
+		return "locked"
+	if disable_animation:
+		return "enter"
+	if open:
+		return "close"
+	return "open"
 
 func _validate_property(property: Dictionary) -> void:
 	if not disable_animation: return
 	match property.name:
 		"opens_forward", "max_rotation", "Tween Properties", "tween_duration_sec", "tween_trans", "tween_ease": 
 			property.usage &= ~(PROPERTY_USAGE_EDITOR)
-
-func _get_property_list() -> Array[Dictionary]:
-	var props: Array[Dictionary]
-	if has_node(^"Interactable"):
-		for dict: Dictionary in $Interactable.get_property_list():
-			if dict.name in ["interactable.gd", "interaction_text", "overlay_material", "auto_end_interaction"]:
-				props.push_back(dict)
-	return props
-
-func _set(property: StringName, value: Variant) -> bool:
-	if property in ["interaction_text", "overlay_material", "auto_end_interaction"] and has_node(^"Interactable"):
-		$Interactable.set(property, value)
-		return true
-	return false
-
-func _get(property: StringName) -> Variant:
-	return $Interactable.get(property) if property in ["interaction_text", "overlay_material", "auto_end_interaction"] and has_node(^"Interactable") else null

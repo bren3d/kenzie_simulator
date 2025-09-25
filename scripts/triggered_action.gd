@@ -1,47 +1,21 @@
 @tool
-class_name TriggeredAction extends Node
+class_name TriggeredAction extends Component
 
 @export_tool_button("Trigger Action", "Debug")
 var action_trigger_callable: Callable = trigger
 
-@export_node_path var target_node_path: NodePath
-
-@export var method_name: String
-
-## Changes a bool property to the opposite state. Use [member method_name] to set the property name.
-@export var toggle_mode: bool:
-	set(val):
-		toggle_mode = val
-		notify_property_list_changed()
-
-@export_storage var arguments: Array
-
+# TODO -> Add conditionals.
 ## Target Node is passed as variable [code]target_node[/code].
-@export_multiline var condition_expression: String = ""
+#@export_custom(PROPERTY_HINT_EXPRESSION, "") 
+#var condition_expression: String = ""
+
+@export var action: Action
+@export var node_references: Dictionary[String, Node] = {}
+@export var references: Dictionary[String, Variant] = {}
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	var interactable: Interactable = get_parent().get_meta(&"Interactable")
-	interactable.interaction_started.connect(trigger)
+	get_parent().get_meta(&"Interactable").interaction_started.connect(trigger)
 
 func trigger(interactor: Object = null) -> void:
-	var obj:= get_object()
-	assert(obj, "No object found!")
-	assert(method_name in obj, "'%s' not found in object %s." % [method_name, obj])
-	
-	if toggle_mode:
-		obj.set(method_name, !obj.get(method_name))
-		return
-	
-	var callable:= Callable(obj, method_name)
-	callable.callv(arguments)
-
-func get_object() -> Object:
-	return get_node_and_resource(target_node_path)[1] if get_node_and_resource(target_node_path)[1] else get_node_and_resource(target_node_path)[0]
-
-func _validate_property(property: Dictionary) -> void:
-	if not Engine.is_editor_hint(): return
-	
-	match property.name:
-		&"arguments" when not toggle_mode:
-			property.usage |= PROPERTY_USAGE_EDITOR
+	action.execute(node_references.merged(references).merged({host = self, interactor = interactor}))

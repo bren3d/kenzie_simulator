@@ -19,10 +19,10 @@ signal interaction_ended
 @export var overlay_material: Material
 
 @export_range(0.0, 5.0, 0.1, "or_greater", "suffix:m")
-var max_interaction_distance: float = 1.5
+var max_interaction_distance: float = 2.0
 
 @export_placeholder("Use") 
-var interaction_text: String
+var interaction_text: String = ""
 
 ## Immediately ends interaction after starting. Useful for instant actions that do not need to block player input.
 @export var auto_end_interaction: bool = true

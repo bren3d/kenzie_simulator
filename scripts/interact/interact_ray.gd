@@ -38,15 +38,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collider:= get_collider()
 	var interactable: Interactable = collider.get_meta(&"Interactable") if collider and collider.has_meta(&"Interactable") else null
-	if interactable == hovered_interactable:
-		if interactable:
-			interaction_label.text = interactable.get_interaction_text()
-		return
 	
 	if interactable and global_position.distance_squared_to(get_collision_point()) > interactable.max_interaction_distance ** 2:
 		interactable = null
 	
 	hovered_interactable = interactable
+	
+	if interactable:
+		interaction_label.text = interactable.get_interaction_text()
 
 func can_interact() -> bool:
 	return hovered_interactable != null

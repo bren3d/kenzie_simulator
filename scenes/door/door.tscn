@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bajg8364abgyt"]
+[gd_scene load_steps=12 format=3 uid="uid://bajg8364abgyt"]
 
 [ext_resource type="Script" uid="uid://cq664r6xwopst" path="res://scenes/door/door.gd" id="1_bsixq"]
 [ext_resource type="Material" uid="uid://deyp5ssqfa5tc" path="res://resources/materials/door.tres" id="2_bsixq"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="4_iwle0"]
+[ext_resource type="Script" uid="uid://b256oh8o7fr1o" path="res://scripts/action/action_basic.gd" id="5_iwle0"]
 [ext_resource type="Script" uid="uid://bqfvl3jtmmfg1" path="res://scripts/triggered_action.gd" id="6_5ht72"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_acu8t"]
@@ -30,13 +31,19 @@ size = Vector3(0.25, 0.05, 0.025)
 [sub_resource type="BoxShape3D" id="BoxShape3D_acu8t"]
 size = Vector3(1.5, 2.7, 0.1)
 
+[sub_resource type="Resource" id="Resource_5ht72"]
+script = ExtResource("5_iwle0")
+target_node = NodePath("..")
+method_name = "toggle"
+args = []
+ref_arguments = PackedStringArray("interactor")
+toggle_mode = false
+metadata/_custom_type_script = "uid://b256oh8o7fr1o"
+
 [node name="Door" type="Node3D"]
 script = ExtResource("1_bsixq")
 tween_trans = 10
 tween_ease = 1
-overlay_material = null
-interaction_text = "open"
-auto_end_interaction = true
 
 [node name="Hinge" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
@@ -73,12 +80,10 @@ shape = SubResource("BoxShape3D_acu8t")
 [node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("collider_body")]
 script = ExtResource("4_iwle0")
 collider_body = NodePath("../Hinge/StaticBody3D")
-max_interaction_distance = 2.0
 interaction_text = "open"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
 [node name="TriggeredAction" type="Node" parent="."]
 script = ExtResource("6_5ht72")
-target_node_path = NodePath("..")
-method_name = "toggle"
+action = SubResource("Resource_5ht72")
 metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"

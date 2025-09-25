@@ -1,5 +1,4 @@
 ~ start
-do player.camera_controller.focus_zoom(focus, 2.0)
 Alex: [[Bleep|Blorg|Blop]] [[Blorg|Blop|Bleep]]
 Alex: Here are some paths.
 - Path one
@@ -7,8 +6,6 @@ Alex: Here are some paths.
 - Path two
 	Alex: You picked the second one.
 - What were the paths? => start
-- There is no path => finish
+- There is no path => END!
 Alex: Yummy shrimp brains.
-~ finish
-do player.camera_controller.release_all()
 => END

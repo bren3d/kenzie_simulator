@@ -28,6 +28,7 @@ script = ExtResource("1_8afob")
 shape = SubResource("CapsuleShape3D_x7p2l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+layers = 2
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_8afob")
 skeleton = NodePath("../..")
