@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://nypem4oobto6"]
+
+[ext_resource type="Texture2D" uid="uid://bklvrvrf72085" path="res://scenes/objects/textures/Chest_drawers_01_14_baseColor.png" id="1_6jbh8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rf11r"]
+resource_name = "Chest_drawers_01_14"
+cull_mode = 2
+albedo_texture = ExtResource("1_6jbh8")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_85lma"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 1.2125921, 5.029222, 2.8138099),
+"format": 34896613377,
+"index_count": 66,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEAAQAEAAUAAQAFAAYABwAGAAUACAAFAAQABwAFAAgACAAEAAAACAAJAAcAAAAKAAgACAAKAAkAAwALAAAADAAJAAoAAAAMAAoACwAMAAAADAANAAkAAwAOAAsACwAOAAwADgANAAwAAwAPAA4ADgAPAA0A"),
+"name": "Chest_drawers_01_14",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("//8bdv9/AAAAAP///38AAAAAG3b/fwAAAAAbdgAAAAD//////38AAP///////wAAAAD/////AAAAABt2//8AAP//G3b//wAAAAAAAP//AAD//wAA//8AAP//G3YAAAAA//8AAP9/AAAAAAAA/38AAP//AAAAAAAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vxsmv"]
+resource_name = "Sketchfab_Scene_Cupboard_01_002_Cupboard_01_0"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 1.2125921, 5.029222, 2.8138099),
+"attribute_data": PackedByteArray("TfgLr53JC6+dyQuvTfgLr///qKj0gNrQ///a0PSAqKj//3eA9IB3gE34C6+dyU/LTfhPy53JC69N+MeSncnHkp3JkslN+PSaTfiSyZ3J9JpN+JLJncn0mp3JkslN+PSaTfj//53J//+dyceSTfgLr53JC69N+MeSnckLr034T8udyU/LTfgLrzG3Os23ioygt4o6zTG3jKA="),
+"format": 34896613399,
+"index_count": 66,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAHAAQACAAJAAcACgALAAwACgANAAsADgANAAoADgAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAFgAYABQAFgAZABgAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAIgAlACMA"),
+"material": SubResource("StandardMaterial3D_rf11r"),
+"name": "Chest_drawers_01_14",
+"primitive": 3,
+"uv_scale": Vector4(1.997426, 3.1478636, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("//8bdv9///8AAP///3///wAAG3b/f/////////9//////xt2/3+qKv//AAD//6oq//8bdv//qir//wAA/3+qKv//G3YAAKoq//8AAAAAqir//wAA/3//PwAAAAD///8///8AAP///z8AAAAA/3//P///AAAAAP8/AAAAAAAA/z8AABt2AAD/////AAAAAP////8bdgAA//8AAAAAAAD/////G3b///5/AAAAAP///n8AABt2///+f///AAD///5//////////n8AAP/////+fwAAG3YAAP+///8bdv9//78AABt2/3//v///G3YAAP+/AAD///9//7//////////vwAA//////+///////9//7///xt2//8AAP//////fwAA//8bdv9/AAD///////8AAP///3////9/////f////3+qKqoqqiqqKqoqqiqqKqoqqiqqKqoqqioAAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//3////9/////f////3////9/////f///////f////3////9/////f////3////9/////f////3//v/9//7//f/+//3//v/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_85lma")
+
+[node name="Cupboard_01_002" type="Node3D"]
+transform = Transform3D(7.54979e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, -7.54979e-08, -3.300118e-15, 0, 0, 0)
+
+[node name="Cupboard_01_002_Cupboard_01_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_vxsmv")
+skeleton = NodePath("")

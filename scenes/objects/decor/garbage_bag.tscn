@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://bodxfplxmkacf"]
+
+[ext_resource type="Texture2D" uid="uid://istq2xr115po" path="res://scenes/objects/textures/Chest_drawers_01_74_baseColor.png" id="1_q373s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vat4u"]
+resource_name = "Chest_drawers_01_74"
+cull_mode = 2
+albedo_texture = ExtResource("1_q373s")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_32shy"]
+_surfaces = [{
+"aabb": AABB(-1.3472183, -1.655497, -1.7052537, 2.673693, 3.2461078, 4.220045),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("DgABAAIAAAAOAAIADgAAAAsAAAACAAQACwAAAAQAAwAEAAIACwAEAAcAAwAHAAQABwAGAAsAAwANAAcABwANAAYADgALAA8AAQAOAA8ACwAGABAAEAAGAA0ACwAQAA8AAwAMAA0AEAANAAwACQAMAAMACQADAAIAAQAIAAIACQACAAgAAQAJAAgADwAQAAUABQAQAAwAAQAPAAoADwAFAAoAAQAKAAkABQAMABEACgAFABEACQARAAwACgARAAkAEgATABQAEgAUABMA"),
+"lods": [0.6868488, PackedByteArray("AAABAAIAAQAIAAIAAQAJAAgACQACAAgAAQAAAAoAAQAKAAkACgAFAAkAAAALAAoACgAGAAUACwAGAAoACwAAAAQAAAACAAQABwAGAAsACwAEAAcABQAGAAwACQAFAAwABwANAAYABgANAAwAAwAHAAQAAwANAAcAAwAEAAIAAwAMAA0ACQADAAIACQAMAAMA"), 2.179895, PackedByteArray("AAABAAIAAQADAAIAAAACAAQAAwAEAAIAAQAAAAUAAQAFAAMABgAAAAQAAAAGAAUABgAEAAcAAwAHAAQABgAHAAUAAwAFAAcA")],
+"name": "Chest_drawers_01_74",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("GwB6Kt46AAAAAFnIpDQAAFoCln2tswAAHq1CnofmAACRTc8Je4QAAJ3pGfApQwAAyvdnRvY1AAAXogAATIMAAEIciczteQAAHKP//2V7AABKlXnUdhMAAHycgSkAGQAA//+3rm+RAACG+vZTWHgAAAAAfHkdLAAAT510hQAAAADQ9+eGQS0AAMDyxOpRaAAAeqlsmrbfAADos1CIG/oAAHqpZMT//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gg423"]
+resource_name = "Sketchfab_Scene_Garbage_bags_Garbage_bags_0"
+_surfaces = [{
+"aabb": AABB(-1.3472183, -1.655497, -1.7052537, 2.673693, 3.2461078, 4.220045),
+"attribute_data": PackedByteArray("elOcuP0PlNP9F56AelMeiqm9L2l/tsoAp2IvUnRsnRrd1soAjvgOSQD+gim/x2ddK2OdyOdvz2rsvRdwv6uTyDT/pbP+3nBtgb/yoDT/xGoSYd5rxCDKABJh8B+3CChiygACrc4j3EDbVlZCTygJf8oARjPfgvA7Bq/lNz6/Zx8A/mMHp2JmjUKxCZDzM7DMfJTrlSaGW470gnOnfJTrlfSCc6cmhluOhAXoSyGFXQmpvfQVfYedyO2MCo2OjcRq"),
+"format": 34896613399,
+"index_count": 102,
+"index_data": PackedByteArray("IwABAAIAAQAYAAIAAAAjAAIAAAACAAMAJAAlACYAJwAoACkAFAAZABoAGQAWABoAGQAVABYAGQAcABUAFAAbABkAGQAqABwAGwAqABkAGwAXACoABAAdAAYABAAeAB0AKwAdAB4AKwAHAB0ABQArAB4ABQAeACwAHwAJAAoAHwALAAkACgAIAB8ACgAgAAgALQAhAC4ALQAMACEADwAtAC4ADwAuACIALgAOACIALgAvAA4AIQAvAC4AIQANAC8AEAARABIAEAATABEA"),
+"lods": [0.6868488, PackedByteArray("AAABAAIAAQAYAAIAAAACAAMAFAAZABoAGQAWABoAFAAbABkAGQAVABYAGwAXABkAGQAcABUAGQAXABwABAAdAAYABAAeAB0ABwAdAB4ABQAHAB4AHwAJAAoAHwALAAkACgAIAB8ACgAgAAgADAAhACIADwAMACIAIQANACIAIgANAA4AEAARABIAEAATABEA"), 2.179895, PackedByteArray("AAABAAIAAAACAAMABAAFAAYABwAGAAUACAAJAAoACAALAAkADAANAA4ADwAMAA4AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_vat4u"),
+"name": "Chest_drawers_01_74",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("GwB6Kt46JtUAAFnIpDTx9loCln2ts0XNkU3PCXuElb4erUKeh+bDQZ3pGfApQwwCF6IAAEyDnzzK92dG9jWuJMr3Z0b2NbwNkU3PCXuEdUUXogAATIOMLRsAeireOg8wGwB6Kt46CPrK92dG9jXW0p3pGfApQ1n+AABZyKQ0s9IerUKeh+YYdZFNzwl7hClMWgKWfa2zIV0XogAATINLSwAAWcikNO/lHq1CnofmhftaApZ9rbMQ5p3pGfApQzjgQhyJzO15ZvEco///ZXvL/0IciczteTXsSpV51HYTkv3//7eub5FD3Yb69lNYeEot//+3rm+RzyF8nIEpABmBFIb69lNYeHMZfJyBKQAZe+RKlXnUdhMK7QAAfHkdLBrleqlsmrbfKDnos1CIG/ooOXqpZMT//yg5eqlsmrbfxft6qWTE///F++izUIgb+sX7wPLE6lFolOnQ9+eGQS36FcDyxOpRaPUHAAB8eR0sjulPnXSFAABm/ND354ZBLVjkfjTKmmFW3K6BYLuatjFkgN4SRQPtqTGtIhJlwWAc/0MjDca6dDIi1Jgcx9JiSNjTCtG/2GEzNjqGqZKtmMpRweCpP0dnLV+gNn3U9LEQS2DpaUbEvIvahkRcbo3JrJ4EFmsBrZ1/7bdYbuivjKQCA3wfbyMqE2443x7CI8MpGcEGAbvDbUdlSI21q7WnRIipjpCaB46QmgeOkJoHp0ereqdHq3qnR6t6jDISFyYnMzixKLQgjc73zic+7T0QMbwx")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_32shy")
+
+[node name="Garbage_bag" type="Node3D"]
+transform = Transform3D(0.9895669, -0.025422327, -0.1418135, 0.14157999, -0.01077039, 0.9898682, -0.026692137, -0.9996188, -0.0070587285, 0, 0, 0)
+
+[node name="Garbage_bags_Garbage_bags_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_gg423")
+skeleton = NodePath("")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://ddof3xm14vmly"]
+
+[ext_resource type="Texture2D" uid="uid://bkbndt3vm2q4i" path="res://scenes/objects/textures/Chest_drawers_01_26_baseColor.png" id="1_rlxvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhgy2"]
+resource_name = "Chest_drawers_01_26"
+cull_mode = 2
+albedo_texture = ExtResource("1_rlxvo")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_usbr6"]
+_surfaces = [{
+"aabb": AABB(-0.66470605, -0.2997823, -0.2854337, 1.3294121, 0.5995646, 1.7613504),
+"format": 34896613377,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIABAAFAAYABAAHAAUACAAGAAUABwAIAAUACQAEAAYABwAEAAkACAAKAAYACQAGAAoABwALAAgABwAJAAsACwAKAAgACwAJAAoA"),
+"name": "Chest_drawers_01_26",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("H9pI1fFNAACE3mTE8U0AAB/aBsr//wAAudVkxPFNAAAAAAAAAAAAAAAA///4UgAAAAAAAPhSAAAAAP//AAAAAP/////4UgAA//8AAAAAAAD//wAA+FIAAP////8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0xqxv"]
+resource_name = "Sketchfab_Scene_Radio_01_Radio_01_0"
+_surfaces = [{
+"aabb": AABB(-0.66470605, -0.2997823, -0.2854337, 1.3294121, 0.5995646, 1.7613504),
+"attribute_data": PackedByteArray("RcW59TTHv/Vqx8i8ksQGx1fCE8fQxP//NMe/9UXFufVqx8i88Z7MxGGAVeNhgMzE8Z5V42/hEcT//1yA//8RxG/hXIDOv1XjPqHMxD6hVePOv8zEG8JcgKvgEcSr4FyAG8IRxFfBEcQ+oVyAV8FcgD6hEcR6oFyAYYARxHqgEcRhgFyA"),
+"format": 34896613399,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsACQAMAAoADQAOAA8ADQAQAA4AEQASABMAEQAUABIAFQAWABcAFQAYABYAGQAaABsAGQAcABoAHQAeAB8AHQAgAB4A"),
+"material": SubResource("StandardMaterial3D_fhgy2"),
+"name": "Chest_drawers_01_26",
+"primitive": 3,
+"uv_scale": Vector4(1.994032, 2.0959895, 0, 0),
+"vertex_count": 33,
+"vertex_data": PackedByteArray("H9pI1fFN1TWE3mTE8U3VNR/aBsr//9U1hN5kxPFNbkC51WTE8U1uQB/aBsr//25AudVkxPFNFOIf2kjV8U0U4h/aBsr//xTiAAAAAAAA//8AAP//+FL//wAAAAD4Uv//AAD//wAA//8AAP//AABU1f/////4UlTVAAD///hSVNX/////AABU1f////8AAP8///8AAPhS/z//////+FL/P///AAAAAP8///8AAAAAqioAAAAA+FKqKv//AAD4UqoqAAAAAAAAqioAAP//AAD/////AAAAAP///////wAA//8AAAAAAAD////////4Uv8/AAAAAPhS/z8AAP//+FL/P///AAD4Uv8/VbswXlW7MF5VuzBebAHbgmwB24JsAduCqWO5saljubGpY7mx/z//f/8//3//P/9//z//f6qqqqqqqqqqqqqqqqqqqqr/fwAA/38AAP9/AAD/fwAAqipU1aoqVNWqKlTVqipU1f+//7//v/+//7//v/+//7//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_usbr6")
+
+[node name="Radio_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Radio_01_Radio_01_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_0xqxv")
+skeleton = NodePath("")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://doa5gkef0qdki"]
+
+[ext_resource type="Texture2D" uid="uid://mcflcu2dvmpm" path="res://scenes/objects/textures/Foods_05_baseColor.jpeg" id="1_fq38p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmuvl"]
+resource_name = "Foods_05"
+cull_mode = 2
+albedo_texture = ExtResource("1_fq38p")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sp8rl"]
+_surfaces = [{
+"aabb": AABB(-2.0438788, -2.3600707, -4.0780444, 4.0876284, 3.5399895, 4.6711645),
+"format": 34896613377,
+"index_count": 138,
+"index_data": PackedByteArray("DAANAA4ADgANAAEADwANAAwAAQANAA8AEAAMAA4AAgAOAAEAEAAOAAIADwARAAEAAgABABEAAAAPAAwAAAAMABAADwAAABEAEgACABEAAAASABEAEwAQAAIAEgATAAIAFAAAABAAEwAUABAAAAAVABIAFAAVAAAABAATABIAFgAUABMAFgATAAQABQAUABYABQAVABQAFQADABIAFQAFAAMABAASAAMACAAFABYAFwAWAAQACAAWABcABgAEAAMAFwAEAAYABQAHAAMABgADAAcABQAIAAcABgAHAAkACAAJAAcAFwAGAAsABgAJAAsACAAXABgAFwALABgACAAKAAkACgALAAkACAAYAAoACgAYAAsA"),
+"lods": [2.455823, PackedByteArray("AAABAAIAAgABAAMAAAADAAEABAAAAAIAAwAEAAIABAAFAAAAAAAFAAMABgAEAAMABQAHAAMABgADAAcACAAFAAQABQAIAAcACAAEAAYACAAJAAcABgAHAAkACAAKAAkACAAGAAoABgAJAAsACgALAAkABgALAAoA")],
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 25,
+"vertex_data": PackedByteArray("//9VVe45AAD0J1vlORQAAAAAVVXuOQAAeBuv7XyFAAB4G6VnfIUAAIfkpWd8hQAAaEubh36YAABoS7vNfpgAAJi0m4d+mAAAaEu7zf//AACYtJuH//8AAGhLm4f//wAA/39FNTkUAAD/f6mqAAAAAPQn9285FAAACtj3bzkUAAD/fwAA7jkAAAAA///uOQAAiQH4/oJkAACJAVtWgmQAAP9/DAKCZAAAdf5bVoJkAAD/f6AkfIUAAACAi2R+mAAAAICLZP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6vyip"]
+resource_name = "Sketchfab_Scene_Mushrooms_01_Foods_05_0"
+_surfaces = [{
+"aabb": AABB(-2.0438788, -2.3600707, -4.0780444, 4.0876284, 3.5399895, 4.6711645),
+"attribute_data": PackedByteArray("pQ73oKUOv4WdHMaIjDG5twc9ubeMMdGqBz3RqpM6uJnyM9CMkzrQjPIzuJlIKAGUQDO2kwUusZBIKAuaiyIQik8dC4eMMSSpjDF5nPg6vpqsP1qoTx29nbsmrba7Jr6aTx2usz0V6676GvqkPRWqoXELLL/nB8a0sw2HtZoHz73bBua2swagu4oBubZiAXO7QRhjlqUO15BBGEuLpQ7vm50c55hJN9GqSTe5t0k30aqLIrGQTx22k08dtahsIemabCG1qGwhgra7JrWoqTXGqqk115r4Ot+qrD9Cnfoam6ubDoW5cA1xvdILq7OiCaqzQgkIvw=="),
+"format": 34896613399,
+"index_count": 138,
+"index_data": PackedByteArray("JAAlACYAJgAlAAEAJwAlACQAAAAnACQAAAAkACgAKAAkACYAKAAmAAIAAwApAAUAAwAqACkAKgAEAAYAKgAGACsABwAIAAkABwAKAAgALAAOAAsACwAOAAwACwAMAA0ALAAtAA4ADwAtACwADwAQAC0ALgAvABUALgAwAC8AGAAwAC4AGAAxADAAMAAxABYAMAAWADIALwAwADIALwAyABcAEgAzABEAEgA0ADMAMwA0ABMAMwATADUAEwAUADUAEwA2ABQAGQAaABsAGQA3ABoAHgA4ADkAOQA6AB4AOQAcADoAHAA7ADoAHAA8ADsAPAAdADsAPAAfAB0AHwAgAB0AHwAhACAAIQAiACAAIQAjACIA"),
+"lods": [2.455823, PackedByteArray("AAABAAIAAwAEAAUABAAGAAUABwAIAAkABwAKAAgACwAMAA0ACwAOAAwADwAOAAsADwAQAA4AEQASABMAEwAUABEAFQAWABcAFQAYABYAGQAaABsAHAAdAB4AHAAfAB0AHwAgAB0AHwAhACAAIQAiACAAIQAjACIA")],
+"material": SubResource("StandardMaterial3D_xmuvl"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 61,
+"vertex_data": PackedByteArray("//9VVe45Eub0J1vlORQa+QAAVVXuOWHOmLSbh36YQhtoS5uHfpgzGZi0m4f//78caEubh///yhloS5uHfpiCwWhLu83//4HSaEubh///6cFoS7vNfpjIzmhLm4d+mJ4meBuv7XyF6CRoS7vNfpjBJ3gbpWd8hdcnmLSbh36YbyOH5KVnfIXMHngbr+18hYXoeBulZ3yFj/cAAFVV7jlz8PQnW+U5FLXjeBulZ3yFvyv//1VV7jksMwAAVVXuOeoMh+SlZ3yFmFSYtJuH//+JLGhLm4f//yEuaEu7zf//vR3//1VV7jnEzHgbr+18hZ7S9Cdb5TkUf+yH5KVnfIVWpGhLu81+mPPgmLSbh36YFKRoS7vN//+S25i0m4f//w2o/39FNTkUEfT/f6mqAACw6fQn9285FD/pCtj3bzkUS+P/fwAA7jn45gCAi2T//10MAICLZH6YpA0AgItk//9dDACAi2R+mNQl/3+gJHyFCij/f6AkfIUyO4kBW1aCZP0Z/38MAoJk0TF1/ltWgmQZSv9/AADuOQoiiQH4/oJkwOaJAVtWgmRN8wAA///uOaTj9Cf3bzkUT/YAgItk//+MHf9/qaoAACDqCtj3bzkUGeEAAP//7jk66YkB+P6CZCzgdf5bVoJkQLQWtFJbwLrwHEBTYNghoAJsU+RY6Nmmcm9H4lLnxFOkj+uFvLCEUTGRcX43r2venOxC5X0bGvMsJ1ji4O7iC84mjRYRHvDhPBX8YkVzQDsAcyHnIlfTWf2BHH/1BCg+i29RoLtLkqMJZpVRdYUje0ytrXvdBZbn4R8Qz5M3bKPbCHvvMyPcdVkcPeq5JNV7cwEBQznWj7fSKeRSzdN/uOhFKTfN3Sp5CFhsJQv59ycq+bQhBe2gHcnu/mT+ZBxLPnk9Wj1ayozFIplQmVDU45wnEVIzcB/n/j5mIG54FXAHWxa2jyekmEoQ++DpN0Ln4Ct2fDEF")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_sp8rl")
+
+[node name="Mushrooms_01" type="Node3D"]
+transform = Transform3D(0.49999976, 0.86602557, 3.785518e-08, 0, -4.371139e-08, 1, 0.86602557, -0.49999976, -2.1855683e-08, 0, 0, 0)
+
+[node name="Mushrooms_01_Foods_05_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_6vyip")
+skeleton = NodePath("")

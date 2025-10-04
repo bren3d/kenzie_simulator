@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://ckqkr3p7w86vl"]
+
+[ext_resource type="Texture2D" uid="uid://bilrlxpfm582h" path="res://scenes/objects/textures/Foods_06_baseColor.jpeg" id="1_ucm6l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qw48l"]
+resource_name = "Foods_06"
+cull_mode = 2
+albedo_texture = ExtResource("1_ucm6l")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ie5m7"]
+_surfaces = [{
+"aabb": AABB(-0.9100193, -0.8513468, -0.5575213, 1.8200386, 1.772568, 1.361613),
+"format": 34896613377,
+"index_count": 114,
+"index_data": PackedByteArray("AAAIAA4AAAABAAgACQABAAAAAwAJAAAAAwAAAA4ACQAKAAEAAwAKAAkAAQAPAAgACgAQAAEAAQAQAA8ACgARABAAAwAFAAoABQARAAoAEAARABIABQASABEADwAQABIABgAFAAMABgADAA4ABwASAAUABgAHAAUADwASAAsABwALABIADQAHAAYAEwAPAAsACAAPABMACwAUABMACAATAAQABAATABQADgAIAAQABgAOAAIAAgANAAYADgAEAAIAAgAMAA0AAgAEAAwABAAUAAwADQAMAAcADAAUAAsADAALAAcA"),
+"lods": [0.43079376, PackedByteArray("AAAIAAIAAAABAAgAAgAIAAQACAABAAQACQABAAAAAwAJAAAAAwAAAAIACQAKAAEAAwAKAAkABAABAAsAAQAKAAsAAgAEAAwADAAEAAsAAgAMAA0AAwAFAAoABQALAAoABgADAAIABgAFAAMAAgANAAYABwALAAUADAALAAcABgAHAAUADQAMAAcADQAHAAYA"), 0.548598, PackedByteArray("AAABAAIAAwAAAAIAAgABAAQAAwAFAAAAAAAFAAEABgADAAIAAgAEAAYABgAFAAMABAABAAcABgAEAAcAAQAFAAcABgAHAAUA")],
+"name": "Foods_06",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("pOZKzSIHAAAs1Ly/OKwAAFoZSs0iBwAA9rgAAAckAADSK7y/OKwAALauYxfqwwAACEcAAAckAABIUWMX6sMAAP9/UelepgAA//9dWysXAAD26E9iXrkAAAhqvkz//wAACBdPYl65AAAAAF1bKxcAAP9///8AAAAA/390rxryAACUp+eb2vQAAFqx+W8J+wAA9pW+TP//AABqWOeb2vQAAKRO+W8J+wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mlt7m"]
+resource_name = "Sketchfab_Scene_Yam_002_Foods_06_0"
+_surfaces = [{
+"aabb": AABB(-0.9100193, -0.8513468, -0.5575213, 1.8200386, 1.772568, 1.361613),
+"attribute_data": PackedByteArray("eYHdy6qC5sO3jt3Lho3mw+eeJMmcqmXAAaA0wdarJ8gItBzIWK1lwK+sHMhfs2XAfJ0nyKeRNMFCnGXAjZAkydO0vMHTtJjMZr8nxGa/Lcqbt47y3byO8n+1yfv4vsn7GIgvxBWml8jkpcHADLy/xbG6782xumXAupeXyIqXwcBTtKr2JMCq9hiINcylimXAGIiHwIqFZcATt7jJ1rlZygy8lcjZtSrHE7edxNa5+8M8uhD+"),
+"format": 34896613399,
+"index_count": 114,
+"index_data": PackedByteArray("AAAYACIAAAABABgAIgAYAAMAIgADAAIAGAAjAAMAGAAkACMAAQAkABgAAQAlACQAGQAGAAQAGQAaAAYABwAaABkABwAFABoAHAAmABEAHAAnACYAEwAnABwAJgAnACgAEwAoACcAKQAmACgAEgAoABMAKQAoABsAEgAbACgAKgApABsAHQAbABIAGwArACoAHQArABsAEAAqACsAEAArAB0ACAAJAAoACAALAAkAHgAOAAwAHgAfAA4ADwAfAB4ADwANAB8AFgAgABQAFAAsABYAFAAVACwAFQAXACwAFQAhABcA"),
+"lods": [0.43079376, PackedByteArray("AAAYAAIAAgAYAAMAAAABABgAGAABAAMAGQAGAAQAGQAaAAYABwAaABkABwAFABoAEwAbABwAEQAcABsAEgAbABMAEAARABsAHQAbABIAHQAQABsACAAJAAoACAALAAkAHgAOAAwAHgAfAA4ADwAfAB4ADwANAB8AFgAgABQAFAAVABYAFQAXABYAFQAhABcA"), 0.548598, PackedByteArray("AAABAAIAAgABAAMABAAFAAYABwAFAAQACAAJAAoACAALAAkADAANAA4ADwANAAwAEAARABIAEQATABIAFAAVABYAFQAXABYA")],
+"material": SubResource("StandardMaterial3D_qw48l"),
+"name": "Foods_06",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 45,
+"vertex_data": PackedByteArray("pOZKzSIHyecs1Ly/OKw76VoZSs0iB8nn0iu8vzisO+mk5krNIgeJPLauYxfqw6oXLNS8vzise0H2uAAAByTpEAhHAAAHJIcLtq5jF+rD1wf2uAAABySHC0hRYxfqw9cHCEcAAAckH7vSK7y/OKwy2khRYxfqwzeyWhlKzSIHouHSK7y/OKyoMizUvL84rA42SFFjF+rDETS2rmMX6sMmNwhHAAAHJJv79rgAAAckm/taGUrNIgeb+6TmSs0iB5v7/39R6V6m/////11bKxdGKfboT2JeuYstCGq+TP//SD326E9iXrlBMwgXT2Jeucw2AABdWysXdssIF09iXrnUwwAAXVsrF5v7//9dWysXm/v/f///AAD//2pY55va9F3u/390rxry//+Up+eb2vRd7pSn55va9DE9WrH5bwn7RD72lb5M///ZP/9/dK8a8is9aljnm9r0rT2kTvlvCfvUPf9///8AAJv7dS6xFzwmpRZNaHSuWmk8ph7ANGcXhs9RCLpobbyK8ErjzUfx7Y4BWLeO5E0A2BHxpSzdkA9xoq4FNeOJWmzNst55O7jXubJ5N1AHb55uEE8AAP9/AAD/fwAA/38AAP9//3/HsXKj11Yan51cFmeteQCdWlhOV8SdY1NrpplYoqIAAP9/AAD/f/9/XLo5c2eV/390m2gVxQz8oeqAR5OZa4V5eGaalpqW64Akoq1rNJMAAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ie5m7")
+
+[node name="Yam_002" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Yam_002_Foods_06_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_mlt7m")
+skeleton = NodePath("")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://d35v7wh74mmnr"]
+
+[ext_resource type="Texture2D" uid="uid://mcflcu2dvmpm" path="res://scenes/objects/textures/Foods_05_baseColor.jpeg" id="1_cf0et"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmuvl"]
+resource_name = "Foods_05"
+cull_mode = 2
+albedo_texture = ExtResource("1_cf0et")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1u2f6"]
+_surfaces = [{
+"aabb": AABB(-0.12912332, -0.14909862, -0.013142303, 0.25824642, 0.29819727, 0.025983948),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAgABAAQABQADAAAAAwAFAAQAAgAEAAYABQAGAAQABQAHAAYABwAFAAAABwAIAAYACQAAAAIABwAAAAkACgACAAYABgAIAAoACQACAAoABwALAAgACQALAAcACwAKAAgACwAJAAoA"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/39I/gAAAAD///+///8AAP9//////wAASP4kvwAAAAD///8///8AAEj+2kAAAAAA/38AAP//AAD/f7YBAAAAAAAA/z///wAAtgEkvwAAAAAAAP+///8AALYB2kAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o0xa4"]
+resource_name = "Sketchfab_Scene_Beetroot_04_Foods_05_0"
+_surfaces = [{
+"aabb": AABB(-0.12912332, -0.14909862, -0.013142303, 0.25824642, 0.29819727, 0.025983948),
+"attribute_data": PackedByteArray("fEpYCWtJKhJrSXoJfErqEXxKCwF8Sp0Ja0nLAPpf8wjwaeIH6V/iB99p8whHWeoRNlh6CTZYKhJHWVgJR1mdCTZYywBHWQsBCHDuGhJm3RkZcN0ZI2buGpx0pQKcbhwGnG4JDZx0fxCbehwGm3oJDcVuEw3Fbj4Gr3TTAq90fRCaej4GmnoTDQ=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAIABAACAAYABwAIAAkABwAKAAgACwAMAA0ACwAOAAwADwAQAAwADwARABAAEgATABQAEgAVABMAFgAXABgAGAAZABYAGQAaABYAGQAbABoAHAAdAB4AHgAfABwAHgAgAB8AIAAhAB8A"),
+"material": SubResource("StandardMaterial3D_xmuvl"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 34,
+"vertex_data": PackedByteArray("/39I/gAAfdX///+///95xP9//////9zYSP4kvwAAecS2ASS/AAB49f9/SP4AANzYAAD/v///ePVI/iS/AAADNP///z///x4b////v///AzRI/tpAAAAeG0j+2kAAAIU7/38AAP//Iif///8///+FO/9/tgEAAIEq/3+2AQAAIicAAP8///+GCrYB2kAAAIYKtgHaQAAA+8sAAP+////g5AAA/z////vLtgEkvwAA4OT/fwAA///+fwAA/z////5/AAD/v////n//f//////+f////z////5/////v////n+2ASS/AAD//7YB2kAAAP///3+2AQAA////f0j+AAD//0j+2kAAAP//SP4kvwAA//9l1fIta6zlHCPTlylrrOUc0ux1NyPTlynS7HU3Jbx6W2Oe8k0lvHpbY57yTRpjbCxoViNTGmNsLA1SZlVoViNTiUjSbIlI0mzZQ4Skm2EMstlDhKSbYQyy/3////9/////f////3////9/////f///////f/7//3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1u2f6")
+
+[node name="Beetroot_04" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Beetroot_04_Foods_05_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_o0xa4")
+skeleton = NodePath("")

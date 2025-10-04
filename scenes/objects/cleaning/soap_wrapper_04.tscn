@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://dub2li45x8rf1"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_7aluo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_7aluo")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a63ru"]
+_surfaces = [{
+"aabb": AABB(-2.281056, -0.38532132, -1.0842965, 4.562111, 0.77064264, 2.168593),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAADAAEABAABAAAAAgADAAUABQADAAQABQAGAAIABgAAAAIABQAEAAcABwAEAAAABQAIAAYABQAHAAgACAAJAAYABwAKAAgACAAKAAkABwAAAAsABgALAAAACwAKAAcABgAJAAsACwAJAAoA"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("VxEAAP//AAAAAP9/Fe8AAFcR/////wAAAAD/f+kQAABXEQAAAAAAAFcR//8AAAAAp+7/////AACn7gAAAAAAAKfu//8AAAAA////fxXvAAD///9/6RAAAKfuAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4vovu"]
+resource_name = "Sketchfab_Scene_Soap_wrapper_04_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-2.281056, -0.38532132, -1.0842965, 4.562111, 0.77064264, 2.168593),
+"attribute_data": PackedByteArray("GktrwKdHcMI8SRzGh0iSvxNFl8GoRkPFrk1EwTtKScPQS/XGQlAcws9MIcRjTs3HwTyxsjFhItLBPOfIMWHsu4NPi7gdUhvMg0/JzB1SiroxYey7wTznyDFhItLBPLGymTw8vj1cbcaJWRTMTT+VuIlZFMxNP5W4mTw8vj1cbcaDT8nMHVKKuoNPi7gdUhvM/Tnix2M3UrT9OaWzYzfjxf05pbNjN+PF/Tnix2M3UrQ="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkA"),
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("VxEAAP//1VsAAP9/Fe/RTVcR/////+pYVxH//wAACyAAAP9/6RBOCVcRAAAAADgbp+4AAAAAig////9/6RBrLqfu//8AAKYWp+7/////QAP///9/Fe8gDqfuAAD//zgOVxH//wAAueCn7v/////+o1cR/////6Omp+7//wAAAt6n7v//AAAX3P///38V7wnAp+7/////C6z///9/6RDw4afuAAAAAPwhVxEAAP//W1mn7gAA//8AXFcRAAAAAEUfVxH//wAA6+Kn7gAAAADr4qfu//8AAGPdVxEAAAAAY92n7v////+TV1cRAAD//5NXVxH/////9Fqn7gAA///0WqfuAAD///NT////f+kQDh6n7gAAAADnI////38V7/U/VxH/////n7EAAP9/6RDE51cR//8AAKHcAAD/fxXvVshXEQAAAABdIwAA/38V76g3VxEAAP//X04AAP9/6RA6GPEvmqdVbpjTFrZDrXz77pmM8Z678ipab9mD1SgElD8hOK4AEDshcBDtCfkuLBxq6Pv/M2iG0oFSGOcktvXfsW5Z1XJYKZ9UTqfEa3OvsixUTRH2XyU25Zh+LYdSzBf8f7T1XVxKCqGjl926aWciRJa4xyZsRjjYkz7AVq3AP6hSkwyoRNIrrzKMJ1lVqzEpH3H7ub7l3A7I9+EapqjXHt0aJgaeH11VqLk+jYQOSBij")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a63ru")
+
+[node name="Soap_wrapper_04" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Soap_wrapper_04_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_4vovu")
+skeleton = NodePath("")

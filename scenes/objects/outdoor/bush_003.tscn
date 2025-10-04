@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=4 uid="uid://comxv251cdpfk"]
+
+[ext_resource type="Texture2D" uid="uid://bnorfmis8dbn1" path="res://scenes/objects/textures/n64_zelda__trees_plus_v1_4.png" id="1_gcink"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urd68"]
+resource_name = "Material.012"
+transparency = 2
+alpha_scissor_threshold = 0.82133585
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_gcink")
+roughness = 0.82111454
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l6p8o"]
+_surfaces = [{
+"aabb": AABB(-2.0637462, -2.0637462, 0, 4.1274924, 4.1274924, 2),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAAEAAUAAAAFAAMAAAADAAYAAAAGAAcAAAAIAAMAAAAJAAgAAAAKAAMAAAALAAoAAAAMAAMAAAANAAwAAAADAA4AAAAOAA8AAAADABAAAAAQABEA"),
+"name": "Material.012",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("/3//fwAAAAD///9///8AAP///38AAAAA/3//f///AAD/fwAAAAAAAP9/AAD//wAA/3//////AAD/f///AAAAAH0lfSX//wAAfSV9JQAAAAB9JYHa//8AAH0lgdoAAAAAAAD/f///AAAAAP9/AAAAAIHafSX//wAAgdp9JQAAAACB2oHa//8AAIHagdoAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mp7w6"]
+resource_name = "Sketchfab_Scene_bush_003_Material_012_0"
+_surfaces = [{
+"aabb": AABB(-2.0637462, -2.0637462, 0, 4.1274924, 4.1274924, 2),
+"attribute_data": PackedByteArray("AAAAAP///////wAAAAD//////////wAAAAAAAP///////wAAAAD//////////wAAAAAAAP///////wAAAAD//////////wAAAAAAAP///////wAAAAD//////////wAA"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAAEAAMAAAAFAAQABgAHAAgABgAJAAcABgAKAAkABgALAAoADAANAA4ADAAPAA0ADAAQAA8ADAARABAAEgATABQAEgAVABMAEgAWABUAEgAXABYA"),
+"material": SubResource("StandardMaterial3D_urd68"),
+"name": "Material.012",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/3//fwAA//////9/////P////38AAP8//3//f/////8AAP9//////wAA/38AAP///3//fwAAqumB2oHa//8COoHagdoAAAI6/3//f///qul9JX0l//+q6X0lfSUAAKrp/3//fwAAqumB2n0l//8COoHafSUAAAI6/3//f///qul9JYHa//+q6X0lgdoAAKrp/3//fwAAVNX/f/////+qKv9///8AAKoq/3//f///VNX/fwAA//9U1f9/AAAAAFTV/3//PwAA/38AAP9//3//P/9//z//f/8/9ZX6Sv8cAUb/HAFG9ZX6SvWV+kr1lfpK+soI6v45/pz+Of6c+soI6vrKCOr6ygjqqqpUVaoqqiqqKqoqqqpUVaqqVFWqqlRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l6p8o")
+
+[node name="bush_003" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="bush_003_Material_012_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_mp7w6")
+skeleton = NodePath("")

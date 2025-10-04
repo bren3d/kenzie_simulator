@@ -29,4 +29,5 @@ void fragment() {
 	ALBEDO = highlight_color;
 	//EMISSION = highlight_color;
 	ALPHA = (fresnel + alpha_time_mod ) * noise_alpha;
+	
 }

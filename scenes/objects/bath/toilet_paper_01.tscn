@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://cymxl51g4molk"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_us6hs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_us6hs")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lyb8x"]
+_surfaces = [{
+"aabb": AABB(-1.9883895, -0.90096885, -1, 2.9633174, 1.9009688, 2.001827),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("CgABAAsACgAAAAEAAAAMAAEAAAANAAwAAQAMAAQADQAEAAwACwABAAQAAwANAAAAAwAAAAoADQADAAQACwAEAAUAAwAFAAQABgADAAoAAwAGAAUABgAKAAkACQAKAAsAAgALAAUACQALAAIABQAHAAIABgAHAAUACAAJAAIACQAIAAYACAACAAcABgAIAAcABwAIAA4ABwAOAAgABwAOAA8ABwAPAA4A"),
+"lods": [0.79087657, PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAgABAAQAAwAFAAQAAgAEAAUAAwAGAAUABgADAAAABQAHAAIABgAHAAUACAACAAcABgAIAAcACQAAAAIABgAAAAkACAAJAAIACQAIAAYA")],
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("HCZIPwedHz8AAIC/HCZIPwedHz8AAIA/HiZIvwWdHz8AAIA/BSbePuWlZr8AAIC/BSbePuWlZr8AAIA/AybevuWlZr8AAIA/AybevuWlZr8AAIC/4JR5v4zcY74AAIA/4JR5v4zcY74AAIC/HiZIvwWdHz8AAIC/AAAAAAAAgD8AAIC/AAAAAAAAgD8AAIA/4JR5P4jcY74AAIA/4JR5P4jcY74AAIC/i5fOv2/1CD8AAIC/jIP+v5JUZT/eO4A/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_46voj"]
+resource_name = "Sketchfab_Scene_Toilet_paper_01_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-1.9883895, -0.90096885, -1, 2.9633174, 1.9009688, 2.001827),
+"attribute_data": PackedByteArray("10dpP1wdMz/XR2k/pMI3PwWmZT+kwjc/BaZlP1wdMz89zGg/XB0zP7tBZT9cHTM/PcxoP6TCNz+7QWU/pMI3P+94aD9cHTM/7XRmP6TCNz/veGg/pMI3P+10Zj9cHTM/u0FlP1wdMz8q1WY/pMI3P7tBZT+kwjc/KtVmP1wdMz8q1WY/XB0zPz3MaD+kwjc/KtVmP6TCNz89zGg/XB0zP6skbD8oEEY/MvVxP0MBPz/z4W8/GDQ2P0HRYj8oEEY/+RNfPxg0Nj/z4W8/GDQ2PzL1cT9DAT8/qyRsPygQRj/5E18/GDQ2P0HRYj8oEEY/7nZnP1wdMz/udmc/pMI3PyrVZj+kwjc/KtVmP1wdMz8q1WY/pMI3PyrVZj9cHTM/KtVmP1wdMz8q1WY/pMI3PyrVZj+kwjc/KtVmP1wdMz8q1WY/pMI3PyrVZj9cHTM/9npnP1ZJMj+6AF0/QwE/P/Z6Zz9WSTI/ugBdP0MBPz8="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("HgABAB8AHgAAAAEAAwAeAB8AAwAfAAIABAAgAAYABAAhACAAIQAHACAAIQAFAAcACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAIgAjACQAIgAlACMAJgAnACgAJgApACcAFAAVABYAFgAqABQAKgAXABQAKgAYABcAGAArABcAGQAaABsAGwAsABkAGwAdACwAHQAcACwAHQAtABwA"),
+"lods": [0.79087657, PackedByteArray("AAABAAIAAwAAAAIABAAFAAYABQAHAAYACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFgAXABQAFgAYABcAGQAaABsAGwAcABkAGwAdABwA")],
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 46,
+"vertex_data": PackedByteArray("HCZIPwedHz8AAIC/HCZIPwedHz8AAIA/HiZIvwWdHz8AAIA/HiZIvwWdHz8AAIC/HCZIPwedHz8AAIC/BSbePuWlZr8AAIC/HCZIPwedHz8AAIA/BSbePuWlZr8AAIA/BSbePuWlZr8AAIC/AybevuWlZr8AAIA/BSbePuWlZr8AAIA/AybevuWlZr8AAIC/AybevuWlZr8AAIC/4JR5v4zcY74AAIA/AybevuWlZr8AAIA/4JR5v4zcY74AAIC/4JR5v4zcY74AAIC/HiZIvwWdHz8AAIA/4JR5v4zcY74AAIA/HiZIvwWdHz8AAIC/AybevuWlZr8AAIA/4JR5v4zcY74AAIA/HiZIvwWdHz8AAIA/BSbePuWlZr8AAIA/HCZIPwedHz8AAIA/HiZIvwWdHz8AAIC/4JR5v4zcY74AAIC/AybevuWlZr8AAIC/HCZIPwedHz8AAIC/BSbePuWlZr8AAIC/AAAAAAAAgD8AAIC/AAAAAAAAgD8AAIA/4JR5P4jcY74AAIA/4JR5P4jcY74AAIC/4JR5v4zcY74AAIA/i5fOv2/1CD8AAIC/4JR5v4zcY74AAIC/jIP+v5JUZT/eO4A/4JR5v4zcY74AAIA/i5fOv2/1CD8AAIC/jIP+v5JUZT/eO4A/4JR5v4zcY74AAIC/AAAAAAAAgD8AAIA/4JR5P4jcY74AAIA/AAAAAAAAgD8AAIC/4JR5P4jcY74AAIC/NcfJuMm4ZJw1x8m4ybhknMk4ybjJuJrjyTjJuMm4muM1x8m4NUdkHJqpmilk1jIrNcfJuDVHZByaqZopZNYyK5qpmilk1jIrZFaaKWTWzVSaqZopZNYyK2RWmilk1s1UZFaaKZopzNTJODVHNUea42RWmimaKczUyTg1RzVHmuPJF8iXyJca9Mk4ybjJuJrjyRfIl8iXGvTJOMm4ybia4/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//3///////7//f///////vzXoNmjIl+QLNeg2aMiX5AuKw3+7////P4rDf7v///8/isN/u////z+Kw3+7////P4A7i0P///+/gDuLQ////7+AO4tD////v4A7i0P///+//3//fwAA/z//f/9/AAD/P/////8AAP+//////wAA/78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lyb8x")
+
+[node name="Toilet_paper_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Toilet_paper_01_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_46voj")
+skeleton = NodePath("")

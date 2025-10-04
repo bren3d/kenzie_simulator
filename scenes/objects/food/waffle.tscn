@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://b8bhl8jfukgg2"]
+
+[ext_resource type="Texture2D" uid="uid://xpbb08os1wbl" path="res://scenes/objects/textures/Foods_04_baseColor.jpeg" id="1_0vbby"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnqs2"]
+resource_name = "Foods_04"
+cull_mode = 2
+albedo_texture = ExtResource("1_0vbby")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rtocm"]
+_surfaces = [{
+"aabb": AABB(-0.056274306, -0.0076410845, -0.08139503, 0.11254861, 0.015282167, 0.16279006),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAADAAEAAAAEAAEABAAFAAMABgAAAAIABAAHAAUABAAAAAcABQAIAAMAAwAIAAIABQAHAAgAAAAGAAkAAAAJAAcABgACAAoACAAKAAIACQAGAAoABwALAAgABwAJAAsACAALAAoACQAKAAsA"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAD/fwAAAAD4C///BvQAAAAA/3///wAABvT//wb0AAD4C///+AsAAAb0///4CwAA+AsAAPgLAAD///9/AAAAAP///3///wAABvQAAPgLAAD4CwAABvQAAAb0AAAG9AAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5j2mf"]
+resource_name = "Sketchfab_Scene_Waffle_Foods_04_0"
+_surfaces = [{
+"aabb": AABB(-0.056274306, -0.0076410845, -0.08139503, 0.11254861, 0.015282167, 0.16279006),
+"attribute_data": PackedByteArray("lRlSJdcaqVCVGalQ1xpSJasDIiaBINhPqwPYT4EgIiaVGVIlUxipUJUZqVBTGFIlESFSJRsDqVARIalQGwNSJRsDckcRIZdGESFyRxsDl0YRIfo2GwPNNRsD+jYRIc01ESEmOBsD+jYbAyY4ESH6NhsDTUgRIXJHESFNSBsDckfXGlIllRmpUNcaqVCVGVIlUxhSJZUZqVBTGKlQlRlSJQ=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_tnqs2"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAD/fwAAPMH4C///BvRuxQAA/3///1TX+Av///gLgM34C///+AtIzgb0//8G9PC0+Av//wb08LQG9P//+AtIzv///38AAMI+BvQAAAb0kDr///9///+qKAb0AAD4C34yBvQAAPgLtjH4CwAABvQOSwb0AAAG9A5L+AsAAPgLtjEAAP9/AAAT4Ab0AAD4C0jO////fwAAE+D4CwAA+AtIzv///3///xNg+AsAAAb0DksAAP9///8TYAb0AAAG9A5LBvT//wb0DksAAP9///8TYPgL//8G9A5L////f///E2D4C///+AtIzv///38AABPgBvT///gLSM4AAP9/AAAT4Ab0///4C7wJ////f////ioG9P//BvTQJ////38AABII+AsAAPgLQvYAAP9///8A1fgLAAAG9C7YAAD/fwAA7PefxmvH4PINQGf2Fbz4wiCwZfJ+oObWGWgY6Bipf99mcl85kjgeDfG/lwnpQwY93k+ZDYBfGCnll+YX5lZ/IJiNAAD/f5kNgF8AAP9/fyCYjQAA/38YKeWXAAD/f+YX5lbm1hlo////fxjoGKn///9/ZfJ+oP///39/32Zy////f7qif7G3Q/4LU8nXCwwkNSdEXX9OR7wA9Ks2J/Ty28nY")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rtocm")
+
+[node name="Waffle" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.371139e-08, 0, 4.371139e-08, 1, 0, 0, 0)
+
+[node name="Waffle_Foods_04_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_5j2mf")
+skeleton = NodePath("")

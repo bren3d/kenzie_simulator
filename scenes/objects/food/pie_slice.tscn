@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://b7h1gbf00qmo8"]
+
+[ext_resource type="Texture2D" uid="uid://dhiscdux4by8b" path="res://scenes/objects/textures/Chest_drawers_01_65_baseColor.png" id="1_ar22x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igeuf"]
+resource_name = "Chest_drawers_01_65"
+cull_mode = 2
+albedo_texture = ExtResource("1_ar22x")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p1bmk"]
+_surfaces = [{
+"aabb": AABB(-0.12848684, -0.13944925, -0.049013067, 0.3361622, 0.2788985, 0.11049028),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAAEAAIAAAAFAAQABgAAAAIABQABAAQAAgAEAAEAAwAFAAAABQADAAEAAAAGAAcABwADAAAABgACAAgACAAHAAYACAACAAEAAwAHAAkACAAJAAcAAwAJAAEAAQAJAAgA"),
+"lods": [0.076363154, PackedByteArray("AAAEAAIAAgAEAAEAAAAFAAQABQABAAQAAgADAAAAAwAFAAAAAgABAAMABQADAAEA"), 0.28697345, PackedByteArray("AAABAAIAAgABAAMAAAADAAEAAgADAAAA")],
+"name": "Chest_drawers_01_65",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("vh3//wAAAAC+HQAA//8AAL4d/v///wAAvh0AAAAAAAD+//9/w6QAAP///38AAAAAAABbswAAAAAAAKNMAAAAAAAAW7P+/wAAAACjTP7/AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_phj4e"]
+resource_name = "Sketchfab_Scene_Cake_Cake_0"
+_surfaces = [{
+"aabb": AABB(-0.12848684, -0.13944925, -0.049013067, 0.3361622, 0.2788985, 0.11049028),
+"attribute_data": PackedByteArray("bP+SABTSkgAU0pIAbP+SAJIA2vrqLWeI6i3a+pIAZ4g94n56bP9+elNpMzHu0EGH7tCSAJIAoFYtaJIALWhBh+otl9iSAJfY6i2qqpIAqqobq58AiIEiFFpCNYfHGLJz"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAAIAAIAAAAJAAgACQABAAgACQADAAEAEAAEABEAEAAGAAQAEQASABAAEQATABIABQASABMABQATAAcADAAUABUAFQAKAAwACgALAAwADwAWABcAFwANAA8ADQAOAA8A"),
+"lods": [0.076363154, PackedByteArray("AAAIAAIAAAAJAAgACQABAAgACQADAAEABAAFAAYABAAHAAUACgALAAwADQAOAA8A"), 0.28697345, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA")],
+"material": SubResource("StandardMaterial3D_igeuf"),
+"name": "Chest_drawers_01_65",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("vh3//wAAOOq+HQAA//9MLb4d/v///7LSvh0AAAAAxhW+Hf7///+y0r4dAAAAADjqvh3//wAAOOq+HQAA//+y0v7//3/DpPBU////fwAATSi+Hf7///+TSP7//3/DpPc9vh0AAP//0ku+HQAAAADF5////38AAPXnvh3//wAAO9kAAFuzAABV/AAAW7P+/+j2AACjTAAAVfwAAKNM/v/o9gAAo0z+/6RGAABbs/7/D0MAAFuzAAAP5wAAo0wAAKTxh9esObJd8Gbv5kwiUkaIV+/mTCJSRohXh9esObJd8Gb/fwAA/38AABqkK6eynwBWgEGKdqZBOlvbKk83fdRFp/32+1GF+8AkBC7+dj9bhXs9XUyfgW3XqkfV5cG+1B3I")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_p1bmk")
+
+[node name="PieSlice" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Cake_Cake_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_phj4e")
+skeleton = NodePath("")

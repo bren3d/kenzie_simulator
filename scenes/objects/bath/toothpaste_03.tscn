@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://dgy205dic7axo"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_rh3ta"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_rh3ta")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3k6g7"]
+_surfaces = [{
+"aabb": AABB(-1.6200036, -0.80901706, -0.69958776, 3.2399194, 1.8090171, 9.857574),
+"format": 34896613377,
+"index_count": 126,
+"index_data": PackedByteArray("BgAHAAoABAAKAAcACwAKAAQACwAGAAoADAAEAAcADQALAAQADQAEAAwACQALAA0AAQAGAAsACQABAAsAAQAOAAYADwAGAA4ADwAOAAEABwAGAA8AEAABAAkAEAAPAAEAEQAHAA8AEQAPABAADAAHABEAEgAQAAkAEwARABAAEwAQABIAFAARABMAFAAMABEAAgATABIAAAAUABMAAgAAABMAAAAFABQAAwACABIAAAACAAgAAgADAAgACAAFAAAAFQAMABQABQAVABQABQAIABUAFQANAAwAAwASABYACAADABYACAAWABUAFgANABUAEgAJABYAFgAJAA0A"),
+"lods": [1.475312, PackedByteArray("BAAGAAcABwAGAAEAAQAGAAQABQAEAAcAAAAHAAEABQAHAAAACAAEAAUACAAFAAAACQAEAAgACQABAAQAAAABAAIAAgABAAkAAAACAAgAAgAJAAMAAwAJAAgAAgADAAgA"), 3.6678803, PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAwABAAQAAAACAAUAAgADAAUABQAEAAAAAwAEAAUA")],
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 23,
+"vertex_data": PackedByteArray("j1EAAAAAAACk5W6M16sAAHGuAAAAAAAAJcs2ngAAAABbGm6M16sAANs0Np4AAAAA/3/Odv//AAAuQVNL16sAAACA//8AAAAA99Y/mLJGAAAAAEBw//8AAP9/q7TXqwAACSk/mLJGAAAAgLnmskYAAP//QHD//wAA0b5TS9erAAC/tUUZskYAAEBKRRmyRgAAca4AAGIjAACPUQAAYiMAANs0Np5iIwAAAID//2IjAAAlyzaeYiMAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i0rxx"]
+resource_name = "Sketchfab_Scene_toothpaste_03_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-1.6200036, -0.80901706, -0.69958776, 3.2399194, 1.8090171, 9.857574),
+"attribute_data": PackedByteArray("xSH2i0gpe6Z8JvaL+R57pvsk9ot7JHumgCD2i4Ag9ot7JHum+yT2i/An9ov5HnumUSD2i0gpe6YBI2WMgCZljOwhuo+VJ7qPICR4s/Ege6YgJPaLiijfliAkeLOjInum0CTflsAkyJGiHXizUCd7pp4qeLNnId+W2ibflsUhbJF8JmyR8CdskSAkbJFRIGyRtx/fliAk35YgJHumoh14s54qeLOAIGyR+yRskTgh35ajInum+yRskYAgbJE4Id+W0CTflg=="),
+"format": 34896613399,
+"index_count": 126,
+"index_data": PackedByteArray("EgATABoAAwAaABMAEwASABsAGwASABwAGwAcAAEAHQATABsAHQAbAB4AHwAdAB4AHwAeACAAAgAfACAAAgAAAB8AFAAhACIAFAAKACEADAAUACIADAAiACMAIgAkACMAIQAlACIAIgAlACQAIQAVACUAJQALACQAFQAmACUAJQAmAAsAJgAnAAsAFQANACYAJgAWACcADQAWACYADQAoABYACQApACoACQAHACkAKQAYACoAKQArABgAKwAIABgAKwAsAAgABgAtAC4ABgAEAC0ALQAvAC4ALQAwAC8AMAAXAC8AMAAFABcAGQAQAA4ADgAPABkADwARABkA"),
+"lods": [1.475312, PackedByteArray("AwASABMAEwASAAEAAAATAAEAAAABAAIAFAALAAwAFQALABQACgAVABQAFQANAAsADQAWAAsABAAXAAYABAAFABcABwAYAAkABwAIABgAGQAQAA4ADgAPABkADwARABkA"), 3.6678803, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAIAAkACgALAAwACgANAAsADgAPABAADwARABAA")],
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 49,
+"vertex_data": PackedByteArray("j1EAAAAAGjyk5W6M16t6NnGuAAAAABo8WxpujNerejbbNDaeAABezlsabozXqyLoj1EAAAAAC+5xrgAAAAAaPKTlbozXq4k2Jcs2ngAA7SIlyzaeAABezlsabozXq6692zQ2ngAAXs6k5W6M16uqvY9RAAAAAP//ca4AAAAA///bNDaeAAD//yXLNp4AAP///3/Odv//nEMuQVNL16tIPwCA//8AAP+/99Y/mLJGHM7/f852//8/vC5BU0vXq9rz99Y/mLJG6CIAgP//AAD//wAAQHD//4RC0b5TS9erSD///0Bw//+EQkBKRRmyRqs+v7VFGbJGqz6PUQAAYiOcPXGuAABiI5w9Jcs2nmIjQc4AgP//YiMFv9s0Np5iIz/OCSk/mLJGHs4AgLnmskYNvv9/q7TXqyO9AABAcP//Z7z//0Bw//9kvHGuAABiIzY9Jcs2nmIjKyK/tUUZskYePtG+U0vXqys/2zQ2nmIjDM6PUQAAYiNV7kBKRRmyRvLuCSk/mLJGO85qMjSZ6R6pQzUZlU1WPOieFtrRy3XKiefwyBvuNRmVTQ4foEPxLhsiLbQWWpH015cW2tHLKOhhdP7//3/+//9//v//f/7//38AAP9/ziXokv///39HtB1atv8igG7GX/QIL+Eh////f14IDoTpEjBaDgSgd0MvLZguGLxQ6DDNmM4YF0/6tH5a7P8IgHvaBMsf2rbLxf8bgL//HYBP+ZSNb/IQeV8XOk8xL8IhEhblUEkSN1oq2iDLqMix72/I6PBM2qbL")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3k6g7")
+
+[node name="toothpaste_03" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.3711392e-08, 0, 4.3711392e-08, 1, 0, 0, 0)
+
+[node name="toothpaste_03_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_i0rxx")
+skeleton = NodePath("")

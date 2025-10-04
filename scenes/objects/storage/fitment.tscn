@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=4 uid="uid://htjyjlwef51v"]
+
+[ext_resource type="Texture2D" uid="uid://bnpas1a7qgwpn" path="res://scenes/objects/textures/Chest_drawers_01_46_baseColor.png" id="1_fe2ja"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvy02"]
+resource_name = "Chest_drawers_01_46"
+cull_mode = 2
+albedo_texture = ExtResource("1_fe2ja")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gh2yy"]
+_surfaces = [{
+"aabb": AABB(-0.9917231, -0.27598554, -0.95968217, 1.9207202, 0.55197114, 1.9210328),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgADAAQAAQAFAAMABgAEAAMABgADAAUABwAFAAEABwAGAAUACAAEAAYACAAGAAcAAgAEAAgACQAHAAEAAAAJAAEACgAIAAcACQAKAAcACwACAAgACwAAAAIACgALAAgAAAAMAAkACQANAAoACQAMAA0AAAAOAAwACwAOAAAADAAPAA0ACgAQAAsACwAQAA4ACgANABAAEAARAA4ADgASAAwADAASAA8ADgARABIADQAPABMADQATABAAEgATAA8AEAATABEAEgARABMA"),
+"name": "Chest_drawers_01_46",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("1QTVBFALAADVBCn7PfcAANUE1QQ99wAAAAAAAP//AAD//wAA//8AAAAA/////wAA////////AAAp+yn7PfcAACn71QQ99wAA1QQp+1ALAAAp+yn7UAsAACn71QRQCwAAKADW/wMHAADW/9b/AwcAACgAKAADBwAA1v/W/wAAAADW/ygAAwcAACgAKAAAAAAAKADW/wAAAADW/ygAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_apn8f"]
+resource_name = "Sketchfab_Scene_Fitment_Fitment_0"
+_surfaces = [{
+"aabb": AABB(-0.9917231, -0.27598554, -0.95968217, 1.9207202, 0.55197114, 1.9210328),
+"attribute_data": PackedByteArray("QykYirtKqflDKan5u0oYikX7inh/g88FRfvPBX+DinhgJ535MkqMhWAnjIUySp35NgM1eWB8JAU2AyQFYHw1eU40LHmvVjl7DFYseaozOXv3TroAqh9fBZMgugDgT18FQ39Te4ABxn6AAVN7Q3/GfpJaDHiAM2F6OzQMeExbYXo2AzV5rX5Te2B8NXnpAFN79nw1eYABU3vMAzV5Q39Te7wl2f6jATyBvCU8gaMB2f5MW2F6gDMtfoAzYXpMWy1+qjM5e69WkX6vVjl7qjORfukAU3utfsZ+rX5Te+kAxn4FJT2B1QAp/wUlKf/VAD2BYHwkBdUA1QA2AyQFwX7VAE4EJAXYf9UAeH0kBe0B1QAySg4FsSbAAGAnDgXhSsAA"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
+"material": SubResource("StandardMaterial3D_pvy02"),
+"name": "Chest_drawers_01_46",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("1QTVBFALVNXVBCn7PfdU1dUE1QQ991TV1QQp+1ALVNXVBCn7UAv//yn7Kfs99///1QQp+z33//8p+yn7UAv//yn7KftQC6oqKfvVBD33qiop+yn7PfeqKin71QRQC6oqKfvVBFALAADVBNUEPfcAACn71QQ99wAA1QTVBFALAADVBNUEUAuYOigA1v8DB5g61QQp+1ALmDooACgAAweYOtUEKfs99wriAAAAAP//CuLVBNUEPfcK4gAA/////wriKADW/wMH///W/9b/AAD//9b/1v8DB///KADW/wAA//8p+yn7UAtmxdb/KAADB2bFKfvVBFALZsXW/9b/AwdmxSn71QRQCwAAKAAoAAMHAADVBNUEUAsAANb/KAADBwAA1QQp+1AL///W/9b/Awf//yn7KftQC///KADW/wMH//8oANb/AAD//9b/KAAAAP//1v/W/wAA//8oACgAAAD//9b/1v8DB1TV1v8oAAAAVNXW/ygAAwdU1db/1v8AAFTVKAAoAAMHqiooANb/AACqKigA1v8DB6oqKAAoAAAAqirW/ygAAwcAACgAKAAAAAAAKAAoAAMHAADW/ygAAAAAAP////////8/AAAAAP///z8AAP//////P///AAD///8/1QTVBD33AAD//wAA//8AACn71QQ99wAAAAAAAP//AAAp+yn7Pff//wAA////////1QQp+z33/////////////yn71QQ99/Qd////////9B0p+yn7Pff0Hf//AAD///QdVNVU1VTVVNVU1VTVVNVU1f9//7//f/+//3//v/9//7+qqlRVqqpUVaqqVFWqqlRV/3//P/9//z//f/8//3//P/Dj8OPw4/Dj8OPw4/Dj8OOUzpTOlM6UzpTOlM6UzpTO/3//v/9//7//f/+//3//vw4cDhwOHA4cDhwOHA4cDhz/f8BJ/3/ASf9/wEn/f8BJ/38+tv9/Prb/fz62/38+tv+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoqVNVU1VTVVNVU1VTVVNVU1f9//z//f/8//3//P/9//z//////////////////////C0X//wtF//8LRf//87r///9/CsX/fwrF/38Kxf9/CsVqsZROarGUTmqxlE5qsZRO")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gh2yy")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fe2ja"]
+size = Vector3(1.8000001, 0.55, 1.9)
+
+[node name="Fitment" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Fitment_Fitment_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_apn8f")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025000036, -5.913349e-17, -5.9604645e-08)
+shape = SubResource("BoxShape3D_fe2ja")

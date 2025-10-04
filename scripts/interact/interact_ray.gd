@@ -4,6 +4,7 @@ const INTERACTION_LAYER: int = 3
 
 signal hover_changed(obj: Object)
 
+@export var exceptions: Array[CollisionObject3D]
 @export var interaction_label: Label
 
 var hovered_interactable: Interactable:
@@ -29,6 +30,9 @@ func _init() -> void:
 	collision_mask |= Interactable.COLLISION_LAYER
 
 func _ready() -> void:
+	for obj: CollisionObject3D in exceptions:
+		add_exception(obj)
+	
 	if interaction_label:
 		interaction_label.text = ""
 		if not Engine.is_editor_hint():
@@ -37,6 +41,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var collider:= get_collider()
+	
 	var interactable: Interactable = collider.get_meta(&"Interactable") if collider and collider.has_meta(&"Interactable") else null
 	
 	if interactable and global_position.distance_squared_to(get_collision_point()) > interactable.max_interaction_distance ** 2:

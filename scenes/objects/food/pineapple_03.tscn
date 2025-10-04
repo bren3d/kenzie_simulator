@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://dkacgxpmaekkk"]
+
+[ext_resource type="Texture2D" uid="uid://bsxnpiol2w28c" path="res://scenes/objects/textures/Foods_baseColor.jpeg" id="1_3qict"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dd85h"]
+resource_name = "Foods"
+cull_mode = 2
+albedo_texture = ExtResource("1_3qict")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_av5cm"]
+_surfaces = [{
+"aabb": AABB(-1.2164686, -1.2164683, -1.0160048, 2.4329367, 2.4329367, 1.8268539),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("DgAPAAsADwAQAAsABAAOAAsABAALABEADgAAAA8AEgAEABEABwAOAAQABAASAAcACwACABEACwAQAAIAEQACAA0AEgARAAwAEQANAAwABwASAAwABgANAAIADAANAAYAAgAQAAYABwAMABMADAAGABMAFAAHABMABwAUAA4AEwAGABUAEAAVAAYAFAATAAoAEwAVAAoAFAAFAA4ABQAUAAoABQAAAA4AEAADABUACgAVAAMABQAWAAAABQAKABcAFgAFABcACgADABcAAAAWAAgAFgAXAAgAAAAIAA8AFwADAAkAFwAJAAgAAQAJAAMACAAJAAEACAABAA8AEAABAAMADwABABAA"),
+"lods": [0.49764544, PackedByteArray("AAAFAAgABQAJAAgACAAJAAEACAABAAAABQADAAkAAQAJAAMACgADAAUAAAABAAsACgAGAAMAAQADAAYABQAHAAoABwAFAAAABwAGAAoABAAAAAsABwAAAAQACwABAAIAAgABAAYACwACAAQADAAGAAcABwAEAAwABgANAAIABAACAA0ADAANAAYABAANAAwA"), 1.0199186, PackedByteArray("AAABAAIAAgABAAMABAAAAAIABQADAAEAAAAFAAEABQAGAAMAAgADAAYABwAFAAAABwAAAAQABwAGAAUABAACAAcABwACAAYA")],
+"name": "Foods",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("hsCGwAAAAACB2oHa//8AAH0lgdr//wAAgdp9Jf//AAB4P4bAAAAAAIbAeD8AAAAAfSV9Jf//AAB4P3g/AAAAAED5/3/hPgAA////f///AAD/f74G4T4AAP9/QPnhPgAAvgb/f+E+AAAAAP9///8AAP9/QNsAAAAAvNW81eE+AAD/f/////8AAEIqvNXhPgAAviT/fwAAAABCKkIq4T4AAP9/viQAAAAA/38AAP//AABA2/9/AAAAALzVQirhPgAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ju8wq"]
+resource_name = "Sketchfab_Scene_Pineapple_03_Foods_0"
+_surfaces = [{
+"aabb": AABB(-1.2164686, -1.2164683, -1.0160048, 2.4329367, 2.4329367, 1.8268539),
+"attribute_data": PackedByteArray("ooKgW3KAbkuyj25Lgo2gW6KCI3eCjSN3coDxZrKP8WaEnaBbtJ9uS6SSoFt0kG5Lha2gW3Wgbku2r25LpqKgW52UYVx/mpZqdJBtZqmeimCOi95/y47pdzKJRXonkYF9EogpcxKI8WYUmKZXFqimVxaobksSiKZXN4mPfSGROHoSiKBb2YCmV0uPplcSiG5L2YApcxKII3dLjylz25CmVxSYoFsUmG5LTZ+mV0+vplcWqKBb3KCmV3SQimCdlJZqf5phXKmebWbYjth/gYvudw=="),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("IAAhAB0AIAAAACEAAwAgAB0AAwAdACIAHQACACIAHQAjAAIAIQAjAB0AIQABACMABAAYACQAGAAGACQABAAlABgAGAAZAAYAJQAmABgAJgAZABgAJQAFACYAJgAHABkACgAaACcAGgALACcACgAoABoAGgApAAsAKAAqABoAKgApABoAKAAIACoAKgAJACkADAAbACsAGwAOACsADAAsABsAGwAcAA4ALAAtABsALQAcABsALAAPAC0ALQANABwAEgAuABAAEAAvABIAEAAwAC8AMAATAC8AEwARAC8AEwAxABEAFgAeABQAFAAyABYAMgAzABYAMgAVADMAMgAXABUAFwAfABUA"),
+"lods": [0.49764544, PackedByteArray("BAAFABgAGAAGAAQAGAAZAAYABQAZABgABQAHABkACgAIABoACAAJABoAGgALAAoAGgAJAAsADAAPABsAGwAOAAwAGwAcAA4ADwAcABsADwANABwAAwAAAB0AAAABAB0AHQACAAMAHQABAAIAEAARABIAEAATABEAFgAeABQAFAAXABYAFwAVABYAFwAfABUA"), 1.0199186, PackedByteArray("AAABAAIAAwAAAAIABAAFAAYABQAHAAYACAAJAAoACgAJAAsADAANAA4ADwANAAwAEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_dd85h"),
+"name": "Foods",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("hsCGwAAA8eyB2oHa//+w6X0lgdr//7DpeD+GwAAA8eyGwIbAAAApJ4bAeD8AAAELgdqB2v//oziB2n0l//9FFXg/eD8AAA0TfSV9Jf//ThaGwHg/AAANE4HafSX//04WeD94PwAA1dh9JYHa//+56n0lfSX//1vHeD+GwAAA/fR4P3g/AAD//4bAhsAAAP//eD+GwAAA//+GwHg/AAD//30lgdr//7xvgdp9Jf//vG99JX0l//+8b4Hagdr//7xvQPn/f+E+kiP///9///+QKf9/vgbhPgAAvgb/f+E+bNwAAP9///9u1v9/QPnhPv//AAD/f///vG////9///+8b/9/QNsAAP//vNW81eE+fepCKrzV4T596v9/////////vNW81eE+6zBA2/9/AABPHLzVQirhPhMQvNVCKuE+gRX/f74kAAAAAP9/AAD//wAAQipCKuE+gRVCKkIq4T4Tz74k/38AAK/jQiq81eE+6+++JP9/AAD///9/QNsAAP///3++JAAA//9A2/9/AAD///9//////7xv/38AAP//vG9kR8oUdzbzFQxqd7Y0a2PHPMo/V6qge0SWxvVhz5ZkSpq4NOuHyQvqypSbOPKVh0nCNb+oL2matWg5CZ5UX4O7wurDasLqw2rC6sJqwurDav////////////////////+crmJRUautVLC2//9iUZyurVRRq/9/Tsn///////////9/m9I1PpUVaWo1vv9/fMHdyKtcNLLKTVubkEeVlclBnFL+/4K+///JwWnqITdTo8pNNLKjZG64wurDasLqw2rC6sNqwurDav//////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_av5cm")
+
+[node name="Pineapple_03" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Pineapple_03_Foods_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_ju8wq")
+skeleton = NodePath("")

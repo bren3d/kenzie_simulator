@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://doanud8rd4lep"]
+
+[ext_resource type="Texture2D" uid="uid://cxafdwemnxqfw" path="res://scenes/objects/textures/Chest_drawers_01_43_baseColor.png" id="1_lfbyu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_giomd"]
+resource_name = "Chest_drawers_01_43"
+cull_mode = 2
+albedo_texture = ExtResource("1_lfbyu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v4sy0"]
+_surfaces = [{
+"aabb": AABB(-1.8495225, -0.44571558, -1.0063063, 3.6990452, 0.8914312, 2.0001216),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQABAAAAAIAAwAEAAUABAACAAYABQAEAAYAAwAFAAcAAwAHAAEABQAGAAcAAgAIAAYABwAJAAEAAQAKAAIAAgAKAAgAAQAJAAoABgAIAAsABgALAAcACwAIAAoABwALAAkACwAKAAkA"),
+"name": "Chest_drawers_01_43",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("rAJmAgAAAACsApj9bOoAAKwCZgJs6gAArAKY/QAAAABS/WYCAAAAAFL9mP0AAAAAUv1mAmzqAABS/Zj9bOoAAP//AAD//wAAAAD/////AAAAAAAA//8AAP///////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rxgi7"]
+resource_name = "Sketchfab_Scene_Bookcase_Bookcase_0"
+_surfaces = [{
+"aabb": AABB(-1.8495225, -0.44571558, -1.0063063, 3.6990452, 0.8914312, 2.0001216),
+"attribute_data": PackedByteArray("xX7GHXKzbnPFfm5zcrPGHWG0qwKkY6Z+pGOrAmG0pn6IUauC+SpewYhRXsH5KquChFmmfscIqwLHCKZ+hFmrAjnfZX+quGsDOd9rA6q4ZX+9CKZ+UAFZAb0IqwJQAfh/YN5ZARS3+H9g3vh/FLdZAbIIvChfASxasgi1WV8BRSjTCN1g+ACuK9MILyz4AF5hxwirAlkB+H/HCKZ+WQFZAQ=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_giomd"),
+"name": "Chest_drawers_01_43",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("rAJmAgAAVNWsApj9bOpU1awCZgJs6lTVrAKY/QAAVNWsApj9AABU1VL9mP1s6lTVrAKY/WzqVNVS/Zj9AABU1VL9mP0AAKoqUv1mAmzqqipS/Zj9bOqqKlL9ZgIAAKoqUv1mAgAAqiqsAmYCbOqqKlL9ZgJs6qoqrAJmAgAAqiqsApj9AAD//1L9ZgIAAP//Uv2Y/QAA//+sAmYCAAD//1L9mP1s6oHWAAD/////gdasApj9bOqB1v///////4HW/////////z8AAAAA////PwAA//////8///8AAP///z9S/WYCbOrQNv///////9A2Uv2Y/Wzq0Db//wAA///QNqwCmP1s6v//AAAAAP////+sAmYCbOr//wAA////////rAJmAmzqfSn//wAA//99KVL9ZgJs6n0pAAAAAP//fSlU1VTVVNVU1VTVVNVU1VTVVNWqKlTVqipU1aoqVNWqKqoqqiqqKqoqqiqqKqoqqipVVVRVVVVUVVVVVFVVVVRV/7//v/+//7//v/+//7//v6HUXSuh1F0rodRdK6HUXSv//////////////////////38AAP9/AAD/fwAA/38AAP7/Pkf//8C4/v/AuP7/PkeiVKJUolSiVKJUolSiVKJU")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_v4sy0")
+
+[node name="Bookcase" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Bookcase_Bookcase_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_rxgi7")
+skeleton = NodePath("")

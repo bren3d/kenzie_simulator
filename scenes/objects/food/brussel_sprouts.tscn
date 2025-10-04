@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://beth0brot6q5a"]
+
+[ext_resource type="Texture2D" uid="uid://mcflcu2dvmpm" path="res://scenes/objects/textures/Foods_05_baseColor.jpeg" id="1_ea7lx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmuvl"]
+resource_name = "Foods_05"
+cull_mode = 2
+albedo_texture = ExtResource("1_ea7lx")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mc64v"]
+_surfaces = [{
+"aabb": AABB(-0.9510565, -0.80901706, -1.0811198, 1.902113, 1.8090171, 2.1622396),
+"format": 34896613377,
+"index_count": 90,
+"index_data": PackedByteArray("AgAIAAEAAQAIAAMACQAIAAIAAwAIAAAAAAAIAAkACgADAAAACwABAAMACgALAAMADAACAAEACwAMAAEADQAJAAIADAANAAIADgAAAAkADgAKAAAADQAOAAkABwALAAoABgAMAAsABwAGAAsABgAEAAwABAANAAwABwAPAAYABgAPAAQAEAAHAAoAEAAKAA4AEAAPAAcABAAFAA0ABQAOAA0ABAAPAAUABQAQAA4ABQAPABAA"),
+"lods": [1.4003649, PackedByteArray("AAABAAIAAwABAAAABAACAAEAAwAEAAEABAAFAAIABgAEAAMABAAGAAUABwADAAAABwAAAAIABwAGAAMABQAHAAIABQAGAAcA")],
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 17,
+"vertex_data": PackedByteArray("Gd9ylsnZAAA4ReUgydkAAOUgcpbJ2QAAxrrlIMnZAAA4ReUgNSYAAOUgcpY1JgAAxrrlIDUmAAAZ33KWNSYAAP9/VXX//wAA/38Z38nZAAD//zae/38AABrPAAD/fwAA5DAAAP9/AAAAADae/38AAP9/////fwAA/39VdQAAAAD/fxnfNSYAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eresd"]
+resource_name = "Sketchfab_Scene_Brussel_sprouts_Foods_05_0"
+_surfaces = [{
+"aabb": AABB(-0.9510565, -0.80901706, -1.0811198, 1.902113, 1.8090171, 2.1622396),
+"attribute_data": PackedByteArray("BaFlFuCtswQFoYYA4K04EgWh7RbgrZ8oBaHNLOCtGxtog34e7JD4NeyQfh5og/g1Hbz/F0KvhgAdvIYAQq//F4uYTgSLmC4aEYFOBBGBLhpCrwEwHbyIGEKviBgdvAEwpKR1CxOZdQukpN0hE5ndIc6MPg8RgT4Pzoz2Hc6MhgCLmD4Paa5FJLa/RSQRgTsqQ5M7Kra/QwxprkMM"),
+"format": 34896613399,
+"index_count": 90,
+"index_data": PackedByteArray("AgAYAAEAAQAYAAMAGQAYAAIAAwAYAAAAAAAYABkABgAaAAUABQAaAAcAGwAaAAYABwAaAAQABAAaABsAHAATAB0AHAAeABMAHwAcAB0AHwAdABIAEAAcAB8AEAAgABwAIAAeABwAIAARAB4AIQAVABYAIQAiABUAFAAiACEAFAAXACIAIwAKAAgAIwAkAAoACwAkACMACwAJACQAJQANAA4AJQAmAA0ADAAmACUADAAPACYA"),
+"lods": [1.4003649, PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADAAPAA0AEAARABIAEQATABIAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_xmuvl"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 39,
+"vertex_data": PackedByteArray("Gd9ylsnZCzk4ReUgydklOeUgcpbJ2b02xrrlIMnZLjflIHKWNSY478a65SA1Jiv7Gd9yljUm7944ReUgNSZ/28a65SDJ2ZwHOEXlIDUmMBI4ReUgydmcB8a65SA1JjASOEXlIDUmXtvlIHKWydnfxDhF5SDJ2V235SByljUma/HlIHKWNSby/xnfcpY1Jnfa5SBylsnZR+gZ33KWydlsrRnfcpY1Ji4ixrrlIMnZKyYZ33KWydmeNMa65SA1JuED/39Vdf///z//fxnfydm7N/9/VXUAAOr//38Z3zUmrOX/f////39U1f9/Gd/J2UPI//82nv9/78AAADae/3879/9/Gd81Jqzl//82nv9/bjEazwAA/3/KERrPAAD/f8oR5DAAAP9/yhHkMAAA/3/TwwAANp7/f9TcWqmTanROOXn0aqCoVnlDTwtQorFwMPPQDrjYSUI888H6kq5fGKw/967fBO2+iBgsBTJArdBs66tsRIWGOE0MrkA7PpdToGQg8P8F1LhNGQBetSZF1YTbU76pw226oidE0n/SfxKgEqD0PwrA2MwmM1TVqirr3xMgFJ4KD932bzvYzCYz37PvWb2R3ki9kd5I3shB7h8yD5mkXdGu")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mc64v")
+
+[node name="Brussel_sprouts" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Brussel_sprouts_Foods_05_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_eresd")
+skeleton = NodePath("")

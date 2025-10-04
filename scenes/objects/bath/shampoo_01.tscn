@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://bq8sgeot672je"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_hgebx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_hgebx")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4clep"]
+_surfaces = [{
+"aabb": AABB(-0.042649228, -0.02858499, -0.06179548, 0.085298456, 0.05716998, 0.2577226),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAgAFAAMABAADAAUABAAFAAYABwAFAAIABwAGAAUABgAIAAQABgAHAAgAAAAEAAgACQAHAAIACQACAAEACgAIAAcACgAHAAkACwAAAAgACwAIAAoAAAALAAEACQAMAAoACwANAAEADgAJAAEACQAOAAwAAQANAA4ACgAMAA8ADwALAAoADwAMAA4ACwAPAA0ADwAOAA0A"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("5dS/PBIr6rxCHX29JxumvODDyrwdoUg+JxumPODDyrwdoUg+9bAuPRw8GbxCHX299bAuPRo8GTxCHX29qEMXPWyvBLwdoUg+qEMXPW2vBDwdoUg+JxumPODDyjwdoUg+5dS/PBIr6jxCHX29JxumvODDyjwdoUg+5dS/vBIr6jxCHX295dS/vBIr6rxCHX299bAuvRw8GTxCHX29qEMXvW2vBLwdoUg+qEMXvWyvBDwdoUg+9bAuvRo8GbxCHX29")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6kwyv"]
+resource_name = "Sketchfab_Scene_Shampoo_01_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-0.042649228, -0.02858499, -0.06179548, 0.085298456, 0.05716998, 0.2577226),
+"attribute_data": PackedByteArray("8S8sP6KsAz6F0DM/v8+bPjm8LD+/z5s+21w0P6KsAz5XTTY/886bPkuxMz/zzps+I2w3P6KsAz7xLyw/oqwDPkDzKT/zzps+eNssP/TOmz5r1Cg/oqwDPmvUKD+irAM+eNssP/LOmz5B8yk/8s6bPkQHKj8/zps+RQcqPz/Omz7bXDQ/oqwDPjm8LD+/z5s+htAzP7/Pmz5VuDc/oqwDPlW4Nz+irAM+TLEzP/LOmz4jbDc/oqwDPldNNj/yzps+iYU3P6KsAz7AUjY/P86bPsBSNj8/zps+iYU3P6KsAz5VwS4/CByIPg95LT+TrIo+D3ktPyMrjT5VwS4/rruPPrvgMT8IHIg+u+AxP667jz4BKTM/k6yKPgEpMz8jK40+"),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAUAAwAGAAQAAwAAAAcACAAJAAcACAAHAAoAAAAKAAcAAAALAAoADAALAAAADAANAAsACgALAA4ACgAOAA8AAwAHABAAEAAHABEAEAARABIAEwADABAAEAAUABMAFQAWABAAFQAXABYAGAAZABoAGAAbABkAHAAdAB4AHgAfABwAHwAgABwAHwAhACAAIQAiACAAIQAjACIA"),
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("5dS/PBIr6rxCHX29JxumvODDyrwdoUg+JxumPODDyrwdoUg+5dS/vBIr6rxCHX29qEMXvW2vBLwdoUg+JxumvODDyrwdoUg+9bAuvRo8GbxCHX295dS/PBIr6jxCHX29qEMXPW2vBDwdoUg+JxumPODDyjwdoUg+9bAuPRo8GTxCHX299bAuPRw8GbxCHX29JxumPODDyrwdoUg+qEMXPWyvBLwdoUg+qEMXPWyvBLwdoUg+qEMXPW2vBDwdoUg+5dS/vBIr6jxCHX29JxumPODDyjwdoUg+JxumvODDyjwdoUg+9bAuvRo8GbxCHX299bAuvRw8GTxCHX29JxumvODDyjwdoUg+9bAuvRw8GTxCHX29qEMXvWyvBDwdoUg+9bAuvRo8GbxCHX29qEMXvWyvBDwdoUg+qEMXvW2vBLwdoUg+9bAuvRw8GTxCHX29JxumvODDyrwdoUg+qEMXvW2vBLwdoUg+qEMXvWyvBDwdoUg+JxumvODDyjwdoUg+JxumPODDyrwdoUg+JxumPODDyjwdoUg+qEMXPWyvBLwdoUg+qEMXPW2vBDwdoUg+1cdZF5YlM60aaYNIdRRg0+SWg0jBJsS1KThZF1knjsqvSAVpqkRx6hppg0hFO3nVRRdUOHVVnOLVx6Xo////v0+3+ZbkVKod5JZ7t/MqXSK56KrH////v7noVDg7RUSV5JaDSPMqXKJPtwVp5FSqnU+3BWl5lHATT7f5lh5ZPQopOKXo////v+SWe7fBJsQ1Gml7t3UUYFNFF1Q4////v0UXqsf///+/Gml7t0U7eVVFF6rHdVWdYq9I+ZaqRHJqRRdUOP///7+vSPmW////P69IBWn///8/RReqx////78aaYNIPdk6Sq9IBWmutpZLr0j5lq62aTQaaXu3PdnENeSWg0iJ654s5JZ7t4nrYFNPtwVp0uhXG0+3+ZbS6Kdk")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4clep")
+
+[node name="Shampoo_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Shampoo_01_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_6kwyv")
+skeleton = NodePath("")

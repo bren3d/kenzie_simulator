@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp064i04gsde1"]
+
+[ext_resource type="Texture2D" uid="uid://cnu024fwd52qc" path="res://scenes/objects/textures/n64_zelda__trees_plus_v1_6.png" id="1_1gady"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hn70r"]
+resource_name = "Material.006"
+transparency = 2
+alpha_scissor_threshold = 0.71771646
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_1gady")
+roughness = 0.82111454
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wqvr6"]
+_surfaces = [{
+"aabb": AABB(-0.98896074, 0, 0, 1.9779215, 0.25550288, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Material.006",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mnb1w"]
+resource_name = "Sketchfab_Scene_grass_01_Material_006_0"
+_surfaces = [{
+"aabb": AABB(-0.98896074, 0, 0, 1.9779215, 0.25550288, 1),
+"attribute_data": PackedByteArray(246, 85, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 246, 85, 255, 255),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_hn70r"),
+"name": "Material.006",
+"primitive": 3,
+"uv_scale": Vector4(2.9779177, 1.9999992, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 48, 74, 255, 255, 255, 255, 255, 255, 48, 74, 255, 255, 0, 0, 0, 0, 48, 74, 0, 0, 255, 255, 255, 255, 48, 74, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wqvr6")
+
+[node name="grass_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="grass_01_Material_006_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_mnb1w")
+skeleton = NodePath("")

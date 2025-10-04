@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://0d2gaix21a4o"]
+
+[ext_resource type="Texture2D" uid="uid://dx86h1p5452yq" path="res://scenes/objects/textures/Metal_01_baseColor.jpeg" id="1_suggd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl1ru"]
+resource_name = "Metal_01"
+cull_mode = 2
+albedo_texture = ExtResource("1_suggd")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oymq3"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 1.4239908),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("FAAVABYAFAAXABUAFwAYABUAFwAZABgAFQAYAAEAGQABABgAFgAVAAEAAwAZABcAGQADAAEAAwAXABQAAwAaAAEAFgABABoAGwADABQAAwAbABoAFgAaABwAGwAcABoAGwAdABwAHQAbABQAHQAeABwAAAAUABYAHQAUAAAAAgAWABwAHAAeAAIAAAAWAAIAHQAfAB4AAAAfAB0AHwACAB4AHwAAAAIABAAFAAYABgAFAAcABAAIAAUABgAHAAkACgAIAAQACQAHAAsACgAMAAgACQALAA0ADgAMAAoADQALAA8ADgAQAAwADQAPABEAEgAQAA4AEQAPABMAEgATABAAEQATABIA"),
+"lods": [1.2429197, PackedByteArray("AAABAAIAAwACAAEAAwAAAAIAAAADAAEABAAFAAYABgAFAAcABAAIAAUABgAHAAkACgAIAAQACQAHAAsACgAMAAgACQALAA0ADgAMAAoADQALAA8ADgAQAAwADQAPABEAEgAQAA4AEQAPABMAEgATABAAEQATABIA")],
+"name": "Metal_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("fSWB2gAAAACB2n0lH4EAAH0lgdofgQAAgdp9JQAAAAD/fxPNK3IAAH5JgLb//wAAfkmAtityAADrMv9///8AAP9/E83//wAA6zL/fytyAACAtoC2K3IAAH5Jfkn//wAAgLaAtv//AAB+SX5JK3IAABPN/38rcgAA/3/rMv//AAATzf9///8AAP9/6zIrcgAAgLZ+SStyAACAtn5J//8AAP9///8AAAAAgdqB2h+BAAD/f///H4EAAIHagdoAAAAA////fx+BAAD///9/AAAAAP9/AAAfgQAA/38AAAAAAAB9JX0lH4EAAH0lfSUAAAAAAAD/fx+BAAAAAP9/AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3fu35"]
+resource_name = "Sketchfab_Scene_Manija_Metal_01_0"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 1.4239908),
+"attribute_data": PackedByteArray("MW8bdDFvL4Uxby+FMW8bdNGQG3TRkC+F0ZAvhdGQG3QBgDWD4XX3leF1NYMBgPeVIYo1gyGK95UBgDWD4XX3leF1NYMBgPeVIYo1gyGK95UBgDWDIYr3lSGKNYMBgPeV4XU1g+F195UBgDWDIYr3lSGKNYMBgPeV4XU1g+F195UBgBt00ZAvhQGAL4XRkBt0AYAvhQGAG3QBgC+FAYAbdDFvL4Uxbxt0AYAvhQGAG3Qxbzl0OmgJhTFv2ZUBgNCcAYBCbdGQOXTRkNmVyJcJhTFv2ZU6aAmFMW85dAGA0JwBgEJt0ZA5dNGQ2ZXIlwmF"),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("IAAhACIAAAAgACIAAAAiAAIAIAAjACEAIwAkACEAIwAlACQAJQABACQAJQADAAEABAAmAAYABAAnACYAJwAoACYAJwApACgAKQAqACgAKQArACoAKwAFACoAKwAHAAUACAAJAAoACAALAAkADAALAAgADAANAAsADgAPABAADgARAA8AEgARAA4AEgATABEAFAAVABYAFAAXABUAGAAXABQAGAAZABcAGgAbABwAGgAdABsAHgAdABoAHgAfAB0ALAAtAC4ALgAvACwALwAwACwALwAxADAALwAyADEAMgAzADEANAA1ADYANgA3ADQANgA4ADcAOAA5ADcAOQA6ADcAOQA7ADoA"),
+"lods": [1.2429197, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAALAAgADAANAAsADgAPABAADgARAA8AEgARAA4AEgATABEAFAAVABYAFAAXABUAGAAXABQAGAAZABcAGgAbABwAGgAdABsAHgAdABoAHgAfAB0A")],
+"material": SubResource("StandardMaterial3D_gl1ru"),
+"name": "Metal_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("fSWB2gAA/MWB2n0lH4ECOn0lgdofgfzFgdp9JQAAAjqB2n0lAAACOn0lgdofgfzFgdp9JR+BAjp9JYHaAAD8xf9/E80rcv+/fkmAtv///MV+SYC2K3L8xf9/E83///+/gLaAtity/MWAtoC2///8xesy/38rclTVfkl+Sf//qul+SX5JK3Kq6esy/3///1TVfkmAtity/MV+SYC2///8xf9/6zIrcv8/gLZ+Sf//AjqAtn5JK3ICOv9/6zL///8/fkl+SStyAjp+SX5J//8COhPN/38rcqoqgLaAtv//VBaAtoC2K3JUFhPN/3///6oqgLZ+SStyAjqAtn5J//8COv9///8AAP+/gdqB2h+BVBb/f///H4H/v4HagdoAAFQW////fx+Bqir///9/AACqKv9/AAAfgf8//38AAAAA/z99JX0lH4Gq6X0lfSUAAKrpAAD/fx+BVNUAAP9/AABU1X0lfSUfgf5/AAD/fx+B/n99JYHaH4H+f/9///8fgf5//38AAB+B/n+B2n0lH4H+f4Hagdofgf5/////fx+B/n99JYHaAAD//wAA/38AAP//fSV9JQAA////f///AAD///9/AAAAAP//gdp9JQAA//+B2oHaAAD//////38AAP///+L9uf8cAUb/4v25/xwBRv8cAUb/4v25/xwBRv/i/bn///9//+L9uf/i/bn///9/AMYAYwDGAGNU1VTV+soI6vrKCOpU1VTV/+L9uf/i/bkAAP9//xwBRv8cAUYAAP9//jn+nP45/pyqKqoqBDX2FQQ19hWqKqoq/xwBRv8cAUb///9/BDX2Ff///38ENfYVqiqqKqoqqioAAP9/AAD/f/rKCOr6ygjqVNVU1VTVVNX/f////3////9/////f////3////9/////f////3////7//3/+//9/////f/7//3////9/////f/7//3/+//9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_oymq3")
+
+[node name="ShowerKnob" type="Node3D"]
+transform = Transform3D(0.92718387, 0.37460655, 1.2859748e-09, -0.37460655, 0.92718387, -4.0528494e-08, -1.6374575e-08, 3.709563e-08, 1, 0, 0, 0)
+
+[node name="Manija_Metal_01_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_3fu35")
+skeleton = NodePath("")

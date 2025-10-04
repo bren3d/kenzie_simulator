@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://b0fww0k7t66jb"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_o028s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_o028s")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w8urk"]
+_surfaces = [{
+"aabb": AABB(-1.4323382, -0.8216219, -0.8294366, 2.8645775, 1.8342237, 11.454709),
+"format": 34896613377,
+"index_count": 126,
+"index_data": PackedByteArray("CgAJAAQACwAEAAkADAAEAAsADAAKAAQADQALAAkADgAMAAsADQAOAAsADgAIAAwABwAKAAwACAAHAAwABwABAAoADwAKAAEADwABAAcACQAKAA8ACAAQAAcAEAAPAAcABgAJAA8AEAAGAA8ABgANAAkAEQAQAAgAEgAGABAAEQASABAAEgATAAYAEwANAAYAEQACABIAEgAAABMAEgACAAAAEQAUAAIAAAACABQAFQARAAgAFQAUABEAFQAIAA4AFgAOAA0AFgAVAA4AEwAWAA0AFQADABQAFgADABUABQAAABQAEwAAAAUAFAADAAUAEwAFABYAFgAFAAMA"),
+"lods": [2.607512, PackedByteArray("BgABAAcABwABAAQABgAEAAEABwAEAAgACAACAAcAAgAGAAcACAAEAAMACAADAAIACQAEAAYAAwAEAAkABgAFAAkABQADAAkAAgAAAAYABgAAAAUAAAACAAMABQAAAAMA"), 6.8158956, PackedByteArray("AAABAAIAAAACAAMAAgABAAQAAAAEAAEAAgAEAAMABQAEAAAAAwAEAAUABQAAAAMA")],
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 23,
+"vertex_data": PackedByteArray("k5zrOwAAAAD//2dv//8AADyuEZAAAAAAwlERkAAAAAAAAGdv//8AAGtj6zsAAAAAgKTCAVohAACJ5miSNnAAAP9///+QIQAAoEADMjZwAAD/f/93//8AAHYZaJI2cAAA/3/7zTZwAABFSgAAkCEAABApNp6QIQAAXr8DMjZwAADv1jaekCEAAP9/e9LhGQAABrh4k+EZAACfooMt4RkAAP9/E8QAAAAA+Ud4k+EZAABfXYMt4RkAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cv2ad"]
+resource_name = "Sketchfab_Scene_toothpaste_02_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-1.4323382, -0.8216219, -0.8294366, 2.8645775, 1.8342237, 11.454709),
+"attribute_data": PackedByteArray("BHotqd54NoYjeC2pI3gtqd54NoYEei2pfnktqfR8NoaAdy2pCnQ2huN2LakKdDaG9Hw2hht6Lal+eT2pgHc9qRt6XKfjdlynUHuIpBZ4jJk8eoyZtHqMmTp3iKTtdIyZf3iApH94NoZKdoyZXnqApEp3kqW0eZKlPHqMmdN3gKQQeJKlVnqSpRZ4jJlae4Ck03eApFZ6kqUQeJKlf3iSpXh1gKSMdpKlf3gtqXN6kqWGe4Ckf3iMmRF8jJl/eDaGf3gzpg=="),
+"format": 34896613399,
+"index_count": 126,
+"index_data": PackedByteArray("GQAVAAcAFQAZABoAGgAZAAkAFgAVABoAFgAbABUAHAAbABYAHAAdABsAHAAGAB0AHAAIAAYAHgABABMAHwAeABMAHwASAB4AIAASAB8AIAAhABIAIAAAACEAIAACAAAAIgAEABQAIwAiABQAIwAkACIAJQAkACMAJQAmACQAJQADACYAJQAFAAMAJwAoABgAJwApACgAJwAKACkAJwAqAAoAKwAqACcAKwANACoAKwAnABgAGAAoABcAKwAYACwALAAYAC0AGAAXAC0ALAAtAC4ALQAMAC4ALQAvAAwAFwAvAC0AFwALAC8AMAAQAA4ADgAPADAADwARADAA"),
+"lods": [2.607512, PackedByteArray("EgABABMAAgASABMAAgAAABIAAwAEABQABQADABQAFQAHABYAFgAHAAkAFgAGABUAFgAIAAYAFwAMABgAFwALAAwAGAAMAA0AGAAKABcAGAANAAoADgAPABAADwARABAA"), 6.8158956, PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACAAHAAkACgALAAwACgAMAA0ADgAPABAADwARABAA")],
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 49,
+"vertex_data": PackedByteArray("k5zrOwAAdQP//2dv//+0AzyuEZAAAAQhwlERkAAACPIAAGdv//+EvWtj6zsAAD3ca2PrOwAAwhEAAGdv//+3AJOc6zsAAMIR//9nb///twA8rhGQAABy5f//Z2///7b6AABnb///pPrCURGQAABy5Wtj6zsAADzuk5zrOwAAPO7CURGQAADb3jyuEZAAANvegKTCAVoh1gWJ5miSNnBoHKBAAzI2cNHBoEADMjZw5w6ApMIBWiFYD4nmaJI2cCH2/3///5Ah3P//f/93//8AAF6/AzI2cKIORUoAAJAhJBKfooMt4RlSFV9dgy3hGVUTXr8DMjZwWQ/v1jaekCGoKwa4eJPhGZonn6KDLeEZbgh2GWiSNnD33UVKAACQIXnOECk2npAh4elfXYMt4Rnw1vlHeJPhGW3u/3970uEZ///v1jaekCHz3Qa4eJPhGWTg/38TxAAA///5R3iT4RlY4hApNp6QIY7f/3/7zTZw//92GWiSNnCo3v9//3f///b//38TxAAA//8ro+RD830GQyS1PkRATAWupAsYfO0xrq0Vq6b3k8L3/liIFSsGgZRC00dTHys70gU+ejS7rGDSxxWrpvdYiBUrv3f65PpkPwjTljpE4pwxTXEtupW/yHbwNou5Opk5nwl9tjQA/39ZQiKPTEinunzzdoziNFuxc/WEjs1HJ7M2TPiz2kiLnuNFwl/ar+ot9aPbVEGufDGJqttQB67/f9LPDjv1IW1A6yD/f6nWD2DPwYRfqrz/fy++Sl8wrwjCCAD/f6nW")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w8urk")
+
+[node name="toothpaste_02" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.371139e-08, 0, 4.371139e-08, 1, 0, 0, 0)
+
+[node name="toothpaste_02_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_cv2ad")
+skeleton = NodePath("")

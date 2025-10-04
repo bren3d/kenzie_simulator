@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=4 uid="uid://bddktvw4t1dcc"]
+
+[ext_resource type="Texture2D" uid="uid://dmyio8ynplyax" path="res://scenes/objects/textures/Wood_02_baseColor.jpeg" id="1_q4obb"]
+[ext_resource type="Texture2D" uid="uid://d1ajuggbvbch" path="res://scenes/objects/textures/Paintings_baseColor.jpeg" id="2_twd2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8v3ap"]
+resource_name = "Wood_02"
+cull_mode = 2
+albedo_texture = ExtResource("1_q4obb")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yv41v"]
+_surfaces = [{
+"aabb": AABB(-1.3475534, -0.036977783, -1, 2.9407744, 0.1142091, 2),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQAAAAMAAAAFAAEABgADAAQABQADAAYABwAEAAIABwACAAEABgAEAAcABQAIAAEABgAJAAUABQAJAAgABwAKAAYABgAKAAkAAQALAAcAAQAIAAsABwALAAoACQAMAAgACAAMAA0ACAANAAsACQAOAAwACgAOAAkACwANAA8ACgAPAA4ACwAPAAoA"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP7///8AAAAAAAD//wAA//8AAAAAAAD//wAA//8AAAAA/v8AAAAA///+/wAAAAD///7///8AAJwF///M+QAAnAX//zIGAABi+v//MgYAAGL6///M+QAAPQwZh/LwAADB8xmH8vAAAD0MGYcMDwAAwfMZhwwPAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7cuea"]
+resource_name = "Sketchfab_Scene_Paintings_06_Wood_02_0"
+_surfaces = [{
+"aabb": AABB(-1.3475534, -0.036977783, -1, 2.9407744, 0.1142091, 2),
+"attribute_data": PackedByteArray("sbkEgZu+eOyxuXjsm74EgSKRAGI3k4j8IpH+/zeTd2WbvgSBsbl47Ju+eOyxuQSB//8EgYCBeOz//3jsgIEEgZu+/v+xuQBim74AYrG5/v+bvgBisbn//5u+/v+xuQBisfne6Wv2VYex+Z6Da/Yn5inn/v8U5XdlKecAYhTliPyAgQSBRoTe6YCBeOxGhJ6D/v947Dn9noP+/wSBOf3e6TeTd2UxlnD4N5OI/DGWjmkU5Yj8G+KOaRTld2Ub4nD4u4SegwKIJ+a7hN7pAohVhw=="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEA"),
+"material": SubResource("StandardMaterial3D_8v3ap"),
+"name": "Wood_02",
+"primitive": 3,
+"uv_scale": Vector4(2.1279263, 2.338026, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAAP7///9U1QAAAAD//1TVAAD+/wAAVNX///7/AABU1ZwF//8yBlTVAAD+/wAAVNVi+v//MgZU1f///v8AAKoq//8AAP//qir///7///+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP7/AAD/////AAAAAP/////+/wAA//8AAAAAAAD//////v////8/AAAAAP///z8AAP7/////P///AAD///8/Yvr//8z5v8PB8xmHDA+/w2L6//8yBr/DwfMZh/Lwv8MAAP7///9U1WL6///M+VTV///+////VNWcBf//zPlU1QAA/v8AAP+/nAX//8z5/78AAP7/////v5wF//8yBv+////+/////79i+v//Mgb/v////v8AAP+/Yvr//8z5/79i+v//Mgbjxz0MGYcMD+PHnAX//zIG48fB8xmHDA/jx5wF///M+UrmwfMZh/LwSuZi+v//zPlK5j0MGYfy8ErmnAX//zIGv8M9DBmH8vC/w5wF///M+b/DPQwZhwwPv8NU1VTVVNVU1VTVVNVU1VTVqaqqqqqqqqqqqqqqqaqqqqoqqiqqKqoqqiqqKqoqqioAAP9/AAD/fwAA/38AAP9//7//v/+//7//v/+//7//v/////////////////////8b58axG+fGsRvnxrEb58axqqqpqqmqqaqpqqmqqqqpqv///3/+//9//v//f////3/+//9//v//f////3/+//9/np+en56fnp+en56fnp+en3CzcLNws3CzcLNws3CzcLM3zhtnN84bZzfOG2c3zhtn")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yv41v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asa0c"]
+resource_name = "Paintings"
+cull_mode = 2
+albedo_texture = ExtResource("2_twd2h")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qig3w"]
+_surfaces = [{
+"aabb": AABB(-1.2069235, 0.023294194, -0.88243747, 2.6595147, 1e-05, 1.7648749),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Paintings",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAAAAAAD//wAA//8AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iq3ln"]
+resource_name = "Sketchfab_Scene_Paintings_06_Paintings_0"
+_surfaces = [{
+"aabb": AABB(-1.2069235, 0.023294194, -0.88243747, 2.6595147, 1e-05, 1.7648749),
+"attribute_data": PackedByteArray("GFaDDeCo7VkYVu1Z4KiDDQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_asa0c"),
+"name": "Paintings",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/7///wAA////vwAAAAD///+///8AAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qig3w")
+
+[node name="Paintings_06" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Paintings_06_Wood_02_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_7cuea")
+skeleton = NodePath("")
+
+[node name="Paintings_06_Paintings_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_iq3ln")
+skeleton = NodePath("")

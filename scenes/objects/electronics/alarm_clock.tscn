@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://8tjyhm8ftgsv"]
+
+[ext_resource type="Texture2D" uid="uid://djtvxlhdhhjac" path="res://scenes/objects/textures/Chest_drawers_01_30_baseColor.png" id="1_funxo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tchr5"]
+resource_name = "Chest_drawers_01_30"
+cull_mode = 2
+albedo_texture = ExtResource("1_funxo")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e2np5"]
+_surfaces = [{
+"aabb": AABB(-0.52571857, -0.2882082, -0.24373804, 1.0514371, 0.53928816, 0.5062157),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Chest_drawers_01_30",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAA1SX//wAAAAD//wAAAAD///////8AAP//AAAAAAAA///VJf//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_axijq"]
+resource_name = "Sketchfab_Scene_Alarm_clock_Alarm_clock_0"
+_surfaces = [{
+"aabb": AABB(-0.52571857, -0.2882082, -0.24373804, 1.0514371, 0.53928816, 0.5062157),
+"attribute_data": PackedByteArray("KYTlhE9F2sdPRcqOKYTax09FU4MphMgAKYRTg09FyACiP9rHyADKjsgA2seiP+WEu4XIAJTEU4OUxMgAu4VTg71DU4PIAMgAvUPIAMgAU4M2/8gAJsZTgzb/U4MmxsgA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_tchr5"),
+"name": "Chest_drawers_01_30",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA//8AAP///////wAA1SX/////AAD//wAA//8AAP//AABU1f///////1TVAAD/////VNX/////AABU1f////8AAP8////VJf///z//////////P///AAAAAP8///8AAAAAPS4AANUl//89Lv//1SX//z0uAAAAAAAAPS4AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////////8/AADVJf///z8AAP//////P///1SX///8//z//f/8//3//P/9//z//f6qqqqqqqqqqqqqqqqqqqqr/fwAA/38AAP9/AAD/fwAAYSid12EonddhKJ3XYSid1/+//7//v/+//7//v/+//7//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_e2np5")
+
+[node name="Alarm_clock" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Alarm_clock_Alarm_clock_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_axijq")
+skeleton = NodePath("")

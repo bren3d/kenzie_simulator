@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://dqjnta42i0mp6"]
+
+[ext_resource type="Texture2D" uid="uid://212soo78s7y3" path="res://scenes/objects/textures/Chest_drawers_01_70_baseColor.png" id="1_3k1al"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p471i"]
+resource_name = "Chest_drawers_01_70"
+cull_mode = 2
+albedo_texture = ExtResource("1_3k1al")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rtvqk"]
+_surfaces = [{
+"aabb": AABB(-0.1477873, -0.13944925, -0.049013067, 0.35546267, 0.2788985, 0.13176823),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("CgAFAAMAAwAFAAIACgALAAUACwACAAUACQAKAAMABwADAAIACQADAAcAAgAMAAcADQAKAAkADgAMAAIACwAOAAIABwAMAAQABwAEAAkADgAEAAwACQAIAA0ACQAEAAgADQABAAoAAQALAAoAAQANAAgABgAOAAsAAQAGAAsAAAAEAA4AAAAIAAQABgAAAA4ACAAAAAEAAAAGAAEA"),
+"lods": [0.06511897, PackedByteArray("AQAFAAMAAQAGAAUAAwAFAAIABgACAAUABwADAAIAAAAGAAEABgAAAAIACAAAAAEACQABAAMACQAIAAEACQADAAcAAAAIAAQACQAEAAgAAAAEAAIABwAEAAkABwACAAQA"), 0.21844059, PackedByteArray("BAAAAAEAAQADAAQAAAAEAAIAAQAAAAIAAwACAAQAAQACAAUAAwAFAAIAAQAFAAMA"), 0.32699978, PackedByteArray("AAABAAIAAQAAAAIAAQACAAMAAwACAAEA")],
+"name": "Chest_drawers_01_70",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("ByoAAAAAAAAHKv//AAAAAAcqAAD//wAAByr+////AAAAAKNM/38AAP7//39+swAA////fwAAAADmDVuz//8AAOYNo0wAAAAAAABbs/9/AAAhHP7//38AAP///3+/WQAA5g2jTP//AADmDVuzAAAAACEcAAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k4td4"]
+resource_name = "Sketchfab_Scene_Cake_02_Cake_02_0"
+_surfaces = [{
+"aabb": AABB(-0.1477873, -0.13944925, -0.049013067, 0.35546267, 0.2788985, 0.13176823),
+"attribute_data": PackedByteArray("1jTng9Y0hPKTAOeDkwCE8mv/Owhr/zsIKMs7CCjLOwi1GgSlxtoRfgDKv4IAypMA3mW/U2v/EX61GmfRkwBn0dY0BKVxpbOC+BfXb5MAv1O2ZL+CtmSTAEnlkwAY7RF+SeWTALUahPLWNGfRkwAEpbUa54NDfddvJ0Czgg=="),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("FgAJAAcAFgAXAAkAFwAGAAkABAAXABYAFwAYAAYABAANABcADQAYABcADQAFABgADgADAA8ADgAZAAMAGgAZAA4AGgABABkADgAQABoADwAIAA4ADgAIABAAAAAQAAgADwAbAAgAAAAIABwAHAAIABsAHAAbAAIADAAdABEAEQAKAAwACgALAAwAFAAeABIAEgATABQAEwAVABQA"),
+"lods": [0.06511897, PackedByteArray("BAAJAAcABAANAAkADQAGAAkADQAFAAYADgADAA8ADgABAAMADgAQAAEADwAIAA4ADgAIABAADwACAAgAAAAQAAgAAAAIAAIAEQAKAAwACgALAAwAEgATABQAEwAVABQA"), 0.21844059, PackedByteArray("CAAAAAEAAAAIAAIAAQADAAgAAwACAAgABAAGAAkABAAFAAYABAAJAAcACgALAAwA"), 0.32699978, PackedByteArray("AAABAAIAAwACAAEABAAFAAYABAAGAAcA")],
+"material": SubResource("StandardMaterial3D_p471i"),
+"name": "Chest_drawers_01_70",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 31,
+"vertex_data": PackedByteArray("ByoAAAAA8+QHKv//AADz5AcqAAD//+HZByr+////4dkHKv//AADn6AcqAAAAACYXByoAAP//KTEHKv7////0zgAAo0z/f+35/v//f36zbVAHKv7///+CTP7//39+s0E6ByoAAP//W0v///9/AADv0gAAW7P/f+355g1bs///ofnmDaNMAAC3++YNW7P///5J5g2jTAAA5fQHKgAAAADa5Acq//8AAA/c////fwAAguQhHP7//3/34P///3+/Wa6/IRwAAP9/2R4hHP7//3/74OYNW7MAALf75g2jTP//ofkhHAAA/3/74OYNo0z//2lH5g1bswAAIeuXPRdbFttnQn5mC2IK4oEZKdQvOa9GQlRUYNBkx+SYHzZDkXn/fwAAne+2N/Yq0yEwIWvW/38AAJD5yDyr+hofRCdCeaPjg+CX1HfEVD1JWxvQV6bEKrM0xOHtMJN9NAE8T6RhwOHpMEH5u1jkYKx6Fk/BYRvYg/CF1DC/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rtvqk")
+
+[node name="Cake_02" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Cake_02_Cake_02_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_k4td4")
+skeleton = NodePath("")

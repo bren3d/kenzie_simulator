@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://etv1wgqpvlqy"]
+
+[ext_resource type="Texture2D" uid="uid://mcflcu2dvmpm" path="res://scenes/objects/textures/Foods_05_baseColor.jpeg" id="1_6iq6i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmuvl"]
+resource_name = "Foods_05"
+cull_mode = 2
+albedo_texture = ExtResource("1_6iq6i")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vfchc"]
+_surfaces = [{
+"aabb": AABB(-0.21074481, -0.091575496, -0.18212228, 0.42342377, 0.25703126, 0.34962144),
+"format": 34896613377,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAwAAAAUAAAAEAAUABAACAAYAAgABAAcAAgAHAAYAAQADAAgAAQAIAAcACQAIAAMABQAJAAMACAAKAAcACAAJAAoABwALAAYABwAKAAsABAAGAAwABQAEAAwABgALAA0ABgANAAwABQAMAA4ADAAPAA4ABQAOAA8ADAANAA8ABQAPAAkADQALABAADwANABEADQAQABEADwASAAkADwARABIAEgATAAkACgAJABMAEgARABQAEQAQABQAEgAUABMACwAVABAACwAKABUAEAAVABQACgATABUAFQATABQA"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("GoALHgAAAABOsFZthz8AACiB8rYjOQAA3867FJsrAAAhPPtvWjIAAKYnTyW2OAAAIpH//0e0AACWz2StPZMAAP//AAAJswAAsee9GU+dAABjwJ+UfoMAAM+K1sVxhQAAhiRctKKdAAB+NUiaqJ4AAAAANxl1iQAAFRjoGAmJAAC8eZ+UD9kAAMZHiHIP2QAALjFVE0fYAABjwCYND9kAAB95lQ7//wAAsauIcg/ZAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_atofj"]
+resource_name = "Sketchfab_Scene_Cauliflower_01_Foods_05_0"
+_surfaces = [{
+"aabb": AABB(-0.21074481, -0.091575496, -0.18212228, 0.42342377, 0.25703126, 0.34962144),
+"attribute_data": PackedByteArray("9KSUS/6iLlPMmxxRGaohUwqcvUddnxRDqpGxfQeWHHqllNx5e7TrYuO4g17vsGNaergNV9CwSFpAruti1LBsWkKp1F3ZsENafYaJcxaFwHH4hZN6K6r6bRWxnmNntS1q2KmFaOGq7XVnteB2HZpgabCNkWXgkw1wGZrqYp2FLUEQkvVD+pKrQWKIIUOkl01IGpsMRqmYi1Iam6JT+p0VXCap4FNQpTVeQJ7AViqbYlPVkehYz5J8W7mYS1LFv41KtLcZTuC3WEjFv7pQq72nQA24l0Lxo4Z6gptZccybJHh8oe5xeq+YSQK3b0Pntg9Kc7GnQKuFs1HWipdW95JNVT2GvknclZxQqJXXSoSK/0bxkF5G"),
+"format": 34896613399,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAAAEAAUABgAHAAgACQAKAAsACgAMAA0ADgAJAA8AEAAOABEAEgATABQAFQAWABcAFQAYABYAGQAVABcAGQAXABoAGwAcAB0AGwAeABwAHwAgACEAHwAiACAAIQAgACMAIQAjACQAJAAjACUAJAAlACYAJwAoACkAJwAqACgAKwAsAC0AKwAuACwALwAwADEALwAyADAAMwAvADEAMwAxADQANQA2ADcANQA4ADYAOQA6ADsAOQA8ADoAPQA+AD8APwBAAD0APwBBAEAAQQBCAEAAQgBDAEAAQgBEAEMA"),
+"material": SubResource("StandardMaterial3D_xmuvl"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 69,
+"vertex_data": PackedByteArray("GoALHgAAg+9OsFZthz8r3SiB8rYjOXHg3867FJsrKt0hPPtvWjIO+aYnTyW2ONj6pidPJbY40wUAADcZdYlSBRUY6BgJiagFvHmflA/ZQV2xq4hyD9lWWx95lQ7//5xqY8AmDQ/Z8lsfeZUO//+RacZHiHIP2ZdZH3mVDv//SW0uMVUTR9jOWR95lQ7//6dvsee9GU+dRR7//wAACbMpJd/OuxSbK+oJKIHytiM56OuWz2StPZN7/SKR//9HtBXnTrBWbYc/iv8hPPtvWjIb4IYkXLSinRDVTrBWbYc/xxz//wAACbMCKZbPZK09kzUi3867FJsrkx///wAACbOHIGPAn5R+g/gsls9krT2TbS6x570ZT50tF8+K1sVxhawxIpH//0e0/DB+NUiaqJ7hMYYkXLSinS8upidPJbY4J9yGJFy0op3u2AAANxl1ifDSITz7b1oyxuGGJFy0op2ALhUY6BgJiQ4zAAA3GXWJbDB+NUiaqJ6lMM+K1sVxhWzJsauIcg/Z9Li8eZ+UD9mlxmPAn5R+g/C+fjVImqie7dPGR4hyD9lV1GPAn5R+g0RQY8AmDQ/ZVF6xq4hyD9n+WbHnvRlPncxTFRjoGAmJ9ZPGR4hyD9kupS4xVRNH2IKjfjVImqieD4zfzrsUmytkCxqACx4AAMoJpidPJbY45wmx570ZT51/GBUY6BgJicUJLjFVE0fY8AljwCYND9n5CR95lQ7//8YJYdKoS+nGVFNy129IQMI1UarcWz68Q7CiLD+4+qtAO/qtP436DfHsVUTHGiYk9dQpR7bgEvr0DCit3s3HqPVWL2XCsdxE9uo1Bs+n9nXYJO0UPrb5MbCOteWyuKatrYCyESw+Mw+mRs8pqE7GYaBCBO9hWALipbYEH5ylAefaKOvO3sr2sN0x+MXSRPJwHHHs1hsw7Dj52+4pEJfwi5Od43uawMsAkxvfKJsC1SIQf/DX7zLpiwzo/Yj54u6t1h8fyM2/Cj/hRByMxXAPqPr77hn4GihQxPopdbFyGxDIwiIesL8gnoPS+t2jKLmjlOrYDpLA1lg9J/jlPKX2+jxe9hrSC/NlPRb20jx+9s08dfboPKr2")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vfchc")
+
+[node name="Cauliflower_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Cauliflower_01_Foods_05_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_atofj")
+skeleton = NodePath("")

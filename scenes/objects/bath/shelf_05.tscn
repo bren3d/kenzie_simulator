@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=4 uid="uid://bxx2jd1fl5uee"]
+
+[ext_resource type="Texture2D" uid="uid://dx86h1p5452yq" path="res://scenes/objects/textures/Metal_01_baseColor.jpeg" id="1_q2hv5"]
+[ext_resource type="Texture2D" uid="uid://bu2h6v3d8hxd7" path="res://scenes/objects/textures/Wire_baseColor.png" id="2_f48tx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl1ru"]
+resource_name = "Metal_01"
+cull_mode = 2
+albedo_texture = ExtResource("1_q2hv5")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ruqmm"]
+_surfaces = [{
+"aabb": AABB(-0.13103843, -0.0029069595, -0.03787689, 0.26207685, 0.076782644, 0.063800335),
+"format": 34896613377,
+"index_count": 66,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYACAAJAAoACwAKAAkACwAMAAoACAANAAkADQALAAkADQAIAA4ADwAMAAsADQAPAAsADwAOAAwADQAOAA8A"),
+"name": "Metal_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAGIT//8AAAAAAAD//wAAAABiEwAAAAD//2IT//8AAP//AAAAAAAA//8AAP//AAD//2ITAAAAAAwFKQ7wIQAADAX//xU5AAAMBSkOFTkAAPL6//8VOQAA8vopDhU5AAAMBf//8CEAAPL6KQ7wIQAA8vr///AhAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3mwfu"]
+resource_name = "Sketchfab_Scene_Shelf_05_Metal_01_0"
+_surfaces = [{
+"aabb": AABB(-0.13103843, -0.0029069595, -0.03787689, 0.26207685, 0.076782644, 0.063800335),
+"attribute_data": PackedByteArray("4pM4fXqWsZnik7GZepY4fYZFOH14urGZhkWxmXi6OH16ljh94pOxmXqWsZnikzh9eLo4fYZFsZl4urGZhkU4fYZF4pp4ukqYeLrimoZFSph4uuKahkVKmIZF4pp4ukqYW2jbgA2KiYNbaImDDYrbgIZF24B4uomDhkWJg3i624ANituAW2iJgw2KiYNbaNuAhkV1jni6w2x4unWOhkXDbHi6dY6GRcNshkV1jni6w2w="),
+"format": 34896613399,
+"index_count": 66,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkA"),
+"material": SubResource("StandardMaterial3D_gl1ru"),
+"name": "Metal_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAAGIT//9U1QAAAAD//1TVAABiEwAAVNUAAGITAAD/v///YhP///+/AABiE////7///2ITAAD/v///YhMAAKoq//8AAP//qir//2IT//+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAGITAAD/////AAAAAP////9iEwAA//8AAAAAAAD/////YhP///5/AAAAAP///n8AAGIT///+f///AAD///5/DAUpDvAhVNUMBf//FTlU1QwFKQ4VOVTVDAX///AhVNUMBf//8CH/v/L6//8VOf+/DAX//xU5/7/y+v//8CH/v/L6///wIaoq8vopDhU5qiry+v//FTmqKvL6KQ7wIaoqDAX///Ah///y+ikO8CH///L6///wIf//DAUpDvAh///y+v//FTn+fwwFKQ4VOf5/DAX//xU5/n/y+ikOFTn+f1TVVNVU1VTVVNVU1VTVVNX///9/////f/7//3////9/qiqqKqoqqiqqKqoqqiqqKgAA/38AAP9/AAD/fwAA/3////9/////f////3////9//3////9/////f////3///1TVVNVU1VTVVNVU1VTVVNX///9/////f////3////9/qiqqKqoqqiqqKqoqqiqqKv///3////9/////f////3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ruqmm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwqj0"]
+resource_name = "Wire"
+cull_mode = 2
+albedo_texture = ExtResource("2_f48tx")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oq8j4"]
+_surfaces = [{
+"aabb": AABB(-0.12267554, 0.0025683679, -0.025414474, 0.24535108, 0.06844218, 0.046104968),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("BgADAAAABgAAAAMABgAEAAMABgADAAQAAAABAAMAAAADAAEAAAABAAIAAAACAAEAAgABAAcAAgAHAAEAAgAHAAUAAgAFAAcA"),
+"lods": [0.020708755, PackedByteArray("BAADAAAABAAAAAMAAAABAAMAAAADAAEAAAABAAIAAAACAAEAAgABAAUAAgAFAAEA"), 0.0319365, PackedByteArray("AAABAAIAAAACAAEAAAABAAMAAAADAAEA")],
+"name": "Wire",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAA////////AAD//wAA//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oi0yr"]
+resource_name = "Sketchfab_Scene_Shelf_05_Wire_0"
+_surfaces = [{
+"aabb": AABB(-0.12267554, 0.0025683679, -0.025414474, 0.24535108, 0.06844218, 0.046104968),
+"attribute_data": PackedByteArray("//+FkPo+///6PoWQ////////hZD6Pv////////o+hZBqeP//Qq7//0KuhZBCroWQQq7//2p4hZBqeP//Qq6FkEKu//9CroWQaniFkEKu//9qeIWQanj//2p4hZBqeP//"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("FAAJAAoAFAAIAAkACwAVAA0ACwAMABUAAAABAAIAAAADAAEAFgAQAA4AFgAPABAAEQAXABMAEQASABcABAAFAAYABAAHAAUA"),
+"lods": [0.020708755, PackedByteArray("CAAJAAoACwAMAA0AAAABAAIAAAADAAEADgAPABAAEQASABMABAAFAAYABAAHAAUA"), 0.0319365, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA")],
+"material": SubResource("StandardMaterial3D_gwqj0"),
+"name": "Wire",
+"primitive": 3,
+"uv_scale": Vector4(4.0647287, 1.3707358, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/78AAP//////vwAA//8AAP+//////////7//////AAD/PwAA//////8//////////z8AAP//AAD/P///AAD//6oq////////qir/////AACqKgAA//8AAFTVAAD/////VNUAAAAAAABU1f//AAD//1TV/////wAAVNX///////9U1QAA//8AAKoqAAAAAAAAqioAAP////+qKv//AAAAAKoqAAAAAP//VNX//wAAAABU1QAAAAD//6oq////f////3////9/////fwAA/38AAP9/AAD/fwAA/3+qKqoqqiqqKqoqqipU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNWqKqoqqiqqKqoqqiqqKqoqVNVU1VTVVNWqKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_oq8j4")
+
+[node name="Shelf_05" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Shelf_05_Metal_01_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_3mwfu")
+skeleton = NodePath("")
+
+[node name="Shelf_05_Wire_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_oi0yr")
+skeleton = NodePath("")

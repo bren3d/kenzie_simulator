@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://bxl7uq2fdhlms"]
+
+[ext_resource type="Texture2D" uid="uid://8eub1jrfceom" path="res://scenes/objects/textures/n64_zelda__trees_plus_v1_3.png" id="1_0ekh2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dbkg"]
+resource_name = "rock_mat"
+cull_mode = 2
+albedo_texture = ExtResource("1_0ekh2")
+roughness = 0.82111454
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8svo4"]
+_surfaces = [{
+"aabb": AABB(-1.1644654, -0.8758333, -0.060091496, 2.1331978, 2.1246073, 0.6902405),
+"format": 34896613377,
+"index_count": 69,
+"index_data": PackedByteArray("BwAAAAsACwAAAAEABwAEAAAADAAHAAsADQAEAAcADQADAAQACAAHAAwACAANAAcADAALAAYACAAMAAYACwABAAkABgALAAkACQABAAIACgACAAMACQACAAoACgADAA0ABgAJAA4ADgAJAAoABgAFAAgABgAOAAUABQANAAgADgAKAAUABQAKAA0A"),
+"lods": [0.19847083, PackedByteArray("BwAEAAAAAwAEAAcACAADAAcABgAHAAAACAAHAAYABgAAAAkAAAABAAkABgAFAAgABQADAAgABgAJAAUABQAKAAMABQAJAAoACgACAAMACQABAAIACQACAAoA"), 0.34435007, PackedByteArray("BQABAAIABQACAAMABQADAAQABgABAAUABQAEAAYABgAAAAEABgAEAAAA"), 1.7936056, PackedByteArray("AAABAAIAAAACAAMAAAADAAQA")],
+"name": "rock_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("NU///wAAAACB0GjPAAAAAP//YioAAAAAM0QAAAAAAAAAAB92AAAAAGyniFT//wAAuWx2pf//AAARDHV2/38AAD9l/TH//wAAxcijxP9/AAC58BEu/38AAI1R2u//fwAA/FXvfv//AADMSZMO/38AAE2g+Yn//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sjfv4"]
+resource_name = "Sketchfab_Scene_rock_002_rock_mat_0"
+_surfaces = [{
+"aabb": AABB(-1.1644654, -0.8758333, -0.060091496, 2.1331978, 2.1246073, 0.6902405),
+"attribute_data": PackedByteArray("AAD///9///////////8AAAAAAAAzyqPIITSYuAggjyi2wO5A9oPj6BnlUeQQGkvcEEAfUVrgdyDsh8fR"),
+"format": 34896613399,
+"index_count": 69,
+"index_data": PackedByteArray("BwAAAAsACwAAAAEABwAEAAAADAAHAAsADQAEAAcADQADAAQACAAHAAwACAANAAcADAALAAYACAAMAAYACwABAAkABgALAAkACQABAAIACgACAAMACQACAAoACgADAA0ABgAJAA4ADgAJAAoABgAFAAgABgAOAAUABQANAAgADgAKAAUABQAKAA0A"),
+"lods": [0.19847083, PackedByteArray("BwAEAAAAAwAEAAcACAADAAcABgAHAAAACAAHAAYABgAAAAkAAAABAAkABgAFAAgABQADAAgABgAJAAUABQAKAAMABQAJAAoACgACAAMACQABAAIACQACAAoA"), 0.34435007, PackedByteArray("BQABAAIABQACAAMABQADAAQABgABAAUABQAEAAYABgAAAAEABgAEAAAA"), 1.7936056, PackedByteArray("AAABAAIAAAACAAMAAAADAAQA")],
+"material": SubResource("StandardMaterial3D_3dbkg"),
+"name": "rock_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("NU///wAAIUyB0GjPAABeQ///YioAAFw7M0QAAAAALD4AAB92AABvQWyniFT//3xUuWx2pf//f1QRDHV2/3+ATT9l/TH//6pGxcijxP9/n0m58BEu/3/3RI1R2u//fz5W/FXvfv//tlbMSZMO/38ZR02g+Yn//x5KOcLKphe/4WfTiFdAmTqldm9iDrvme71dMJQNltNnr7pCYlx14bZfbIR+n0F3uWOnUHRDnnFACns4mkp3")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8svo4")
+
+[node name="rock_002" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="rock_002_rock_mat_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_sjfv4")
+skeleton = NodePath("")

@@ -12,6 +12,7 @@ signal closed
 signal door_locked
 signal door_unlocked
 
+@export var v: Variant
 @export_tool_button("Toggle Open/Closed", "MoveUp") 
 var toggle_callable: Callable = toggle
 
@@ -60,11 +61,12 @@ func toggle(interactor: Object = null) -> void:
 		return
 	
 	open = !is_open()
-	_update_group()
 
 func _update_group() -> void:
 	if not group: return
+	set_block_signals(true)
 	group.update(self)
+	set_block_signals(false)
 
 #func attempt_unlock(interactor: Object = null) -> void:
 	## TODO - add unlock check
@@ -104,6 +106,9 @@ func set_open(val: bool) -> void:
 		opened.emit()  
 	else:
 		closed.emit()
+	
+	_update_group()
+	
 
 func is_open() -> bool:
 	return open
@@ -117,6 +122,8 @@ func set_locked(val: bool) -> void:
 		door_locked.emit()
 	else:
 		door_unlocked.emit()
+	
+	_update_group()
 
 func animate_open_close() -> void:
 	var tw:= create_tween().set_trans(tween_trans).set_ease(tween_ease).set_parallel()

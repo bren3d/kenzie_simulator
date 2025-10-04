@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://cw67eq34pppcn"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_3shj4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_3shj4")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kan6g"]
+_surfaces = [{
+"aabb": AABB(-0.042649228, -0.02858499, -0.036734655, 0.085298456, 0.05716998, 0.23518905),
+"format": 34359742465,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAgAFAAMABAADAAUAAAAEAAYABAAFAAcABwAGAAQACAAAAAYAAAAIAAEABwAJAAYACAAGAAoACgAGAAkABQALAAcADAAIAAoACgANAAwACAAMAA4ACAAOAAEADAANAA8ADAAPAA4AEAANAAoAEAAPAA0ACgAJABAADwARAA4ADgASAAEADgARABIADwATABEAEAATAA8AEgARABQACQAVABAAEAAVABMACQAWABUABwAWAAkABwALABYAFQAWABcACwAXABYAEwAVABgAFQAXABgAEQATABkAEwAYABkAEQAZABQAGgAUABkAGQAYABoAEgAUABoACwAbABcAHAASABoAAQASABwAAQAcAAIAGAAdABoAGAAXAB0AHAAaAB0AFwAbAB4ACwAeABsAFwAeAB0ACwAfAB4AHwAdAB4AHwAcAB0AAgAcAB8ABQAfAAsAAgAfAAUA"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("5dS/PBIr6rwUdxa9aOW7vD1d5by9rQ0+aOW7PD1d5by9rQ0+9bAuPRw8GbwUdxa99bAuPRo8GTwUdxa9fhsrPVMXFry9rQ0+5dS/PBIr6jwUdxa9fhsrPVQXFjy9rQ0+5dS/vBIr6rwUdxa9aOW7PD1d5Ty9rQ0+5dS/vBIr6jwUdxa9Pk0qPGBEhTvdKDo+9bAuvRo8GbwUdxa99bAuvRw8GTwUdxa9fhsrvVQXFry9rQ0+fhsrvVMXFjy9rQ0+aOW7vD1d5Ty9rQ0+Pk0qvGBEhbvdKDo+55uSu9yJJ7zdKDo+3IknvOebkjvdKDo+qzk2vPyYjruhN0s+YESFuz5NKjzdKDo+5puSO92JJzzdKDo+kt+cO7tEMzyhN0s+C5mOu6M5NjyhN0s+wkQzvKTfnDuhN0s+tN+cu7pEM7yhN0s+nDk2PPyYjjuhN0s+YESFOz5NKrzdKDo+6piOO6M5NryhN0s+tEQzPKPfnLuhN0s+3YknPOabkrvdKDo+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h204n"]
+resource_name = "Sketchfab_Scene_Softener_01_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-0.042649228, -0.02858499, -0.036734655, 0.085298456, 0.05716998, 0.23518905),
+"attribute_data": PackedByteArray("s4lBPrH6ej1Bdpo+xcoAPUF2mj41t3k9solBPrQN/zxFNaY+vA5IPQg5pj4MizE9Z/qkPp3+ND1896Q+sytFPUF2mj5Kr5U9rYlBPh3Alj2siUE+oc16PaeJQT6vsZY9qIlBPq+xlj1Bdpo+Sq+VPXJQpD4BXj49ZE6kPhXEPj279aQ+0ndFPdLypD4OzjU9QXaaPjW3eT2tiUE+oc16PayJQT4cwJY9s4lBPrQN/zyyiUE+svp6PUF2mj7FygA9CDmmPqj2SD1FNaY+unIyPWf6pD74gkU9fPekPi1WNT1Bdpo+zEaePK2JQT6KA5o8rIlBPthn/zxzUKQ+9SM8PWROpD7ivTs9QXaaPsxGnjyniUE+Pz2aPKiJQT5BPZo8u/WkPiUKNT3S8qQ+7LNEPayJQT7YZ/88rIlBPokDmjwWw6g+9tZZPTNArj4IW0o9MkCuPuS5Wz0Ww6g++ppJPRTDqD4LAls9NECuPjZzXD00QK4+Ou1cPRXDqD4HkFo9FsOoPtF/Hz00QK4+Ag4ePTRArj5alB09FMOoPmjxHz0Ww6g+51laPTJArj4Tkks9FcOoPqC+Sj0yQK4+FUVcPRbDqD5PlDI9M0CuPoTrST01QK4+X9QxPRTDqD7fF0k9FMOoPhXtRz0yQK4+pJUwPTNArj6trEg9FsOoPoNpMT0Ww6g+eKogPTRArj4MJjA9NECuPlrHHj0Ww6g+aeYwPRbDqD7Dwi89NkCuPnY8Hj00QK4+EO8uPRbDqD74JyA9UQpIPsgN/zxRCkg+U6mZPFEKSD5TqZk8UQpIPsgN/zxRCkg+mPp6PVEKSD6Y+no9UQpIPqrWlj1RCkg+qtaWPSp1pz4iojA9KnWnPrTvHz0qdac+MmkgPSp1pz41yDE9KnWnPkO5SD0qdac+Rt9JPSp1pz5DGFo9KnWnPkSSWj0="),
+"format": 34359742487,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAQAFAAQAAgAGAAcAAgAHAAgAAgAJAAoAAgAIAAkACwAMAAgACwAIAA0ACAAOAA8ACAAPAA0ADQAQABEADQARABIADQATABQADQASABMAFQAWABIAFQASABcAEgAYABkAEgAZABcAFwAaABsAFwAbABwAFwAdAB4AFwAcAB0AHAAfACAAHAAgACEAIgAjABwAIgAcACEAIQAkACUAIQAlAAEAJgAhAAEAJgAnACEAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASgBLAEgASwBMAEgASwBNAEwATQBOAEwATQBPAE4AUABRAFIAUgBTAFAAUwBUAFAAUwBVAFQAVQBWAFQAVQBXAFYA"),
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 88,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kan6g")
+
+[node name="Softener_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Softener_01_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_h204n")
+skeleton = NodePath("")

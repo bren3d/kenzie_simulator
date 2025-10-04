@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://dqj3bmblkxebh"]
+
+[ext_resource type="Texture2D" uid="uid://xpbb08os1wbl" path="res://scenes/objects/textures/Foods_04_baseColor.jpeg" id="1_1j1hl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnqs2"]
+resource_name = "Foods_04"
+cull_mode = 2
+albedo_texture = ExtResource("1_1j1hl")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gqhhe"]
+_surfaces = [{
+"aabb": AABB(-1, -0.98055106, -2.503766, 2, 2, 5.1509175),
+"format": 34896613377,
+"index_count": 75,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYACAAJAAoACAALAAkADAAIAAoACwANAAkACwAOAA0ADAAKAA8AEAAMAA8ACgAJABEACQANABEAEQAPAAoADgARAA0AEAAPABEADgAQABEA"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP//TOQAAAAAAAD+/AAAAAD//wAAAAD/////TOQAAP//AAAAAAAA//8AAP78AAD/////AAAAANdnkcqJ4gAA8ahtzJb1AADXZx7YPPQAAPGo4L7j4wAAH0jVkvjoAAB1sXaN2vwAAHWx6X8o6wAAH0hioKv6AACedbFkTO4AAJ51PnL//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i0bt4"]
+resource_name = "Sketchfab_Scene_Milk_01_Foods_04_0"
+_surfaces = [{
+"aabb": AABB(-1, -0.98055106, -2.503766, 2, 2, 5.1509175),
+"attribute_data": PackedByteArray("CT02D5xGJUIJPe1FnEa+CTZGCArQWIJCNkYbQtBY4g6cRg4K6TztRZxG1UHpPDYP/Fh2DylGrUH8WG1CKUb2CjNKig+rTBINq0yKDzNKEg0kRO1FQUPUQaZBUkS/RW9Dw1GdHfFTOR/DUQkf8VPNHVNTzR0WUjggDFQ5H11RzR47VM0eOVKnIDtUOCA5UjsfhFA7H61S7B89Uacg9FGAHvRRgB5qVAkfrVLsH7BTnR05UugdslBZH8NRFSHxU7ggO1TCHg=="),
+"format": 34896613399,
+"index_count": 75,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALgAvACwALwAwACwA"),
+"material": SubResource("StandardMaterial3D_tnqs2"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 49,
+"vertex_data": PackedByteArray("AAAAAAAAC9IAAP//TOR91QAAAAD+/A3XAAD//wAAYdAAAP//AABCwP////9M5AvAAAD//0zk/7//////AAB0wP////8AAMkm//8AAP78dir/////TOSDLP//AAAAAO0k//8AAAAAtz8AAAAA/vzwP///AAD+/Pw/AAAAAAAAkT8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////9M5DFmAAAAAP78MWYAAP//TOQxZv//AAD+/DFm12eRyonivsvxqG3MlvW+y9dnHtg89L7L8ajgvuPjvsvxqOC+4+N6InWxdo3a/Hoi8ahtzJb1eiJ1sel/KOt6InWx6X8o68VGnnU+cv//xUZ1sXaN2vzFRp51sWRM7sVGnnWxZEzuweEfSGKgq/rB4Z51PnL//8HhH0jVkvjoweEfSNWS+OjAzNdnHtg89MDMH0hioKv6wMzXZ5HKieLAzJ51PnL//zl0H0hioKv6OXTXZx7YPPQ5dPGobcyW9Tl0dbF2jdr8OXQl0WvXhtU71V3XT9TVzpPYFvcubvL75Xf2/u59vvR+aTMm5SxrKsoq9yyEKTEk5i1GEtx2OQlie54EsH31FQR1////f////3////9/////f/ehP4r3oT+K96E/ivehP4r37E5z9+xOc/fsTnP37E5zHCh6KhwoeiocKHoqHCh6Ko4PyVKOD8lSjg/JUo4PyVLrzI3t68yN7evMje3rzI3t69XuxevV7sXr1e7F69Xuxf7//3/+//9//v//f/7//3/+//9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gqhhe")
+
+[node name="Milk_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Milk_01_Foods_04_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_i0bt4")
+skeleton = NodePath("")

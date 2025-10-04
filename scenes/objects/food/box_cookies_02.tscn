@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://cldsnsg33is32"]
+
+[ext_resource type="Texture2D" uid="uid://cud4cg36ixaem" path="res://scenes/objects/textures/Foods_02_baseColor.jpeg" id="1_s8rce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pev3"]
+resource_name = "Foods_02"
+cull_mode = 2
+albedo_texture = ExtResource("1_s8rce")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ogrbv"]
+_surfaces = [{
+"aabb": AABB(-0.17650117, -0.045096688, -0.1364772, 0.35300234, 0.090193376, 0.2729544),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Foods_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4x8v2"]
+resource_name = "Sketchfab_Scene_Box_cookies_02_Foods_02_0"
+_surfaces = [{
+"aabb": AABB(-0.17650117, -0.045096688, -0.1364772, 0.35300234, 0.090193376, 0.2729544),
+"attribute_data": PackedByteArray("GNm6AdjeyTUY2YgxWN4hCTSlYQku2R4wNKVeNy7ZIQLB3mQJYNlmMn/eSTZg2aABLtkhAjSlXjcu2R4wNKVhCdOrvjqZ2asxj977NXqlOTeP3vs1eqU5N9OrvjqZ2asx"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_5pev3"),
+"name": "Foods_02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA6t8AAP/////N3AAAAAD//8PbAAD//wAA/uAAAP//AAAlwP///////yXAAAD/////JcD/////AAAlwP////8AAI4z//8AAP//PDH///////9pMP//AAAAAFA0//8AAAAA2T8AAAAA///ZP///AAD//9k/AAAAAAAA2T8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////////FyAAAAAP//h3IAAP////9ucv//AAD//wpzweCez53dL9GI3LrR0OEWzyLy7YYi8u2GIvLthiLy7YZgN08kkTM2JlIy1ia7OKIj7gbcje4G3I3uBtyN7gbcjf7r/5OS72uQb/COjy/rzpT/////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ogrbv")
+
+[node name="Box_cookies_02" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Box_cookies_02_Foods_02_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_4x8v2")
+skeleton = NodePath("")

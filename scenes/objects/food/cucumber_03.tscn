@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://djis4irq4qtux"]
+
+[ext_resource type="Texture2D" uid="uid://mcflcu2dvmpm" path="res://scenes/objects/textures/Foods_05_baseColor.jpeg" id="1_f1par"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmuvl"]
+resource_name = "Foods_05"
+cull_mode = 2
+albedo_texture = ExtResource("1_f1par")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pgi4q"]
+_surfaces = [{
+"aabb": AABB(-0.7522872, -0.89474434, -0.15887952, 1.5045731, 1.7720644, 0.3294462),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAgABAAQAAwAFAAQABQADAAAAAgAEAAYABQAGAAQABwAAAAIABQAIAAYACAAFAAAACAAJAAYACgACAAYABwACAAoABgAJAAoAAAAHAAsACwAIAAAACwAHAAoACAALAAkACwAKAAkA"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/3///4YBAAD//0e9U/oAAP9/X/z//wAAW/+MwSUBAAD//xc//e4AAFv/qERhAAAA/38AAFLpAACjAIzBJQEAAP9/NgYAAAAAAAAXP/3uAAAAAEe9U/oAAKMAqERhAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8vtbk"]
+resource_name = "Sketchfab_Scene_Cucumber_03_Foods_05_0"
+_surfaces = [{
+"aabb": AABB(-0.7522872, -0.89474434, -0.15887952, 1.5045731, 1.7720644, 0.3294462),
+"attribute_data": PackedByteArray("YlhyWoJgoV15WLRdXGB1WoFqSlr0YEhdMGptXV1hUFpTQFRgb0jQXV1AwV1VSExgDkhMYAZQwV30R9BdEFBUYKprUFp9dG1dQWtIXc50SlrpUHVazVi0XcRQoV3kWHJa5HqYY6Z2JmGmdkBc5HrNWSF/QFwhfyZh3XokWq92aFyvdvBg3Xo0Ywx/aFwMf/Bg"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGgAbABgAGwAcABgAHAAdABgAHgAfACAAIAAhAB4AIQAiAB4AIQAjACIA"),
+"material": SubResource("StandardMaterial3D_xmuvl"),
+"name": "Foods_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("/3///4YBurz//0e9U/pbyf9/X/z//7u8W/+MwSUBTchb/4zBJQHcHf//Fz/97mE0//9HvVP6DB9b/6hEYQBpM1v/qERhAF8e/38AAFLp/gH//xc//e6pHP9/NgYAAPQB/382BgAAEgIAABc//e7CHP9/AABS6RwCowCoRGEAeR6jAKhEYQDD4wAAR71T+gPKAAAXP/3urOWjAIzBJQEDyaMAjMElAVXI/39f/P//urwAAEe9U/pkyf9///+GAbq8/3///4YB8/+jAIzBJQHz/6MAqERhAPP//382BgAA8/9b/6hEYQDz/1v/jMElAfP//38AAFLpUX8AABc//e5RfwAAR71T+lF//39f/P//UX///xc//e5Rf///R71T+lF/FPrWgte53VwA+t+CmrvCXckxNxsUJB89LTGYHMEk7DpynUNMDkN//f6bcEsUQ4v9Z33+PFbLFORbfQQ9KMyg4lnO5eAL3tbFqM0n4hjfEMTS3WDEOv06eu3cIsZE/U96////f/7//3/+//9//v//f/7//3/+//9/AAD/fwAA/38EAP9/AAD/fwAAAoAAAAaA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_pgi4q")
+
+[node name="Cucumber_03" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Cucumber_03_Foods_05_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_8vtbk")
+skeleton = NodePath("")

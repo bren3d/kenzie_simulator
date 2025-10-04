@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://c3kyvgnj3uvuq"]
+
+[ext_resource type="Texture2D" uid="uid://bc8lkinxhdjvp" path="res://scenes/objects/textures/Chest_drawers_01_90_baseColor.png" id="1_h7r1w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr6n1"]
+resource_name = "Chest_drawers_01_90"
+cull_mode = 2
+albedo_texture = ExtResource("1_h7r1w")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b8lc2"]
+_surfaces = [{
+"aabb": AABB(-0.44059595, -0.48609245, -0.19024734, 0.97233546, 0.9723355, 0.11403043),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQABQADAAAAAgAFAAAAAQADAAYABQAGAAMAAQAGAAQAAgAHAAUABwAGAAUAAgAEAAcABwAEAAYA"),
+"name": "Chest_drawers_01_90",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//wAAAAAAAAAA//8AAAAAAAAAAAAAAAD/////AAD//wAA//8AAP////8AAAAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vbipw"]
+resource_name = "Sketchfab_Scene_Box_Pizza_001_Box_Pizza_0"
+_surfaces = [{
+"aabb": AABB(-0.44059595, -0.48609245, -0.19024734, 0.97233546, 0.9723355, 0.11403043),
+"attribute_data": PackedByteArray("/+R/UevvoK7/5KCu6+9/UWzxf1FX/KCubPGgrlf8f1Fs8aCuV/x/UWzxf1FX/KCuiPGgrnT8f1GI8X9RdPygrmWQKWRknypVZJ8pZGWQKlVvoaxSMF5JrjBerFJvoUmu"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_qr6n1"),
+"name": "Chest_drawers_01_90",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD//wAA/78AAAAA////vwAAAAAAAP+/AAD//////7//////AABU1QAA/////1TVAAD//wAAVNX///////9U1f//AAAAAAAA////////AAD/////AAAAAP//AAD//wAAAAAAAAAAqir//wAA//+qKv//AAAAAKoqAAAAAP//qioAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAD//////////////////wAA/////wAA/////////3////9/////f////3///6qqqqqqqqqqqqqqqqqqqqr/v/9//7//f/+//3//v/9/qipU1aoqVNWqKlTVqipU1f+//7//v/+//7//v/+//7//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_b8lc2")
+
+[node name="PizzaBoxClosed" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Box_Pizza_001_Box_Pizza_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_vbipw")
+skeleton = NodePath("")

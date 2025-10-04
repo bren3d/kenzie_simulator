@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://c12y36wgyj8g2"]
+
+[ext_resource type="Texture2D" uid="uid://daskwt8bla0ft" path="res://scenes/objects/textures/Chest_drawers_01_91_baseColor.jpeg" id="1_m7wub"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpych"]
+resource_name = "Chest_drawers_01_91"
+cull_mode = 2
+albedo_texture = ExtResource("1_m7wub")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dux2c"]
+_surfaces = [{
+"aabb": AABB(-1, 0.014588093, -1.0270711, 2.0378652, 0.12786785, 2.0616107),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Chest_drawers_01_91",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dx7w2"]
+resource_name = "Sketchfab_Scene_Painting_03_Paintings_0"
+_surfaces = [{
+"aabb": AABB(-1, 0.014588093, -1.0270711, 2.0378652, 0.12786785, 2.0616107),
+"attribute_data": PackedByteArray("JT6MnsQ+1aclPtWnxD6Mnjk2jJ4YQNWnOTbVpxhAjJ7EPoyeJT7Vp8Q+1aclPoye3liOVy0BCKreWAiqLQGOVzk2d6YYQOSlGEB3pjk246UYQHemOTbjpTk2d6YYQOSl"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_tpych"),
+"name": "Chest_drawers_01_91",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNUAAP//AAD/v/////////+/AAD//////7//////AAD/v/////8AAKoq//8AAP//qir///////+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////////5/AAAAAP///n8AAP/////+f///AAD///5/VNVU1VTVVNVU1VTVVNVU1f7//3/+//9/////f/7//3+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f/7//3/+//9/////f/7//3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dux2c")
+
+[node name="Painting_03" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Painting_03_Paintings_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_dx7w2")
+skeleton = NodePath("")

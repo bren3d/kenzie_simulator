@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://mpqdva5wbapj"]
+
+[ext_resource type="Texture2D" uid="uid://gsw6dv3ix6ge" path="res://scenes/objects/textures/Chest_drawers_01_95_baseColor.png" id="1_6rrds"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ldg1"]
+resource_name = "Chest_drawers_01_95"
+cull_mode = 2
+albedo_texture = ExtResource("1_6rrds")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0ir5e"]
+_surfaces = [{
+"aabb": AABB(-0.86603534, -1.0000116, -0.9999993, 1.7320707, 2.0000231, 2.5044188),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEAAwAEAAAABAAFAAEAAwACAAYABAAHAAUAAwAIAAQACAAHAAQACQAIAAMACQADAAYAAgABAAoAAgAKAAYAAQAFAAsACwAFAAcAAQALAAoABgAMAAkACwAHAA0ACAANAAcACgALAA4ADgALAA0ABgAKAA8ACgAOAA8ABgAPAAwADQAQAA4ADwAOABAAEQANAAgADAAPABEAEQAQAA0ADwAQABEADAARAAkACQARAAgA"),
+"name": "Chest_drawers_01_95",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("kN63UPjrAAD///+/AAAAAJDeR6/46wAA/39uIfjrAAD///8/AAAAAJbsS7b//wAA/3+Q3vjrAACW7LNJ//8AAP9/AAAAAAAAbiG3UPjrAAD/f///AAAAAP9/l+z//wAAbiFHr/jrAAD/f2gT//8AAGgTS7b//wAAAAD/vwAAAABoE7NJ//8AAAAA/z8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_11to8"]
+resource_name = "Sketchfab_Scene_tumbler_Plates_0"
+_surfaces = [{
+"aabb": AABB(-0.86603534, -1.0000116, -0.9999993, 1.7320707, 2.0000231, 2.5044188),
+"attribute_data": PackedByteArray("Hg8ELrR+BlgeD7dRtH61Jx4PFUC0frZpHg//XrR+3T8eD7wgtH4FFh4Ppj8eD7dRtH61Jx4PBC60fgZYHg+mP7R+BRYeD7wgtH7dPx4P/160frZpHg8VQLR+tmmxBd0/tH7dP7EFXmOxBV0ctH4FFrR+tSexBV1UtH4GWLEFXiu0ft0/sQVeY7R+tmmxBd0/tH4FFrEFXRy0fgZYsQVeK7R+tSexBV1UMWvdP7JWXRyzLV0cNBndP7JWXmOzLV5jgB7dP1kw8yAMVPMg5WXdP1kwyF4MVMhe"),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAcACAAHAAoACwAMAA0ACwAOAAwADwAQABEADwASABAAEwAUABIAEwASABUAFgAXABgAFgAZABcAGAAXABoAGAAaABsAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAjACAAJAAlACMAJgAnACgAJgApACcAKgArACwALAAtACoALQAuACoALQAvAC4AMAAxADIAMgAzADAAMwA0ADAAMwA1ADQA"),
+"material": SubResource("StandardMaterial3D_5ldg1"),
+"name": "Chest_drawers_01_95",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 54,
+"vertex_data": PackedByteArray("kN63UPjrMfb///+/AACU8JDeR6/46zH2////PwAAlPD/f24h+OuR5////z8AAG70kN63UPjrLfn/fwAAAAAR2G4ht1D467DdAAD/PwAAO8b/f24h+Oug524hR6/463whAAD/PwAAfjhuIbdQ+Ot8IQAA/78AAH44/3+Q3vjrXhgAAP+/AADDOW4hR6/4604i/3///wAAAiiQ3kev+OvRBv///78AAJAL/3+Q3vjrbRj///+/AAAFwf9/l+z//+zT/3///wAA7NOW7Eu2//8FwWgTS7b//wXvAAD/vwAABe////8/AADXP5bsS7b//9c/////vwAA1z+W7LNJ///XP/9/AAAAABIsluyzSf//+T7///8/AAD5Pv9/aBP//xIsAAD/PwAA+RBoE7NJ///5EAAA/78AAE/xaBOzSf//T/EAAP8/AABP8WgTS7b//0/x/39oE////z9oE7NJ////P2gTS7b///8//3+X7P///z+W7LNJ////P5bsS7b///8//3+Q3vjrmeduIUev+OuB9G4ht1D46xvf/39uIfjrmeeQ3kev+Osb35Det1D464H0Ge7YS7lDaXEmNBluafFGPP3LIDSu7Ts5YejRRrnTLyyDptYdvKv1GuTL+zP6aa4ivqqgFK6iBBZea74qBEzlSwllvCsoYoMms1PJUy45YmjDRq9t30v+S2+t0RMy1swpMtbMKW+t0ROQ8vM3kPLzN8Noni2drTsXna07F8Noni0zVjNWLWxwLS1scC0zVjNWC0iQcgtIkHKl8Gw2k0mmcJNJpnCl8Gw2/3//f/9//3//f/9//3//f/9//3//f/9/DTTxy/asAEtlvg1L8csNNJlB8bQIU/60")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0ir5e")
+
+[node name="Cup" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="tumbler_Plates_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_11to8")
+skeleton = NodePath("")

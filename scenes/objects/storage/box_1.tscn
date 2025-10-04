@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=4 uid="uid://b37gkx78gsito"]
+
+[ext_resource type="Texture2D" uid="uid://bo6jsqx2rbnl5" path="res://scenes/objects/textures/Cardboard_baseColor.png" id="1_g6wfc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3pxh"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_g6wfc")
+roughness = 0.82111454
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6pran"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y73mw"]
+resource_name = "Sketchfab_Scene_Box 1_Material_0"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("z6megs/pnsLP6Z6Cz6mewgSpjoEE6Y7BBOmOgQSpjsGeqAWZnugF2Z7oBZmeqAXZOahwgDnocMA56HCAOahwwGUaNWKFVpYCZRqWAoVWNWLMI1H4lXu1bMwjtWyVe1H4"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_u3pxh"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z8AAP//AACqKv///////6oqAAD/////qir/////AACqKv////8AAAAA//8AAP//AAD///////8AAP//AAAAAAAA//8AAAAAqioAAAAA//+qKv//AAD//6oqAAAAAAAAqioAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAP////////8/AAAAAP///z8AAP//////P///AAD///8//3////9/////f////3///6qqqqqqqqqqqqqqqqqqqqr/v/9//7//f/+//3//v/9/qipU1aoqVNWqKlTVqipU1f8//7//P/+//z//v/8//7//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6pran")
+
+[node name="Box 1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Box 1_Material_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_y73mw")
+skeleton = NodePath("")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnx2fttxu8c3w"]
+
+[ext_resource type="PackedScene" uid="uid://coe1g3in4jcwe" path="res://resources/models/asuka-langley/source/Asuka.glb" id="1_gc26w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gc26w"]
+size = Vector3(0.6, 1.8000001, 0.4)
+
+[node name="Asuka2" instance=ExtResource("1_gc26w")]
+
+[node name="Skeleton3D" parent="My_armature/Armature" index="0"]
+bones/1/position = Vector3(-3.9969436e-08, -0.066310406, 1.1460165)
+bones/1/rotation = Quaternion(0.6903059, -1.3926344e-06, -1.4281394e-06, 0.72351766)
+bones/2/rotation = Quaternion(-0.7000912, -0.10581177, 0.7059339, 0.018265603)
+bones/3/position = Vector3(3.0471128e-08, 0.4607807, -8.970346e-09)
+bones/4/position = Vector3(-5.564033e-09, 0.6169949, 3.884179e-08)
+bones/4/rotation = Quaternion(0.06759964, -0.02524475, 0.32105407, 0.9443079)
+bones/7/rotation = Quaternion(6.519258e-09, -1.3360173e-09, -7.4608234e-14, 1)
+bones/9/rotation = Quaternion(0.09283667, -0.0027976413, 0.07183111, 0.99308306)
+bones/11/rotation = Quaternion(-0.5781606, 1.5579151e-09, 2.192991e-06, 0.815923)
+bones/12/rotation = Quaternion(-1.3213139e-08, -5.0012205e-10, -3.70953e-09, 1)
+bones/14/rotation = Quaternion(-0.23151746, -0.082143135, -0.15609865, 0.9567056)
+bones/15/rotation = Quaternion(0.005697144, 7.545947e-05, -0.78373444, 0.62106985)
+bones/16/rotation = Quaternion(0.5955901, 0.6928191, 0.3401901, 0.22258674)
+bones/17/rotation = Quaternion(0.0038210177, -0.23054263, -0.61144406, 0.75694907)
+bones/18/position = Vector3(0.07749214, 0.038688574, -0.050563358)
+bones/20/rotation = Quaternion(-0.2315175, 0.08214311, 0.15609835, 0.9567055)
+bones/21/rotation = Quaternion(0.0056971083, -7.534772e-05, 0.7837345, 0.62106997)
+bones/22/rotation = Quaternion(0.5955902, -0.692819, -0.34019014, 0.22258693)
+bones/23/rotation = Quaternion(0.0038210643, 0.23054256, 0.6114438, 0.75694925)
+bones/24/position = Vector3(-0.077492684, 0.03868856, -0.05056273)
+bones/25/rotation = Quaternion(0.70009345, -0.10581223, 0.7059316, -0.018265104)
+bones/27/rotation = Quaternion(0.06760024, 0.025244648, -0.32105386, 0.94430786)
+bones/29/position = Vector3(0.1183545, 0.069611326, 0.14555642)
+bones/29/rotation = Quaternion(-1.8335477e-23, -0.69269454, -4.5516085e-30, 0.7212311)
+bones/30/position = Vector3(0.122196086, -0.26356423, 0.75641745)
+bones/30/rotation = Quaternion(0.7078226, -2.980232e-08, -0.70639026, -5.019215e-15)
+bones/31/position = Vector3(-0.1183545, 0.069611326, 0.14555642)
+bones/31/rotation = Quaternion(1.8335477e-23, 0.69269454, -4.5516085e-30, 0.7212311)
+bones/32/position = Vector3(-0.122196086, -0.26356423, 0.75641745)
+bones/32/rotation = Quaternion(0.7078226, 2.980232e-08, 0.70639026, -5.019215e-15)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Scene"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 0.90000015, 0)
+shape = SubResource("BoxShape3D_gc26w")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://1cjqwd2qi8ni"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_ilkcj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_ilkcj")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v3aus"]
+_surfaces = [{
+"aabb": AABB(-0.9700038, -0.48920208, -1.0842965, 1.9400076, 0.97840416, 2.168593),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m455p"]
+resource_name = "Sketchfab_Scene_Soap_wrapper_01_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-0.9700038, -0.48920208, -1.0842965, 1.9400076, 0.97840416, 2.168593),
+"attribute_data": PackedByteArray("5TXa5tVSstyBUhzqsTYu2BU2zdeiUhv77TWI+aJSXtyxNi7YgVIc6tVSstzlNdrmolJe3O01iPmiUhv7FTbN1wo2b+iyTyDeo06I6hk3B9yjTojqGTcH3Ao2b+iyTyDe"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAK8AAAP////8iwAAAAAD//x7AAAD//wAAMMAAAP//AAAgwP///////xvAAAD/////BsD/////AABFwP////8AAEUD//8AAP//8gP///////9YBP//AAAAAOAC//8AAAAA4T8AAAAA///lP///AAD///c/AAAAAAAAxT8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD//////////4h8AAAAAP//iHwAAP////+IfP//AAD//4h8xI6c+GqNSfmbjLD5jI84+Ib5DnPx+eRz0vynee/2322KAzo+PwTfPakEqz0eA3A+YQzOebALJ3rtBoh8vhCgd8b6xnrG+sZ6xvrGesb6xnr/f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_v3aus")
+
+[node name="Soap_wrapper_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Soap_wrapper_01_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_m455p")
+skeleton = NodePath("")

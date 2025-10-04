@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dtb1uy3yoenrk"]
+
+[ext_resource type="Texture2D" uid="uid://b7xl1n8chsqvb" path="res://resources/models/asuka-langley/source/Asuka_AsukaTexture_baseColor.png" id="1_deuxu"]
+
+[resource]
+resource_name = "AsukaTexture"
+cull_mode = 2
+albedo_texture = ExtResource("1_deuxu")
+texture_filter = 2

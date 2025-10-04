@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=4 uid="uid://c5v7evwca7s2s"]
+
+[ext_resource type="Texture2D" uid="uid://bklvrvrf72085" path="res://scenes/objects/textures/Chest_drawers_01_14_baseColor.png" id="1_v1jm4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8aor3"]
+resource_name = "Chest_drawers_01_14.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_v1jm4")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_scsr6"]
+_surfaces = [{
+"aabb": AABB(-1, -1.0000002, -1.1803299, 1.2125921, 2.8138103, 2.3203301),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAgAEAAUAAgAFAAAABgAAAAUABwADAAEAAAAHAAEABwAIAAMABgAJAAAACQAHAAAABgAKAAkACQAKAAcACgAIAAcABgALAAoACgALAAgA"),
+"name": "Chest_drawers_01_14.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("////fwAAAAD//////v8AAP////8AAAAAAAD///7/AAAAAP//AAAAAAAA/38AAAAAAAAAAAAAAAD///9///8AAAAA/3///wAA//8AAAAAAAD//wAA//8AAAAAAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4nnxl"]
+resource_name = "cupboards_Cupboard_01_002_Cupboard_01_0_001"
+_surfaces = [{
+"aabb": AABB(-1, -1.0000002, -1.1803299, 1.2125921, 2.8138103, 2.3203301),
+"attribute_data": PackedByteArray("qv//f+oBhP6q/4T+6gH/f6r/egHqAXoBTfAYlAqTE+1N8BPtCpMYlE3wHjsKkx47CpOZ503w2lRN8JnnCpPaVE3wmecKk9pUCpOZ503w2lQKkx47TfAYlAqTGJRN8B477O+H7BaRpe0dkhmUdvD67C2SBJV28ASV"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMABgAHAAgABgAJAAcACgAJAAYACgALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGwAcAB0A"),
+"material": SubResource("StandardMaterial3D_8aor3"),
+"name": "Chest_drawers_01_14.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("////fwAA/z///////v//P/////8AAP8/////f////z///wAAAAD/P///AAD///8/////f////n8AAP///v/+f//////+//5/AAD/f////n///wAA///+fwAAAAD///5/AAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7//////AAD/PwAA///+//8/AAD//wAA/z///////v//PwAAAAAAAP//////fwAA//8AAP9/AAD/////AAAAAP///////wAA//8AAP//AAD//wAA/38AAP///////wAA//8AAP9/AAD//////38AAP///38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/////f///AAD/fwAA/38AAP9/AAD/f////3////9/////f////3////9/////f////3////9/E//rgBP/64AT/+uA////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_scsr6")
+
+[node name="Cupboard_01_002_Cupboard_01_0_001" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_4nnxl")
+skeleton = NodePath("")

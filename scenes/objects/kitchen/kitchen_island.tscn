@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=4 uid="uid://d3h0bbj1my41l"]
+
+[ext_resource type="Texture2D" uid="uid://dmu0f1phs8f3n" path="res://scenes/objects/textures/Chest_drawers_01_11_baseColor.jpeg" id="1_jjori"]
+[ext_resource type="Texture2D" uid="uid://bmqxrvkcbq18n" path="res://scenes/objects/textures/Chest_drawers_01_12_baseColor.png" id="2_chm6j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asbvb"]
+resource_name = "Chest_drawers_01_11"
+cull_mode = 2
+albedo_texture = ExtResource("1_jjori")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4n0hq"]
+_surfaces = [{
+"aabb": AABB(-1.4123857, -1.420753, 0.6312384, 2.8247714, 2.8410869, 0.13225901),
+"format": 34896613377,
+"index_count": 216,
+"index_data": PackedByteArray("DgAYAA8ADwAZAA4ADgAaABgADgAKABoADgARAAoAGQARAA4AGgAKAAAAAAAKABEAGgAAABsAGAAaABsAAAARABwAGwAAABwAEQAdABwAGwAcAAEAAQAcAB0AGAAbAB4AHgAbAAEAHgABAAIAAQAdAAYAHgALABgAEQASAB0AGQASABEABgAdAB8ABgAfAAcAIAAdABIAIAAfAB0AFwASABkAFwAgABIABwAfAAUABQAfACAABQAgAA0ABwAFACEAIQAFAA0AIgANACAAIQANACIAIgAgABcAIwAhACIAFwAjACIAJAAHACEAIwAkACEAJAAJAAcAFwAWACMAFgAXABkAFgAMACMAIwAIACQAIwAMAAgAJAAVAAkAJAAIABUAJQAIAAwAFgAlAAwAJQAVAAgAFgAZACYAJgAlABYADwAmABkAJgATACUADwATACYAFQAlABMACQAVACcAFQATACcACQAnAAQABAAnABQAFAAnABMABAAUAAIADwAQABMAFAATABAAGAAQAA8AGAALABAAEAADABQAAgAUAAMAEAALAAMAAgADAB4AHgADAAsA"),
+"lods": [0.015380936, PackedByteArray("DgALAA8ADgAKAAsACwAQAA8ADgARAAoACwAKAAAAAAAKABEAEgARAA4ADwASAA4ADwAQABMADwATABIAEAALAAMAAAADAAsAEAADABQAFAATABAAAgADAAAAAgAUAAMAAAABAAIABAAUAAIAAQAAAAUAEQAFAAAAAQAFAAYAEQASAAUABAAVABQAFAAVABMACQAVAAQABgAFAAcACAAJAAcACAAVAAkACAAHAAUADAAVAAgAFQAMABMADAAIAAUAEwAMABYAFgASABMADAAFAA0ADQAFABIAFwAWAAwAFwAMAA0AFgAXABIAFwANABIA"), 0.035168074, PackedByteArray("AAABAAIAAgADAAAABAADAAIAAQAAAAUAAQAFAAYABgAFAAcABAAIAAMACQAIAAQACAAJAAcACAAHAAUACgAFAAAAAAADAAsAAwAIAAsACwAKAAAACAAMAAsADAAIAAUACwANAAoADAANAAsACgANAAUADAAFAA0A")],
+"name": "Chest_drawers_01_11",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("///+/44IAAA/9nv4AAAAAD/2gwcAAAAA///rAI4IAAD/f4MHAAAAAAAA/v+OCAAA/397+AAAAAC/CXv4AAAAAAAA6wCOCAAAvwmDBwAAAAD/////cPcAAP//6wBw9wAAAADrAHD3AAAAAP//cPcAAD/2e/j//wAAP/aDB///AAA/9gAA//8AAD/2/////wAA/3//////AAD/fwAA//8AAD/2AAAAAAAAvwkAAAAAAAC/CYMH//8AAL8Je/j//wAA//9gCHD3AAD/f3v4//8AAP//e/hw9wAA//97+I4IAAA/9v7/AAAAAP9//v8AAAAA//9gCI4IAAC/Cf7/AAAAAL8J/////wAAAAB7+I4IAAAAAHv4cPcAAAAAYAhw9wAAAABgCI4IAAC/CQAA//8AAP9/gwf//wAA/38AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1dcl5"]
+resource_name = "Sketchfab_Scene_Kitchen_01_Marble_0"
+_surfaces = [{
+"aabb": AABB(-1.4123857, -1.420753, 0.6312384, 2.8247714, 2.8410869, 0.13225901),
+"attribute_data": PackedByteArray("kP/+/9v5k/vb+cZtkP/labZp/v+jtMZto7ST+7Zp5Wlqb5P7am/GbZD/5Wm2af//kP///7Zp5WnSafK3/v9nsf//8rfSaWexkP9nsbZpZ7GQ//K3tmnyt5D/8re2aWexkP9nsbZp8rf+/2ex0mlnsdJp8rf///K32/mT+9v5xm3b+Vtp2/n//6O0W2mjtP//am/GbWpvk/tqb1tp2/lbadv5Lrjb+Suxo7QuuGpvK7Hb+S64o7QuuJD/SW6Q/5P72/n//6O0k/ujtMZtam9baWpvxm3b+cZt2/lbadv5k/tqb5P7am///2pvW2m2aUlutmmT+2pv//82bvK3kvtnsTZuZ7GS+/K3tmlJbqO0W2mQ/0lutmmT+2pv/v+jtP7/kP+T+9v5/v82bvK3kvtnsZL78rc2bmexo7QrsWpvLrjb+Suxo7QrsWpvLrhqbyux"),
+"format": 34896613399,
+"index_count": 216,
+"index_data": PackedByteArray("HgAuAB8ALgAgAB8ALgAKACAAHgAvAC4AHgAMAC8AHgAwAAwAHwAxAB4AHwAyADEAMgAzADQAMgAiADMANQAiADIANQA2ACIAJAAxADIAMQAhADcAMQAjACEAOAAjADEAOAA5ACMAJAAlADEAJAA6AA0AJAANADsAJQAkADsAJQA7ADwAPAA9ACUAPAALAD0APgA/AEAAQAAcAD4AQAAbABwAPgBBAD8AQQAaAD8AQQAdABoAQgAmAAkAQgAHACYACQAmAEMACQBDAAUABQBDACcABQAnAAIAAgAnAAMAAgADAEQAQgAJAAgAQgAIAEUACAAEAEUACABGAAQABgBGAAgABgBHAEYARAABAAIAAQBHAAYARABIAAEAAQBJAEcASABJAAEASAAAAEkASgBLAEwASwAQAEwASwAPABAASgBNAEsASgARAE0ASgAOABEAKAASACkAKAAUABIAKQAqACgAKQBOACoAKwAqAE4AKwBPACoATwArABMATwATABUAGAAsAFAAGAAWACwALABRAFAALAAtAFEAUgBRAC0AUgBTAFEAFwBTAFIAFwBSABkA"),
+"lods": [0.015380936, PackedByteArray("HgAKAB8ACgAgAB8AHgAMAAoAHgAhAAwAHwAgACIAIwAhAB4AHwAjAB4AHwAiACMAJAAjACIAIgANACQAJAAlACMAJQAkAA0AJQALACMAJQANAAsABwAmAAkACQAmAAUABwAJAAgABQAmACcABwAIAAQABQAnAAIABgAEAAgAAgAnAAMAAQAEAAYAAgADAAAAAQAAAAQAAAABAAIADgAPABAADgARAA8AKAASACkAKAAUABIAKQAqACgAKQArACoAKwAVACoAFQArABMAGAAWACwALAAXABgALAAtABcAGQAXAC0AGgAbABwAHAAdABoA"), 0.035168074, PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABQADAAIAAQAEAAYABQAHAAMABgAEAAgABwAIAAQACQAHAAUABwAJAAgACgALAAwADQALAAoADgAPABAADgARAA8AEgATABQAEwAVABQAFgAXABgAFgAZABcAGgAbABwAHAAdABoA")],
+"material": SubResource("StandardMaterial3D_asbvb"),
+"name": "Chest_drawers_01_11",
+"primitive": 3,
+"uv_scale": Vector4(2.4285765, 2.4298105, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("///+/44I//8/9nv4AAD//z/2gwcAAP/////rAI4I//8AAP7/jgj///9/gwcAAP///397+AAA//8AAOsAjgj//78Je/gAAP//vwmDBwAA/////+sAcPdTfgAA//9w91N+/////3D3U34AAOsAcPdTfgAA6wBw91TVAAD+/44IVNUAAP//cPdU1QAA6wCOCFTV///rAI4I6D8AAOsAjgjoP///6wBw9+g/AADrAHD36D//////cPf/vwAA/v+OCP+////+/44I/78AAP//cPf/v////v+OCKoq///rAI4Iqir//+sAcPeqKv////9w96oqP/Z7+P//4X4/9oMH///hfj/2AAD//1N+P/b//////n//fwAA///+f/9///////5/vwmDB///4X6/CXv4///hfr8JAAAAAP//P/YAAAAA//8/9gAA///6Pz/2AAAAAPo//38AAP///z+/CQAAAAD6Pz/2//////+//3///////7///2AIcPdTfv//e/hw91N+P/b/////U37/f3v4///+f/9/gwf///5/vwkAAP///n+/CYMH///+fz/2gwf///5/P/YAAP///n8/9nv4///+f78Je/j///5/vwn//////n+/CQAA//9TfgAAYAhw91N+AAB7+HD3U36/Cf////9Tfv//YAhw96oq//97+I4Iqir//2AIjgiqKv//e/hw96oqAABgCI4I////fwAAAAD/////YAiOCP//AAB7+I4I//+/Cf7/AAD///9//v8AAP////97+I4I//8/9v7/AAD//wAAYAhw91TVAAB7+I4IVNUAAHv4cPdU1QAAYAiOCFTV/38AAAAA/z+/CQAA///6Pz/2/v8AAP+//3/+/wAA/7+/Cf//////v78J/v8AAP+/a/3/f0T+/39E/v9/a/3/f///k4L///9/////f/7/k4L//0R+/v9Efv9/AQD/f////38AAP9///9U1VTVVNVU1VTVVNVU1VTViQXsdBILiIWJBex0EguIhf7//3/+//9//v//f/7//3+qKqoqqiqqKqoqqiqqKqoq/38AAP9/AAD/fwAA/3////9/////f////3////9//////0KBvP7/f9oCSXraAkl6AAD/f7UF2oL+//9/////f/9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/////f////3///wCA/v//f/7//3////9///+qKqoqqiqqKqoqqiqqKqoq/v9rff///39r/f9///+Tgv//TIH///9/a/3/f7H+/39U1VTVVNVU1VTVVNVU1VTVAAD/f7UF2oL+//9/////f/7//3/+//9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4n0hq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ums60"]
+resource_name = "Chest_drawers_01_12"
+cull_mode = 2
+albedo_texture = ExtResource("2_chm6j")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4goon"]
+_surfaces = [{
+"aabb": AABB(-1.304838, -1.3373755, -1.3687615, 2.609676, 2.6743317, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgAEAAAAAwAFAAEAAgAGAAQAAwAHAAUACAAEAAYACQAFAAcACAAKAAQACQALAAUACgAIAAsACgALAAkA"),
+"name": "Chest_drawers_01_12",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("//8AAP//AAD/////AAAAAP//AAAAAAAA///+////AAD/fwAA//8AAP9///8AAAAA/38AAAAAAAD/f/7///8AAAAAAAAAAAAAAAD+////AAAAAAAA//8AAAAA//8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kkvm0"]
+resource_name = "Sketchfab_Scene_Kitchen_01_Cupboard_0"
+_surfaces = [{
+"aabb": AABB(-1.304838, -1.3373755, -1.3687615, 2.609676, 2.6743317, 2),
+"attribute_data": PackedByteArray("JR31jzBdLRclHS0XMF31j2pcLRcqPfWPalz1jyo9LRfrHS0X6x31j2pc9Y8qPS0XalwtFyo99Y/rHfWP6x0tFyUd9Y8wXS0XMF31jyUdLRc="),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAFAAcACAAJAAUACgALAAwACgANAAsADgALAA0ADgAPAAsAEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_ums60"),
+"name": "Chest_drawers_01_12",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("//8AAP//qir/////AACqKv//AAAAAKoq///+////qir//wAAAAD/P/9/AAD///8///8AAP///z//fwAAAAD/PwAAAAAAAP8/AAAAAP///z////7/////v/9///8AAP+//////wAA/7//f/7/////vwAA/v////+/AAD//wAA/78AAAAA//9U1QAA//8AAFTVAAD+////VNUAAAAAAABU1aoqqiqqKqoqqiqqKqoqqioAAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/////f////39U1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4goon")
+
+[node name="KitchenIsland" type="Node3D"]
+transform = Transform3D(7.54979e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, -7.54979e-08, -3.300118e-15, 0, 0, 0)
+
+[node name="Kitchen_01_Marble_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_1dcl5")
+skeleton = NodePath("")
+
+[node name="Kitchen_01_Cupboard_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_kkvm0")
+skeleton = NodePath("")

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://ten58ncr5y5h"]
+
+[ext_resource type="Texture2D" uid="uid://8eub1jrfceom" path="res://scenes/objects/textures/n64_zelda__trees_plus_v1_3.png" id="1_8x8u2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dbkg"]
+resource_name = "rock_mat"
+cull_mode = 2
+albedo_texture = ExtResource("1_8x8u2")
+roughness = 0.82111454
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7u0e0"]
+_surfaces = [{
+"aabb": AABB(-1.2170115, -1.0493009, -0.060091466, 2.241942, 2.049301, 0.41270164),
+"format": 34896613377,
+"index_count": 39,
+"index_data": PackedByteArray("BwAAAAgACAAAAAEABwADAAAACAABAAkABwAIAAkACQABAAIABQADAAcACQAFAAcABQAEAAMACQACAAYACQAGAAUABgACAAQABgAEAAUA"),
+"lods": [0.3458339, PackedByteArray("BQAEAAMABgAEAAUABgAFAAMABgACAAQAAwAAAAYABgABAAIAAAABAAYA"), 0.5655678, PackedByteArray("AAABAAIAAwAAAAIAAgAEAAMA")],
+"name": "rock_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AADK1QAAAAD2iv//AAAAAP//K9QAAAAA2h1eRgAAAAAAvQAAAAAAAGqguET//wAAgsPcs///AACuRmZs//8AAGk49bD//wAAf4mWyf//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fuoy1"]
+resource_name = "Sketchfab_Scene_rock_01_rock_mat_0"
+_surfaces = [{
+"aabb": AABB(-1.2170115, -1.0493009, -0.060091466, 2.241942, 2.049301, 0.41270164),
+"attribute_data": PackedByteArray("AAD///9/////////AAAAAP//AAC2wO5AM8qjyBBAH1EhNJi47IfH0Q=="),
+"format": 34896613399,
+"index_count": 39,
+"index_data": PackedByteArray("BwAAAAgACAAAAAEABwADAAAACAABAAkABwAIAAkACQABAAIABQADAAcACQAFAAcABQAEAAMACQACAAYACQAGAAUABgACAAQABgAEAAUA"),
+"lods": [0.3458339, PackedByteArray("BQAEAAMABgAEAAUABgAFAAMABgACAAQAAwAAAAYABgABAAIAAAABAAYA"), 0.5655678, PackedByteArray("AAABAAIAAwAAAAIAAgAEAAMA")],
+"material": SubResource("StandardMaterial3D_3dbkg"),
+"name": "rock_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AADK1QAAPmb2iv//AAB6YP//K9QAAL9l2h1eRgAACGIAvQAAAAB2YmqguET//0xpgsPcs///smyuRmZs///mbGk49bD//3Jtf4mWyf//ZGw2vCjSpeYOhbSncEAkSIO4DU5AWxZQ414WpTxDvUrJty7AhtS31bGF")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7u0e0")
+
+[node name="rock_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="rock_01_rock_mat_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_fuoy1")
+skeleton = NodePath("")

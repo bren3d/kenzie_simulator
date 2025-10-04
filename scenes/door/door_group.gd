@@ -7,9 +7,6 @@ signal group_changed(property: StringName, value: Variant)
 @export var sync_locked: bool = true
 @export var sync_open: bool = true
 
-func _init() -> void:
-	resource_local_to_scene = true
-
 func update(door: Door) -> void:
 	if sync_locked:
 		group_changed.emit(&"locked", door.locked)

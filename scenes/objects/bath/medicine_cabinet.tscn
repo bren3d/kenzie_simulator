@@ -1,0 +1,286 @@
+[gd_scene load_steps=20 format=4 uid="uid://di6a0n6a461g2"]
+
+[ext_resource type="Texture2D" uid="uid://cpui7348ktatb" path="res://scenes/objects/textures/Wood_15_baseColor.jpeg" id="1_m8751"]
+[ext_resource type="Texture2D" uid="uid://crq4y7xntm7yl" path="res://scenes/objects/textures/Metal_04_baseColor.jpeg" id="2_6wwev"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d33o6"]
+resource_name = "Wood_15"
+cull_mode = 2
+albedo_texture = ExtResource("1_m8751")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_g7ncw"]
+_surfaces = [{
+"aabb": AABB(-0.3742776, -0.06951446, -0.34922516, 0.7485552, 0.13902894, 0.6984503),
+"format": 34896613377,
+"index_count": 138,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQAAAAMAAAAFAAEABgADAAQABQADAAYABwAEAAIABwACAAEABgAEAAcACAABAAUACQAFAAYACAAFAAkACgAGAAcACQAGAAoACwAHAAEACwABAAgACgAHAAsACQAMAAgACwANAAoACgAOAAkACQAOAAwACgANAA4ACAAMAA8ACAAPAAsADgAPAAwACwAPAA0ADgANAA8AEAARABIAEAATABEAEAAUABMAEAAVABQAFQAWABQAFQAXABYAGAAZABoAGAAbABkAGAAcABsAGAAdABwAHQAeABwAHQAfAB4AIAAhACIAIAAjACEAIAAkACMAIAAlACQAJQAmACQAJQAnACYA"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAA//8AAAAAAAD//wAA//8AAAAA//8AAAAA/////wAAAAD///////8AAAcJ//9R9gAABwn//60JAAD39v//rQkAAPf2//9R9gAABwmfJFH2AAD39p8krQkAAAcJnyStCQAA9/afJFH2AAD39r7qsjsAAAcJnySyOwAA9/afJLI7AAAHCb7qsjsAAAcJvupCRAAA9/a+6kJEAAAHCZ8kQkQAAPf2nyRCRAAA9/a+6lp+AAAHCZ8kWn4AAPf2nyRafgAABwm+6lp+AAAHCb7qx4IAAPf2vurHggAABwmfJMeCAAD39p8kx4IAAPf2vupwvgAABwmfJHC+AAD39p8kcL4AAAcJvupwvgAABwm+6t3CAAD39r7q3cIAAAcJnyTdwgAA9/afJN3CAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qoh0q"]
+resource_name = "Sketchfab_Scene_Bathroom_cabinet_Wood_15_0"
+_surfaces = [{
+"aabb": AABB(-0.3742776, -0.06951446, -0.34922516, 0.7485552, 0.13902894, 0.6984503),
+"attribute_data": PackedByteArray("OWiRCMWXbfc5aG33xZeRCMWXZe4Gb5kRxZeZEQZvZe7Fl5EIOWht98WXbfc5aJEI//+RCAAAbff//233AACRCAAAxZf//zlo///FlwAAOWj//8WXAAA5aAAAxZf//zloBwll7gAAkQgHCZkR//+RCAAAbff39pkR9/Zl7v//bfcHCZkR9/Zl7gcJZe739pkR9/bFlwcJBm8HCcWX9/YGbwcJxZf39gZv9/bFlwcJBm/Fl5kRBm9l7sWXZe4Gb5kR9/bSkwcJBm/39gZvBwnSk/f20pMHCQZvBwnSk/f2Bm/39kVABwlCSAcJRUD39kJI9/bSkwcJBm/39gZvBwnSk/f20pMHCQZvBwnSk/f2Bm/39nZ+BwmXggcJdn739peC9/bSkwcJBm/39gZvBwnSk/f20pMHCQZvBwnSk/f2Bm/39kK6BwljvgcJQrr39mO+"),
+"format": 34896613399,
+"index_count": 138,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGgAZABsAGAAcABkAGgAbAB0AHgAcABgAHQAbAB8AHgAfABwAHQAfAB4AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEA"),
+"material": SubResource("StandardMaterial3D_d33o6"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNX39v//UfZU1ff2nyStCVTV9/b//60JVNX39p8kUfZU1f////8AAKoq//8AAP//qir///////+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////////5/AAAAAP///n8AAP/////+f///AAD///5/Bwn//1H2/78AAP//AAD/vwcJ//+tCf+//////wAA/78AAP//////v/f2//+tCf+/9/b//1H2/7//////////vwcJnyStCf+/9/afJFH2/78HCZ8kUfb/v/f2nyStCf+/9/b//60J/n8HCZ8krQn+fwcJ//+tCf5/9/afJK0J/n8HCf//Ufb///f2nyRR9v//9/b//1H2//8HCZ8kUfb//wcJ//+tCaoqBwmfJFH2qioHCf//UfaqKgcJnyStCaoq9/a+6rI7//8HCZ8ksjv///f2nySyO///Bwm+6rI7///39r7qQkT+fwcJnyRCRP5/Bwm+6kJE/n/39p8kQkT+f/f2vuqyO/+/Bwm+6kJE/78HCb7qsjv/v/f2vupCRP+/9/a+6lp+//8HCZ8kWn7///f2nyRafv//Bwm+6lp+///39r7qx4L+fwcJnyTHgv5/Bwm+6seC/n/39p8kx4L+f/f2vupafv+/Bwm+6seC/78HCb7qWn7/v/f2vurHgv+/9/a+6nC+//8HCZ8kcL7///f2nyRwvv//Bwm+6nC+///39r7q3cL+fwcJnyTdwv5/Bwm+6t3C/n/39p8k3cL+f/f2vupwvv+/Bwm+6t3C/78HCb7qcL7/v/f2vurdwv+/VNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNWqKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f///////f////3////9/////f////3////9/////f////3////9/////f////3////9//3////9/////f////3///////3////9/////f////3+qKqoqqiqqKqoqqiqqKqoq////f////3////9/////f/9/////f////3////9///////9/////f////3////9/////f////3////9/////f/9/////f////3////9///////9/////f////3////9/////f////3////9/////f/9/////f////3////9///////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_g7ncw")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yaq4o"]
+_surfaces = [{
+"aabb": AABB(-1.9073486e-06, -1.9073486e-06, -0.46549445, 0.92944956, 0.039172202, 1.3280082),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAACAAQAAgAFAAQAAgADAAUABAAFAAYABQADAAcABwAGAAUAAQAIAAMACQADAAgACQAIAAYACQAKAAMACgAHAAMACwAIAAEACwAGAAgABAAGAAsADAAJAAYABwAMAAYABwAKAAAADQAKAAkADQAJAAwADQAAAAoAAAANAAEABAAOAAAABwAAAA4ABAALAA4ADwAMAAcADQAMAA8ADwAHAA4AAQANAA8ACwAPAA4ACwABAA8A"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("9ucAAMgTAAD//wAA//8AAP//AAAAAAAA/////wAAAAAAAAAAAAAAAAAA//8AAAAAAAD/////AAAIGP//yBMAAP///////wAA9uf//zbsAAD25///yBMAAAAAAAD//wAACBj//zbsAAD25wAANuwAAAgYAADIEwAACBgAADbsAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uwrh4"]
+resource_name = "Sketchfab_Scene_Bathroom_cabinet_door_01_Wood_15_0"
+_surfaces = [{
+"aabb": AABB(-1.9073486e-06, -1.9073486e-06, -0.46549445, 0.92944956, 0.039172202, 1.3280082),
+"attribute_data": PackedByteArray("A7g6D/bE///2xAAACDsAAAO4xPD7RzoP+0fE8Ag7//8DuMTw9sQAAPbE//8DuDoPF30AAOeC//8Xff//54IAABd9///nggAAF30AAOeC///2xBd9CDvnggg7F332xOeCCDsXffbE54L2xBd9CDvngvtH54IDuBd9+0cXfQO454IDuBd9+0fngvtHF30DuOeCF33E8OeCOg8XfToP54LE8Bd9xPDngjoP54LE8Bd9Og8IOwAA9sQAAPtHOg8DuDoPCDv///tHxPADuMTw9sT//w=="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAwAFAAAAAQAEAAYAAwAHAAUABwABAAYABwAGAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALwAuAC0ALgAwACwALgAxADAAMQAyADAAMgAzADAA"),
+"material": SubResource("StandardMaterial3D_d33o6"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("9ucAAMgT1D///wAA///hP///AAAAANs/AAAAAAAA2z/25wAANuzBPwgYAADIE9Q/CBgAADbswT8AAAAA///hP/bn//827J/A/////wAAmcD///////+0wPbn///IE+XAAAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNX//wAA//+qKv////8AAKoq//8AAAAAqir///////+qKv//AAAAAP//AAD//wAA//8AAAAAAAD///////8AAP//AAAAAP///n/////////+f///AAD///5/AAD//////n8IGP//yBP+f/bnAADIE/5/CBgAAMgT/n/25///yBP+f/bnAAA27P//CBj//zbs//8IGAAANuz///bn//827P//CBgAADbsqioIGP//yBOqKggYAADIE6oqCBj//zbsqir25wAANuxU1fbn///IE1TV9uf//zbsVNX25wAAyBNU1QAA//8AACPA/////wAA/78IGP//yBMqwPbn///IE/+/AAD/////HcAIGP//Nuw9wPbn//827P+//////////7+UDrV4QgaEjJMNNXnJBpKNkAggkUoHlI4hEW53hQy8eWTmzIxp89RmG+VxjTbxb2JU1VTVVNVU1VTVVNVU1VTVqiqqKqoqqiqqKqoqqiqqKv///3////9/////f////3//f////3////9/////f////3////9/////f////3///////3////9/////f////3+qKqoqqiqqKqoqqiqqKqoqVNVU1VTVVNVU1VTVVNVU1WvyyYb///9/avFJh////3+8+Xpzbvfebv///3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yaq4o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw32m"]
+resource_name = "Glass"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.12038132)
+roughness = 0.7470178
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xuwn6"]
+_surfaces = [{
+"aabb": AABB(0.08725202, 0.011287209, -0.37099, 0.75494313, 0.016770534, 1.130874),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"name": "Glass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAP//AAD//wAAAAAAAAAAAAD/////AAAAAAAA/////wAAAAD//wAAAAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bcduh"]
+resource_name = "Sketchfab_Scene_Bathroom_cabinet_door_01_Glass_0"
+_surfaces = [{
+"aabb": AABB(0.08725202, 0.011287209, -0.37099, 0.75494313, 0.016770534, 1.130874),
+"attribute_data": PackedByteArray("A7g6D/tHxPADuMTw+0c6DwO4Og/7R8Tw+0c6DwO4xPA="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_rw32m"),
+"name": "Glass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z//////AAD/vwAA//////+/AAD//wAA/7//////////vwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xuwn6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghugn"]
+resource_name = "Metal_04"
+cull_mode = 2
+albedo_texture = ExtResource("2_6wwev")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5ur12"]
+_surfaces = [{
+"aabb": AABB(0.8624131, 0.018449046, 0.18214028, 0.06374413, 0.07653869, 0.060624316),
+"format": 34359742465,
+"index_count": 54,
+"index_data": PackedByteArray("BgABAAcABwABAAIABwACAAUABgAHAAgABwAFAAgABgAIAAAAAgAJAAUACAAFAAkAAgABAAQAAgAEAAkACgABAAYACgAGAAAABAABAAoACQADAAgABAADAAkAAwAAAAgABAAKAAMACgAAAAMA"),
+"lods": [0.045861486, PackedByteArray("AAABAAIAAgABAAQAAwABAAAABAABAAMAAgAFAAAAAgAEAAUABQADAAAABAADAAUA"), 0.050512, PackedByteArray("AAABAAIAAgABAAMAAwABAAAAAgADAAAA")],
+"name": "Metal_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 11,
+"vertex_data": PackedByteArray("4O9kP+6Iwj3uaGw+4O9kP3Qilzw9RlY+8eRfP8PFmz37gjo+NjNqP+6Iwj1XHV0+zvppP8PFmz37gjo+LK9hP+6Iwj3KXUQ+4O9kP8PFmz1Il3g+G8dcP8PFmz354GA+iaxfP+6Iwj1XHV0+kzBoP+6Iwj3KXUQ+pBhtP8PFmz354GA+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4evt7"]
+resource_name = "Sketchfab_Scene_Bathroom_cabinet_door_01_Metal_04_0"
+_surfaces = [{
+"aabb": AABB(0.8624131, 0.018449046, 0.18214028, 0.06374413, 0.07653869, 0.060624316),
+"attribute_data": PackedByteArray("AACAPwAAAD8AAAA/AACAP5qZGT8AAAA/z8xMPgAAAD8AAAAzAAAAP5qZGT8AAAA/zszMPgAAAD8QHWQ/MLRkPS2RBT/W+KU+AABAP0jh+j4AAIA/AAAAP83MTD8AAAA/zcxMPwAAAD/OzMw+AAAAP8/MTD4AAAA/AAAAMwAAAD/Tbno/1filPvDiGz84tGQ9"),
+"format": 34359742487,
+"index_count": 54,
+"index_data": PackedByteArray("CgABAAsACgALAAwACgAMAAAACwAFAAwACwACAAUACwABAAIAAgANAAUAAgAGAA0AAgABAAYABgADAA0ABgABAA4ABgAOAAMADgABAA8ADgAEAAMADgAPAAQAEAAHABEAEQAIABAACAAJABAA"),
+"lods": [0.045861486, PackedByteArray("AAABAAIAAgAFAAAAAgAGAAUAAgABAAYABgADAAUABgABAAMAAwABAAQABwAIAAkA"), 0.050512, PackedByteArray("AAABAAIAAgADAAAAAgABAAMAAwABAAQA")],
+"material": SubResource("StandardMaterial3D_ghugn"),
+"name": "Metal_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("4O9kP+6Iwj3uaGw+4O9kP3Qilzw9RlY+8eRfP8PFmz37gjo+NjNqP+6Iwj1XHV0+4O9kP+6Iwj3uaGw+LK9hP+6Iwj3KXUQ+zvppP8PFmz37gjo+LK9hP+6Iwj3KXUQ+NjNqP+6Iwj1XHV0+4O9kP+6Iwj3uaGw+4O9kP8PFmz1Il3g+G8dcP8PFmz354GA+iaxfP+6Iwj1XHV0+kzBoP+6Iwj3KXUQ+pBhtP8PFmz354GA+4O9kP8PFmz1Il3g+iaxfP+6Iwj1XHV0+kzBoP+6Iwj3KXUQ+/3/VyP///z//fwAAAADFmFEBsMrcNf+/LK9+wf///z//f9XI////PzI+TuT///+/rf6wygAAEKUyPk7k5SubTSyvfsGJOkgo/3/VyAAA/z//f9WBo/5Uv34gdYFjn/+/0lB+wf///z/LwU7k////v4DfdYH//03w/3/Vgaj+rMDSUH7Bby9EXcvBTuQ4Gwwq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5ur12")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yixoh"]
+_surfaces = [{
+"aabb": AABB(-1.9073486e-06, -1.9073486e-06, -0.46549445, 0.92944956, 0.039172202, 1.3280082),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAACAAQAAgAFAAQAAgADAAUABAAFAAYABQADAAcABwAGAAUAAQAIAAMACQADAAgACQAIAAYACQAKAAMACgAHAAMACwAIAAEACwAGAAgABAAGAAsADAAJAAYABwAMAAYABwAKAAAADQAKAAkADQAJAAwADQAAAAoAAAANAAEABAAOAAAABwAAAA4ABAALAA4ADwAMAAcADQAMAA8ADwAHAA4AAQANAA8ACwAPAA4ACwABAA8A"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("9ucAAMgTAAD//wAA//8AAP//AAAAAAAA/////wAAAAAAAAAAAAAAAAAA//8AAAAAAAD/////AAAIGP//yBMAAP///////wAA9uf//zbsAAD25///yBMAAAAAAAD//wAACBj//zbsAAD25wAANuwAAAgYAADIEwAACBgAADbsAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yxfh8"]
+resource_name = "Sketchfab_Scene_Bathroom_cabinet_door_Wood_15_0"
+_surfaces = [{
+"aabb": AABB(-1.9073486e-06, -1.9073486e-06, -0.46549445, 0.92944956, 0.039172202, 1.3280082),
+"attribute_data": PackedByteArray("A7g6D/bE///2xAAACDsAAAO4xPD7RzoP+0fE8Ag7//8DuMTw9sQAAPbE//8DuDoPF30AAOeC//8Xff//54IAABd9///nggAAF30AAOeC///2xBd9CDvnggg7F332xOeCCDsXffbE54L2xBd9CDvngvtH54IDuBd9+0cXfQO454IDuBd9+0fngvtHF30DuOeCF33E8OeCOg8XfToP54LE8Bd9xPDngjoP54LE8Bd9Og8IOwAA9sQAAPtHOg8DuDoPCDv///tHxPADuMTw9sT//w=="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAwAFAAAAAQAEAAYAAwAHAAUABwABAAYABwAGAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALwAuAC0ALgAwACwALgAxADAAMQAyADAAMgAzADAA"),
+"material": SubResource("StandardMaterial3D_d33o6"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("9ucAAMgT1D///wAA///hP///AAAAANs/AAAAAAAA2z/25wAANuzBPwgYAADIE9Q/CBgAADbswT8AAAAA///hP/bn//827J/A/////wAAmcD///////+0wPbn///IE+XAAAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNX//wAA//+qKv////8AAKoq//8AAAAAqir///////+qKv//AAAAAP//AAD//wAA//8AAAAAAAD///////8AAP//AAAAAP///n/////////+f///AAD///5/AAD//////n8IGP//yBP+f/bnAADIE/5/CBgAAMgT/n/25///yBP+f/bnAAA27P//CBj//zbs//8IGAAANuz///bn//827P//CBgAADbsqioIGP//yBOqKggYAADIE6oqCBj//zbsqir25wAANuxU1fbn///IE1TV9uf//zbsVNX25wAAyBNU1QAA//8AACPA/////wAA/78IGP//yBMqwPbn///IE/+/AAD/////HcAIGP//Nuw9wPbn//827P+//////////7+UDrV4QgaEjJMNNXnJBpKNkAggkUoHlI4hEW53hQy8eWTmzIxp89RmG+VxjTbxb2JU1VTVVNVU1VTVVNVU1VTVqiqqKqoqqiqqKqoqqiqqKv///3////9/////f////3//f////3////9/////f////3////9/////f////3///////3////9/////f////3+qKqoqqiqqKqoqqiqqKqoqVNVU1VTVVNVU1VTVVNVU1WvyyYb///9/avFJh////3+8+Xpzbvfebv///3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yixoh")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p1kdg"]
+_surfaces = [{
+"aabb": AABB(0.08725202, 0.011287209, -0.37099, 0.75494313, 0.016770534, 1.130874),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"name": "Glass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAP//AAD//wAAAAAAAAAAAAD/////AAAAAAAA/////wAAAAD//wAAAAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d6xqj"]
+resource_name = "Sketchfab_Scene_Bathroom_cabinet_door_Glass_0"
+_surfaces = [{
+"aabb": AABB(0.08725202, 0.011287209, -0.37099, 0.75494313, 0.016770534, 1.130874),
+"attribute_data": PackedByteArray("A7g6D/tHxPADuMTw+0c6DwO4Og/7R8Tw+0c6DwO4xPA="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_rw32m"),
+"name": "Glass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z//////AAD/vwAA//////+/AAD//wAA/7//////////vwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_p1kdg")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_awm7h"]
+_surfaces = [{
+"aabb": AABB(0.8624131, 0.018449046, 0.18214028, 0.06374413, 0.07653869, 0.060624316),
+"format": 34359742465,
+"index_count": 54,
+"index_data": PackedByteArray("BgABAAcABwABAAIABwACAAUABgAHAAgABwAFAAgABgAIAAAAAgAJAAUACAAFAAkAAgABAAQAAgAEAAkACgABAAYACgAGAAAABAABAAoACQADAAgABAADAAkAAwAAAAgABAAKAAMACgAAAAMA"),
+"lods": [0.045861486, PackedByteArray("AAABAAIAAgABAAQAAwABAAAABAABAAMAAgAFAAAAAgAEAAUABQADAAAABAADAAUA"), 0.050512, PackedByteArray("AAABAAIAAgABAAMAAwABAAAAAgADAAAA")],
+"name": "Metal_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 11,
+"vertex_data": PackedByteArray("4O9kP+6Iwj3uaGw+4O9kP3Qilzw9RlY+8eRfP8PFmz37gjo+NjNqP+6Iwj1XHV0+zvppP8PFmz37gjo+LK9hP+6Iwj3KXUQ+4O9kP8PFmz1Il3g+G8dcP8PFmz354GA+iaxfP+6Iwj1XHV0+kzBoP+6Iwj3KXUQ+pBhtP8PFmz354GA+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6db6d"]
+resource_name = "Sketchfab_Scene_Bathroom_cabinet_door_Metal_04_0"
+_surfaces = [{
+"aabb": AABB(0.8624131, 0.018449046, 0.18214028, 0.06374413, 0.07653869, 0.060624316),
+"attribute_data": PackedByteArray("AACAPwAAAD8AAAA/AACAP5qZGT8AAAA/z8xMPgAAAD8AAAAzAAAAP5qZGT8AAAA/zszMPgAAAD8QHWQ/MLRkPS2RBT/W+KU+AABAP0jh+j4AAIA/AAAAP83MTD8AAAA/zcxMPwAAAD/OzMw+AAAAP8/MTD4AAAA/AAAAMwAAAD/Tbno/1filPvDiGz84tGQ9"),
+"format": 34359742487,
+"index_count": 54,
+"index_data": PackedByteArray("CgABAAsACgALAAwACgAMAAAACwAFAAwACwACAAUACwABAAIAAgANAAUAAgAGAA0AAgABAAYABgADAA0ABgABAA4ABgAOAAMADgABAA8ADgAEAAMADgAPAAQAEAAHABEAEQAIABAACAAJABAA"),
+"lods": [0.045861486, PackedByteArray("AAABAAIAAgAFAAAAAgAGAAUAAgABAAYABgADAAUABgABAAMAAwABAAQABwAIAAkA"), 0.050512, PackedByteArray("AAABAAIAAgADAAAAAgABAAMAAwABAAQA")],
+"material": SubResource("StandardMaterial3D_ghugn"),
+"name": "Metal_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("4O9kP+6Iwj3uaGw+4O9kP3Qilzw9RlY+8eRfP8PFmz37gjo+NjNqP+6Iwj1XHV0+4O9kP+6Iwj3uaGw+LK9hP+6Iwj3KXUQ+zvppP8PFmz37gjo+LK9hP+6Iwj3KXUQ+NjNqP+6Iwj1XHV0+4O9kP+6Iwj3uaGw+4O9kP8PFmz1Il3g+G8dcP8PFmz354GA+iaxfP+6Iwj1XHV0+kzBoP+6Iwj3KXUQ+pBhtP8PFmz354GA+4O9kP8PFmz1Il3g+iaxfP+6Iwj1XHV0+kzBoP+6Iwj3KXUQ+/3/VyP///z//fwAAAADFmFEBsMrcNf+/LK9+wf///z//f9XI////PzI+TuT///+/rf6wygAAEKUyPk7k5SubTSyvfsGJOkgo/3/VyAAA/z//f9WBo/5Uv34gdYFjn/+/0lB+wf///z/LwU7k////v4DfdYH//03w/3/Vgaj+rMDSUH7Bby9EXcvBTuQ4Gwwq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_awm7h")
+
+[node name="MedicineCabinet" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Bathroom_cabinet_Wood_15_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_qoh0q")
+skeleton = NodePath("")
+
+[node name="Bathroom_cabinet_door_01" type="Node3D" parent="."]
+transform = Transform3D(0.38021305, 0, 0, 0, 0.38021305, -1.323489e-23, 0, 1.323489e-23, 0.38021305, -0.35485744, 0.057372093, 0)
+
+[node name="Bathroom_cabinet_door_01_Wood_15_0" type="MeshInstance3D" parent="Bathroom_cabinet_door_01"]
+mesh = SubResource("ArrayMesh_uwrh4")
+skeleton = NodePath("")
+
+[node name="Bathroom_cabinet_door_01_Glass_0" type="MeshInstance3D" parent="Bathroom_cabinet_door_01"]
+mesh = SubResource("ArrayMesh_bcduh")
+skeleton = NodePath("")
+
+[node name="Bathroom_cabinet_door_01_Metal_04_0" type="MeshInstance3D" parent="Bathroom_cabinet_door_01"]
+mesh = SubResource("ArrayMesh_4evt7")
+skeleton = NodePath("")
+
+[node name="Bathroom_cabinet_door" type="Node3D" parent="."]
+transform = Transform3D(-0.38021305, 0, 0, 0, 0.38021305, -3.323928e-08, 0, 3.323928e-08, 0.38021305, 0.35512066, 0.057372093, 0)
+
+[node name="Bathroom_cabinet_door_Wood_15_0" type="MeshInstance3D" parent="Bathroom_cabinet_door"]
+mesh = SubResource("ArrayMesh_yxfh8")
+skeleton = NodePath("")
+
+[node name="Bathroom_cabinet_door_Glass_0" type="MeshInstance3D" parent="Bathroom_cabinet_door"]
+mesh = SubResource("ArrayMesh_d6xqj")
+skeleton = NodePath("")
+
+[node name="Bathroom_cabinet_door_Metal_04_0" type="MeshInstance3D" parent="Bathroom_cabinet_door"]
+mesh = SubResource("ArrayMesh_6db6d")
+skeleton = NodePath("")

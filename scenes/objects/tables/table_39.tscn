@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=4 uid="uid://blaokrxgjw0ci"]
+
+[ext_resource type="Texture2D" uid="uid://denmeioeoc2td" path="res://scenes/objects/textures/Wood_05_baseColor.jpeg" id="1_w32rg"]
+[ext_resource type="Texture2D" uid="uid://d2psw2hhkafi5" path="res://scenes/objects/textures/Wood_15_baseColor.jpeg" id="2_a4erg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqrti"]
+resource_name = "Wood_05"
+cull_mode = 2
+albedo_texture = ExtResource("1_w32rg")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_53m68"]
+_surfaces = [{
+"aabb": AABB(-0.29655457, -0.29136303, -0.3792027, 0.59282035, 0.5831941, 0.53401756),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYACAAJAAoACAALAAkADAAKAAkACwAMAAkADQAIAAoACwAIAA0ADAAOAAoADQAKAA4ACwAPAAwACwANAA8ADwAOAAwADwANAA4A"),
+"name": "Wood_05",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAFnqAAAAAP////8AAAAAAAD//wAAAAD//1nqAAD///////8AAP//AABZ6gAA//8AAP//AAD/////WeoAAAAAAAAAAAAAAAD//6UVAAAAAAAApRUAAAAA//8AAAAA/////6UVAAD//wAAAAAAAP//AAClFQAA/////wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xqiav"]
+resource_name = "Sketchfab_Scene_Table_39_Wood_05_0"
+_surfaces = [{
+"aabb": AABB(-0.29655457, -0.29136303, -0.3792027, 0.59282035, 0.5831941, 0.53401756),
+"attribute_data": PackedByteArray("m5zjzmPj8tWbnPLVY+Pjzgu4487+//LVC7jy1f7/485j4+POm5zy1WPj8tWbnOPO/v/jzgu48tX+//LVC7jjzgu4///+/9ek/v///wu416T+////C7jXpAu4///+/9ekm5x6gmPjiYmbnImJY+N6ggu4eoL//4mJC7iJif7/eoJj43qCm5yJiWPjiYmbnHqC/v96ggu4iYn+/4mJC7h6ggu4///+/9ek/v///wu416T+////C7jXpAu4///+/9ek"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_dqrti"),
+"name": "Wood_05",
+"primitive": 3,
+"uv_scale": Vector4(2.000001, 1.5529897, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AAAAAFnqVNUAAP////9U1QAAAAD//1TVAAD//1nqVNUAAP//Wer/v/////////+/AAD//////7//////Wer/v/////9Z6qoq//8AAP//qir///////+qKv//AABZ6qoq//8AAFnq/z8AAAAA////P///AAD///8/AAAAAFnq/z8AAP//Wer/////AABZ6v///////1nq//8AAAAAWer///////////5/AAAAAP///n8AAP/////+f///AAD///5/AAAAAAAAVNUAAP//pRVU1QAAAAClFVTVAAD//wAAVNUAAP//AAD/v/////+lFf+/AAD//6UV/7//////AAD/v/////8AAKoq//8AAKUVqir/////pRWqKv//AAAAAKoq//8AAAAA/z8AAAAApRX/P///AAClFf8/AAAAAAAA/z8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////+lFf5/AAAAAKUV/n8AAP//pRX+f///AAClFf5/VNVU1VTVVNVU1VTVVNVU1f///3////9/////f////3+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f///VNVU1VTVVNVU1VTVVNVU1f7//3////9//v//f////3+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_53m68")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlahj"]
+resource_name = "Wood_15"
+cull_mode = 2
+albedo_texture = ExtResource("2_a4erg")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w08ia"]
+_surfaces = [{
+"aabb": AABB(-0.27634025, -0.274205, -0.5320339, 0.55238974, 0.5488772, 0.65070724),
+"format": 34896613377,
+"index_count": 192,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAAEAAMAAAAFAAQABAAFAAYABAAGAAcACAAJAAoACAALAAkACAAKAAwACAAMAA0ADAAOAA0ADAAPAA4AEAARABIAEAATABEAEAAUABMAEAAVABQAFAAVABYAFAAWABcAGAAZABoAGAAbABkAGAAaABwAGAAcAB0AHAAeAB0AHAAfAB4AIAAhACIAIgAhACMAIgAjACQAIAAlACEAIwAhACUAJgAlACAAJAAjACcAJAAnACYAIwAlACcAJgAnACUAKAApACoAKAArACkALAAoACoAKwAtACkALQAqACkAKwAuAC0ALAAqAC8ALgAsAC8ALQAvACoALgAvAC0AMAAxADIAMAAzADEANAAwADIAMwA1ADEANQAyADEAMwA2ADUANAAyADcANgA0ADcANQA3ADIANgA3ADUAOAA5ADoAOgA5ADsAOgA7ADwAOAA9ADkAOwA5AD0APgA9ADgAPAA7AD8APAA/AD4AOwA9AD8APgA/AD0A"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("dBZs+jTuAAB162z6/v8AAHQWbPr+/wAAdets+jTuAAB167XrNO4AAHQWtes07gAAdBa16/7/AAB167Xr/v8AAHQWkgU07gAAdeuSBf7/AAB165IFNO4AAHQWkgX+/wAAdetJFDTuAAB0FkkUNO4AAHQWSRT+/wAAdetJFP7/AAB17REWNO4AAHXtueb//wAAde0RFv//AAB17bnmNO4AABT8ueY07gAAFPwRFjTuAAAU/BEW//8AABT8ueb//wAAiRIRFjTuAACJErnm//8AAIkSueY07gAAiRIRFv//AADqA7nmNO4AAOoDERY07gAA6gMRFv//AADqA7nm//8AAP///v83/wAA//9B5gAAAAD//0HmN/8AAGvmQeYAAAAAa+ZB5jf/AAD///7/AAAAAGvm/v83/wAAa+b+/wAAAAAAAP//N/8AAAAAQeYAAAAAAAD//wAAAAAAAEHmN/8AAJMZ//83/wAAkxlB5gAAAACTGUHmN/8AAJMZ//8AAAAA//8AADf/AAD//70ZAAAAAP//AAAAAAAA//+9GTf/AABr5gAAN/8AAGvmvRkAAAAAa+a9GTf/AABr5gAAAAAAAAAAAAA3/wAAAAC9GQAAAAAAAL0ZN/8AAJMZvRkAAAAAkxm9GTf/AAAAAAAAAAAAAJMZAAA3/wAAkxkAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e0p6d"]
+resource_name = "Sketchfab_Scene_Table_39_Wood_15_0"
+_surfaces = [{
+"aabb": AABB(-0.27634025, -0.274205, -0.5320339, 0.55238974, 0.5488772, 0.65070724),
+"attribute_data": PackedByteArray("c/hizv7/Pnz//2LOc/g+fHP4Pnz//2LO/v8+fHP4Ys6B9WLOPvA+fIH1Pnw+8GLOc/hizv7/Pnxz+D58//9iznP4Pnz//2LOc/hizv7/PnzpnWLOLaM+fC2jYs7pnT58c/iK9///lqf//4r3c/iWp3P4lqf//4r3//+Wp3P4ivfQo3l7de7WdXXueXvQo9Z1c/iK9///lqdz+Jan//+K93P4lqf//4r3c/iK9///lqfQo+XPde6J1dCjiNV17uXPqv/nnWyTxKeq/8SnbJPnnar/U3RskzB+qv8wfmyTU3Sq/8SnbJPnnar/551sk8Snqv8wfmyTU3Sq/1N0bJMwfkruMH6A91N0gPcwfkruU3Sq/+edbJPEp2yT552q/8Snqv8L12yTLs1skwvXqv8uzar/xKdsk+edbJPEp6r/552q/y7NbJML12yTLs2q/wvXSu4uzYD3C9dK7gvXgPcuzar///9skyL2bJP//6r/Ivaq/1N0bJMwfmyTU3Sq/zB+qv8i9myT//9skyL2qv///6r/MH5sk1N0bJMwfqr/U3QgpTB+65tTdCClU3TrmzB+qv///2yTIvaq/yL2bJP//6r/C9dsky7Nqv8uzWyTC9eq/yL2bJP//6r///9skyL2qv8uzWyTC9eq/wvXbJMuzSClLs3rmwvX65suzSClC9c="),
+"format": 34896613399,
+"index_count": 192,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAeAB5AHoAeAB7AHkAfAB9AH4AfAB/AH0A"),
+"material": SubResource("StandardMaterial3D_nlahj"),
+"name": "Wood_15",
+"primitive": 3,
+"uv_scale": Vector4(1.7364529, 1.6212043, 0, 0),
+"vertex_count": 128,
+"vertex_data": PackedByteArray("dBZs+jTuVNV162z6/v9U1XQWbPr+/1TVdets+jTuVNV167XrNO6qKnQWtev+/6oqdeu16/7/qip0FrXrNO6qKnQWbPo07v//deu16zTu//9162z6NO7//3QWtes07v//dBaSBTTuqip165IF/v+qKnXrkgU07qoqdBaSBf7/qip160kUNO5U1XQWSRT+/1TVdBZJFDTuVNV160kU/v9U1XQWkgU07v//detJFDTu//90FkkUNO7//3XrkgU07v//de0RFjTu/7917bnm////v3XtERb///+/de255jTu/78U/LnmNO4AABT8ERb//wAAFPy55v//AAAU/BEWNO4AAHXtERY07v//FPy55jTu//917bnmNO7//xT8ERY07v//iRIRFjTuAACJErnm//8AAIkSueY07gAAiRIRFv//AADqA7nmNO7/v+oDERb///+/6gMRFjTu/7/qA7nm////v4kSERY07v//6gO55jTu///qAxEWNO7//4kSueY07v/////+/zf/AAD//0HmAAAAAP//QeY3/wAA///+/wAAAAD//0HmN/+qKmvmQeYAAKoqa+ZB5jf/qir//0HmAACqKmvmQeY3//+/a+b+/wAA/79r5v7/N///v2vmQeYAAP+/a+b+/zf/VNX///7/AABU1f///v83/1TVa+b+/wAAVNVr5kHmAAD//////v8AAP//a+b+/wAA/////0HmAAD//wAA//83//+/AABB5gAA/78AAP//AAD/vwAAQeY3//+/AABB5jf/qiqTGUHmAACqKgAAQeYAAKoqkxlB5jf/qiqTGUHmN/8AAJMZ//8AAAAAkxlB5gAAAACTGf//N/8AAJMZ//83/1TVAAD//wAAVNWTGf//AABU1QAA//83/1TVkxlB5gAA//8AAP//AAD//wAAQeYAAP//kxn//wAA/////wAAN/8AAP//vRkAAAAA//8AAAAAAAD//70ZN/8AAP//vRk3/1TVa+a9GQAAVNX//70ZAABU1WvmvRk3/1TVa+a9GTf//79r5gAAAAD/v2vmvRkAAP+/a+YAADf//79r5gAAN/+qKv//AAAAAKoqa+YAAAAAqir//wAAN/+qKmvmvRkAAP////8AAAAA/////70ZAAD//2vmAAAAAP//AAAAADf//78AAL0ZAAD/vwAAvRk3//+/AAAAAAAA/78AAL0ZN/9U1ZMZvRkAAFTVkxm9GTf/VNUAAL0ZAABU1ZMZvRk3/wAAkxkAAAAAAACTGQAAN/8AAJMZvRkAAAAAkxkAADf/qioAAAAAAACqKgAAAAA3/6oqkxkAAAAAqiqTGb0ZAAD//wAAAAAAAP//kxkAAAAA//8AAL0ZAAD//6qqqqqqqqqqqqqqqqqqqqqqKlTVqipU1aoqVNWqKlTV/7//v/+//7//v/+//7//v6oqVNWqKlTVqipU1aoqVNWqqqqqqqqqqqqqqqqqqqqq/7//v/+//7//v/+//7//v/9//v//f/7//3/+//9/////v/9//7//f/+//3//v/9//7//v/+//7//v/+//7//v/+//3//v/9//7//f/+//3//f////3/+//9//v//f////7//v/+//7//v/+//7//v/+//3//v/9//7//f/+//3+qKlTVqipU1aoqVNWqKlTV/3////9/////f////3///6qqqqqqqqqqqqqqqqqqqqr/v/+//7//v/+//7//v/+//3////9/////f////3///6oqVNWqKlTVqipU1aoqVNX/v/9//7//f/+//3//v/9/qqqpqqqqqaqqqqmqqqqpqv+//7//v/+//7//v/+//7//v/9//7//f/+//3//v/9/qqqqqqqqqqqqqqqqqqqqqv9/////f////3////9///+qKlTVqipU1aoqVNWqKlTV/7//v/+//7//v/+//7//v/9/////f////3////9///+pqqqqqqqqqqmqqqqqqqqq/7//f/+//3//v/9//7//f6oqVNWqKlTVqipU1aoqVNX/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w08ia")
+
+[node name="Table_39" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Table_39_Wood_05_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_xqiav")
+skeleton = NodePath("")
+
+[node name="Table_39_Wood_15_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_e0p6d")
+skeleton = NodePath("")

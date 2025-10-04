@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://xwh1e8prdtms"]
+[gd_scene load_steps=15 format=3 uid="uid://xwh1e8prdtms"]
 
+[ext_resource type="Script" uid="uid://ed2bfwocyyav" path="res://scenes/world/dream.gd" id="1_1yooq"]
 [ext_resource type="Shader" uid="uid://bhlyhqo4few2a" path="res://scripts/shaders/sky.gdshader" id="5_t5ptc"]
 [ext_resource type="Texture2D" uid="uid://co257yfucx0hs" path="res://assets/textures/sky/sky_debug/bg_debug.png" id="6_1yooq"]
 [ext_resource type="Material" uid="uid://c725dpak600b7" path="res://resources/materials/water.tres" id="6_bq33v"]
@@ -34,6 +35,7 @@ size = Vector3(1000, 1000, 1000)
 radius = 200.0
 
 [node name="Dream" type="Node3D"]
+script = ExtResource("1_1yooq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("7_j2gmx")
@@ -77,10 +79,11 @@ shape = SubResource("WorldBoundaryShape3D_bq33v")
 debug_color = Color(0.879183, 0.0825467, 0.932292, 0.42)
 debug_fill = false
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="AreaExit" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaExit"]
 shape = SubResource("SphereShape3D_t5ptc")
+debug_color = Color(0.8958333, 0.8958333, 0.8958333, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player")]
 stream = ExtResource("7_gb53w")

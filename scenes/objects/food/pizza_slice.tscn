@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://dj3qo0onyolav"]
+
+[ext_resource type="Texture2D" uid="uid://csi4ropuvggki" path="res://scenes/objects/textures/Merged_materials_baseColor.png" id="1_v5h1d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_845vd"]
+resource_name = "Merged_materials"
+cull_mode = 2
+albedo_texture = ExtResource("1_v5h1d")
+roughness = 0.6
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a6ue0"]
+_surfaces = [{
+"aabb": AABB(-0.0937188, -0.08271399, -0.009131933, 0.2248018, 0.1653755, 0.018599639),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("BgABAAcACAAGAAcACAAHAAkABgAIAAoACgAIAAkACwAJAAcACgAJAAsABwABAAIABwACAAsABgAFAAEACgAFAAYAAQADAAIABQADAAEABAACAAMABQAEAAMAAAALAAIAAAAKAAsABAAAAAIACgAAAAUAAAAEAAUA"),
+"lods": [0.03587799, PackedByteArray("AAABAAIAAQADAAIABAAAAAIABAACAAMAAAAFAAEAAAAEAAUABQADAAEABQAEAAMA")],
+"name": "Merged_materials",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("7BsAAAAAAADsG/////8AAOwbAAD//wAA////f8uhAAD///9/AAAAAOwb//8AAAAAoge9wAAAAACiB73A//8AAAAAe4EAAAAAAAB7gf//AACiB71AAAAAAKIHvUD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3m3oo"]
+resource_name = "Sketchfab_Scene_Pizza_Pizza_0"
+_surfaces = [{
+"aabb": AABB(-0.0937188, -0.08271399, -0.009131933, 0.2248018, 0.1653755, 0.018599639),
+"attribute_data": PackedByteArray("z/HxeXf/hwB3//F5z/GHAMDwkZMY44cAH+iRk8DwhwDA8IcAGOOHAMFw5wDBcPufhwA8L9BxPC8J4vufCeLnAM/xhx53/4cez/GIPHf/iDzP8Txbd/88W0QXshceMbIHYU+HAKnAhwBnorIHjYiyFw=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("EAABABEAEAADAAEAEgAQABEAEgARABMAFAASABMAFAATABUAAAAUABUAAAAVAAIABAAFAAYABAAHAAUACAAEAAYACAAGAAkAFgAXABgAGAAMABYAGAAKAAwACgALAAwAGQAaABsAGwAPABkAGwANAA8ADQAOAA8A"),
+"lods": [0.03587799, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAEAAYACAAGAAkACgALAAwADQAOAA8A")],
+"material": SubResource("StandardMaterial3D_845vd"),
+"name": "Merged_materials",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("7BsAAAAAHODsG/////+kvOwbAAD//4W87Bv//wAALeD///9/AACS1+wbAAD//6Uq////f8uhKKnsGwAAAAAZFewb//8AANbq7Bv/////MdXsGwAAAAA12f///38AAGfn7Bv//wAAoersG/////9CRP///3/LoX497BsAAP//+UqiB73AAADX3qIHvcD///2iAAB7gQAAEN4AAHuB//9ioaIHvUAAANreoge9QP//4aKiB73AAACG8wAAe4EAAOProge9QAAAUOaiB71A///VRQAAe4H//9FCoge9wP//LUFoP2zV8Zx2qpwqFuOrqkS//38AAMFcFmj/fwAAg0W7WJnYaToA6DIjLymRrK62SFTm2Mk61J1fqnmfZ1jiPlt6T48B6raMmtUdgNP/HoCZ/2Zq9PAxVnfz50hfrOdFLazuQNCrhFtLnWBkm6TDbg+r")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a6ue0")
+
+[node name="Pizza" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Pizza_Pizza_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_3m3oo")
+skeleton = NodePath("")

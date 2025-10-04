@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://c7akcx6avio3j"]
+
+[ext_resource type="Texture2D" uid="uid://xpbb08os1wbl" path="res://scenes/objects/textures/Foods_04_baseColor.jpeg" id="1_tvywg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnqs2"]
+resource_name = "Foods_04"
+cull_mode = 2
+albedo_texture = ExtResource("1_tvywg")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n8xw5"]
+_surfaces = [{
+"aabb": AABB(-0.11288955, -0.17482606, -0.007305756, 0.169694, 0.28870097, 0.020527784),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIABAAAAAIABQABAAAABAAFAAAABQADAAEABgAEAAIABgAFAAQABgACAAEABgADAAUABgABAAMA"),
+"lods": [0.23289806, PackedByteArray("AAABAAIAAgABAAMAAwABAAAAAgADAAAA")],
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray("yKtoPfouwz0zoVg8catoPZoFM74gZe+7zdfQvZwNMz0zoVg8yKtoPfouwz0fZe+7ozLnvTqXcD1H3UE7yKtoPUE36T1H3UE7zdfQvZwNMz0fZe+7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mx16j"]
+resource_name = "Sketchfab_Scene_Sliced_pizza_02_Foods_04_0"
+_surfaces = [{
+"aabb": AABB(-0.11288955, -0.17482606, -0.007305756, 0.169694, 0.28870097, 0.020527784),
+"attribute_data": PackedByteArray("AGwPP+sf/D4AbA8/AyLGPq8b/z4p0PE+AGwPP+sf/D4s7fw+5tD0PgBsDz8i1v8+rxv/PinQ8T4="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIABAAAAAIABQABAAAABAAFAAAABQADAAEABgAEAAIABgAFAAQABgACAAEABgADAAUABgABAAMA"),
+"lods": [0.23289806, PackedByteArray("AAABAAIAAgABAAMAAwABAAAAAgADAAAA")],
+"material": SubResource("StandardMaterial3D_tnqs2"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray("yKtoPfouwz0zoVg8catoPZoFM74gZe+7zdfQvZwNMz0zoVg8yKtoPfouwz0fZe+7ozLnvTqXcD1H3UE7yKtoPUE36T1H3UE7zdfQvZwNMz0fZe+7rLHwkJrv519Zom0e4uDKL3ZNYnARwlBFcu2Lzv///79RLFCshKJoHxSq6tW+yk1SZg4kNP///78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_n8xw5")
+
+[node name="Sliced_pizza_02" type="Node3D"]
+transform = Transform3D(0.30437037, -0.95255375, -4.1637445e-08, 0, -4.371139e-08, 1, -0.95255375, -0.30437037, -1.3304452e-08, 0, 0, 0)
+
+[node name="Sliced_pizza_02_Foods_04_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_mx16j")
+skeleton = NodePath("")

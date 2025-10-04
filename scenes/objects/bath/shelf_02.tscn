@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://c0vcvhx7s1mb6"]
+
+[ext_resource type="Texture2D" uid="uid://bj1hm6vefw1k3" path="res://scenes/objects/textures/Wood_08_baseColor.jpeg" id="1_p7ojb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2da0a"]
+resource_name = "Wood_08"
+cull_mode = 2
+albedo_texture = ExtResource("1_p7ojb")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nsiv5"]
+_surfaces = [{
+"aabb": AABB(-0.40879983, -0.13345915, -0.019375755, 0.8175997, 0.2669183, 0.03875151),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Wood_08",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kpli5"]
+resource_name = "Sketchfab_Scene_Shelf_02_Wood_08_0"
+_surfaces = [{
+"aabb": AABB(-0.40879983, -0.13345915, -0.019375755, 0.8175997, 0.2669183, 0.03875151),
+"attribute_data": PackedByteArray("NlbuecipEIY2VhCGyKnueQAA7nn//xCGAAAQhv//7nnIqe55NlYQhsipEIY2Vu55///ueQAAEIb//xCGAADueQAAyKn//zZW///IqQAANlb//8ipAAA2VgAAyKn//zZW"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_2da0a"),
+"name": "Wood_08",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNUAAP//AAD/v/////////+/AAD//////7//////AAD/v/////8AAKoq//8AAP//qir///////+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////////5/AAAAAP///n8AAP/////+f///AAD///5/VNVU1VTVVNVU1VTVVNVU1f///3////9/////f////3+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nsiv5")
+
+[node name="Shelf_02" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Shelf_02_Wood_08_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_kpli5")
+skeleton = NodePath("")

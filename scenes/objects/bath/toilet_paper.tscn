@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://cfyjilke5ty4p"]
+
+[ext_resource type="Texture2D" uid="uid://b46jrquyhglew" path="res://scenes/objects/textures/Hygiene_baseColor.jpeg" id="1_r7lc6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nahw"]
+resource_name = "Hygiene"
+cull_mode = 2
+albedo_texture = ExtResource("1_r7lc6")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cbok3"]
+_surfaces = [{
+"aabb": AABB(-0.9749279, -0.90096885, -1, 1.9498558, 1.9009688, 2),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("CAABAAkACAAAAAEAAAAKAAEAAAALAAoAAQAKAAMACwADAAoACQABAAMABQALAAAABQAAAAgACwAFAAMACQADAAcABQAHAAMABgAFAAgABQAGAAcABgAMAAcABgAIAAQABAAIAAkABgANAAwABAANAAYABwAMAAIAAgAJAAcADQACAAwABAAJAAIADQAEAAIA"),
+"lods": [0.7451474, PackedByteArray("AAABAAIAAgABAAMABAAAAAIABQADAAEAAAAFAAEABgAAAAQABgAFAAAABAACAAcABgAEAAcAAgADAAcABQAGAAcABQAHAAMA")],
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("pOZKzQAAAACk5krN//8AAFoZSs3//wAA9rgAAP//AABaGUrNAAAAAPa4AAAAAAAACEcAAAAAAAAIRwAA//8AAP9///8AAAAA/3//////AAD//11b//8AAP//XVsAAAAAAABdW///AAAAAF1bAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y7hd4"]
+resource_name = "Sketchfab_Scene_Toilet_paper_Hygiene_0"
+_surfaces = [{
+"aabb": AABB(-0.9749279, -0.90096885, -1, 1.9498558, 1.9009688, 2),
+"attribute_data": PackedByteArray("Rukcs0bpwbel5cG3peUcs8voHLNA5Ryzy+jBt0Dlwbd46ByzdObBt3jowbd05hyzQOUcs8voHLNA5cG3y+jBt+HvM7bQ4g/GI+wPxhPfM7Yj7A/GE98ztuHvM7bQ4g/Gduccs3bnwbfU5sG31OYcs9TmwbfU5hyz9PEAv3rnSLL/3AC/9PEAv3rnSLL/3AC/"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("GAABABkAGAAAAAEAAwAYABkAAwAZAAIABAAaAAYABAAbABoAGwAHABoAGwAFAAcACAAJAAoACAALAAkADAAcAA4ADAAdABwAHQAPABwAHQANAA8AEgAeABAAEAAfABIAHwARABIAHwATABEAEwAgABEAFgAhABQAFAAiABYAFAAXACIAFwAVACIAFwAjABUA"),
+"lods": [0.7451474, PackedByteArray("AAABAAIAAwAAAAIABAAFAAYABQAHAAYACAAJAAoACAALAAkADAANAA4ADQAPAA4AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_3nahw"),
+"name": "Hygiene",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("pOZKzQAAtsek5krN//+2x1oZSs3//7bHWhlKzQAAtsek5krNAABoGfa4AAAAAPs9pOZKzf//aBn2uAAA///7Pfa4AAAAAPs9CEcAAP//+z32uAAA///7PQhHAAAAAPs9CEcAAAAAHvNaGUrNAAC2xwhHAAD//x7zWhlKzf//tsdaGUrN//8AAPa4AAD//wAACEcAAP//AACk5krN//8AAAhHAAAAAP//pOZKzQAA//9aGUrNAAD///a4AAAAAP///3///wAA/7//f///////v///XVv//7sv//9dWwAAuy8AAF1b///K2gAAXVsAAMraAABdW///AAD/f/////8AAP//XVv//wAAAABdWwAA////f///AAD/////XVsAAP//MsGZYDLBmWCY4Mu+mODLvpQz1hgOFOFXlDPWGA4U4VcOFOFXHSgOlA4U4VcdKA6Ujcbi8pjgy76NxuLymODLvv9//3//f/9//3//f/9//3//f/7//3/+//9//v//f/7/////f////39WJ1MxVidTMT3Sgds90oHb/3//f/9//3//f/9//3/+//9/////f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cbok3")
+
+[node name="Toilet_paper" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Toilet_paper_Hygiene_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_y7hd4")
+skeleton = NodePath("")

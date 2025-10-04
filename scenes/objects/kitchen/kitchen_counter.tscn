@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=4 uid="uid://cfpsgv7aohhcy"]
+
+[ext_resource type="Texture2D" uid="uid://bmqxrvkcbq18n" path="res://scenes/objects/textures/Chest_drawers_01_12_baseColor.png" id="1_2ia4k"]
+[ext_resource type="Texture2D" uid="uid://dmu0f1phs8f3n" path="res://scenes/objects/textures/Chest_drawers_01_11_baseColor.jpeg" id="2_yjgvh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68oht"]
+resource_name = "Chest_drawers_01_12.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_2ia4k")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1l2i2"]
+_surfaces = [{
+"aabb": AABB(-0.8141295, -0.0069783926, -0.85656285, 1.5225762, 2.0000005, 1.6877983),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMAAAAFAAEABQAGAAEABQAHAAYA"),
+"name": "Chest_drawers_01_12.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//////7/AAD//wAAAAAAAP//AAD//wAAPQL///7/AAA9AgAA//8AAP////8AAAAAAAAAAAAAAAAAAP//AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gqr5m"]
+resource_name = "cupboards_Kitchen_Cupboard_0_001"
+_surfaces = [{
+"aabb": AABB(-0.8141295, -0.0069783926, -0.85656285, 1.5225762, 2.0000005, 1.6877983),
+"attribute_data": PackedByteArray("AAD//x1BQ4EAAEOBHUH//0qalorriBHaSpoR2uuIloodQf//HUFDgR1BQ4EdQf//"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"material": SubResource("StandardMaterial3D_68oht"),
+"name": "Chest_drawers_01_12.001",
+"primitive": 3,
+"uv_scale": Vector4(3.9755926, 1.9804397, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("//////7//z///wAAAAD/P///AAD///8//////wAA/z///wAA///+fz0C///+//5///////7/z349AgAA///+f/////8AAAAAAAAAAAAAAAD//wAAAAAAAAAA//8AAAAA/38AAP9/AAD/fwAA/38AAP9/////f////38AAP9///////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1l2i2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfp0m"]
+resource_name = "Chest_drawers_01_11.001"
+cull_mode = 2
+albedo_texture = ExtResource("2_yjgvh")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_412gb"]
+_surfaces = [{
+"aabb": AABB(-0.8141295, 1.993022, -0.85656285, 1.6301242, 0.13225937, 1.687798),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQABAAAAAIAAQADAAUABQADAAQABgAFAAQABAAHAAYABAACAAgACQAIAAIACQACAAoAAQAFAAsACwAFAAYAAgABAAsACwAGAAoAAgALAAoA"),
+"name": "Chest_drawers_01_11.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("G+/+/wAAAAD//3D3if4AABvv/////wAA//9w9wAAAAAXAv7/AAAAAP//jggAAAAAG+8AAAAAAAAAAAAAAAAAABcC/////wAAFwIAAP//AAAb7wAA//8AAP//jgiJ/gAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y66rn"]
+resource_name = "cupboards_Kitchen_Marble_0_001"
+_surfaces = [{
+"aabb": AABB(-0.8141295, 1.993022, -0.85656285, 1.6301242, 0.13225937, 1.687798),
+"attribute_data": PackedByteArray("tW8+fZl3tgC1bwAAmXc+fZl3tgC1bz59tW8AAJl3Pn36AD59sW8AAPoAAACxbz59+gAQ6rFv4POxbxDq+gDg8ysCjPNGfWTqKwJk6kZ9jPPEb+DzqHdk6sRvEOqod4zz+gDg8wAAEOqxbxDqlXdk6pV3jPOxb+Dz"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGgAbABgAGwAcABgAHAAdABgA"),
+"material": SubResource("StandardMaterial3D_pfp0m"),
+"name": "Chest_drawers_01_11.001",
+"primitive": 3,
+"uv_scale": Vector4(1.1667705, 1.1534255, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("G+/+/wAA/j///3D3if77Pxvv//////4///9w9wAA+z///44Iif4DwBvvAAAAAAPAG+8AAP//A8D//44IAAADwBcC/v8AAP8/G+///////j8XAv//////Pxvv/v8AAP4/FwIAAP///n8b7/////81fhvvAAD//85+FwL//////n///3D3if7/P///jggAAP8///+OCIn+/z///3D3AAD/Pxvv/////zV+//+OCIn+XXwb7wAA///Ofv//cPeJ/l18FwL+/wAA//8AAAAAAAD//xvvAAAAAP////+OCAAA/////3D3AAD//xvv/v8AAP//af20fvD6eH1//b9+8Pp4fYcC8XqHAvF6hwLxeocC8Xr///9/f/2/fv///39s/bZ+/3////9/AAD/fwAA/3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_412gb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tb3y8"]
+size = Vector3(1.625, 2.125, 1.7)
+
+[node name="KitchenCounter" type="Node3D"]
+
+[node name="Kitchen_Cupboard_0_001" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_gqr5m")
+skeleton = NodePath("")
+
+[node name="Kitchen_Marble_0_001" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_y66rn")
+skeleton = NodePath("")
+
+[node name="KitchenSinkStaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KitchenSinkStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012499988, 1.0749999, -0.012500048)
+shape = SubResource("BoxShape3D_tb3y8")

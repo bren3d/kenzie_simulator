@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://dptitki1j2ewn"]
+
+[ext_resource type="Texture2D" uid="uid://xpbb08os1wbl" path="res://scenes/objects/textures/Foods_04_baseColor.jpeg" id="1_i5plk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnqs2"]
+resource_name = "Foods_04"
+cull_mode = 2
+albedo_texture = ExtResource("1_i5plk")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8uv6w"]
+_surfaces = [{
+"aabb": AABB(-1.3180782, -1.2355233, -1, 2.6361563, 2.5700624, 1.0533164),
+"format": 34896613377,
+"index_count": 87,
+"index_data": PackedByteArray("CwABAAIACwAAAAEAAAADAAEABAALAAIABAACAAUAAAAMAAMADAAKAAMADQAEAAUADQAFAAYABAANAAcABwANAAYABwALAAQABwAGAAgACQAAAAsABwAJAAsACQAMAAAACQAHAAgADAAJAAoACQAIAAoADgAPABAAEAAPAA4AEAARAA4ADgARABAAEQASAA4ADgASABEAEgATABEAEQATABIAEgAUABMAEwAUABIA"),
+"lods": [0.5962569, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABAAFAAYABwAEAAYABwAAAAQABwAGAAgAAAAJAAMABwAJAAAACQAHAAgACQAKAAMACQAIAAoA")],
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("68sruQAAAADA1lPB/v8AAP9/Lez+/wAALewJYf7/AAATNCu5AAAAAD4pU8H+/wAA0RMJYf7/AADdVVIhAAAAANpP0RP+/wAAIapSIQAAAAAksNET/v8AAP9/rN4AAAAArN7mZAAAAABSIeZkAAAAAAhHAAD//wAAAABdW///AABaGUrN//8AAP9//////wAA9rgAAP//AACk5krN//8AAP//XVv//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7aiaj"]
+resource_name = "Sketchfab_Scene_Fast_food_09_Foods_04_0"
+_surfaces = [{
+"aabb": AABB(-1.3180782, -1.2355233, -1, 2.6361563, 2.5700624, 1.0533164),
+"attribute_data": PackedByteArray("lygfYXMqr3KOG69yhQ4fYaoMr3IgJR9hYBavcn0mr3K2Cx9hcwmvcsoiH2FKE69y0iOvclIUH2G2Cx9hYBavcnMJr3IgJR9hfSavcgAebGiSI2dvaBxnb/ohbGiOGx9hBRcfYQUXH2GGG4dr/R8gcXQkh2vTIbJ37SxJbfcoT2DsGIhaBBCyd+AIT2DqBElt9yhPYO0sSW3TIbJ37BiIWgQQsnfgCE9g6gRJbQ=="),
+"format": 34896613399,
+"index_count": 87,
+"index_data": PackedByteArray("FwABAAIAFwAAAAEAAwAXAAIAAwACAAQABQAGAAcABQAYAAYAGAAJAAYAGAAIAAkACgALAAwACgANAAsADgAPABAADgAZAA8AGQASAA8AGQARABIAFQAaABMAEwAbABUAEwAWABsAFgAUABsAFgAcABQAHQAeAB8AHwAgAB0AIAAhAB0AIAAiACEAIgAjACEAJAAlACYAJgAnACQAJgAoACcAKAApACcAKAAqACkA"),
+"lods": [0.5962569, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQAGAAcABQAIAAYACAAJAAYACgALAAwACgANAAsADgAPABAADgARAA8AEQASAA8AEwAUABUAEwAWABQA")],
+"material": SubResource("StandardMaterial3D_tnqs2"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 43,
+"vertex_data": PackedByteArray("68sruQAAMeTA1lPB/v8bzf9/Lez+/zbFEzQruQAAMeQ+KVPB/v8bzevLK7kAAIkJLewJYf7/BSzA1lPB/v8ZFiGqUiEAANAhJLDRE/7/ATkhqlIhAABSH9pP0RP+//c3JLDRE/7/9zfdVVIhAABSH91VUiEAAL/90RMJYf7/n93aT9ET/v/d9RM0K7kAAGrfPilTwf7/SsvdVVIhAACs4OvLK7kAAIXoEzQruQAAheghqlIhAACs4P9/rN4AANjdrN7mZAAAPRpSIeZkAAAo61Ih5mQAAA73/3+s3gAA2N2s3uZkAAAO9whHAAD//wAAAABdW///AABaGUrN//8AAP9//////wAA9rgAAP//AACk5krN//8AAP//XVv//wAAWhlKzf////8AAF1b/////whHAAD//////3/////////2uAAA/////6TmSs3///////9dW//////K0VtnyMPiYf///39a5zOu4eE2vPM5CijpKGQzxTSEG8wjS1mKF0pZCgfSZ7wlZZFlEUJaLBgJh8K7o+QH0M/ZVsRE8BjQqrpL3XK9LBgJhyza/nb99tGlCgfSZ////39+L3Q75sZj0mspboT///9/bwSUVv9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/7//3/+//9/////f/7//3/+//9/////f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8uv6w")
+
+[node name="Fast_food_09" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Fast_food_09_Foods_04_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_7aiaj")
+skeleton = NodePath("")

@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=4 uid="uid://ctb0ltpc0uojs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g521k"]
+resource_name = "Metal"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dtgvk"]
+_surfaces = [{
+"aabb": AABB(-0.99999964, -7.7542696, -0.5922853, 2, 15.508541, 0.6918783),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wc4j1"]
+resource_name = "Sketchfab_Scene_Lamps_06_Metal_0"
+_surfaces = [{
+"aabb": AABB(-0.99999964, -7.7542696, -0.5922853, 2, 15.508541, 0.6918783),
+"attribute_data": PackedByteArray("WGITrP//HLNYYhyz//8TrAGnE6xWuxyzAaccs1a7E6z//xOsWGIcs///HLNYYhOsVrsTrAGnHLNWuxyzAacTrAGn//9Wu1hiVrv//wGnWGJWu///AadYYgGn//9Wu1hi"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_g521k"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(2.6030283, 2.603028, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNUAAP//AAD/v/////////+/AAD//////7//////AAD/v/////8AAKoq//8AAP//qir///////+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////////5/AAAAAP///n8AAP/////+f///AAD///5/VNVU1VTVVNVU1VTVVNVU1f///3////9/////f////3+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dtgvk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u03oq"]
+resource_name = "Emissor.001"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_40u6g"]
+_surfaces = [{
+"aabb": AABB(-0.7842041, -7.370714, -0.0085285455, 1.5684056, 14.741426, 0.45305014),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAACAAMABAAAAAIAAwABAAUABgAAAAQAAAAHAAEABgAHAAAABQABAAcABQAHAAYA"),
+"name": "Emissor.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("////////AAAAAAAA//8AAAAA/////wAAAAD//wAAAAD/////AAAAAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qxadp"]
+resource_name = "Sketchfab_Scene_Lamps_06_Emissor_001_0"
+_surfaces = [{
+"aabb": AABB(-0.7842041, -7.370714, -0.0085285455, 1.5684056, 14.741426, 0.45305014),
+"attribute_data": PackedByteArray("8Lr+/36qb2V+qv//8LpvZX6qPLHwuvy18Lo8sX6q/LXwujyxfqr8tX6qPLHwuvy1b2U8sf///LX//zyxb2X8tf//PLFvZfy1b2U8sf///LU="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_u03oq"),
+"name": "Emissor.001",
+"primitive": 3,
+"uv_scale": Vector4(2.5237355, 2.5237358, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("/////////n8AAAAA///+fwAA//////5///8AAP///n8AAAAAAAD/P///AAD///8///8AAAAA/z8AAAAA////P/////8AAP+/AAD//////78AAP//AAD/v/////////+///8AAAAAqir///////+qKv////8AAKoq//8AAP//qioAAP//AABU1QAAAAD//1TVAAAAAAAAVNUAAP////9U1f9/////f////3////9///8AAP9/AAD/fwAA/38AAP9/////f/7//3/+//9/////f6oqqiqqKqoqqiqqKqoqqipU1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_40u6g")
+
+[node name="Lamps_06" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Lamps_06_Metal_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_wc4j1")
+skeleton = NodePath("")
+
+[node name="Lamps_06_Emissor_001_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_qxadp")
+skeleton = NodePath("")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://ckv7fp8nfieyt"]
+
+[ext_resource type="Texture2D" uid="uid://xpbb08os1wbl" path="res://scenes/objects/textures/Foods_04_baseColor.jpeg" id="1_nwg5c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnqs2"]
+resource_name = "Foods_04"
+cull_mode = 2
+albedo_texture = ExtResource("1_nwg5c")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yow2d"]
+_surfaces = [{
+"aabb": AABB(-0.23562041, -0.36670068, -0.046758126, 0.47126168, 0.7334014, 0.09346459),
+"format": 34896613377,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAAAAIAAwAEAAIABQABAAAAAwABAAYABQAGAAEAAwAGAAcAAwAIAAQABwAIAAMABAAJAAAACAAKAAQACgAJAAQACwAKAAgABwALAAgACQAKAAwACwAMAAoAAAAJAA0ACQAMAA0AAAANAAUADQAMAA4ADwAMAAsADwAOAAwAEAALAAcAEAAPAAsABwARABAABwAGABEADwAQABIAEAARABIADgAPABMADwASABMAFAAOABMADQAOABQAEgAUABMABQANABQAEQAVABIAEgAVABQABQAUABUAFQARAAYAFQAGAAUA"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("TOYgxf//AAD///7//38AAFD1IMWtfgAATOYgxQAAAABQ9d46rX4AAP5/IMX//wAA/3/98v9/AAD+fyDFAAAAAEzm3joAAAAATObeOv//AAD//wAA/38AAP5/3joAAAAA/38BDf9/AAD+f946//8AAAAAAAD/fwAAsBneOgAAAACwGSDFAAAAAAAA////fwAArgogxSSJAACuCt46JIkAALAZ3jr//wAAsBkgxf//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3huxx"]
+resource_name = "Sketchfab_Scene_Cookies_10_Foods_04_0"
+_surfaces = [{
+"aabb": AABB(-0.23562041, -0.36670068, -0.046758126, 0.47126168, 0.7334014, 0.09346459),
+"attribute_data": PackedByteArray("RJOl90mHKvtEk5z5Z6+j92K7Jvtnr5r5RZN23EyH7dhFk3/aaK+C3GS7BNlor4vaX7vt2GWvdtxlr3/aR4cE2UOTgtxDk4vaSYcm+0STo/dEk5r5Ybsq+2evpfdnr5z5ba+p3D6Tstptr7LaPpOq3HiTC+qfh0TZbpOm3D2KCeo+k3b3ba9u+T6Tbvltr3b3PpMQ6m2vdvc+k3b3ba8Q6j6TEOptr6rcPpOp3G2vEOozrwvqDLtE2T2vptxuuAnqeJMU6p+H3Ppuk3r3PYoX6jOvFOoMu9z6Pa969264F+o+k7Laba+q3G2vsto+k6rcba9u+T6Tdvc+k275ba929z2vptxuuAnqM68L6gy7RNluk6bcPYoJ6niTC+qfh0TZPa969264F+ozrxTqDLvc+j6TdvdtrxDqPpMQ6m2vdvc+k6rcba8Q6j6TEOptr6rcbpN69z2KF+p4kxTqn4fc+g=="),
+"format": 34896613399,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUA"),
+"material": SubResource("StandardMaterial3D_tnqs2"),
+"name": "Foods_04",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 88,
+"vertex_data": PackedByteArray("TOYgxf//40L///7//39JP1D1IMWtfjguTObeOgAAafT//wAA/3+l5FD13jqtfm/PsBkgxQAAtPMAAP///3/+4q4KIMUkiX/NsBneOv//G0IAAAAA/3/fPq4K3jokiWAuAAAAAP9/BMqwGd46AAD78K4K3jokiUHcAAD///9/egmwGSDF///IOa4KIMUkiX0o///+//9/58hM5iDFAAAr8VD1IMWtfgnc//8AAP9/pgdM5t46//+zOFD13jqtfqomsBneOgAAMfCuCiDFJIkm064K3jokieHVsBkgxQAAuPT+fyDFAACY+wAA////f0n7sBkgxQAAtfX/f/3y/39l1UzmIMUAAJDwUPXeOq1+EdRQ9SDFrX7b1kzm3joAADn1/n8gxQAAl/tM5t46AAA59UzmIMUAAJDw/n/eOgAAl/v+fyDF///CP7AZ3jr//7A+sBkgxf//OD3+f946///CP/5/3jr//84/AAAAAP9/+TSwGd46//81Ov9/AQ3/f7sq/n8gxf//zj////7//3/7NEzmIMX//+05/3/98v9/uyr+f946AACY+///AAD/f0L7TObeOgAAKPb/fwEN/39l1a4KIMUkidgssBneOv//sD6uCt46JIkdKrAZIMX//zg9UPXeOq1+7StM5iDF//+MPlD1IMWtfiMpTObeOv//Ej2wGd46AABw7/9/AQ3/f0LV/n/eOgAAlvsAAAAA/39NwLAZIMX//0dC/3/98v9/mCr+fyDF//+5PwAA////f2keTObeOv//S0L/fwEN/3+YKv5/3jr//7k///8AAP9/ch5M5iDF//+MPv5/3jr//8I//n8gxf//wj9M5t46//8SPbAZIMUAALj0/n/eOgAAl/v+fyDFAACX+7AZ3joAADHwTOYgxQAA3e//f/3y/39C1f5/IMUAAJb7///+//9/RsALmPFs38tJV6elAE79tOND6ogeQW+pwE/PS7W84Xh6wKVX4rBHaOKRxDPNpTFaKbBLMMuI+EFRtQJUTqSMZ0yxYm8GltBRQKRjz710qr2iSRisH1rNmedPa5EDal6vUVxHRZm5IVRGqYNXBqtoSKm4U8KaPQ1kPa5JRfK0StWWKvW6JkZurBpWEqluVMK3KUdbwqM9wrcpR/W6JkajPVvCgIiAiDtoU5Dhb3SXfnd+d3x3fncIMJ2GLGhrjkBVX1WCiICI8s9qeT2YAXG+qp+qqz1kwuqbwVHOusNKtCpo1SFURqk7aFOQg1cGq+FvdJdurBpWJJj9bhKpblTJkCpo00gxvp8qPtWbPVTCrjRrra5wwJmTqrWqfoiAiH164sH0j7tlalVKVYB3fnd6hRw+JJj9bn53fneAiICIyZAqaGhIqbijPVvCW8KjPUdFmbl/t7FBX9XAKmLCqj1Qy55S")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yow2d")
+
+[node name="Cookies_10" type="Node3D"]
+transform = Transform3D(-1, 3.8941437e-07, 1.7021842e-14, 0, -4.371139e-08, 1, 3.8941437e-07, 1, 4.371139e-08, 0, 0, 0)
+
+[node name="Cookies_10_Foods_04_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_3huxx")
+skeleton = NodePath("")

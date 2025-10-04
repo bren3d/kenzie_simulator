@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://dbpk238avg8mk"]
+
+[ext_resource type="Texture2D" uid="uid://i55wuo4qdxyn" path="res://scenes/objects/textures/Foods_01_baseColor.jpeg" id="1_c8r4a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5up6t"]
+resource_name = "Foods_01"
+cull_mode = 2
+albedo_texture = ExtResource("1_c8r4a")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8jhnv"]
+_surfaces = [{
+"aabb": AABB(-1.1573131, -0.71259326, -1.7618613, 2.752578, 1.0599041, 3.5237226),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Foods_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_icvoy"]
+resource_name = "Sketchfab_Scene_Cereal_08_Foods_01_0"
+_surfaces = [{
+"aabb": AABB(-1.1573131, -0.71259326, -1.7618613, 2.752578, 1.0599041, 3.5237226),
+"attribute_data": PackedByteArray("atMGwxHJPP9q0zD/EcnbxYTUqMK1/yj+hNQ5/+X/E8YWyQ3Fh9Mv/xbJJv+H06LDwu0n8xzcU/2M3ErzUu0v/aT4IeCj8un41veu+HLzXOB+/Av4cfW/3lr9Id+V9Kr3"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_5up6t"),
+"name": "Foods_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAuC0AAP////9rKwAAAAD//7kqAAD//wAAYS4AAP//AAACwP///////wDAAAD/////AMD/////AAAPwP////8AANnW//8AAP//o9X///////9I1f//AAAAADbX//8AAAAAldUAAAAA//+V1f//AAD//5XVAAAAAAAAldUAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAP///////53BAAAAAP//ncEAAP////+dwf//AAD//53BRFeJrstVlqteVbyqtldtr839nXvA/oJ9K/1pgV77v3aQqyFX2aq0VaKqRlXFq4xXolUuVaJVLlWiVS5VolUuVcbAOL/GwDi/xsA4v8bAOL//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8jhnv")
+
+[node name="Cereal_08" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Cereal_08_Foods_01_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_icvoy")
+skeleton = NodePath("")

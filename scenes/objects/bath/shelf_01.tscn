@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=4 uid="uid://hn8unjkkl1ff"]
+
+[ext_resource type="Texture2D" uid="uid://bj1hm6vefw1k3" path="res://scenes/objects/textures/Wood_08_baseColor.jpeg" id="1_5vbvp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2da0a"]
+resource_name = "Wood_08"
+cull_mode = 2
+albedo_texture = ExtResource("1_5vbvp")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1o5hn"]
+_surfaces = [{
+"aabb": AABB(-0.40879983, -0.13345915, -0.019375755, 0.8175997, 0.2669183, 0.03875151),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Wood_08",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yab4s"]
+resource_name = "Sketchfab_Scene_Shelf_01_Wood_08_0"
+_surfaces = [{
+"aabb": AABB(-0.40879983, -0.13345915, -0.019375755, 0.8175997, 0.2669183, 0.03875151),
+"attribute_data": PackedByteArray("NlbuecipEIY2VhCGyKnueQAA7nn//xCGAAAQhv//7nnIqe55NlYQhsipEIY2Vu55///ueQAAEIb//xCGAADueQAAyKn//zZW///IqQAANlb//8ipAAA2VgAAyKn//zZW"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_2da0a"),
+"name": "Wood_08",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNUAAP//AAD/v/////////+/AAD//////7//////AAD/v/////8AAKoq//8AAP//qir///////+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD///////////5/AAAAAP///n8AAP/////+f///AAD///5/VNVU1VTVVNVU1VTVVNVU1f///3////9/////f////3+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1o5hn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7ens"]
+resource_name = "Metal"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w33bs"]
+_surfaces = [{
+"aabb": AABB(-0.38460618, -0.13399263, -0.20034924, 0.76921237, 0.25057817, 0.18717438),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAgADAAQAAgAEAAAAAAAFAAEABQAGAAEABQAHAAYABwAIAAYABQAJAAcABwAJAAgABQAAAAkACQAKAAgACQALAAoAAAAMAAkACQANAAsACQAMAA0ACwANAA4ACwAOAAQADwANAAwAAAAPAAwADwAOAA0ABAAPAAAABAAOAA8AEAARABIAEgARABMAEAAUABEAEgATABUAFQATABYAEgAVABcAFQAWABcAEgAXABAAFwAWABgAFwAYABkAEAAXABoAFAAQABsAFAAbABwAEAAaAB0AGwAQAB0AFwAeABoAFwAZAB4AHQAaAB4AGQAbAB8AGwAdAB8AGQAfAB4AHQAeAB8A"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("5fRhERfjAADl9P////8AAOX0mw3//wAA5fQAAP//AADl9AAAF+MAAOX0//8X4wAA////////AAD/////F+MAAP//mw3//wAA//9hERfjAAD//wAA//8AAP//AAAX4wAA//9hEQAAAAD//wAAAAAAAOX0AAAAAAAA5fRhEQAAAAAZC2ERF+MAABkL/////wAAGQv//xfjAAAAAP////8AABkLmw3//wAAAAD//xfjAAAAAJsN//8AAAAAYREX4wAAAAAAAP//AAAAAAAAF+MAAAAAYREAAAAAGQsAABfjAAAZCwAA//8AABkLYREAAAAAAAAAAAAAAAAZCwAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pol6d"]
+resource_name = "Sketchfab_Scene_Shelf_01_Metal_0"
+_surfaces = [{
+"aabb": AABB(-0.38460618, -0.13399263, -0.20034924, 0.76921237, 0.25057817, 0.18717438),
+"attribute_data": PackedByteArray("LTa87f/////8Mv////+87XonvO16J///LTZDXnonQ14u47zt/////y7j/////7zt//+87fwy////////LTa87Xon//96J7zteidDXi02Q14u4/////8tNv////8u4y02LuMtNv//eif//y02LuN6J///vO0u40NeLuO87f//Q14u47zt//9DXv//vO0u40NeLTa87f///////7zt/DL//3onvO16J///LTZDXnonQ14u47zt////////vO0u4/////+87fwy//8tNrzt/////3on//96J7zteidDXi02Q14u4/////8tNi7jLTb/////LuMtNv//eicu43on//8tNv//vO0u40Ne//9DXi7jvO0u47zt//9DXi7jQ17//7zt"),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgAEAAAAAgAFAAQABAAGAAAABAAHAAYACAAJAAoACAALAAkADAANAA4ADAAPAA0ADwAQAA0ADwARABAADwASABEADwATABIAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAJwAkACgAJwAoACkAKAAkACoAKAAqACsALAAtAC4ALAAvAC0AMAAxADIAMAAzADEAMgAxADQAMgA0ADUAMgA1ADYAMgA2ADcAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
+"material": SubResource("StandardMaterial3D_w7ens"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0.8629989, 0.8629989, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("5fRhERfjVNXl9P////9U1eX0mw3//1TV5fT//xfjVNXl9AAAF+NU1eX0AAD//1TV5fRhEQAAVNXl9AAAAABU1eX0//8X4/+//////////7/l9P//////v/////8X4/+//////xfjqir//5sN//+qKv///////6oq//9hERfjqir//wAA//+qKv//AAAX46oq//8AAAAAqir//2ERAACqKuX0//8X4/////9hERfj////////F+P//+X0YREX4///5fRhEQAA/////wAAAAD/////YREAAP//5fQAAAAA/////wAAF+P/P+X0AAAAAP8/5fQAABfj/z///wAAAAD/P+X0YREX4/+///9hEQAA/7///2ERF+P/v+X0YREAAP+/GQthERfjqioZC/////+qKhkL//8X46oqGQubDf//qioZCwAAF+OqKhkLAAD//6oqGQthEQAAqioZCwAAAACqKhkL//8X4wAAAAD/////AAAAAP//F+MAABkL/////wAAAAD//xfjVNUAAJsN//9U1QAAYREX41TVAAD/////VNUAAAAA//9U1QAAAAAX41TVAAAAAAAAVNUAAGERAABU1RkL//8X4wAAAABhERfjAAAZC2ERF+MAAAAA//8X4wAAGQthEQAAAAAAAAAAAAAAABkLAAAAAAAAAABhEQAAAAAAAAAAF+P//xkLAAAAAP//AAAAAAAA//8ZCwAAF+P//xkLYREX4wAAAABhEQAAAAAZC2ERAAAAAAAAYREX4wAAVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNX///9/////f////3////9/qiqqKqoqqiqqKqoqqiqqKqoqqiqqKqoqqiqqKqoqqir///9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/qiqqKqoqqiqqKqoqqiqqKqoqqiqqKqoqqiqqKqoqqir/f/+//3//v/9//7//f/+/VNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNX/f////3////9/////f////3////9/////f////3////9//z//f/8//3//P/9//z//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w33bs")
+
+[node name="Shelf_01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Shelf_01_Wood_08_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_yab4s")
+skeleton = NodePath("")
+
+[node name="Shelf_01_Metal_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_pol6d")
+skeleton = NodePath("")

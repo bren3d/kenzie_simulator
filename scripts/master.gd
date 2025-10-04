@@ -8,7 +8,6 @@ const DEBUG_SCENE_PATHS:PackedStringArray = [
 	"res://scenes/basement/basement.tscn",
 ]
 
-
 var scene: Node : set = set_scene, get = get_scene
 
 var vp: Viewport
@@ -21,9 +20,10 @@ func _initialize() -> void:
 	if Engine.is_editor_hint(): return
 	
 	# Only runs when running the main scene.
-	if not "uid" in OS.get_cmdline_args()[0]:
-		scene = current_scene
-		return
+	# AS OF 4.5: ["--scene", "uid://bd31f2ihbhefp", "some_var", "value"]
+	#if not "uid" in OS.get_cmdline_args()[0]:
+		#scene = current_scene
+		#return
 	
 	var svc: SubViewportContainer = SubViewportContainer.new()
 	svc.stretch = true
@@ -51,8 +51,8 @@ func _initialize() -> void:
 	
 	root.ready.connect(_on_root_ready, CONNECT_ONE_SHOT)
 	
-	if OS.is_debug_build():
-		root.window_input.connect(_on_root_input)
+	#if OS.is_debug_build():
+	root.window_input.connect(_on_root_input)
 
 func _on_root_ready() -> void:
 	scene = current_scene
