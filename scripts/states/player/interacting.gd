@@ -13,8 +13,12 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func enter() -> void:
-	player.interact_ray.hovered_interactable.interaction_ended.connect(emit_signal.bind(&"transition_requested", "Moving"), CONNECT_ONE_SHOT)
+	player.pause_timers()
+	player.interact_ray.hovered_interactable.interaction_ended.connect(emit_signal.bind(&"transition_requested", blackboard.previous_state.name), CONNECT_ONE_SHOT)
 	player.interact_ray.hovered_interactable.start_interaction(player)
+
+func exit() -> void:
+	player.unpause_timers()
 
 func update_physics_process(delta: float) -> void:
 	if Engine.is_editor_hint(): return

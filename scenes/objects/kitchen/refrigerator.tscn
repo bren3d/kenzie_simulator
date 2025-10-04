@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://bkvtfh2r41liy"]
+[gd_scene load_steps=17 format=4 uid="uid://bkvtfh2r41liy"]
 
 [ext_resource type="Texture2D" uid="uid://cbvj40jvsgg5c" path="res://scenes/objects/textures/Chest_drawers_01_22_baseColor.png" id="1_lns3i"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="2_qdpvj"]
+[ext_resource type="Material" uid="uid://d3icvun78phst" path="res://resources/materials/outline.tres" id="3_u5tgb"]
 [ext_resource type="Script" uid="uid://cvxjsg3gij30g" path="res://scripts/trigger_property.gd" id="5_dwhs0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxwxg"]
@@ -197,6 +198,7 @@ shape = SubResource("BoxShape3D_dwhs0")
 script = ExtResource("2_qdpvj")
 collider_body = NodePath("../RefrigeratorDoor/DoorInteractArea3D")
 mesh = NodePath("../RefrigeratorDoor/Refrigerator_Door_001_Refrigerator_0")
+overlay_material = ExtResource("3_u5tgb")
 interaction_text = "Open"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 

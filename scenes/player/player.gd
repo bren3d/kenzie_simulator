@@ -32,6 +32,8 @@ var sprinting: bool = false
 var input_dir: Vector2 = Vector2.ZERO
 
 var can_interact: bool = true
+var can_cough: bool = true
+
 
 func _init() -> void:
 	Global.player = self
@@ -41,9 +43,12 @@ func _ready() -> void:
 	
 	show_message("")
 	
+	set_flashlight_active.bind(false)
+	$cough.set_paused(false)
+	$soda.set_paused(false)
 	# Turn on to get rid of stutter when loading...
-	set_flashlight_active(true)
-	create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.2)
+	#set_flashlight_active(true)
+	#create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.2)
 
 func _process(delta: float) -> void:
 	state_machine.update_process(delta)
@@ -57,6 +62,8 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.on_unhandled_input(event)
+	if can_cough and event.is_action_pressed(&"cough"):
+		cough()
 
 func _mouse_enter() -> void:
 	state_machine.on_mouse_entered()
@@ -125,3 +132,28 @@ func show_message(text: String) -> void:
 	tw.tween_property(%MessageLabel as Label, ^"modulate:a", 1.0, FADE_IN_OUT_DURATION_SEC)
 	tw.tween_interval(1.5)
 	tw.tween_property(%MessageLabel as Label, ^"modulate:a", 0.0, FADE_IN_OUT_DURATION_SEC)
+
+func pause_timers() -> void:
+	for child in get_children():
+		if child is StatComponent:
+			child.pause()
+
+func unpause_timers() -> void:
+	for child in get_children():
+		if child is StatComponent:
+			child.unpause()
+			
+
+
+func cough() -> void:
+	$cough.set_value(100.0)
+	if not $CoughAudioStream.playing:
+		$CoughAudioStream.play()
+
+func drink_soda() -> void:
+	$soda.set_value(100.0)
+	if not $SodaAudioStream.playing:
+		$SodaAudioStream.play()
+
+func kill() -> void:
+	set_state("Dead")

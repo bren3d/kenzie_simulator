@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3pgs8qgiescg"]
+[gd_scene load_steps=18 format=3 uid="uid://c3pgs8qgiescg"]
 
 [ext_resource type="Script" uid="uid://ttc2nvo6lgj7" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bcgef6mdo78ue" path="res://scripts/components/camera_controller.gd" id="2_5gtgg"]
@@ -9,10 +9,16 @@
 [ext_resource type="Script" uid="uid://2aoajcpaxxu" path="res://scripts/states/player/cursor.gd" id="4_0owmy"]
 [ext_resource type="Script" uid="uid://b1cexupi2kvio" path="res://scripts/states/player/godmode.gd" id="5_qek5x"]
 [ext_resource type="Script" uid="uid://csnxtmdq582x7" path="res://scripts/states/player/interacting.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://cgixpkri85v2f" path="res://scenes/player/stats.gd" id="10_h17s1"]
+[ext_resource type="Script" uid="uid://bn46gsk3h3xow" path="res://scripts/states/player/dead.gd" id="10_ugbui"]
+[ext_resource type="AudioStream" uid="uid://c3ggxgpal6yej" path="res://assets/sounds/female_cough.wav" id="11_je7p5"]
+[ext_resource type="AudioStream" uid="uid://46p2jn5ofqhp" path="res://assets/sounds/soda_open.wav" id="12_fm80t"]
+[ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="13_gx1jg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8afob"]
+render_priority = 1
 albedo_color = Color(0.164063, 0.164063, 0.164063, 1)
 disable_receive_shadows = true
 
@@ -71,6 +77,50 @@ interaction_label = NodePath("../../UI/InteractLabel")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 5
+
+[node name="ProgressGrid" type="GridContainer" parent="UI"]
+custom_minimum_size = Vector2(160, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -23.0
+offset_right = 168.0
+offset_bottom = -8.0
+grow_vertical = 0
+columns = 2
+
+[node name="Cough" type="Label" parent="UI/ProgressGrid"]
+visible = false
+material = ExtResource("3_qek5x")
+layout_mode = 2
+text = "Cough"
+horizontal_alignment = 2
+
+[node name="CoughProgressBar" type="ProgressBar" parent="UI/ProgressGrid"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+show_percentage = false
+
+[node name="Soda" type="Label" parent="UI/ProgressGrid"]
+visible = false
+material = ExtResource("3_qek5x")
+layout_mode = 2
+text = "Diet Soda"
+horizontal_alignment = 2
+
+[node name="SodaProgressBar" type="ProgressBar" parent="UI/ProgressGrid"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+show_percentage = false
 
 [node name="StateDebugLabel" type="Label" parent="UI"]
 top_level = true
@@ -144,3 +194,72 @@ metadata/_custom_type_script = "uid://benwkf4v500kg"
 
 [node name="Interacting" type="Node" parent="StateMachine"]
 script = ExtResource("8_qek5x")
+
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("camera_action")]
+script = ExtResource("10_ugbui")
+camera_action = NodePath("../../DeadCameraAction")
+metadata/_custom_type_script = "uid://benwkf4v500kg"
+
+[node name="cough" type="Node" parent="."]
+script = ExtResource("10_h17s1")
+stat_name = "cough"
+delta_sec = 5.0
+metadata/_custom_type_script = "uid://cgixpkri85v2f"
+
+[node name="soda" type="Node" parent="."]
+script = ExtResource("10_h17s1")
+stat_name = "soda"
+delta_sec = 0.5
+metadata/_custom_type_script = "uid://cgixpkri85v2f"
+
+[node name="CoughAudioStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_je7p5")
+
+[node name="SodaAudioStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_fm80t")
+
+[node name="DeadCameraAction" type="Marker3D" parent="."]
+transform = Transform3D(0.80536246, 0.5685574, 0.16773126, -0.5698815, 0.8204968, -0.044943456, -0.16317593, -0.05939117, 0.98480785, 0, -0.75237197, -0.06946607)
+script = ExtResource("13_gx1jg")
+ease_type = 0
+camera_properties = {
+&"attributes": null,
+&"compositor": null,
+&"cull_mask": 1048573,
+&"current": false,
+&"doppler_tracking": 0,
+&"environment": null,
+&"far": 4000.0,
+&"fov": 75.0,
+&"frustum_offset": Vector2(0, 0),
+&"h_offset": 0.0,
+&"keep_aspect": 1,
+&"near": 0.05,
+&"projection": 0,
+&"size": 1.0,
+&"v_offset": 0.0
+}
+keep_aspect = 1
+cull_mask = 1048573
+environment = null
+attributes = null
+compositor = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://p6kvdxghlvhe"
+
+[connection signal="changed" from="cough" to="UI/ProgressGrid/CoughProgressBar" method="set_value"]
+[connection signal="empty" from="cough" to="." method="kill"]
+[connection signal="running_changed" from="cough" to="UI/ProgressGrid/Cough" method="set_visible"]
+[connection signal="running_changed" from="cough" to="UI/ProgressGrid/CoughProgressBar" method="set_visible"]
+[connection signal="changed" from="soda" to="UI/ProgressGrid/SodaProgressBar" method="set_value"]
+[connection signal="running_changed" from="soda" to="UI/ProgressGrid/Soda" method="set_visible"]
+[connection signal="running_changed" from="soda" to="UI/ProgressGrid/SodaProgressBar" method="set_visible"]

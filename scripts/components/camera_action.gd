@@ -64,7 +64,7 @@ func _ready() -> void:
 	camera.clear_current()
 	camera.global_transform = global_transform
 	set_physics_process(false)
-	
+
 
 func is_focused() -> bool:
 	return is_physics_processing()
@@ -86,7 +86,9 @@ func interpolate_camera(from: Transform3D, to: Node3D, start_fov: float = 75.0, 
 
 # TODO - Change behavior with modes...
 func focus() -> void:
-	camera_to_restore = get_viewport().get_camera_3d()
+	var current_camera: Camera3D = get_viewport().get_camera_3d()
+	if current_camera != self:
+		camera_to_restore = current_camera
 	interpolate_camera(camera_to_restore.global_transform, self, camera_to_restore.fov, camera_properties.get("fov", 75.0))
 	if _interpolation_finished.is_connected(restore_camera):
 		_interpolation_finished.disconnect(restore_camera)

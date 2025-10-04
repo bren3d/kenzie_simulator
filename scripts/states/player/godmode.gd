@@ -36,6 +36,8 @@ func on_unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"flashlight"):
 		player.toggle_flashlight()
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed(&"interact") and player.interact_ray.can_interact():
+		transition_requested.emit("Interacting")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if OS.is_debug_build() and event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_G:

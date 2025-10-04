@@ -35,9 +35,7 @@ size = Vector3(1.5, 2.7, 0.1)
 script = ExtResource("5_iwle0")
 target_node = NodePath("..")
 method_name = "toggle"
-args = []
 ref_arguments = PackedStringArray("interactor")
-toggle_mode = false
 metadata/_custom_type_script = "uid://b256oh8o7fr1o"
 
 [node name="Door" type="Node3D"]
