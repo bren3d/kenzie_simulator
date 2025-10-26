@@ -12,7 +12,6 @@ signal closed
 signal door_locked
 signal door_unlocked
 
-@export var v: Variant
 @export_tool_button("Toggle Open/Closed", "MoveUp") 
 var toggle_callable: Callable = toggle
 

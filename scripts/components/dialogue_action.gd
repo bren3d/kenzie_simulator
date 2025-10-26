@@ -5,6 +5,15 @@ class_name DialogueAction extends Node
 signal dialogue_finished
 
 @export var dialogue_resource: DialogueResource
+
+@export_placeholder("Hello, this is dialogue...") 
+var dialogue_text: String = ""
+
+@export var simple_dialogue_mode: bool:
+	set(val):
+		simple_dialogue_mode = val
+		notify_property_list_changed()
+
 @export var section_title: String = ""
 @export var disabled: bool
 
@@ -13,6 +22,9 @@ signal dialogue_finished
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	assert(get_parent().has_meta(&"Interactable"))
+	
+	if simple_dialogue_mode:
+		dialogue_resource = DialogueManager.create_resource_from_text(dialogue_text)
 	
 	var interactable:= get_parent().get_meta(&"Interactable") as Interactable
 	interactable.interaction_started.connect(start)
@@ -47,3 +59,9 @@ func _on_dialogue_ended(dialogue: DialogueResource) -> void:
 
 func get_tag() -> StringName:
 	return &"Dialogue"
+
+func _validate_property(property: Dictionary) -> void:
+	if simple_dialogue_mode and property.name == "dialogue_resource":
+		property.usage &= ~(PROPERTY_USAGE_EDITOR)
+	elif not simple_dialogue_mode and property.name == "dialogue_text":
+		property.usage &= ~(PROPERTY_USAGE_EDITOR)

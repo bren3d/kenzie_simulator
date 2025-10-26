@@ -2,6 +2,7 @@
 extends PlayerState
 
 const MOUSE_VISIBLE_MOVEMENT_THRESHOLD_PIXELS: int = 500
+
 var mouse_events: InputEventMouseMotion = InputEventMouseMotion.new()
 
 func _init() -> void:
@@ -20,6 +21,7 @@ func enter() -> void:
 func exit() -> void:
 	player.unpause_timers()
 
+
 func update_physics_process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
 	player.velocity.x = move_toward(player.velocity.x, 0.0, player.ACCELERATION * delta)
@@ -36,6 +38,7 @@ func _on_dialogue_ended(res: DialogueResource) -> void:
 	if get_tree().root.window_input.is_connected(_on_root_input):
 		get_tree().root.window_input.disconnect(_on_root_input)
 	player.clear_camera_zoom()
+	get_tree().set(&"mouse_mode", Input.MOUSE_MODE_CAPTURED)
 
 func _on_root_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

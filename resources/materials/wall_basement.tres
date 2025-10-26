@@ -26,6 +26,7 @@ normalize = false
 seamless_blend_skirt = 0.35
 
 [resource]
+disable_ambient_light = true
 albedo_texture = ExtResource("1_ma6ln")
 detail_enabled = true
 detail_mask = SubResource("NoiseTexture2D_axhix")

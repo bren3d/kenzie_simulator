@@ -5,7 +5,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dottx"]
 resource_name = "material"
 cull_mode = 2
-shading_mode = 0
 albedo_texture = ExtResource("1_6qerd")
 texture_filter = 0
 
@@ -43,7 +42,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7xgu5")
 
-[node name="Sketchfab_Scene" type="Node3D"]
+[node name="Rat" type="Node3D"]
 
 [node name="Cube_rat_0" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1.6292067e-07, 1, 0, -1, -1.6292067e-07, 0, 0, 0)

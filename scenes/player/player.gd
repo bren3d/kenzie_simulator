@@ -34,9 +34,7 @@ var input_dir: Vector2 = Vector2.ZERO
 var can_interact: bool = true
 var can_cough: bool = true
 
-
-func _init() -> void:
-	Global.player = self
+var can_die: bool = true
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
@@ -46,9 +44,13 @@ func _ready() -> void:
 	set_flashlight_active.bind(false)
 	$cough.set_paused(false)
 	$soda.set_paused(false)
+	
+	# ALERT 
+	can_die = not OS.is_debug_build()
+	
 	# Turn on to get rid of stutter when loading...
-	#set_flashlight_active(true)
-	#create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.2)
+	set_flashlight_active(true)
+	create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.2)
 
 func _process(delta: float) -> void:
 	state_machine.update_process(delta)
@@ -142,12 +144,14 @@ func unpause_timers() -> void:
 	for child in get_children():
 		if child is StatComponent:
 			child.unpause()
-			
 
 
 func cough() -> void:
+	const MIN_COUGH_PITCH_SCALE : float = 0.75
+	const MAX_COUGH_PITCH_SCALE: float = 1.5
 	$cough.set_value(100.0)
 	if not $CoughAudioStream.playing:
+		$CoughAudioStream.pitch_scale = lerpf(MIN_COUGH_PITCH_SCALE, MAX_COUGH_PITCH_SCALE, randf())
 		$CoughAudioStream.play()
 
 func drink_soda() -> void:
@@ -156,4 +160,5 @@ func drink_soda() -> void:
 		$SodaAudioStream.play()
 
 func kill() -> void:
+	if not can_die: return
 	set_state("Dead")

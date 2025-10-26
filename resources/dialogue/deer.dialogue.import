@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bw5kdfdg308tm"
+path="res://.godot/imported/deer.dialogue-d0f681ec3e9119bbe23f67a53d662ebe.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/deer.dialogue"
+dest_files=["res://.godot/imported/deer.dialogue-d0f681ec3e9119bbe23f67a53d662ebe.tres"]
+
+[params]
+
+defaults=true

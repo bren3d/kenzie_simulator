@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://bvcyvaqhd75sm"]
+[gd_scene load_steps=13 format=4 uid="uid://bvcyvaqhd75sm"]
 
 [ext_resource type="Texture2D" uid="uid://bq6n5xh2b6uao" path="res://resources/models/alex/alex_man_tex.png" id="1_oloo2"]
 [ext_resource type="Script" uid="uid://chspbcvm5yyc" path="res://scenes/npc/alex/alex.gd" id="1_uchuv"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="3_pdr3l"]
+[ext_resource type="Texture2D" uid="uid://d2rj72rxg1cmf" path="res://assets/textures/UI/icon_dialog.png" id="4_1cgt6"]
 [ext_resource type="Material" uid="uid://d3icvun78phst" path="res://resources/materials/outline.tres" id="4_jvb0o"]
 [ext_resource type="Script" uid="uid://buepc5xqp7mpu" path="res://scripts/components/dialogue_action.gd" id="4_pdr3l"]
 [ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/test.dialogue" id="5_jvb0o"]
@@ -316,6 +317,7 @@ shape = SubResource("CapsuleShape3D_oloo2")
 [node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("collider_body")]
 script = ExtResource("3_pdr3l")
 collider_body = NodePath("..")
+icon = ExtResource("4_1cgt6")
 overlay_material = ExtResource("4_jvb0o")
 interaction_text = "Talk"
 auto_end_interaction = false

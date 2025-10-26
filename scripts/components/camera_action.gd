@@ -52,12 +52,7 @@ var elapsed_sec: float = 0.0
 
 #endregion Tween Properties
 
-static func _static_init() -> void:
-	if not Engine.has_user_signal(SIGNAL_RELEASE_CAMERA_FOCUS): 
-		Engine.add_user_signal(SIGNAL_RELEASE_CAMERA_FOCUS)
-
 func _ready() -> void:
-	Engine.connect(SIGNAL_RELEASE_CAMERA_FOCUS, release_focus)
 	set_notify_transform(Engine.is_editor_hint())
 	camera.top_level = true
 	add_child(camera)

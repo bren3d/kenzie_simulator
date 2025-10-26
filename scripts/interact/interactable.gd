@@ -14,7 +14,7 @@ signal interaction_ended
 
 @export var collider_body: CollisionObject3D : set = set_collider_body
 @export var mesh: MeshInstance3D
-@export var icon: Texture2D
+@export var icon: Texture2D = preload("uid://djsvoil117es0")
 
 @export var overlay_material: Material
 
@@ -60,3 +60,6 @@ func set_collider_body(val: CollisionObject3D) -> void:
 
 func get_interaction_text() -> String:
 	return interaction_text
+
+func get_icon() -> Texture2D:
+	return icon

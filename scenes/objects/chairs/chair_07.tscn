@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://d3cqnwxws0qcy"]
 
-[ext_resource type="Texture2D" uid="uid://cybukma7bc6xc" path="res://scenes/objects/textures/Fabric_04_baseColor.jpeg" id="1_b5gx2"]
-[ext_resource type="Texture2D" uid="uid://csshtgfvbbvfs" path="res://scenes/objects/textures/Wood_10_baseColor.jpeg" id="2_ji7ls"]
+[ext_resource type="Texture2D" uid="uid://cskxjahtb0478" path="res://scenes/objects/textures/Fabric_04_baseColor.jpeg" id="1_b5gx2"]
+[ext_resource type="Texture2D" uid="uid://dbwg5dabuc5ct" path="res://scenes/objects/textures/Wood_10_baseColor.jpeg" id="2_ji7ls"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl2jt"]
 resource_name = "Fabric_04"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://cj236q2e6oqpk"]
 
-[ext_resource type="Texture2D" uid="uid://d243pneccisrv" path="res://scenes/objects/textures/Wood_09_baseColor.jpeg" id="1_wdc2t"]
+[ext_resource type="Texture2D" uid="uid://bg5bi3gxlfo8" path="res://scenes/objects/textures/Wood_09_baseColor.jpeg" id="1_wdc2t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0bqt"]
 resource_name = "Wood_09"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://bd31f2ihbhefp"]
+[gd_scene load_steps=149 format=4 uid="uid://bd31f2ihbhefp"]
 
 [ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
 [ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
@@ -12,16 +12,19 @@
 [ext_resource type="PackedScene" uid="uid://bajg8364abgyt" path="res://scenes/door/door.tscn" id="6_a54wy"]
 [ext_resource type="Texture2D" uid="uid://fxucieeglpwd" path="res://assets/textures/sky/sky_debug/bg_debug_sky.png" id="6_wuaeu"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="7_olr0t"]
-[ext_resource type="Texture2D" uid="uid://ddigcfp2qesgo" path="res://assets/textures/materials/furniture/leather_01.jpg" id="7_xeobe"]
 [ext_resource type="Script" uid="uid://dagiyaevml1no" path="res://scenes/door/door_group.gd" id="8_3ijw5"]
 [ext_resource type="FontFile" uid="uid://bj3co8un84e62" path="res://assets/fonts/Children.ttf" id="8_n7hqg"]
 [ext_resource type="Material" uid="uid://d3icvun78phst" path="res://resources/materials/outline.tres" id="10_acu8t"]
 [ext_resource type="PackedScene" uid="uid://6f8fnqa3olrf" path="res://scenes/objects/decor/plants/plants.tscn" id="10_j3ei7"]
 [ext_resource type="PackedScene" uid="uid://c762hmfoolyh" path="res://scenes/objects/chairs/chair_10.tscn" id="11_56uno"]
+[ext_resource type="PackedScene" uid="uid://d3cqnwxws0qcy" path="res://scenes/objects/chairs/chair_07.tscn" id="11_a5wgl"]
 [ext_resource type="Texture2D" uid="uid://g0yyg3dik3g8" path="res://assets/textures/materials/fence_chain_rusty.png" id="11_inglc"]
+[ext_resource type="Script" uid="uid://buepc5xqp7mpu" path="res://scripts/components/dialogue_action.gd" id="13_0hk0g"]
 [ext_resource type="PackedScene" uid="uid://dv3h7xie3w6vj" path="res://scenes/objects/tables/table_36.tscn" id="13_b0ol5"]
 [ext_resource type="PackedScene" uid="uid://db4wniey4eso4" path="res://scenes/objects/chairs/chair_17.tscn" id="13_nfjga"]
 [ext_resource type="PackedScene" uid="uid://bh2yyt4hgnh8w" path="res://scenes/objects/electronics/monitor.tscn" id="14_inn26"]
+[ext_resource type="Shader" uid="uid://bq5ax7r4w3u8b" path="res://resources/materials/tv_static.gdshader" id="14_v6wgs"]
+[ext_resource type="FontFile" uid="uid://ybyr3xj5636i" path="res://assets/fonts/HomeVideo-BLG6G.ttf" id="15_acber"]
 [ext_resource type="Script" uid="uid://b256oh8o7fr1o" path="res://scripts/action/action_basic.gd" id="16_mey60"]
 [ext_resource type="PackedScene" uid="uid://cjnirb20mi6wa" path="res://scenes/objects/books/books_001.tscn" id="19_p2yxo"]
 [ext_resource type="PackedScene" uid="uid://culi7jmlkt5so" path="res://scenes/objects/storage/nightstand.tscn" id="21_1jl2y"]
@@ -35,18 +38,25 @@
 [ext_resource type="PackedScene" uid="uid://cg3ipsmqri2l4" path="res://scenes/objects/bath/soap_holder.tscn" id="23_2vlu1"]
 [ext_resource type="PackedScene" uid="uid://5c8gg0ssycbf" path="res://scenes/objects/decor/paintings/painting_04.tscn" id="23_61cpn"]
 [ext_resource type="PackedScene" uid="uid://dm86hx3j6xmvi" path="res://scenes/objects/cleaning/chemical_01.tscn" id="23_x4xix"]
+[ext_resource type="PackedScene" uid="uid://56k65j81g2ps" path="res://scenes/objects/animals/rat.tscn" id="24_2teac"]
 [ext_resource type="PackedScene" uid="uid://ds41dfdvqpget" path="res://scenes/objects/bath/soap_01.tscn" id="24_ard4k"]
 [ext_resource type="PackedScene" uid="uid://dmy768pwk2y43" path="res://scenes/objects/bath/shampoo.tscn" id="24_dx26s"]
+[ext_resource type="Texture2D" uid="uid://ctdgeskc66xl6" path="res://assets/textures/UI/icon_hand.png" id="24_e67om"]
 [ext_resource type="PackedScene" uid="uid://dnx2fttxu8c3w" path="res://scenes/npc/asuka.tscn" id="24_inn26"]
 [ext_resource type="PackedScene" uid="uid://eijy8af3x38" path="res://scenes/objects/cleaning/chemical_03.tscn" id="24_lmw6d"]
+[ext_resource type="Resource" uid="uid://c08w8apu3mk7p" path="res://resources/dialogue/rat.dialogue" id="24_tsq33"]
 [ext_resource type="PackedScene" uid="uid://bjihmnoa2of4c" path="res://scenes/objects/decor/plants/flower_vase.tscn" id="24_x7uff"]
 [ext_resource type="PackedScene" uid="uid://pa0hp25rbb4r" path="res://scenes/objects/bath/toothbrush.tscn" id="25_ard4k"]
 [ext_resource type="PackedScene" uid="uid://pebxolltd2x6" path="res://scenes/objects/cleaning/chemical_06.tscn" id="25_lmw6d"]
+[ext_resource type="PackedScene" uid="uid://dhsgx6kd7v8mn" path="res://scenes/objects/animals/monster.tscn" id="25_tsq33"]
+[ext_resource type="PackedScene" uid="uid://5bekn1hmicx3" path="res://scenes/objects/animals/deer.tscn" id="25_ukdwj"]
 [ext_resource type="PackedScene" uid="uid://bc7um6cavmf47" path="res://scenes/objects/bath/toothbrush_02.tscn" id="26_1e4gd"]
 [ext_resource type="PackedScene" uid="uid://gsmjhq28yne2" path="res://scenes/objects/cleaning/chemical_05.tscn" id="26_y0d5t"]
 [ext_resource type="PackedScene" uid="uid://b0fww0k7t66jb" path="res://scenes/objects/bath/toothpaste_02.tscn" id="27_dfxl1"]
 [ext_resource type="PackedScene" uid="uid://8y25cbidjvs4" path="res://scenes/objects/cleaning/soap_powder.tscn" id="27_qngax"]
 [ext_resource type="PackedScene" uid="uid://ctnodbu5nofwf" path="res://scenes/objects/beds/bed_01.tscn" id="27_t00mq"]
+[ext_resource type="Resource" uid="uid://bw5kdfdg308tm" path="res://resources/dialogue/deer.dialogue" id="27_x1tur"]
+[ext_resource type="PackedScene" uid="uid://cvacfodbj3pqq" path="res://scenes/objects/animals/capybara.tscn" id="28_3wjq0"]
 [ext_resource type="PackedScene" uid="uid://bjqyf0374v5c0" path="res://scenes/objects/cleaning/soap_wrapper.tscn" id="28_13o2s"]
 [ext_resource type="PackedScene" uid="uid://ckm38vm0wiknj" path="res://scenes/objects/bath/tub.tscn" id="29_rg0di"]
 [ext_resource type="PackedScene" uid="uid://cmxecnkoh2vjw" path="res://scenes/objects/bath/shower_head.tscn" id="30_0vvh4"]
@@ -83,7 +93,13 @@
 [ext_resource type="PackedScene" uid="uid://bsjt3bra81fy" path="res://scenes/objects/food/water_01.tscn" id="70_an48m"]
 [ext_resource type="PackedScene" uid="uid://b6ycp1xnmgamj" path="res://scenes/objects/food/grape_01.tscn" id="71_a6l7o"]
 [ext_resource type="PackedScene" uid="uid://x7cyy2prxj4h" path="res://scenes/objects/food/cabbage.tscn" id="72_a5wgl"]
+[ext_resource type="Texture2D" uid="uid://bytrkej3js2li" path="res://assets/textures/UI/icon_liquid.png" id="79_bgga4"]
 [ext_resource type="Script" uid="uid://cvxjsg3gij30g" path="res://scripts/trigger_property.gd" id="80_0k3jp"]
+[ext_resource type="PackedScene" uid="uid://bbtkb74vb3jbs" path="res://scenes/objects/chairs/armchair_08.tscn" id="80_a5wgl"]
+[ext_resource type="PackedScene" uid="uid://cj236q2e6oqpk" path="res://scenes/objects/tables/table_40.tscn" id="81_v6wgs"]
+[ext_resource type="PackedScene" uid="uid://dc6gpi15j8kca" path="res://scenes/objects/chairs/armchair_02.tscn" id="82_acber"]
+[ext_resource type="PackedScene" uid="uid://cr75mn5381ye1" path="res://scenes/objects/cleaning/bote.tscn" id="83_v4t2j"]
+[ext_resource type="PackedScene" uid="uid://bsghxoswwx4ge" path="res://scenes/npc/katie/katie.tscn" id="98_gmiao"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -114,6 +130,7 @@ orientation = 1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w75rf"]
 diffuse_mode = 1
 specular_mode = 2
+disable_ambient_light = true
 albedo_color = Color(0.75, 0.75, 0.75, 1)
 albedo_texture = ExtResource("1_wuaeu")
 uv1_scale = Vector3(0.8, 1, 2)
@@ -128,7 +145,7 @@ size = Vector2(40, 15.8)
 
 [sub_resource type="QuadMesh" id="QuadMesh_xeobe"]
 material = ExtResource("3_6yijy")
-size = Vector2(27, 23.8)
+size = Vector2(27, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuaeu"]
 albedo_color = Color(0.611979, 0.611979, 0.611979, 1)
@@ -146,21 +163,29 @@ albedo_texture = ExtResource("2_apig6")
 uv1_scale = Vector3(1, 1, 0.9)
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_acber"]
+size = Vector3(0.575, 0.5, 1.15)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5722"]
 albedo_color = Color(0.101563, 0.0970662, 0.0970662, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olr0t"]
-albedo_color = Color(0.231771, 0.190841, 0.138217, 1)
+[sub_resource type="ViewportTexture" id="ViewportTexture_acber"]
+viewport_path = NodePath("Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acu8t"]
-albedo_color = Color(0.210938, 0.156624, 0.086792, 1)
-albedo_texture = ExtResource("7_xeobe")
-uv1_scale = Vector3(2, 2, 2)
-uv1_triplanar = true
-uv1_triplanar_sharpness = 0.45972
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4t2j"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_acber")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xeobe"]
-albedo_color = Color(0.09375, 0.0550804, 0.013916, 1)
+[sub_resource type="QuadMesh" id="QuadMesh_a5wgl"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_v4t2j")
+size = Vector2(5.3, 2.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6wgs"]
+resource_local_to_scene = true
+shader = ExtResource("14_v6wgs")
+shader_parameter/amount = 40.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_gdtkv"]
 material = SubResource("StandardMaterial3D_u5722")
@@ -236,14 +261,40 @@ transparency = 2
 alpha_scissor_threshold = 0.2
 alpha_antialiasing_mode = 0
 cull_mode = 2
+shading_mode = 2
 albedo_texture = ExtResource("11_inglc")
 uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfjga"]
 albedo_color = Color(0.242188, 0.242188, 0.242188, 1)
 stencil_flags = 2
 stencil_color = Color(0.9348958, 0.099819586, 0.099819586, 1)
 stencil_outline_thickness = 0.086
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0hk0g"]
+_surfaces = [{
+"aabb": AABB(-0.75, -0.55, -0.75, 1.5, 1.5, 1.5),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAgD9VVRUaAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAIA/q6oqMwAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAP1VVFRoAAAAAAAAAAAAAAACrqiozAAAAAAAAAAAAAAAAAACAPwAAAACrqiozAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAAAAAACAEoM8AACAPwAAgD8AAAAAbOd7PwAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAAAAAABs53s/AAAAAAAAAABs53s/AACAP2znez8AAAAAAACAPwAAgD8AAAAAgBKDPAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD9s53s/AACAPwAAAAAAAAAA"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_56uno"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AABAv83MDL8AAEC/AABAv83MDL8AAEA///8/v83MDL8AAEC/AABAv83MDL8AAEC/AABAvzMzcz8AAEC/AABAv83MDL8AAEA/AABAv83MDL8AAEC///8/v83MDL8AAEC/AABAP83MDL8AAEC/AABAv83MDL8AAEC/AABAP83MDL8AAEC/AABAvzMzcz8AAEC///8/v83MDL8AAEC/AABAv83MDL8AAEA///8/v83MDL8AAEA/AABAv83MDL8AAEA/AABAP83MDL8AAEA///8/v83MDL8AAEA/AABAv83MDL8AAEA/AABAvzMzcz8AAEC/AABAvzMzcz8AAEA/AABAv83MDL8AAEA/AABAvzMzcz8AAEA/AABAPzMzcz8AAEA/AABAvzMzcz8AAEC/AABAPzMzcz8AAEA/AABAvzMzcz8AAEA/AABAvzMzcz8AAEC/AABAP83MDL8AAEC/AABAP++nBr8AAEC/AABAv83MDL8AAEA/AABAP++nBr8AAEA/AABAP83MDL8AAEA/AABAv83MDL8AAEA/AABAPzMzcz8AAEA/AABAP++nBr8AAEA/AABAPzMzcz8AAEA/AABAP++nBr8AAEC/AABAP++nBr8AAEA/AABAvzMzcz8AAEC/AABAP++nBr8AAEC/AABAPzMzcz8AAEC/AABAvzMzcz8AAEC/AABAPzMzcz8AAEC/AABAPzMzcz8AAEA/AABAPzMzcz8AAEC/AABAP++nBr8AAEC/AABAPzMzcz8AAEA//38AAP//AAD/fwAA//8AAP9/AAD//wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5/AAAAAP///78AAAAA////vwAAAAD///+//////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAAAAAAAP///78AAAAA////vwAAAAD///+/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}, {
+"aabb": AABB(-0.74999994, -0.626, -0.75, 1.5, 0.100000024, 1.5),
+"attribute_data": PackedByteArray("AACAPwAAAACswnU+AACAP6zCdT4AAAAAAACAPwAAAAAAAIA/VY9CPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAP6zCdT4AAIA/AACAPwAAgD+rqiozrMJ1PgAAgD+swnU+AAAAAAAAAAAAAIA/VY9CP6uqKjNVj0I/AAAAAAAAgD+rqiozVY9CP6uqKjMAAIA/AACAPwAAgD+swnU+AACAPwAAAAAAAAAArMJ1PgAAgD8AAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/q6oqM6uqKjM5juMmAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAAAAAACAP6uqKjOswnU+AACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAAACrqiozOY7jJgAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAKuqKjOswnU+AAAAAAAAAACrqiozAAAAAKuqKjOswnU+"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_nfjga"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("//8/v4lBIL8AAEC///8/v83MDL8AAEA///8/v83MDL8AAEC///8/v4lBIL8AAEC///8/v83MDL8AAEC/AQBAP4lBIL8AAEC///8/v4lBIL8AAEC/AQBAP4lBIL8AAEC///8/v4lBIL8AAEA///8/v4lBIL8AAEC///8/v4lBIL8AAEA///8/v83MDL8AAEA///8/v4lBIL8AAEA/AABAP83MDL8AAEA///8/v83MDL8AAEA/AQBAP4lBIL8AAEC///8/v83MDL8AAEC/AABAP83MDL8AAEC/AQBAP++nBr8AAEC/AABAP83MDL8AAEC/AABAP++nBr8AAEC/AQBAP4lBIL8AAEC/AABAP83MDL8AAEC/AQBAP++nBr8AAEA/AABAP83MDL8AAEC/AQBAP++nBr8AAEC/AQBAP++nBr8AAEA/AQBAP++nBr8AAEC/AABAP++nBr8AAEC/AABAP++nBr8AAEA///8/v4lBIL8AAEA/AQBAP4lBIL8AAEC/AQBAP4lBIL8AAEA///8/v4lBIL8AAEA/AQBAP4lBIL8AAEA/AABAP83MDL8AAEA/AQBAP4lBIL8AAEC/AQBAP++nBr8AAEA/AQBAP4lBIL8AAEA/AQBAP++nBr8AAEC/AABAP++nBr8AAEA/AQBAP++nBr8AAEA/AQBAP4lBIL8AAEA/AQBAP++nBr8AAEA/AABAP83MDL8AAEA/AQBAP++nBr8AAEA/AABAP++nBr8AAEA/AABAP83MDL8AAEA/////f/9/AID///9//38AgP///3//fwCA/3//fwAA/7//f/9/AAD/v/9//38AAP+//3//////////f/////////9/////////////f/9/AID///9//38AgP///3//fwCA/////wAA/7//////AAD/v/////8AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/7//f/9/AAAAgP9//38AAP+/AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA/38AAP//////fwAA//////9/AAD//////3//////////f/////////9//////////////wAA/7//////AAD/v/////8AAP+/AAD/f/9/AIAAAP9//38AgAAA/3//fwCA/38AAP//////fwAA//////9/AAD//////////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e67om"]
+size = Vector3(1.4250001, 1.575, 1.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olr0t"]
 size = Vector3(0.2, 0.3, 0.2)
@@ -296,6 +347,9 @@ metadata/_custom_type_script = "uid://b256oh8o7fr1o"
 [sub_resource type="BoxShape3D" id="BoxShape3D_pos66"]
 size = Vector3(0.5, 0.825, 0.35)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5wgl"]
+size = Vector3(6.975, 5.775, 1.375)
+
 [node name="Basement" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -320,21 +374,21 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Ceiling" type="MeshInstance3D" parent="Environment/Ceiling"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.1, 3.3, 1.9)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.625, 3.3, 1.9)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_5fs4t")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
 [node name="Ceiling2" type="MeshInstance3D" parent="Environment/Ceiling"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.4, 3.3, 13.9)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.5, 3.3, 22.275)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_xeobe")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
 [node name="Ceiling3" type="MeshInstance3D" parent="Environment/Ceiling"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -23.6, 3.3, 5.9)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -23.6, 3.3, 22.3)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_xeobe")
 skeleton = NodePath("../..")
@@ -344,11 +398,13 @@ metadata/_edit_lock_ = true
 use_collision = true
 
 [node name="Walls" type="CSGCombiner3D" parent="Environment/Basement"]
+metadata/_edit_lock_ = true
 
 [node name="Wall1" type="CSGBox3D" parent="Environment/Basement/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.999999, 1.6, -6)
 size = Vector3(36.100002, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim1" type="CSGBox3D" parent="Environment/Basement/Walls/Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0.11)
@@ -359,6 +415,7 @@ material = SubResource("StandardMaterial3D_wuaeu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44999933, 1.6, 9.8)
 size = Vector3(19.300001, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim2" type="CSGBox3D" parent="Environment/Basement/Walls/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0271502, -0.95, -0.110001)
@@ -369,9 +426,10 @@ material = SubResource("StandardMaterial3D_wuaeu")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.1, 1.6, 6.15)
 size = Vector3(24.5, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim3" type="CSGBox3D" parent="Environment/Basement/Walls/Wall3"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.95, 0.1)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.95, 0.10000038)
 size = Vector3(24.5, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
 
@@ -379,6 +437,7 @@ material = SubResource("StandardMaterial3D_wuaeu")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.8, 1.6, 6.1000004)
 size = Vector3(24.300001, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim4" type="CSGBox3D" parent="Environment/Basement/Walls/Wall4"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0224993, -0.95, -0.0999985)
@@ -395,6 +454,7 @@ material = SubResource("StandardMaterial3D_wuaeu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.525, 1.6, 18.3)
 size = Vector3(46.95, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim5" type="CSGBox3D" parent="Environment/Basement/Walls/Wall5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0249996, -0.95, -0.109999)
@@ -405,18 +465,19 @@ material = SubResource("StandardMaterial3D_wuaeu")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.045, 1.6, 12.495)
 size = Vector3(5.5, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim6" type="CSGBox3D" parent="Environment/Basement/Walls/Wall6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0306997, -0.95, -0.11)
 size = Vector3(5.56146, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
 
-[node name="Wall7" type="CSGBox3D" parent="Environment/Basement/Walls/Wall6"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.795, 0, -13.304997)
+[node name="Wall7" type="CSGBox3D" parent="Environment/Basement/Walls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.349998, 1.6, 9.700001)
 size = Vector3(7.25, 3.5, 0.2)
 material = ExtResource("2_u5722")
 
-[node name="Trim7" type="CSGBox3D" parent="Environment/Basement/Walls/Wall6/Wall7"]
+[node name="Trim7" type="CSGBox3D" parent="Environment/Basement/Walls/Wall7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150013, -0.95, -0.1)
 size = Vector3(7.28, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
@@ -425,6 +486,7 @@ material = SubResource("StandardMaterial3D_wuaeu")
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -26.9, 1.6, 6.075)
 size = Vector3(24.35, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim8" type="CSGBox3D" parent="Environment/Basement/Walls/Wall8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0849991, -0.95, -0.1)
@@ -435,6 +497,7 @@ material = SubResource("StandardMaterial3D_wuaeu")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -23.3, 1.6, 15.35)
 size = Vector3(7.2000003, 3.5, 0.2)
 material = ExtResource("2_u5722")
+metadata/_edit_lock_ = true
 
 [node name="Trim9" type="CSGBox3D" parent="Environment/Basement/Walls/Wall9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0.11)
@@ -449,6 +512,10 @@ operation = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9999995, 1.5, -5.8)
 size = Vector3(1.9, 2.701, 3)
 material = ExtResource("2_u5722")
+
+[node name="Door" parent="Environment/Basement/Holes/Backyard" instance=ExtResource("6_a54wy")]
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19999981)
+locked = true
 
 [node name="WorkRoom" type="CSGBox3D" parent="Environment/Basement/Holes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55, 1.5, 10.4)
@@ -497,17 +564,51 @@ size = Vector3(3.65, 5.4, 2.5)
 material = ExtResource("2_u5722")
 
 [node name="Stairs" type="Node3D" parent="Environment/Basement"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 1.675, 12.475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 1.725, 12.475)
 script = ExtResource("5_6yijy")
-size = Vector3(3, 3.35, 5.55)
+size = Vector3(3, 3.45, 5.55)
 material = SubResource("StandardMaterial3D_n7hqg")
 hidden_flags = 15
 metadata/_custom_type_script = "uid://m2fvd5j6jd46"
 
 [node name="Decor" type="Node3D" parent="Environment/Basement"]
 
+[node name="Chairs" type="Node3D" parent="Environment/Basement/Decor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.075, 0, -0.90000004)
+
+[node name="Armchair_08" parent="Environment/Basement/Decor/Chairs" instance=ExtResource("80_a5wgl")]
+transform = Transform3D(-1.09278474e-07, 1.8, 6.556708e-08, 0, -7.86805e-08, 1.5, 2.5, 7.86805e-08, 2.8660283e-15, 3.2749996, 0.9207975, 0)
+
+[node name="CuckChair" parent="Environment/Basement/Decor/Chairs" instance=ExtResource("11_a5wgl")]
+transform = Transform3D(1.3856405, 0.8000002, 3.496912e-08, 0, -6.9938224e-08, 1.6, 0.8000002, -1.3856405, -6.0568276e-08, -2.8999996, 1.0314767, -4.35)
+
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Chairs/CuckChair" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../StaticBody3D")
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Chairs/CuckChair"]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Chairs/CuckChair/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 5.933032e-13, 0, 1, 0.037493706, 9.536743e-07, 0.07499999)
+shape = SubResource("BoxShape3D_acber")
+
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Chairs/CuckChair"]
+script = ExtResource("13_0hk0g")
+dialogue_text = "My favorite cuck chair"
+simple_dialogue_mode = true
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"
+
 [node name="Plants" parent="Environment/Basement/Decor" instance=ExtResource("10_j3ei7")]
-transform = Transform3D(1.25, 0, 0, 0, -5.4639237e-08, 1.25, 0, -1.25, -5.4639237e-08, -19.275, 0.40016025, -5.3999996)
+transform = Transform3D(1.25, 0, 0, 0, -5.4639237e-08, 1.25, 0, -1.25, -5.4639237e-08, -19.275, 0.40016025, 3.5250006)
+
+[node name="Table_36" parent="Environment/Basement/Decor" instance=ExtResource("13_b0ol5")]
+transform = Transform3D(-1.7484555e-07, -3, -4.371139e-08, 0, -1.3113416e-07, 1, -4, 1.3113416e-07, 1.9106855e-15, -16.300001, 0.625, -0.7)
+
+[node name="Books_001" parent="Environment/Basement/Decor/Table_36" instance=ExtResource("19_p2yxo")]
+transform = Transform3D(-0.012940954, 0.04829629, 2.111098e-09, -0.064395055, -0.017254608, -3.6683157e-09, -8.444392e-09, -1.1004946e-08, 0.2, -0.175, 0.066666126, 0.14811099)
 
 [node name="TVSetup" type="CSGCombiner3D" parent="Environment/Basement/Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6, 0.45, -0.7)
@@ -517,23 +618,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 1.55, -5.96046e-08)
 size = Vector3(0.2, 2.2, 5.4)
 material = SubResource("StandardMaterial3D_u5722")
 
-[node name="Dresser" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, -0.05, -1.37091e-06)
-size = Vector3(1, 0.7, 3.6)
-material = SubResource("StandardMaterial3D_olr0t")
+[node name="ScreenIndent" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09913063, 0, 0)
+operation = 2
+size = Vector3(0.025, 2.1, 5.3)
+material = SubResource("StandardMaterial3D_u5722")
 
-[node name="Couch" type="CSGPolygon3D" parent="Environment/Basement/Decor/TVSetup"]
-transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, -0.5, -0.45, 0)
-polygon = PackedVector2Array(3.5, 0, 3.5, 0.8, 5, 0.8, 5, 0)
-mode = 1
-spin_degrees = 135.0
-spin_sides = 8
-material = SubResource("StandardMaterial3D_acu8t")
+[node name="TVScreen" type="MeshInstance3D" parent="Environment/Basement/Decor/TVSetup"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7008686, 1.55, -5.9604645e-08)
+mesh = SubResource("QuadMesh_a5wgl")
+skeleton = NodePath("../TV/ScreenIndent")
 
-[node name="CoffeeTable" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
-size = Vector3(2.5, 0.8, 2.8)
-material = SubResource("StandardMaterial3D_xeobe")
+[node name="TVScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/TVSetup/TVScreen"]
+size = Vector2i(512, 256)
+
+[node name="TVScreen" type="Control" parent="Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport/TVScreen"]
+material = SubResource("ShaderMaterial_v6wgs")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport/TVScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("15_acber")
+theme_override_font_sizes/font_size = 42
+text = "NO SIGNAL"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Desks" type="Node3D" parent="Environment/Basement/Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 8)
@@ -550,6 +681,7 @@ transform = Transform3D(-0.49240404, 0, -0.08682393, -0.1302359, -3.278354e-08, 
 
 [node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskAlex/AlexMonitor1"]
 transform = Transform3D(0.66666657, 0, 1.8626451e-07, 0, 0.6666667, 0, -1.8626451e-07, 0, 0.66666657, 0, 0.324, 0.005)
+visible = false
 mesh = SubResource("QuadMesh_3ijw5")
 skeleton = NodePath("")
 
@@ -608,6 +740,7 @@ transform = Transform3D(-0.49240398, 0, 0.08682428, 0.13023642, -3.278354e-08, 0
 
 [node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskAlex/AlexMonitor2"]
 transform = Transform3D(0.66666657, 0, 1.8626451e-07, 0, 0.6666667, 0, -1.8626451e-07, 0, 0.66666657, 0, 0.324, 0.005)
+visible = false
 mesh = SubResource("QuadMesh_1e4gd")
 skeleton = NodePath("")
 
@@ -792,63 +925,204 @@ transform = Transform3D(5.962434e-09, 0.5, 2.1855694e-08, -0.75, 8.943653e-09, -
 
 [node name="Animals" type="Node3D" parent="Environment/Basement/Decor"]
 
-[node name="Cages" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals"]
-
-[node name="Cage1" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals/Cages"]
+[node name="RatCage" type="Node3D" parent="Environment/Basement/Decor/Animals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.8, -4.25)
 
-[node name="Fence" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-size = Vector3(1.5, 1.5, 1.5)
-material = SubResource("StandardMaterial3D_56uno")
+[node name="Cage" type="MeshInstance3D" parent="Environment/Basement/Decor/Animals/RatCage"]
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_0hk0g")
+skeleton = NodePath("../..")
 
-[node name="Bottom" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.576, 0)
-flip_faces = true
-size = Vector3(1.5, 0.1, 1.5)
-material = SubResource("StandardMaterial3D_nfjga")
+[node name="CageStaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Animals/RatCage"]
+collision_layer = 5
 
-[node name="Cage2" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals/Cages"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0.8, -4.25)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Animals/RatCage/CageStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
+shape = SubResource("BoxShape3D_e67om")
 
-[node name="Fence" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-size = Vector3(1.5, 1.5, 1.5)
-material = SubResource("StandardMaterial3D_56uno")
+[node name="Rat" parent="Environment/Basement/Decor/Animals/RatCage" instance=ExtResource("24_2teac")]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, -0.100000024, -0.5998535, 0.19999981)
 
-[node name="Bottom" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.576, 0)
-flip_faces = true
-size = Vector3(1.5, 0.1, 1.5)
-material = SubResource("StandardMaterial3D_nfjga")
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/RatCage" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../CageStaticBody3D")
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
 
-[node name="Cage3" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals/Cages"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0.8, -4.25)
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/RatCage"]
+script = ExtResource("13_0hk0g")
+dialogue_resource = ExtResource("24_tsq33")
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"
 
-[node name="Fence" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-size = Vector3(1.5, 1.5, 1.5)
-material = SubResource("StandardMaterial3D_56uno")
+[node name="Cage2" type="Node3D" parent="Environment/Basement/Decor/Animals"]
+transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, 3.825, 0.8, -4.575)
 
-[node name="Bottom" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/Cage3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.576, 0)
-flip_faces = true
-size = Vector3(1.5, 0.1, 1.5)
-material = SubResource("StandardMaterial3D_nfjga")
+[node name="Cage" type="MeshInstance3D" parent="Environment/Basement/Decor/Animals/Cage2"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_0hk0g")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
 
-[node name="RabbitCage" type="CSGCombiner3D" parent="Environment/Basement/Decor/Animals/Cages"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.8, -2.75)
+[node name="CageStaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Animals/Cage2"]
+collision_layer = 5
+metadata/_edit_lock_ = true
 
-[node name="Fence" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/RabbitCage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.19999999, 1.5)
-size = Vector3(3.5, 1.5, 4.5)
-material = SubResource("StandardMaterial3D_56uno")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Animals/Cage2/CageStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
+shape = SubResource("BoxShape3D_e67om")
+metadata/_edit_lock_ = true
 
-[node name="Bottom" type="CSGBox3D" parent="Environment/Basement/Decor/Animals/Cages/RabbitCage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.52599996, 1.5)
-flip_faces = true
-size = Vector3(3.5, 0.15, 4.5)
-material = SubResource("StandardMaterial3D_nfjga")
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/Cage2" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../CageStaticBody3D")
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/Cage2"]
+script = ExtResource("13_0hk0g")
+dialogue_text = "An empty cage"
+simple_dialogue_mode = true
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"
+
+[node name="Cage3" type="Node3D" parent="Environment/Basement/Decor/Animals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0.8, -4.25)
+
+[node name="Scalar" type="Node3D" parent="Environment/Basement/Decor/Animals/Cage3"]
+metadata/_edit_lock_ = true
+
+[node name="Cage" type="MeshInstance3D" parent="Environment/Basement/Decor/Animals/Cage3/Scalar"]
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_0hk0g")
+skeleton = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="CageStaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Animals/Cage3/Scalar"]
+collision_layer = 5
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Animals/Cage3/Scalar/CageStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
+shape = SubResource("BoxShape3D_e67om")
+metadata/_edit_lock_ = true
+
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/Cage3" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../Scalar/CageStaticBody3D")
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/Cage3"]
+script = ExtResource("13_0hk0g")
+dialogue_text = "An empty cage"
+simple_dialogue_mode = true
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"
+
+[node name="MonsterCage" type="Node3D" parent="Environment/Basement/Decor/Animals"]
+transform = Transform3D(0.49999994, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.49999994, 6.8500004, 1, -3.6)
+
+[node name="Scalar" type="Node3D" parent="Environment/Basement/Decor/Animals/MonsterCage"]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Cage" type="MeshInstance3D" parent="Environment/Basement/Decor/Animals/MonsterCage/Scalar"]
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_0hk0g")
+skeleton = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="CageStaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Animals/MonsterCage/Scalar"]
+collision_layer = 5
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Animals/MonsterCage/Scalar/CageStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
+shape = SubResource("BoxShape3D_e67om")
+metadata/_edit_lock_ = true
+
+[node name="Monster" parent="Environment/Basement/Decor/Animals/MonsterCage" instance=ExtResource("25_tsq33")]
+transform = Transform3D(0, 0, -0.142, 0, 0.14199999, 0, 0.142, 0, 0, -0.049999952, -0.97266746, 0)
+
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/MonsterCage" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../Scalar/CageStaticBody3D")
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/MonsterCage"]
+script = ExtResource("13_0hk0g")
+dialogue_text = "This is Junichi"
+simple_dialogue_mode = true
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"
+
+[node name="DeerCage" type="Node3D" parent="Environment/Basement/Decor/Animals"]
+transform = Transform3D(4, 0, 0, 0, 1.8, 0, 0, 0, 4, 5.75, 1.1999998, 1.75)
+
+[node name="Cage" type="MeshInstance3D" parent="Environment/Basement/Decor/Animals/DeerCage"]
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_0hk0g")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="CageStaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Animals/DeerCage"]
+collision_layer = 5
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Animals/DeerCage/CageStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
+shape = SubResource("BoxShape3D_e67om")
+metadata/_edit_lock_ = true
+
+[node name="Deer" parent="Environment/Basement/Decor/Animals/DeerCage" instance=ExtResource("25_ukdwj")]
+transform = Transform3D(0.34472, 0, -0.3213938, 0, 0.82, 0, 0.2892544, 0, 0.38302225, -0.012500048, -0.62632686, 0.018749982)
+
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/DeerCage" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../CageStaticBody3D")
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/DeerCage"]
+script = ExtResource("13_0hk0g")
+dialogue_resource = ExtResource("27_x1tur")
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"
+
+[node name="CapybaraCage" type="Node3D" parent="Environment/Basement/Decor/Animals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6249995, 1, -3.6)
+
+[node name="Capybara" parent="Environment/Basement/Decor/Animals/CapybaraCage" instance=ExtResource("28_3wjq0")]
+transform = Transform3D(-0.819152, 0, -0.57357645, 0, 1, 0, 0.57357645, 0, -0.819152, 0.125, -0.97499996, -0.025000095)
+
+[node name="Scalar" type="Node3D" parent="Environment/Basement/Decor/Animals/CapybaraCage"]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 2, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Cage" type="MeshInstance3D" parent="Environment/Basement/Decor/Animals/CapybaraCage/Scalar"]
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_0hk0g")
+skeleton = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="CageStaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Animals/CapybaraCage/Scalar"]
+collision_layer = 5
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Animals/CapybaraCage/Scalar/CageStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
+shape = SubResource("BoxShape3D_e67om")
+metadata/_edit_lock_ = true
+
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/CapybaraCage" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../Scalar/CageStaticBody3D")
+auto_end_interaction = false
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/CapybaraCage"]
+script = ExtResource("13_0hk0g")
+dialogue_text = "Our pet capybara, Shigeru"
+simple_dialogue_mode = true
+metadata/_custom_type_script = "uid://buepc5xqp7mpu"
 
 [node name="LightSwitch" type="Area3D" parent="Environment/Basement/Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 1.8, 9.75)
@@ -865,6 +1139,7 @@ mesh = SubResource("BoxMesh_6yijy")
 script = ExtResource("7_olr0t")
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
+icon = ExtResource("24_e67om")
 overlay_material = ExtResource("10_acu8t")
 interaction_text = "Light Switch"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -890,7 +1165,7 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.6, 5.05)
 
 [node name="Wall1" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6999998)
 size = Vector3(0.2, 3.5, 8.6)
 material = ExtResource("2_u5722")
 
@@ -908,11 +1183,6 @@ material = ExtResource("2_u5722")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225, 2.45)
 operation = 2
 size = Vector3(1, 2.75, 1.5)
-
-[node name="Ceiling" type="CSGBox3D" parent="Environment/Bedroom/Room/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.675, -1.85)
-visible = false
-size = Vector3(6.1, 0.14, 6.4)
 
 [node name="Decor" type="Node3D" parent="Environment/Bedroom/Room"]
 
@@ -957,6 +1227,7 @@ mesh = SubResource("BoxMesh_6yijy")
 script = ExtResource("7_olr0t")
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
+icon = ExtResource("24_e67om")
 overlay_material = ExtResource("10_acu8t")
 interaction_text = "Light Switch"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -968,12 +1239,12 @@ metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"
 
 [node name="Door" parent="Environment/Bedroom/Room" instance=ExtResource("6_a54wy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.3, 1.4, 0)
-open = true
 opens_forward = false
 max_rotation = 1.65806
 
 [node name="BedroomLight" type="OmniLight3D" parent="Environment/Bedroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.0500002, 12.875)
+light_bake_mode = 0
 shadow_enabled = true
 omni_range = 6.9500003
 
@@ -1086,6 +1357,7 @@ transform = Transform3D(-0.59999996, -5.2453665e-08, -2.2928223e-15, 0, -2.62268
 [node name="BathroomLight" type="OmniLight3D" parent="Environment/Bathroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7750015, 3.0250003, 0.024998665)
 light_specular = 0.0
+light_bake_mode = 0
 shadow_enabled = true
 shadow_normal_bias = 5.084
 omni_range = 10.150001
@@ -1106,6 +1378,7 @@ mesh = SubResource("BoxMesh_6yijy")
 script = ExtResource("7_olr0t")
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
+icon = ExtResource("24_e67om")
 overlay_material = ExtResource("10_acu8t")
 interaction_text = "Light Switch"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -1235,6 +1508,7 @@ shape = SubResource("BoxShape3D_pos66")
 [node name="Interactable" type="Node" parent="Environment/Kitchenette/Refrigerator_001/Cola" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
 collider_body = NodePath("../ColaArea3D")
+icon = ExtResource("79_bgga4")
 interaction_text = "Drink Diet Soda"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
@@ -1295,14 +1569,50 @@ transform = Transform3D(0.49149123, -0.34414583, -1.504309e-08, 0, -2.622683e-08
 [node name="Box 2" parent="Environment/Kitchenette/Boxes" instance=ExtResource("67_u0fyy")]
 transform = Transform3D(0.59771675, -0.05229339, -2.285815e-09, 0, -2.6226829e-08, 0.5999999, -0.05229339, -0.59771675, -2.6127026e-08, -0.3750019, 0.65, 2.2250001)
 
+[node name="Box 7" parent="Environment/Kitchenette/Boxes" instance=ExtResource("67_u0fyy")]
+transform = Transform3D(0.59771675, 0.052293487, 2.2858224e-09, -1.8578344e-16, -2.622683e-08, 0.5999999, 0.052293487, -0.59771675, -2.6127024e-08, 0.9999981, 0.65, 2.2250001)
+
+[node name="Box 11" parent="Environment/Kitchenette/Boxes" instance=ExtResource("67_u0fyy")]
+transform = Transform3D(0.5638155, -0.20521201, -8.970098e-09, -4.51223e-16, -2.6226829e-08, 0.59999985, -0.20521201, -0.5638155, -2.4645153e-08, 0.9999981, 1.875, 1.4250002)
+
 [node name="Box 3" parent="Environment/Kitchenette/Boxes" instance=ExtResource("67_u0fyy")]
-transform = Transform3D(0.59771675, -0.05229339, -2.285815e-09, 0, -2.6226829e-08, 0.5999999, -0.05229339, -0.59771675, -2.6127026e-08, -1.3000011, 1.85, 2.2250001)
+transform = Transform3D(0.57955545, -0.15529135, -6.7879995e-09, -1.8578344e-16, -2.622683e-08, 0.5999999, -0.15529135, -0.57955545, -2.533317e-08, -1.3000011, 1.85, 2.2250001)
+
+[node name="Box 8" parent="Environment/Kitchenette/Boxes" instance=ExtResource("67_u0fyy")]
+transform = Transform3D(0.5196152, 0.3, 1.3113418e-08, -1.8578344e-16, -2.622683e-08, 0.5999999, 0.3, -0.5196152, -2.2713097e-08, 0.30000114, 0.64999986, 0.47500002)
+
+[node name="Box 10" parent="Environment/Kitchenette/Boxes" instance=ExtResource("67_u0fyy")]
+transform = Transform3D(0.5196152, 0.3, 1.3113418e-08, -1.8578344e-16, -2.622683e-08, 0.5999999, 0.3, -0.5196152, -2.2713097e-08, -1.5249977, 0.64999986, 0.47500002)
 
 [node name="Box 2_001" parent="Environment/Kitchenette/Boxes" instance=ExtResource("68_tdrgv")]
-transform = Transform3D(0.49809736, -0.04357787, -1.9048492e-09, 0, -2.1855694e-08, 0.5, -0.04357787, -0.49809736, -2.1772527e-08, -2.5749989, 1.7499999, 2.2500002)
+transform = Transform3D(0.49809736, -0.04357787, -1.9048492e-09, 0, -2.1855694e-08, 0.5, -0.04357787, -0.49809736, -2.1772527e-08, -2.624998, 1.7499999, 2.2500002)
+
+[node name="Box 2_002" parent="Environment/Kitchenette/Boxes" instance=ExtResource("68_tdrgv")]
+transform = Transform3D(0.4829629, 0.12940955, 5.6566707e-09, 0, -2.1855694e-08, 0.5, 0.12940955, -0.4829629, -2.111098e-08, 0.32500267, 0.54999995, -0.87499976)
 
 [node name="Box 4" parent="Environment/Kitchenette/Boxes" instance=ExtResource("69_51q85")]
-transform = Transform3D(0.4330127, -0.25, -1.0927847e-08, 0, -2.1855694e-08, 0.5, -0.25, -0.4330127, -1.8927587e-08, 2.4499989, 0.54999983, 3.1)
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 2.4499989, 0.54999983, 2.85)
+
+[node name="Box 5" parent="Environment/Kitchenette/Boxes" instance=ExtResource("69_51q85")]
+transform = Transform3D(0.4330127, 0.25, 1.0927849e-08, 0, -2.1855694e-08, 0.5, 0.25, -0.4330127, -1.8927587e-08, 2.4499989, 0.54999983, 1.6499999)
+
+[node name="Box 6" parent="Environment/Kitchenette/Boxes" instance=ExtResource("69_51q85")]
+transform = Transform3D(0.43301272, -0.25, -1.0927845e-08, 0, -2.1855694e-08, 0.5, -0.25, -0.43301272, -1.8927588e-08, -0.5249996, 1.775, 0.67499983)
+
+[node name="Box 9" parent="Environment/Kitchenette/Boxes" instance=ExtResource("69_51q85")]
+transform = Transform3D(0.4829629, -0.1294095, -5.656666e-09, 0, -2.1855694e-08, 0.5, -0.1294095, -0.4829629, -2.111098e-08, -2.875, 0.54999983, 1.0749998)
+
+[node name="Armchair_08" parent="Environment/Kitchenette/Boxes" instance=ExtResource("80_a5wgl")]
+transform = Transform3D(1.5, 0, 0, 0, 0.86036485, -1.2287278, 0, 1.2287283, 0.8603646, 0.55000114, 0.7911324, -2.825)
+
+[node name="Table_40" parent="Environment/Kitchenette/Boxes" instance=ExtResource("81_v6wgs")]
+transform = Transform3D(2.9456677, 0.56836367, 3.2565495e-08, -0.49221742, 2.551023, 1.5, 0.2841819, -1.4728341, 2.5980754, 2.0750008, 1.3212821, -0.25)
+
+[node name="Armchair_02" parent="Environment/Kitchenette/Boxes" instance=ExtResource("82_acber")]
+transform = Transform3D(1.0606602, -1.0606601, -4.6362928e-08, -6.6359896e-16, -6.5567086e-08, 1.5000002, -1.0606601, -1.0606602, -4.6362928e-08, -2.6749992, 0.93920904, -3.9)
+
+[node name="Bote" parent="Environment/Kitchenette/Boxes" instance=ExtResource("83_v4t2j")]
+transform = Transform3D(1.1471529, 1.638304, 7.161255e-08, -4.2351647e-22, -8.742276e-08, 2, 1.638304, -1.1471529, -5.0143644e-08, -2.8250008, 0.37631643, 2.9)
 
 [node name="KitchenetteLightSwitch" type="Area3D" parent="Environment/Kitchenette"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3999996, 1.75, 1.1499987)
@@ -1319,6 +1629,7 @@ mesh = SubResource("BoxMesh_6yijy")
 script = ExtResource("7_olr0t")
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
+icon = ExtResource("24_e67om")
 overlay_material = ExtResource("10_acu8t")
 interaction_text = "Light Switch"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -1332,44 +1643,55 @@ value_2 = true
 toggle_mode = true
 metadata/_custom_type_script = "uid://cvxjsg3gij30g"
 
+[node name="KitchenBoxesStaticBody" type="StaticBody3D" parent="Environment/Kitchenette"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, -5.55)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Kitchenette/KitchenBoxesStaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08749962, 0, 0.1875)
+shape = SubResource("BoxShape3D_a5wgl")
+
 [node name="Lights" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 1.9)
+visible = false
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3.1, 0)
 light_specular = 0.0
+light_bake_mode = 0
 shadow_enabled = true
-shadow_normal_bias = 5.084
 omni_range = 15.0
 omni_attenuation = 0.5
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.225, 3.1, -0.025000095)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1, 3.1, -0.17500007)
 light_specular = 0.0
+light_bake_mode = 0
 shadow_enabled = true
-shadow_normal_bias = 5.084
 omni_range = 15.0
 omni_attenuation = 0.5
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.974999, 3.1, 11.3)
 light_specular = 0.0
+light_bake_mode = 0
 shadow_enabled = true
 omni_range = 15.0
 omni_attenuation = 0.5
 
 [node name="Player" parent="." instance=ExtResource("4_gpc5m")]
-transform = Transform3D(0.996195, 0, 0.08715571, 0, 1, 0, -0.08715571, 0, 0.996195, -23.1, 1.05, 12.85)
+transform = Transform3D(0.08715579, 0, 0.99619496, 0, 1, 0, -0.99619496, 0, 0.08715579, -3.1000004, 1.05, 11.35)
 camera_sensitivity = 2.0
 
 [node name="Alex" parent="." instance=ExtResource("4_u5722")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 1.5, 9)
 
+[node name="katie" parent="." instance=ExtResource("98_gmiao")]
+transform = Transform3D(-1.295053, 0, 0.11330229, 0, 1.3, 0, -0.11330229, 0, -1.295053, 6.975, 0.049213387, 17.775)
+
 [node name="Asuka2" parent="." instance=ExtResource("24_inn26")]
 transform = Transform3D(-0.62500006, 0, -1.0825317, 0, 1.25, 0, 1.0825317, 0, -0.62500006, 8.450001, 0.1, 17.55)
 
 [node name="Editor" type="Node3D" parent="."]
-visible = false
 
 [node name="EditorLight1" type="DirectionalLight3D" parent="Editor"]
 transform = Transform3D(0.965926, -0.224144, 0.12941, 0, 0.5, 0.866025, -0.258819, -0.836516, 0.482963, -26.2, 9.6, 16.1)
@@ -1379,7 +1701,13 @@ editor_only = true
 transform = Transform3D(-0.965926, 0.224144, -0.12941, 0, 0.5, 0.866025, 0.258819, 0.836516, -0.482963, -26.2, 9.6, 16.1)
 editor_only = true
 
-[node name="Books_001" parent="." instance=ExtResource("19_p2yxo")]
-transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -16.5, 0.873111, 0)
+[node name="Cutscenes" type="Node3D" parent="."]
+
+[node name="Wakeup" type="Node3D" parent="Cutscenes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
+
+[node name="Camera3D" type="Camera3D" parent="Cutscenes/Wakeup"]
+transform = Transform3D(0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0, 0, 1, 0.9000001, 1.7, 0)
+cull_mask = 1048573
 
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]
