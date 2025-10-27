@@ -1,38 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://xwh1e8prdtms"]
+[gd_scene load_steps=13 format=3 uid="uid://xwh1e8prdtms"]
 
 [ext_resource type="Script" uid="uid://ed2bfwocyyav" path="res://scenes/world/dream.gd" id="1_1yooq"]
-[ext_resource type="Shader" uid="uid://bhlyhqo4few2a" path="res://scripts/shaders/sky.gdshader" id="5_t5ptc"]
-[ext_resource type="Texture2D" uid="uid://co257yfucx0hs" path="res://assets/textures/sky/sky_debug/bg_debug.png" id="6_1yooq"]
 [ext_resource type="Material" uid="uid://c725dpak600b7" path="res://resources/materials/water.tres" id="6_bq33v"]
 [ext_resource type="Script" uid="uid://bonm3nnrkoli1" path="res://scenes/world/whisper_player.gd" id="7_1yooq"]
 [ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="7_bq33v"]
 [ext_resource type="AudioStream" uid="uid://ckvxl2ni470q8" path="res://assets/sounds/whispers.wav" id="7_gb53w"]
 [ext_resource type="Environment" uid="uid://dgfubcsmnh20v" path="res://resources/environment.tres" id="7_j2gmx"]
+[ext_resource type="AudioStream" uid="uid://dvji14d60d08x" path="res://assets/sounds/ambient_horror.wav" id="8_1yooq"]
 [ext_resource type="Material" uid="uid://lp4e4omgu5ri" path="res://resources/materials/ice.tres" id="8_j2gmx"]
+[ext_resource type="AudioStream" uid="uid://qh423kmnerb8" path="res://assets/sounds/suspense_horror.wav" id="9_gb53w"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_umvgx"]
 material = ExtResource("6_bq33v")
 size = Vector3(2000, 500, 2000)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq33v"]
-render_priority = 0
-shader = ExtResource("5_t5ptc")
-shader_parameter/sky_texture = ExtResource("6_1yooq")
-shader_parameter/lock_aspect = false
-shader_parameter/aspect_ratio = 1.33333
-shader_parameter/fov = Vector2(180, 90)
-shader_parameter/tiling = Vector2i(1, 1)
-shader_parameter/offset = Vector2(0.5, 0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_j2gmx"]
-material = SubResource("ShaderMaterial_bq33v")
-flip_faces = true
-size = Vector3(1000, 1000, 1000)
-
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bq33v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5ptc"]
-radius = 200.0
+radius = 150.0
 
 [node name="Dream" type="Node3D"]
 script = ExtResource("1_1yooq")
@@ -59,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9407e-08, 1, 0)
 wall_min_slide_angle = 0.785398
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
 visible = false
 gi_mode = 2
 inner_radius = 3.0
@@ -67,10 +52,6 @@ outer_radius = 5.0
 sides = 32
 ring_sides = 32
 material = ExtResource("8_j2gmx")
-
-[node name="Sky" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("BoxMesh_j2gmx")
 
 [node name="WorldFloor" type="StaticBody3D" parent="."]
 
@@ -94,6 +75,8 @@ min_volume = 0.0
 max_volume = 1.1
 min_distance = 50.0
 max_distance = 100.0
+music_ambient = ExtResource("8_1yooq")
+music_suspense = ExtResource("9_gb53w")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 16.5409, 0)

@@ -12,11 +12,14 @@ static var active_interactable: Node
 signal interaction_started(interactor: Object)
 signal interaction_ended
 
+@export var disabled: bool: set = set_disabled
+
 @export var collider_body: CollisionObject3D : set = set_collider_body
 @export var mesh: MeshInstance3D
 @export var icon: Texture2D = preload("uid://djsvoil117es0")
 
 @export var overlay_material: Material
+
 
 @export_range(0.0, 5.0, 0.1, "or_greater", "suffix:m")
 var max_interaction_distance: float = 2.0
@@ -54,9 +57,14 @@ func set_collider_body(val: CollisionObject3D) -> void:
 	if collider_body == val: return
 	collider_body = val
 	if not collider_body: return
-	collider_body.set_collision_layer_value(COLLISION_LAYER, true)
+	collider_body.set_collision_layer_value(COLLISION_LAYER, !disabled)
 	if not Engine.is_editor_hint():
 		collider_body.set_meta(get_tag(), self)
+
+func set_disabled(val: bool) -> void:
+	disabled = val
+	if collider_body:
+		collider_body.set_collision_layer_value(COLLISION_LAYER, !disabled)
 
 func get_interaction_text() -> String:
 	return interaction_text

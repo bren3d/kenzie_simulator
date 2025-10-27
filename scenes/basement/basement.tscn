@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=4 uid="uid://bd31f2ihbhefp"]
+[gd_scene load_steps=152 format=4 uid="uid://bd31f2ihbhefp"]
 
 [ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
 [ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
@@ -100,6 +100,9 @@
 [ext_resource type="PackedScene" uid="uid://dc6gpi15j8kca" path="res://scenes/objects/chairs/armchair_02.tscn" id="82_acber"]
 [ext_resource type="PackedScene" uid="uid://cr75mn5381ye1" path="res://scenes/objects/cleaning/bote.tscn" id="83_v4t2j"]
 [ext_resource type="PackedScene" uid="uid://bsghxoswwx4ge" path="res://scenes/npc/katie/katie.tscn" id="98_gmiao"]
+[ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="101_2ny8n"]
+[ext_resource type="Script" uid="uid://c24m8g0gpthfn" path="res://scripts/cutscene/wake_up_cutscene.gd" id="101_3g7p8"]
+[ext_resource type="Resource" uid="uid://y4500nlos4nx" path="res://resources/dialogue/wake_up.dialogue" id="102_i2n02"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -584,6 +587,7 @@ transform = Transform3D(1.3856405, 0.8000002, 3.496912e-08, 0, -6.9938224e-08, 1
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Chairs/CuckChair" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../StaticBody3D")
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -945,6 +949,7 @@ transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.965
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/RatCage" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../CageStaticBody3D")
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -975,6 +980,7 @@ metadata/_edit_lock_ = true
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/Cage2" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../CageStaticBody3D")
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -1008,6 +1014,7 @@ metadata/_edit_lock_ = true
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/Cage3" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../Scalar/CageStaticBody3D")
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -1045,6 +1052,7 @@ transform = Transform3D(0, 0, -0.142, 0, 0.14199999, 0, 0.142, 0, 0, -0.04999995
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/MonsterCage" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../Scalar/CageStaticBody3D")
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -1078,6 +1086,7 @@ transform = Transform3D(0.34472, 0, -0.3213938, 0, 0.82, 0, 0.2892544, 0, 0.3830
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/DeerCage" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../CageStaticBody3D")
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -1114,6 +1123,7 @@ metadata/_edit_lock_ = true
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/CapybaraCage" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../Scalar/CageStaticBody3D")
 auto_end_interaction = false
 metadata/_custom_type_script = "uid://nwwqfha6002f"
@@ -1137,6 +1147,7 @@ mesh = SubResource("BoxMesh_6yijy")
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/LightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
 icon = ExtResource("24_e67om")
@@ -1210,7 +1221,7 @@ size = Vector3(0.2, 1.1, 2.6)
 material = SubResource("StandardMaterial3D_u5722")
 
 [node name="Wardrobe_01" parent="Environment/Bedroom/Room/Decor" instance=ExtResource("22_1y1ov")]
-transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, 1.5, 0, -1.5, -6.556708e-08, 1.7, 0.78738743, 0.5249996)
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, 1.5, 0, -1.5, -6.556708e-08, 1.875, 0.78738743, 0.5249996)
 
 [node name="LightSwitch" type="Area3D" parent="Environment/Bedroom/Room/Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2, 0.0999994)
@@ -1225,6 +1236,7 @@ mesh = SubResource("BoxMesh_6yijy")
 
 [node name="Interactable" type="Node" parent="Environment/Bedroom/Room/Decor/LightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
 icon = ExtResource("24_e67om")
@@ -1376,6 +1388,7 @@ mesh = SubResource("BoxMesh_6yijy")
 
 [node name="Interactable" type="Node" parent="Environment/Bathroom/BathroomLightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
 icon = ExtResource("24_e67om")
@@ -1507,6 +1520,7 @@ shape = SubResource("BoxShape3D_pos66")
 
 [node name="Interactable" type="Node" parent="Environment/Kitchenette/Refrigerator_001/Cola" node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("../ColaArea3D")
 icon = ExtResource("79_bgga4")
 interaction_text = "Drink Diet Soda"
@@ -1627,6 +1641,7 @@ mesh = SubResource("BoxMesh_6yijy")
 
 [node name="Interactable" type="Node" parent="Environment/Kitchenette/KitchenetteLightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("7_olr0t")
+disabled = null
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
 icon = ExtResource("24_e67om")
@@ -1679,7 +1694,7 @@ omni_range = 15.0
 omni_attenuation = 0.5
 
 [node name="Player" parent="." instance=ExtResource("4_gpc5m")]
-transform = Transform3D(0.08715579, 0, 0.99619496, 0, 1, 0, -0.99619496, 0, 0.08715579, -3.1000004, 1.05, 11.35)
+transform = Transform3D(0.34202024, 0, 0.93969285, 0, 1, 0, -0.93969285, 0, 0.34202024, -3.1000004, 1.05, 11.35)
 camera_sensitivity = 2.0
 
 [node name="Alex" parent="." instance=ExtResource("4_u5722")]
@@ -1691,23 +1706,75 @@ transform = Transform3D(-1.295053, 0, 0.11330229, 0, 1.3, 0, -0.11330229, 0, -1.
 [node name="Asuka2" parent="." instance=ExtResource("24_inn26")]
 transform = Transform3D(-0.62500006, 0, -1.0825317, 0, 1.25, 0, 1.0825317, 0, -0.62500006, 8.450001, 0.1, 17.55)
 
-[node name="Editor" type="Node3D" parent="."]
+[node name="Cutscenes" type="Node3D" parent="."]
 
-[node name="EditorLight1" type="DirectionalLight3D" parent="Editor"]
+[node name="WakeUpCutscene" type="Node3D" parent="Cutscenes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
+metadata/_edit_lock_ = true
+
+[node name="WakeUpCutscene" type="Node" parent="Cutscenes/WakeUpCutscene" node_paths=PackedStringArray("camera_target", "camera_action")]
+script = ExtResource("101_3g7p8")
+wake_up_delay = 1.0
+wake_up_dialogue = ExtResource("102_i2n02")
+camera_target = NodePath("../WakeUpCameraTarget")
+camera_action = NodePath("../CameraAction")
+play_on_ready = true
+
+[node name="CameraAction" type="Marker3D" parent="Cutscenes/WakeUpCutscene"]
+transform = Transform3D(0.70710665, 0.7071068, 0, -0.70710677, 0.7071067, 0, 0, 0, 0.99999994, 0.9000001, 1.7, 0)
+script = ExtResource("101_2ny8n")
+release_mode = 1
+tween_duration_sec = 1.4
+trans_type = 0
+camera_properties = {
+"attributes": null,
+"compositor": null,
+"cull_mask": 1048573,
+"current": false,
+"doppler_tracking": 0,
+"environment": null,
+"far": 4000.0,
+"fov": 75.0,
+"frustum_offset": Vector2(0, 0),
+"h_offset": 0.0,
+"keep_aspect": 1,
+"near": 0.05,
+"projection": 0,
+"size": 1.0,
+"v_offset": 0.0
+}
+keep_aspect = 1
+cull_mask = 1048573
+environment = null
+attributes = null
+compositor = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://p6kvdxghlvhe"
+metadata/_edit_lock_ = true
+
+[node name="WakeUpCameraTarget" type="Node3D" parent="Cutscenes/WakeUpCutscene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+metadata/_edit_lock_ = true
+
+[node name="Alex" type="Node3D" parent="Cutscenes"]
+
+[node name="EditorLights" type="Node3D" parent="."]
+
+[node name="EditorLight1" type="DirectionalLight3D" parent="EditorLights"]
 transform = Transform3D(0.965926, -0.224144, 0.12941, 0, 0.5, 0.866025, -0.258819, -0.836516, 0.482963, -26.2, 9.6, 16.1)
 editor_only = true
 
-[node name="EditorLight2" type="DirectionalLight3D" parent="Editor"]
+[node name="EditorLight2" type="DirectionalLight3D" parent="EditorLights"]
 transform = Transform3D(-0.965926, 0.224144, -0.12941, 0, 0.5, 0.866025, 0.258819, 0.836516, -0.482963, -26.2, 9.6, 16.1)
 editor_only = true
-
-[node name="Cutscenes" type="Node3D" parent="."]
-
-[node name="Wakeup" type="Node3D" parent="Cutscenes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
-
-[node name="Camera3D" type="Camera3D" parent="Cutscenes/Wakeup"]
-transform = Transform3D(0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0, 0, 1, 0.9000001, 1.7, 0)
-cull_mask = 1048573
 
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]

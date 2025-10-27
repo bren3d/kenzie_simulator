@@ -2,9 +2,6 @@
 @tool
 class_name CameraAction extends Marker3D
 
-# Currently unused.
-const SIGNAL_RELEASE_CAMERA_FOCUS: StringName = &"release_camera_focus"
-
 ## For internal use.
 signal _interpolation_finished
 
@@ -13,6 +10,7 @@ signal focus_released
 
 enum ReleaseMode {MODE_ORIGINAL_CAMERA, MODE_NONE}
 
+## Use to see current camera position 
 @export_tool_button("Select Camera", "Camera3D")
 var select_camera_callable: Callable = func () -> void:
 		if not Engine.has_singleton(&"EditorInterface"): return
@@ -51,6 +49,12 @@ var target_node: Node3D
 var elapsed_sec: float = 0.0
 
 #endregion Tween Properties
+
+func _init() -> void:
+	var cam_props: Dictionary = {}
+	for prop in ClassDB.class_get_property_list(&"Camera3D", true):
+		cam_props[prop.name] = camera.get(prop.name)
+	camera_properties = cam_props
 
 func _ready() -> void:
 	set_notify_transform(Engine.is_editor_hint())

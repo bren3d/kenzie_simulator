@@ -10,7 +10,6 @@ func _init() -> void:
 	name = &"Cutscene"
 
 func enter() -> void:
-	#lock_state.emit(true)
 	player.set_input_active(false)
 
 func exit() -> void:

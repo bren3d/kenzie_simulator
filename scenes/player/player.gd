@@ -145,7 +145,6 @@ func unpause_timers() -> void:
 		if child is StatComponent:
 			child.unpause()
 
-
 func cough() -> void:
 	const MIN_COUGH_PITCH_SCALE : float = 0.75
 	const MAX_COUGH_PITCH_SCALE: float = 1.5
