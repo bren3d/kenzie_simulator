@@ -24,6 +24,7 @@ buses/default_bus_layout="res://scripts/shaders/default_bus_layout.tres"
 [autoload]
 
 Audio="*res://autoload/audio.gd"
+QuestHandle="*res://autoload/quest_handle.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
@@ -219,13 +220,14 @@ cough={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://resources/dialogue/test.dialogue", "res://resources/dialogue/rat.dialogue", "res://resources/dialogue/deer.dialogue", "res://resources/dialogue/wake_up.dialogue")
+locale/translations_pot_files=PackedStringArray("res://resources/dialogue/rat.dialogue", "res://resources/dialogue/deer.dialogue", "res://resources/dialogue/wake_up.dialogue", "res://resources/dialogue/alex.dialogue")
 
 [layer_names]
 
 3d_render/layer_2="player"
 3d_physics/layer_2="decor"
 3d_physics/layer_3="Interact"
+3d_physics/layer_4="player"
 
 [rendering]
 

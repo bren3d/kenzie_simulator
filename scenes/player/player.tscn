@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3pgs8qgiescg"]
+[gd_scene load_steps=20 format=3 uid="uid://c3pgs8qgiescg"]
 
 [ext_resource type="Script" uid="uid://ttc2nvo6lgj7" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bcgef6mdo78ue" path="res://scripts/components/camera_controller.gd" id="2_5gtgg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://3b7atary5jdb" path="res://scripts/states/player/moving.gd" id="3_75vfm"]
 [ext_resource type="Material" uid="uid://c226dleep4n07" path="res://resources/materials/text_wobble.tres" id="3_qek5x"]
 [ext_resource type="Script" uid="uid://2aoajcpaxxu" path="res://scripts/states/player/cursor.gd" id="4_0owmy"]
+[ext_resource type="PackedScene" uid="uid://coj2q8d0n6g0b" path="res://scenes/player/UI/quest_ui/quest_ui.tscn" id="5_myrg7"]
 [ext_resource type="Script" uid="uid://b1cexupi2kvio" path="res://scripts/states/player/godmode.gd" id="5_qek5x"]
 [ext_resource type="Script" uid="uid://csnxtmdq582x7" path="res://scripts/states/player/interacting.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://cgixpkri85v2f" path="res://scenes/player/stats.gd" id="10_h17s1"]
@@ -29,6 +30,7 @@ radial_segments = 16
 rings = 4
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 9
 script = ExtResource("1_8afob")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -77,7 +79,23 @@ exceptions = [NodePath("../..")]
 interaction_label = NodePath("../../UI/InteractUI/InteractLabel")
 interaction_texture_rect = NodePath("../../UI/InteractUI/InteractIcon")
 
+[node name="StateDebugLabel" type="Label" parent="."]
+top_level = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -32.0
+offset_right = -6.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "STATE DEBUG"
+
 [node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 layer = 5
 
 [node name="ProgressGrid" type="GridContainer" parent="UI"]
@@ -123,21 +141,6 @@ size_flags_vertical = 4
 value = 100.0
 rounded = true
 show_percentage = false
-
-[node name="StateDebugLabel" type="Label" parent="UI"]
-top_level = true
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -32.0
-offset_right = -6.0
-offset_bottom = -9.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "STATE DEBUG"
 
 [node name="MessageLabel" type="Label" parent="UI"]
 unique_name_in_owner = true
@@ -205,10 +208,12 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
+[node name="QuestUI" parent="UI" instance=ExtResource("5_myrg7")]
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("debug_label")]
 script = ExtResource("2_p47bc")
 initial_state = "Moving"
-debug_label = NodePath("../UI/StateDebugLabel")
+debug_label = NodePath("../StateDebugLabel")
 metadata/_custom_type_script = "uid://bq6bav7hc4c24"
 
 [node name="Moving" type="Node" parent="StateMachine"]

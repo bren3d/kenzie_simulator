@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2rj72rxg1cmf" path="res://assets/textures/UI/icon_dialog.png" id="4_1cgt6"]
 [ext_resource type="Material" uid="uid://d3icvun78phst" path="res://resources/materials/outline.tres" id="4_jvb0o"]
 [ext_resource type="Script" uid="uid://buepc5xqp7mpu" path="res://scripts/components/dialogue_action.gd" id="4_pdr3l"]
-[ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/test.dialogue" id="5_jvb0o"]
+[ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/alex.dialogue" id="5_jvb0o"]
 [ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="7_qcd2o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ng2u"]

@@ -36,18 +36,15 @@ func _init() -> void:
 	add_child(sfx_stream)
 
 
-func change_bus_volume(bus: int, percent_value: float) -> void:
+func change_bus_volume(bus: int, linear_value: float) -> void:
 	
 	match bus:
 		
 		BUS_MUSIC:
-			music_stream.volume_db = linear_to_db(percent_value)
+			music_stream.volume_linear = linear_value
 		
 		BUS_SFX:
-			sfx_stream.volume_db = linear_to_db(percent_value)
-			if get_tree().current_scene:
-				get_tree().current_scene.propagate_call(&"set_volume_linear", [percent_value])
-	
+			sfx_stream.volume_linear = linear_value
 
 func play_sfx(track: AudioStream) -> void:
 	sfx_stream.stream = track

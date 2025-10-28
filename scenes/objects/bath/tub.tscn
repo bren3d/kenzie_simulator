@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://ckm38vm0wiknj"]
+[gd_scene load_steps=7 format=4 uid="uid://ckm38vm0wiknj"]
 
 [ext_resource type="Texture2D" uid="uid://wtu2farlrewc" path="res://scenes/objects/textures/concrete_09.jpg" id="1_pcabn"]
 
@@ -42,8 +42,32 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kofu0")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcabn"]
+size = Vector3(0.52500004, 1.975, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fls3u"]
+size = Vector3(1.9, 1.975, 0.475)
+
 [node name="tub" type="Node3D"]
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ng1oi")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.225, 0, 0)
+shape = SubResource("BoxShape3D_pcabn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.225, 0, 0)
+shape = SubResource("BoxShape3D_pcabn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.7500002)
+shape = SubResource("BoxShape3D_fls3u")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7499998)
+shape = SubResource("BoxShape3D_fls3u")

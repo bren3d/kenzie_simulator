@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dw4gwmtebcdnd"]
+
+[ext_resource type="Texture2D" uid="uid://cvcr1idfkvo1v" path="res://scripts/UI/style_box_animation/hand_icon.png" id="1_xhsw5"]
+
+[resource]
+atlas = ExtResource("1_xhsw5")
+region = Rect2(0, 0, 512, 512)

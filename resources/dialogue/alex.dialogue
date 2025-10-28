@@ -1,0 +1,13 @@
+~ intro
+Alex: [[Bleep|Blorg|Blop]] [[Blorg|Blop|Bleep]]
+Alex: Hello dearest girlfriend
+Alex: I saw you were peacefully screaming in your sleep again
+#Alex: You look radiant as always
+#- Path one
+#	Alex: You picked the first one.
+#- Path two
+#	Alex: You picked the second one.
+#- What were the paths? => intro
+#- There is no path => END!
+#Alex: Yummy shrimp brains.
+=> END

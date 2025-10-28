@@ -64,7 +64,8 @@ func set_collider_body(val: CollisionObject3D) -> void:
 func set_disabled(val: bool) -> void:
 	disabled = val
 	if collider_body:
-		collider_body.set_collision_layer_value(COLLISION_LAYER, !disabled)
+		collider_body.set_meta(get_tag(), null if disabled else self)
+		#collider_body.set_collision_layer_value(COLLISION_LAYER, !disabled)
 
 func get_interaction_text() -> String:
 	return interaction_text

@@ -7,15 +7,14 @@ var wake_up_delay: float = 1.5
 @export var wake_up_dialogue: DialogueResource
 @export var camera_target: Node3D
 @export var camera_action: CameraAction
+@export var wake_up_quest: Quest
 
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return
-	print("Playing...")
 	
 	Audio.pause_music(true)
 	
 	var player: Player = get_tree().get_first_node_in_group(&"Player")
-	assert(player)
 	var player_fov: float = player.camera.fov
 	camera_action.camera.make_current.call_deferred()
 	
@@ -30,7 +29,7 @@ func _on_play() -> void:
 	camera_action.interpolate_camera(camera_target.global_transform, player.camera, player_fov, player_fov)
 	await camera_action._interpolation_finished
 	
-	# TODO Update Quest
+	QuestHandle.start_quest(wake_up_quest)
 	
 	player.set_state("Moving")
 	
