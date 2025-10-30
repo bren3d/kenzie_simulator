@@ -8,13 +8,14 @@ var wake_up_delay: float = 1.5
 @export var camera_target: Node3D
 @export var camera_action: CameraAction
 @export var wake_up_quest: Quest
+@export var light_switch_interactable: Interactable
 
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return
 	
 	Audio.pause_music(true)
 	
-	var player: Player = get_tree().get_first_node_in_group(&"Player")
+	var player: Player = Global.player
 	var player_fov: float = player.camera.fov
 	camera_action.camera.make_current.call_deferred()
 	
@@ -31,5 +32,12 @@ func _on_play() -> void:
 	
 	QuestHandle.start_quest(wake_up_quest)
 	
+	wake_up_quest.task_updated.connect(_on_task_updated)
+	
 	player.set_state("Moving")
 	
+
+func _on_task_updated(t: Task) -> void:
+	if t.task_name == "Teeth" and t.is_completed():
+		wake_up_quest.task_updated.disconnect(_on_task_updated)
+		light_switch_interactable.disabled = false

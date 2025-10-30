@@ -11,25 +11,30 @@ extends Cutscene
 @export var brushing_quest: Quest
 @export var task_name: String
 
+@export var play_brushing_sound: bool = true
 
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return
-	
 	interactable.disabled = true
 	quest_waypoint.hide()
 	
-	var player: Player = get_tree().get_first_node_in_group(&"Player")
+	var player: Player = Global.player
 	player.set_state.call_deferred("Cutscene")
 	
 	var tw: Tween = create_tween()
 	tw.tween_property(blackout_rect, ^"color:a", 1.0, fade_duration)
-	tw.tween_callback(Audio.play_sfx.bind(teeth_brushing_sound))
-	tw.tween_interval(teeth_brushing_sound.get_length())
+	
+	if play_brushing_sound:
+		tw.tween_callback(Audio.play_sfx.bind(teeth_brushing_sound))
+		tw.tween_interval(teeth_brushing_sound.get_length())
+	
+	
 	tw.tween_callback(Audio.play_sfx.bind(gargle_sound))
 	tw.tween_interval(gargle_sound.get_length())
+
 	tw.tween_property(blackout_rect, ^"color:a", 0.0, fade_duration)
 	
 	tw.tween_callback(brushing_quest.update_task_status.bind(task_name, Task.STATUS_COMPLETED))
-	tw.tween_callback(brushing_quest.finish)
+	#tw.tween_callback(brushing_quest.finish)
 	
 	tw.tween_callback(player.set_state.bind("Moving"))

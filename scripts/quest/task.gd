@@ -39,6 +39,8 @@ var status: int = STATUS_NOT_STARTED
 @export var current_progress_value: float = 0.0: set = set_current_progress_value
 @export var max_progress_value: float = 0.0
 
+@export var auto_complete: bool = true
+
 func is_started() -> bool:
 	return status != STATUS_NOT_STARTED
 
@@ -67,7 +69,7 @@ func get_progress_string() -> String:
 func _validate_property(property: Dictionary) -> void:
 	if not Engine.is_editor_hint(): return
 	match property.name:
-		"display_as_percent", "current_progress_value", "max_progress_value" when not display_progress:
+		"display_as_percent", "current_progress_value", "max_progress_value", "auto_complete" when not display_progress:
 			property.usage &= ~PROPERTY_USAGE_EDITOR
 
 func _get_property_list() -> Array[Dictionary]:

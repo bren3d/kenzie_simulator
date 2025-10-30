@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dca58uy812d21"
+path="res://.godot/imported/me_time.dialogue-38b4c92e7a0ed7fc2d6fba8a16d002da.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/me_time.dialogue"
+dest_files=["res://.godot/imported/me_time.dialogue-38b4c92e7a0ed7fc2d6fba8a16d002da.tres"]
+
+[params]
+
+defaults=true

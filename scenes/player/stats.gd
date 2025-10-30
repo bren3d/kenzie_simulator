@@ -21,6 +21,8 @@ var value: float = 100.0: set = set_value
 @export_range(-10.0, 10.0, 0.01, "or_less", "or_greater", "exp", "suffix:%/s" )
 var delta_sec: float = 0.0
 
+@export var disabled: bool: set = set_disabled
+
 ## Is timer paused.
 @export 
 var paused: bool = true :  set = set_paused, get = is_paused
@@ -73,6 +75,12 @@ func set_paused(val: bool) -> void:
 
 func is_paused() -> bool:
 	return paused
+
+func set_disabled(val: bool) -> void:
+	disabled = val
+
+func is_disabled() -> bool:
+	return disabled
 
 func get_tag() -> StringName:
 	return stat_name if stat_name else super()

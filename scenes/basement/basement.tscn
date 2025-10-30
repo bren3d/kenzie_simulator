@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=4 uid="uid://bd31f2ihbhefp"]
+[gd_scene load_steps=183 format=4 uid="uid://bd31f2ihbhefp"]
 
 [ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
 [ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
@@ -64,6 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://cymxl51g4molk" path="res://scenes/objects/bath/toilet_paper_01.tscn" id="31_13o2s"]
 [ext_resource type="PackedScene" uid="uid://canv40eewtksa" path="res://scenes/objects/bath/shower_knob_2.tscn" id="31_baiga"]
 [ext_resource type="Texture2D" uid="uid://b7810lx8y7cjw" path="res://resources/models/textures/tiles_vintage.jpg" id="32_fvkfw"]
+[ext_resource type="Script" uid="uid://dn831lxxn01ch" path="res://scripts/quest/task_updater.gd" id="37_nhk7v"]
 [ext_resource type="PackedScene" uid="uid://cxwl8gw05x5qs" path="res://scenes/objects/decor/trash_can.tscn" id="39_3qesw"]
 [ext_resource type="PackedScene" uid="uid://qwyv45d8qme7" path="res://scenes/objects/bath/hand_towel_hanger.tscn" id="39_hpdqy"]
 [ext_resource type="PackedScene" uid="uid://34ha8fh32q2a" path="res://scenes/objects/bath/towel_rack_1.tscn" id="41_bemnw"]
@@ -80,6 +81,8 @@
 [ext_resource type="PackedScene" uid="uid://bx4pw4i7qpvts" path="res://scenes/objects/food/banana_bunch.tscn" id="54_0vvh4"]
 [ext_resource type="PackedScene" uid="uid://7kxo65m1555w" path="res://scenes/objects/kitchen/plate_rack.tscn" id="55_61cpn"]
 [ext_resource type="PackedScene" uid="uid://ulk8eatkhsx" path="res://scenes/objects/kitchen/plate_white.tscn" id="55_ok3f1"]
+[ext_resource type="AudioStream" uid="uid://c78qrtygkw7yq" path="res://assets/sounds/flush.wav" id="61_efjp7"]
+[ext_resource type="Script" uid="uid://cixmnaxbpx1kb" path="res://scripts/interact/audio_trigger.gd" id="62_0kxoj"]
 [ext_resource type="PackedScene" uid="uid://8iuagmcrr4hn" path="res://scenes/objects/food/apple_001.tscn" id="64_51q85"]
 [ext_resource type="PackedScene" uid="uid://b3pc018lv7jj" path="res://scenes/objects/food/milk_02.tscn" id="65_s82wm"]
 [ext_resource type="PackedScene" uid="uid://brs2vb8tfav5q" path="res://scenes/objects/food/egg.tscn" id="66_0umay"]
@@ -93,12 +96,17 @@
 [ext_resource type="PackedScene" uid="uid://bsjt3bra81fy" path="res://scenes/objects/food/water_01.tscn" id="70_an48m"]
 [ext_resource type="PackedScene" uid="uid://b6ycp1xnmgamj" path="res://scenes/objects/food/grape_01.tscn" id="71_a6l7o"]
 [ext_resource type="PackedScene" uid="uid://x7cyy2prxj4h" path="res://scenes/objects/food/cabbage.tscn" id="72_a5wgl"]
+[ext_resource type="Texture2D" uid="uid://dtx5pgyik2bt5" path="res://assets/textures/materials/paper_writing.png" id="73_nhk7v"]
 [ext_resource type="Texture2D" uid="uid://bytrkej3js2li" path="res://assets/textures/UI/icon_liquid.png" id="79_bgga4"]
 [ext_resource type="Script" uid="uid://cvxjsg3gij30g" path="res://scripts/trigger_property.gd" id="80_0k3jp"]
 [ext_resource type="PackedScene" uid="uid://bbtkb74vb3jbs" path="res://scenes/objects/chairs/armchair_08.tscn" id="80_a5wgl"]
 [ext_resource type="PackedScene" uid="uid://cj236q2e6oqpk" path="res://scenes/objects/tables/table_40.tscn" id="81_v6wgs"]
+[ext_resource type="Script" uid="uid://bro4y36d6fdc7" path="res://scripts/cutscene/read_list_cutscene.gd" id="81_vx7dd"]
 [ext_resource type="PackedScene" uid="uid://dc6gpi15j8kca" path="res://scenes/objects/chairs/armchair_02.tscn" id="82_acber"]
+[ext_resource type="AudioStream" uid="uid://txuceyjxiye8" path="res://assets/sounds/paper_pickup.wav" id="82_vvy2b"]
 [ext_resource type="PackedScene" uid="uid://cr75mn5381ye1" path="res://scenes/objects/cleaning/bote.tscn" id="83_v4t2j"]
+[ext_resource type="Resource" uid="uid://bjd7uw36gtun" path="res://resources/dialogue/list.dialogue" id="83_x7oex"]
+[ext_resource type="AudioStream" uid="uid://cwxwbbtal8amk" path="res://assets/sounds/paper_pickup_1.wav" id="84_wtnnm"]
 [ext_resource type="PackedScene" uid="uid://bsghxoswwx4ge" path="res://scenes/npc/katie/katie.tscn" id="98_gmiao"]
 [ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="101_2ny8n"]
 [ext_resource type="Script" uid="uid://c24m8g0gpthfn" path="res://scripts/cutscene/wake_up_cutscene.gd" id="101_3g7p8"]
@@ -108,8 +116,17 @@
 [ext_resource type="Script" uid="uid://bregn5dn0afca" path="res://scripts/cutscene/brush_teeth_cutscene.gd" id="105_hkjfl"]
 [ext_resource type="AudioStream" uid="uid://cympwj1sgl6pe" path="res://assets/sounds/brush-teeth-field-recording-22405.mp3" id="106_4og01"]
 [ext_resource type="AudioStream" uid="uid://duft205hhbyxp" path="res://assets/sounds/gargle-then-spit-106155.mp3" id="107_v58j2"]
+[ext_resource type="PackedScene" uid="uid://b25p8uojkysc0" path="res://scenes/objects/cleaning/broom_02.tscn" id="107_x7oex"]
 [ext_resource type="ArrayMesh" uid="uid://cplfes50hf6dj" path="res://resources/models/quest_waypoint.tres" id="108_03406"]
+[ext_resource type="Resource" uid="uid://dvcgwq835fx7x" path="res://resources/quests/list_quest.tres" id="108_ca65u"]
 [ext_resource type="Script" uid="uid://jx3w7aowxu8g" path="res://scripts/quest/quest_waypoint.gd" id="108_qhoj0"]
+[ext_resource type="AudioStream" uid="uid://bu2deelx7wotx" path="res://assets/sounds/sting.wav" id="110_akcph"]
+[ext_resource type="Script" uid="uid://bchohp3vr2dv5" path="res://scenes/objects/cleaning/broom.gd" id="110_nhhcu"]
+[ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/alex.dialogue" id="111_mgd7o"]
+[ext_resource type="PackedScene" uid="uid://bac3yp5alb5a6" path="res://scenes/basement/dirt_spot.tscn" id="123_h71fb"]
+[ext_resource type="Script" uid="uid://uq0jtcjaaxqg" path="res://scripts/cutscene/me_time_cutscene.gd" id="123_ud4xj"]
+[ext_resource type="Resource" uid="uid://dca58uy812d21" path="res://resources/dialogue/me_time.dialogue" id="124_jipp7"]
+[ext_resource type="Resource" uid="uid://bp1d1b60u8c0r" path="res://resources/quests/me_time_quest.tres" id="125_dlm1g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -357,11 +374,25 @@ property_name = "visible"
 toggle_mode = true
 metadata/_custom_type_script = "uid://b256oh8o7fr1o"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efjp7"]
+shading_mode = 0
+albedo_texture = ExtResource("73_nhk7v")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0kxoj"]
+material = SubResource("StandardMaterial3D_efjp7")
+size = Vector2(0.6, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0kxoj"]
+size = Vector3(0.6, 0.925, 0.075)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pos66"]
 size = Vector3(0.5, 0.825, 0.35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5wgl"]
 size = Vector3(6.975, 5.775, 1.375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ca65u"]
+size = Vector3(0.25, 0.175, 1.45)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qhoj0"]
 size = Vector3(1.325, 0.3, 1.025)
@@ -377,7 +408,7 @@ environment = SubResource("Environment_u5722")
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="KitchenFloor" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.45, 0.051, 12.975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.35, 0.051, 12.975)
 mesh = SubResource("QuadMesh_84r38")
 skeleton = NodePath("../Floor")
 
@@ -568,7 +599,6 @@ material = ExtResource("2_u5722")
 
 [node name="Door" parent="Environment/Basement/Holes/Kitchenette" instance=ExtResource("6_a54wy")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.049999237)
-open = true
 opens_forward = false
 max_rotation = 1.91986
 
@@ -581,7 +611,6 @@ material = ExtResource("2_u5722")
 [node name="Door" parent="Environment/Basement/Holes/Bathroom" instance=ExtResource("6_a54wy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
 open = true
-locked = true
 max_rotation = 1.91986
 
 [node name="StairsRail" type="CSGBox3D" parent="Environment/Basement/Holes"]
@@ -590,9 +619,9 @@ size = Vector3(3.65, 5.4, 2.5)
 material = ExtResource("2_u5722")
 
 [node name="Stairs" type="Node3D" parent="Environment/Basement"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 1.725, 12.475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 1.6875, 12.462501)
 script = ExtResource("5_6yijy")
-size = Vector3(3, 3.45, 5.55)
+size = Vector3(3, 3.375, 5.525)
 material = SubResource("StandardMaterial3D_n7hqg")
 hidden_flags = 15
 metadata/_custom_type_script = "uid://m2fvd5j6jd46"
@@ -1153,18 +1182,20 @@ dialogue_text = "Our pet capybara, Shigeru"
 simple_dialogue_mode = true
 metadata/_custom_type_script = "uid://buepc5xqp7mpu"
 
-[node name="LightSwitch" type="Area3D" parent="Environment/Basement/Decor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 1.8, 9.75)
+[node name="MainLightSwitch" type="Area3D" parent="Environment/Basement/Decor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.950001, 1.8, 18.25)
 collision_layer = 5
 input_capture_on_drag = true
+monitoring = false
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/LightSwitch"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/MainLightSwitch"]
 shape = SubResource("BoxShape3D_olr0t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Basement/Decor/LightSwitch"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Basement/Decor/MainLightSwitch"]
 mesh = SubResource("BoxMesh_6yijy")
 
-[node name="Interactable" type="Node" parent="Environment/Basement/Decor/LightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
+[node name="Interactable" type="Node" parent="Environment/Basement/Decor/MainLightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("7_olr0t")
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
@@ -1173,10 +1204,26 @@ overlay_material = ExtResource("10_acu8t")
 interaction_text = "Light Switch"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
-[node name="TriggeredAction" type="Node" parent="Environment/Basement/Decor/LightSwitch"]
+[node name="TriggeredAction" type="Node" parent="Environment/Basement/Decor/MainLightSwitch"]
 script = ExtResource("5_6wvo0")
 action = SubResource("Resource_56uno")
 metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"
+
+[node name="QuestWaypoint" type="Node3D" parent="Environment/Basement/Decor/MainLightSwitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20000005, -0.07500076)
+visible = false
+script = ExtResource("108_qhoj0")
+quest = ExtResource("103_v54r6")
+task_name = "lights"
+mesh = ExtResource("108_03406")
+animated = true
+metadata/_custom_type_script = "uid://jx3w7aowxu8g"
+
+[node name="TaskUpdater" type="Node" parent="Environment/Basement/Decor/MainLightSwitch"]
+script = ExtResource("37_nhk7v")
+quest = ExtResource("103_v54r6")
+task_name = "lights"
+metadata/_custom_type_script = "uid://dn831lxxn01ch"
 
 [node name="Door" parent="Environment/Basement" instance=ExtResource("6_a54wy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 1.4, 17.25)
@@ -1243,8 +1290,9 @@ transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, 1.5, 0, -1.5, -6.556708e-08
 
 [node name="LightSwitch" type="Area3D" parent="Environment/Bedroom/Room/Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2, 0.0999994)
-collision_layer = 5
 input_capture_on_drag = true
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bedroom/Room/Decor/LightSwitch"]
 shape = SubResource("BoxShape3D_olr0t")
@@ -1254,6 +1302,7 @@ mesh = SubResource("BoxMesh_6yijy")
 
 [node name="Interactable" type="Node" parent="Environment/Bedroom/Room/Decor/LightSwitch" node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("7_olr0t")
+disabled = true
 collider_body = NodePath("..")
 mesh = NodePath("../MeshInstance3D")
 icon = ExtResource("24_e67om")
@@ -1341,6 +1390,19 @@ transform = Transform3D(1.5, -2.2649371e-07, 2.264939e-07, 2.2649371e-07, 1.5, 3
 
 [node name="Toilet_paper_01" parent="Environment/Bathroom/Toilet/TowelRack3" instance=ExtResource("31_13o2s")]
 transform = Transform3D(-2.1855688e-09, 3.7748964e-09, 0.05, -0.05, 9.735359e-09, -2.1855695e-09, -9.735359e-09, -0.05, 3.774895e-09, -0.011111259, 0, -0.099999994)
+
+[node name="Interactable" type="Node" parent="Environment/Bathroom/Toilet" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../ToiletStaticBody")
+icon = ExtResource("79_bgga4")
+interaction_text = "use"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Environment/Bathroom/Toilet"]
+stream = ExtResource("61_efjp7")
+max_distance = 15.0
+bus = &"SFX"
+script = ExtResource("62_0kxoj")
 
 [node name="Washbasin_03" parent="Environment/Bathroom" instance=ExtResource("22_h1gqc")]
 transform = Transform3D(-1.7, -2.5669289e-07, -1.12204015e-14, 0, -7.430936e-08, 1.7, -2.5669289e-07, 1.7, 7.430936e-08, 3.1749992, 0.6942239, -2.1999998)
@@ -1466,6 +1528,41 @@ transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.7
 [node name="KitchenSink" parent="Environment/Kitchenette/Counters" instance=ExtResource("44_k78io")]
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0.39999962, 0.047885228, 2.6000013)
 
+[node name="List" type="Node3D" parent="Environment/Kitchenette/Counters/KitchenSink"]
+transform = Transform3D(1, 1.509958e-07, 1.509958e-07, -1.509958e-07, -4.371139e-08, 1, 1.509958e-07, -1, -4.3711367e-08, -1.75, 2.1428573, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Kitchenette/Counters/KitchenSink/List"]
+mesh = SubResource("QuadMesh_0kxoj")
+skeleton = NodePath("../..")
+
+[node name="ListArea3D" type="Area3D" parent="Environment/Kitchenette/Counters/KitchenSink/List"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Kitchenette/Counters/KitchenSink/List/ListArea3D"]
+transform = Transform3D(1, -1.3256066e-19, 1.4210855e-14, 0, 1, 0, 0, 0, 1, 0, 0, -0.012500286)
+shape = SubResource("BoxShape3D_0kxoj")
+
+[node name="Interactable" type="Node" parent="Environment/Kitchenette/Counters/KitchenSink/List" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+disabled = true
+collider_body = NodePath("../ListArea3D")
+max_interaction_distance = 1.5
+interaction_text = "read list"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="ReadListCutscene" type="Node" parent="Environment/Kitchenette/Counters/KitchenSink/List" node_paths=PackedStringArray("list", "list_interactable")]
+script = ExtResource("81_vx7dd")
+teeth_quest = ExtResource("103_v54r6")
+list_task_name = "list"
+list_quest = ExtResource("108_ca65u")
+list = NodePath("..")
+list_interactable = NodePath("../Interactable")
+list_mesh_material = SubResource("StandardMaterial3D_efjp7")
+paper_pickup_audio = ExtResource("82_vvy2b")
+paper_stash_audio = ExtResource("84_wtnnm")
+list_dialogue = ExtResource("83_x7oex")
+
 [node name="KitchenCounter" parent="Environment/Kitchenette/Counters" instance=ExtResource("45_x177b")]
 transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, 2.7250004, 0.055, 2.5900002)
 
@@ -1587,7 +1684,7 @@ transform = Transform3D(0.7, 0, 0, 0, -2.6226834e-08, 0.8, 0, -0.6, -3.4969112e-
 transform = Transform3D(-6.556708e-08, -1.5, -6.556708e-08, 0, -6.556708e-08, 1.5, -1.5, 6.556708e-08, 2.8660283e-15, -3.25, 1.4895232, -2.5)
 
 [node name="Fitment_02" parent="Environment/Kitchenette" instance=ExtResource("50_ndrht")]
-transform = Transform3D(-6.556708e-08, 1.5, 6.556708e-08, 0, -6.556708e-08, 1.5, 1.5, 6.556708e-08, 2.8660283e-15, 3.0499992, 1.647166, -2.4250002)
+transform = Transform3D(-6.556708e-08, 1.5, 6.556708e-08, 0, -6.556708e-08, 1.5, 1.5, 6.556708e-08, 2.8660283e-15, 3.0499992, 1.647166, -2.7500002)
 
 [node name="Boxes" type="Node3D" parent="Environment/Kitchenette"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.65)
@@ -1679,6 +1776,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, -5.55)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08749962, 0, 0.1875)
 shape = SubResource("BoxShape3D_a5wgl")
 
+[node name="Broom_02" parent="Environment/Kitchenette" instance=ExtResource("107_x7oex")]
+transform = Transform3D(1.4698875, -0.24778667, -0.16742846, 0.13023621, -0.22557586, 1.4772116, -0.26920068, -1.4620937, -0.19953358, -3.4249992, 1.275, -0.9250002)
+script = ExtResource("110_nhhcu")
+quest = ExtResource("108_ca65u")
+
+[node name="Interactable" type="Node" parent="Environment/Kitchenette/Broom_02" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+disabled = true
+collider_body = NodePath("../BroomArea3D")
+icon = ExtResource("24_e67om")
+overlay_material = ExtResource("10_acu8t")
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="BroomArea3D" type="Area3D" parent="Environment/Kitchenette/Broom_02"]
+transform = Transform3D(0.9999998, 1.4901161e-08, 1.3038516e-08, -4.4703484e-08, 0.9999999, -1.4901161e-08, -3.3527613e-08, 1.4901161e-08, 0.9999998, -0.008682251, 0.015038013, -0.0984807)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Kitchenette/Broom_02/BroomArea3D"]
+transform = Transform3D(1, 4.246956e-06, 5.8656365e-06, -4.2469533e-06, 1, -4.4703611e-07, -5.8656383e-06, 4.4701122e-07, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ca65u")
+
+[node name="TaskUpdater" type="Node" parent="Environment/Kitchenette/Broom_02"]
+script = ExtResource("37_nhk7v")
+quest = ExtResource("108_ca65u")
+task_name = "broom"
+metadata/_custom_type_script = "uid://dn831lxxn01ch"
+
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 1.9)
 visible = false
@@ -1711,9 +1834,6 @@ omni_attenuation = 0.5
 transform = Transform3D(0.34202024, 0, 0.93969285, 0, 1, 0, -0.93969285, 0, 0.34202024, -3.1000004, 1.05, 11.35)
 camera_sensitivity = 2.0
 
-[node name="Alex" parent="." instance=ExtResource("4_u5722")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.5, 1.5, 9)
-
 [node name="katie" parent="." instance=ExtResource("98_gmiao")]
 transform = Transform3D(-1.295053, 0, 0.11330229, 0, 1.3, 0, -0.11330229, 0, -1.295053, 6.975, 0.049213387, 17.775)
 
@@ -1724,15 +1844,17 @@ transform = Transform3D(-0.62500006, 0, -1.0825317, 0, 1.25, 0, 1.0825317, 0, -0
 
 [node name="WakeUpCutscene" type="Node3D" parent="Cutscenes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
+visible = false
 metadata/_edit_lock_ = true
 
-[node name="WakeUpCutscene" type="Node" parent="Cutscenes/WakeUpCutscene" node_paths=PackedStringArray("camera_target", "camera_action")]
+[node name="WakeUpCutscene" type="Node" parent="Cutscenes/WakeUpCutscene" node_paths=PackedStringArray("camera_target", "camera_action", "light_switch_interactable")]
 script = ExtResource("101_3g7p8")
-wake_up_delay = 2.0
+wake_up_delay = 1.0
 wake_up_dialogue = ExtResource("102_i2n02")
 camera_target = NodePath("../WakeUpCameraTarget")
 camera_action = NodePath("../CameraAction")
 wake_up_quest = ExtResource("103_v54r6")
+light_switch_interactable = NodePath("../../../Environment/Bedroom/Room/Decor/LightSwitch/Interactable")
 play_on_ready = true
 
 [node name="CameraAction" type="Marker3D" parent="Cutscenes/WakeUpCutscene"]
@@ -1782,26 +1904,27 @@ metadata/_edit_lock_ = true
 
 [node name="BrushTeeth" type="Node3D" parent="Cutscenes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.900002, 1.35, 10.425)
+metadata/_edit_lock_ = true
 
 [node name="BrushTeethCutscene" type="Node" parent="Cutscenes/BrushTeeth" node_paths=PackedStringArray("interactable", "quest_waypoint", "blackout_rect")]
 script = ExtResource("105_hkjfl")
 interactable = NodePath("../Interactable")
-quest_waypoint = NodePath("../BrushTeethQuestWaypoint")
+quest_waypoint = NodePath("../QuestWaypoint")
 blackout_rect = NodePath("../BlackoutFilter/ColorRect")
 teeth_brushing_sound = ExtResource("106_4og01")
 gargle_sound = ExtResource("107_v58j2")
 brushing_quest = ExtResource("103_v54r6")
 task_name = "Teeth"
+play_brushing_sound = false
 
-[node name="BrushTeethQuestWaypoint" type="MeshInstance3D" parent="Cutscenes/BrushTeeth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07500076, 0.375, 0.05000019)
-mesh = ExtResource("108_03406")
-skeleton = NodePath("../InteractionArea3D")
+[node name="QuestWaypoint" type="Node3D" parent="Cutscenes/BrushTeeth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07500076, 0.044680238, 0)
+visible = false
 script = ExtResource("108_qhoj0")
 quest = ExtResource("103_v54r6")
 task_name = "Teeth"
+mesh = ExtResource("108_03406")
 animated = true
-tw_trans = 1
 metadata/_custom_type_script = "uid://jx3w7aowxu8g"
 
 [node name="BlackoutFilter" type="CanvasLayer" parent="Cutscenes/BrushTeeth"]
@@ -1835,20 +1958,111 @@ interaction_text = "Brush Teeth"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
 [node name="AlexIntro" type="Node3D" parent="Cutscenes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.725, 0, 13.875)
+visible = false
+metadata/_edit_lock_ = true
 
-[node name="AlexIntroCutscene" type="Node" parent="Cutscenes/AlexIntro"]
+[node name="AlexIntroCutscene" type="Node" parent="Cutscenes/AlexIntro" node_paths=PackedStringArray("trigger_area", "alex", "alex_hidden_marker", "start_marker", "lean_marker", "cam_action")]
 script = ExtResource("104_cc1o6")
+trigger_area = NodePath("../AlexIntroTriggerArea3D")
+brush_teeth_quest = ExtResource("103_v54r6")
+alex = NodePath("../../../Alex")
+sting = ExtResource("110_akcph")
+dialogue = ExtResource("111_mgd7o")
+alex_hidden_marker = NodePath("../../../AlexHiddenMarker")
+start_marker = NodePath("../AlexStart")
+lean_marker = NodePath("../AlexLean")
+cam_action = NodePath("../CameraAction")
 
-[node name="TriggerArea3D" type="Area3D" parent="Cutscenes/AlexIntro"]
-transform = Transform3D(-4.371141e-08, 0, 1, 0, 1, 0, -1, 0, -4.371141e-08, -19.725, 1.4, 13.975)
+[node name="AlexIntroTriggerArea3D" type="Area3D" parent="Cutscenes/AlexIntro"]
+transform = Transform3D(-4.371141e-08, 0, 1, 0, 1, 0, -1, 0, -4.371141e-08, 0, 1.4, 0.10000038)
 collision_layer = 0
 collision_mask = 8
 input_ray_pickable = false
+monitoring = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/AlexIntro/TriggerArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/AlexIntro/AlexIntroTriggerArea3D"]
 shape = SubResource("BoxShape3D_i2n02")
 metadata/_edit_lock_ = true
+
+[node name="AlexStart" type="Marker3D" parent="Cutscenes/AlexIntro"]
+transform = Transform3D(8.940697e-08, 0, -1, 0, 1, 0, 1, 0, 8.940697e-08, 0.29999924, 1.5, -1.6500006)
+
+[node name="AlexLean" type="Marker3D" parent="Cutscenes/AlexIntro"]
+transform = Transform3D(-0.15038367, 0.08682412, -0.9848077, -0.56165224, 0.8122677, 0.15737866, 0.81359184, 0.5767868, -0.07338678, 0.29999924, 1.5, -0.6999998)
+
+[node name="CameraAction" type="Marker3D" parent="Cutscenes/AlexIntro"]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -0.82500076, 2.025, 0)
+script = ExtResource("101_2ny8n")
+tween_duration_sec = 0.15
+trans_type = 0
+camera_properties = {
+"attributes": null,
+"compositor": null,
+"cull_mask": 1048573,
+"current": false,
+"doppler_tracking": 0,
+"environment": null,
+"far": 4000.0,
+"fov": 50.0,
+"frustum_offset": Vector2(0, 0),
+"h_offset": 0.0,
+"keep_aspect": 1,
+"near": 0.05,
+"projection": 0,
+"size": 1.0,
+"v_offset": 0.0
+}
+keep_aspect = 1
+cull_mask = 1048573
+environment = null
+attributes = null
+compositor = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 50.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://p6kvdxghlvhe"
+
+[node name="MeTime" type="Node" parent="Cutscenes"]
+script = ExtResource("123_ud4xj")
+list_quest = ExtResource("108_ca65u")
+dialogue = ExtResource("124_jipp7")
+me_time_quest = ExtResource("125_dlm1g")
+
+[node name="Quests" type="Node3D" parent="."]
+
+[node name="Sweep" type="Node3D" parent="Quests"]
+
+[node name="DirtSpot" parent="Quests/Sweep" node_paths=PackedStringArray("broom") instance=ExtResource("123_h71fb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.675, 0.075, 0.5)
+broom = NodePath("../../../Environment/Kitchenette/Broom_02")
+
+[node name="DirtSpot2" parent="Quests/Sweep" node_paths=PackedStringArray("broom") instance=ExtResource("123_h71fb")]
+transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, -10.425, 0.075, -4.25)
+broom = NodePath("../../../Environment/Kitchenette/Broom_02")
+
+[node name="DirtSpot3" parent="Quests/Sweep" node_paths=PackedStringArray("broom") instance=ExtResource("123_h71fb")]
+transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, -8.675, 0.075, 17)
+broom = NodePath("../../../Environment/Kitchenette/Broom_02")
+
+[node name="DirtSpot4" parent="Quests/Sweep" node_paths=PackedStringArray("broom") instance=ExtResource("123_h71fb")]
+transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, -22.925, 0.075, 3.5)
+broom = NodePath("../../../Environment/Kitchenette/Broom_02")
+
+[node name="DirtSpot5" parent="Quests/Sweep" node_paths=PackedStringArray("broom") instance=ExtResource("123_h71fb")]
+transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, -14.424999, 0.075, 6.5)
+broom = NodePath("../../../Environment/Kitchenette/Broom_02")
+
+[node name="Alex" parent="." instance=ExtResource("4_u5722")]
+transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1.0000001, 0, 0.7071068, 0, 0.7071067, 0, 1.4500002, 0)
 
 [node name="EditorLights" type="Node3D" parent="."]
 
@@ -1860,5 +2074,10 @@ editor_only = true
 transform = Transform3D(-0.965926, 0.224144, -0.12941, 0, 0.5, 0.866025, 0.258819, 0.836516, -0.482963, -26.2, 9.6, 16.1)
 editor_only = true
 
+[node name="AlexHiddenMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)
+
+[connection signal="interaction_started" from="Environment/Basement/Decor/MainLightSwitch/Interactable" to="Environment/Basement/Decor/MainLightSwitch/TaskUpdater" method="update_task" flags=6 unbinds=1]
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]
+[connection signal="interaction_started" from="Environment/Kitchenette/Broom_02/Interactable" to="Environment/Kitchenette/Broom_02/TaskUpdater" method="update_task" flags=6 unbinds=1]
 [connection signal="interaction_started" from="Cutscenes/BrushTeeth/Interactable" to="Cutscenes/BrushTeeth/BrushTeethCutscene" method="play" unbinds=1]

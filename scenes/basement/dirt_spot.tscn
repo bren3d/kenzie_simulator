@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://bac3yp5alb5a6"]
+
+[ext_resource type="Script" uid="uid://dmouxea3rgli7" path="res://scenes/basement/dirt_spot.gd" id="1_eqkyd"]
+[ext_resource type="AudioStream" uid="uid://bkknm6uafkt2g" path="res://assets/sounds/broom_sweeping.wav" id="2_mox12"]
+[ext_resource type="Texture2D" uid="uid://bbln1p80786rx" path="res://assets/textures/materials/dirt_spot.png" id="3_ijeek"]
+[ext_resource type="Script" uid="uid://dn831lxxn01ch" path="res://scripts/quest/task_updater.gd" id="4_6faom"]
+[ext_resource type="Resource" uid="uid://dvcgwq835fx7x" path="res://resources/quests/list_quest.tres" id="5_kb5im"]
+[ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="6_dn7nn"]
+[ext_resource type="Script" uid="uid://jx3w7aowxu8g" path="res://scripts/quest/quest_waypoint.gd" id="7_ejb7v"]
+[ext_resource type="ArrayMesh" uid="uid://cplfes50hf6dj" path="res://resources/models/quest_waypoint.tres" id="8_ek8t4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ud4xj"]
+transparency = 4
+depth_draw_mode = 1
+albedo_texture = ExtResource("3_ijeek")
+
+[sub_resource type="QuadMesh" id="QuadMesh_nhhcu"]
+material = SubResource("StandardMaterial3D_ud4xj")
+size = Vector2(2, 2)
+orientation = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kca1m"]
+size = Vector3(1.875, 0.32500002, 1.775)
+
+[node name="DirtSpot" type="Node3D" node_paths=PackedStringArray("mesh_instance", "task_updater", "waypoint", "broom_start_position", "broom_lowered_position")]
+script = ExtResource("1_eqkyd")
+mesh_instance = NodePath("MeshInstance3D")
+task_updater = NodePath("TaskUpdater")
+waypoint = NodePath("QuestWaypoint")
+broom_start_position = NodePath("BroomStart")
+broom_lowered_position = NodePath("BroomLowered")
+sweep_audio_stream = ExtResource("2_mox12")
+sweep_cycle_count = 10
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_nhhcu")
+
+[node name="BroomStart" type="Marker3D" parent="."]
+transform = Transform3D(0.99999994, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 0.99999994, 0, 1.835, 0)
+
+[node name="BroomLowered" type="Marker3D" parent="."]
+transform = Transform3D(0.99999994, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 0.99999994, 0, 1.2850001, 0)
+
+[node name="TaskUpdater" type="Node" parent="."]
+script = ExtResource("4_6faom")
+quest = ExtResource("5_kb5im")
+task_name = "sweep"
+update_progress = true
+metadata/_custom_type_script = "uid://dn831lxxn01ch"
+
+[node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("collider_body")]
+script = ExtResource("6_dn7nn")
+disabled = true
+collider_body = NodePath("../Area3D")
+max_interaction_distance = 3.0
+interaction_text = "sweep"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025000013, 0)
+shape = SubResource("BoxShape3D_kca1m")
+
+[node name="QuestWaypoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40000004, 0)
+visible = false
+script = ExtResource("7_ejb7v")
+quest = ExtResource("5_kb5im")
+task_name = "sweep"
+mesh = ExtResource("8_ek8t4")
+animated = true
+max_position_delta = Vector3(0, 0.8, 0)
+metadata/_custom_type_script = "uid://jx3w7aowxu8g"

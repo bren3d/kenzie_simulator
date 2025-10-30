@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="hor"
-run/main_scene="uid://bd31f2ihbhefp"
+run/main_scene="uid://xwh1e8prdtms"
 run/main_loop_type="Master"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/show_image=false
@@ -23,6 +23,7 @@ buses/default_bus_layout="res://scripts/shaders/default_bus_layout.tres"
 
 [autoload]
 
+Global="*res://autoload/global.gd"
 Audio="*res://autoload/audio.gd"
 QuestHandle="*res://autoload/quest_handle.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
@@ -220,7 +221,7 @@ cough={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://resources/dialogue/rat.dialogue", "res://resources/dialogue/deer.dialogue", "res://resources/dialogue/wake_up.dialogue", "res://resources/dialogue/alex.dialogue")
+locale/translations_pot_files=PackedStringArray("res://resources/dialogue/rat.dialogue", "res://resources/dialogue/deer.dialogue", "res://resources/dialogue/wake_up.dialogue", "res://resources/dialogue/alex.dialogue", "res://resources/dialogue/list.dialogue", "res://resources/dialogue/me_time.dialogue")
 
 [layer_names]
 

@@ -1,17 +1,15 @@
 @tool
 extends PlayerState
 
-#signal transition_requested(new_state: String)
-#signal lock_state(set_locked: bool)
-
-#var blackboard: Dictionary
-
 func _init() -> void:
 	name = &"Cutscene"
 
 func enter() -> void:
+	player.pause_timers()
 	player.set_input_active(false)
+	player.velocity *= Vector3(0.0, 1.0, 0.0)
 
 func exit() -> void:
 	player.set_input_active(true)
+	player.unpause_timers()
 	player.camera.make_current()

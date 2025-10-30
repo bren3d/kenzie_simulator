@@ -8,15 +8,13 @@ signal finished
 @export var play_on_ready: bool
 
 func _ready() -> void:
-	if Engine.is_editor_hint(): return
-	if play_on_ready:
+	if not Engine.is_editor_hint() and play_on_ready:
 		play()
 
-
 func play() -> void:
-	var player := get_tree().get_first_node_in_group(&"Player")
+	var player := Global.player
 	if player and player.has_method("set_state"):
-		player.set_state("Cutscene")
+		player.set_state.call_deferred("Cutscene")
 	started.emit()
 	_on_play()
 

@@ -33,6 +33,9 @@ var interaction_text: String = ""
 var is_hovered: bool = false: set = set_is_hovered
 var active: bool = false
 
+#func _ready() -> void:
+	#disabled = disabled
+
 ## Call to start interaction. Overwrite for custom behavior.
 func start_interaction(interactor: Object = null) -> void:
 	active = true
@@ -63,9 +66,6 @@ func set_collider_body(val: CollisionObject3D) -> void:
 
 func set_disabled(val: bool) -> void:
 	disabled = val
-	if collider_body:
-		collider_body.set_meta(get_tag(), null if disabled else self)
-		#collider_body.set_collision_layer_value(COLLISION_LAYER, !disabled)
 
 func get_interaction_text() -> String:
 	return interaction_text

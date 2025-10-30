@@ -37,6 +37,7 @@ var can_cough: bool = true
 var can_die: bool = true
 
 func _ready() -> void:
+	Global.player = self
 	if Engine.is_editor_hint(): return
 	
 	show_message("")

@@ -40,7 +40,7 @@ func get_task_label_text(t: Task) -> String:
 		if t.display_as_percent:
 			s += " %3d" % t.get_progress_percent()
 		else:
-			s += " %s of %s" % [t.current_progress_value, t.max_progress_value]
+			s += " %d of %d" % [t.current_progress_value, t.max_progress_value]
 	return s
 		
 
@@ -85,11 +85,13 @@ func _on_quest_started(quest: Quest) -> void:
 func set_active_quest(val: Quest) -> void:
 	if active_quest:
 		active_quest.task_updated.disconnect(update_task)
+		active_quest.tasks_changed.disconnect(populate_tasks)
 	
 	active_quest = val
 	
 	if active_quest:
 		active_quest.task_updated.connect(update_task)
+		active_quest.tasks_changed.connect(populate_tasks)
 	
 	quest_label.text = active_quest.quest_name if active_quest else ""
 	
@@ -108,8 +110,8 @@ func _on_completed_task_label_draw(lbl: Label) -> void:
 	
 	var rect: Rect2 = lbl.get_rect()
 	rect.size.y /= 2.0
-	rect.position.y += rect.size.y / 1.5
-	rect.position.x -= X_EXTEND_DISTANCE
+	rect.position.y = rect.size.y / 1.5
+	rect.position.x = -X_EXTEND_DISTANCE
 	rect.size.x += X_EXTEND_DISTANCE * 2.0
 	
 	lbl.draw_texture_rect(strikethrough_texture, rect, false)

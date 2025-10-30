@@ -55,11 +55,11 @@ func _init() -> void:
 	for prop in ClassDB.class_get_property_list(&"Camera3D", true):
 		cam_props[prop.name] = camera.get(prop.name)
 	camera_properties = cam_props
+	add_child(camera)
 
 func _ready() -> void:
 	set_notify_transform(Engine.is_editor_hint())
 	camera.top_level = true
-	add_child(camera)
 	camera.clear_current()
 	camera.global_transform = global_transform
 	set_physics_process(false)
@@ -97,7 +97,6 @@ func focus() -> void:
 func release_focus() -> void:
 	interpolate_camera(camera.global_transform, camera_to_restore, camera.fov, camera_to_restore.fov)
 	_interpolation_finished.connect(restore_camera, CONNECT_ONE_SHOT)
-
 
 func restore_camera() -> void:
 	if Engine.is_editor_hint(): return

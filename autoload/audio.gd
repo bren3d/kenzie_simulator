@@ -50,6 +50,9 @@ func play_sfx(track: AudioStream) -> void:
 	sfx_stream.stream = track
 	sfx_stream.play()
 
+func stop_sfx() -> void:
+	sfx_stream.stop()
+
 func play_music(track: AudioStream) -> void:
 	if music_stream.stream == track: return
 	
@@ -63,6 +66,8 @@ func pause_music(fadeout: bool = false) -> void:
 	if fadeout:
 		if not music_fade_tween or not music_fade_tween.is_valid():
 			music_fade_tween = create_tween()
+		#if music_fade_tween.is_running():
+			#music_fade_tween.stop()
 		music_fade_tween.tween_property(music_stream, ^"volume_linear", 0.0, 1.0)
 		music_fade_tween.tween_callback(music_stream.set_stream_paused.bind(true))
 		music_fade_tween.tween_callback(music_stream.set_volume_linear.bind(1.0))

@@ -16,6 +16,8 @@ var rect: ColorRect
 var mouse_mode: Input.MouseMode = Input.MouseMode.MOUSE_MODE_VISIBLE : get = get_mouse_mode, set = set_mouse_mode
 var tw: Tween
 
+var is_changing_scenes: bool
+
 func _initialize() -> void:
 	if Engine.is_editor_hint(): return
 	
@@ -33,6 +35,7 @@ func _initialize() -> void:
 	svc.set_anchors_preset(Control.PRESET_FULL_RECT)
 	
 	vp = SubViewport.new()
+	vp.audio_listener_enable_3d = true
 	vp.handle_input_locally = false
 	vp.physics_object_picking = true
 	svc.add_child(vp, true)
@@ -59,9 +62,16 @@ func _on_root_ready() -> void:
 	current_scene.reparent.call_deferred(vp, false)
 
 func change_scene(node: Node) -> void:
+	if is_changing_scenes:
+		print("Rejecting scene transisiton to %s" % node)
+		node.free()
+		return
+	
+	is_changing_scenes = true
+	
 	print("CHANGING SCENE: %s => %s" % [scene, node])
 	
-	if tw and tw.is_running():
+	if tw:
 		tw.kill()
 	
 	tw = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
@@ -79,9 +89,14 @@ func change_scene(node: Node) -> void:
 	
 	if rect:
 		tw.tween_property(rect, ^"color:a", 0.0, maxf(0.01, ProjectSettings[SETTING_TRANSITION]))
+	
+	tw.tween_callback(set.bind(&"is_changing_scenes", false))
+
+func change_scene_path(path: String) -> void:
+	change_scene(load(path).instantiate())
 
 func _on_root_input(event: InputEvent) -> void:
-	if not event.is_pressed(): return
+	if not event.is_pressed() or event.is_echo(): return
 	
 	# For web build...
 	Input.mouse_mode = mouse_mode 
@@ -94,6 +109,9 @@ func _on_root_input(event: InputEvent) -> void:
 			
 			var num when KEY_0 <= num and num <= KEY_9 and num - KEY_0 < DEBUG_SCENE_PATHS.size():
 				change_scene(load(DEBUG_SCENE_PATHS[num - KEY_0]).instantiate())
+			
+			KEY_EQUAL:
+				Node.print_orphan_nodes()
 
 func get_transition_rect() -> ColorRect:
 	for i: int in root.get_child_count(true):

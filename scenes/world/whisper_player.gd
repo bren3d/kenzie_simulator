@@ -34,6 +34,7 @@ func _ready() -> void:
 	
 	Audio.change_bus_volume(Audio.BUS_MUSIC, music_volume_min)
 	Audio.play_music(music_ambient)
+	Audio.unpause_music()
 	
 	volume_linear = min_volume
 	var tw: Tween = create_tween().set_loops(max_polyphony)

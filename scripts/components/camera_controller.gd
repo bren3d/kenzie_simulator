@@ -157,3 +157,6 @@ func _notification(what: int) -> void:
 			get_parent().set_meta(&"CameraAction", null)
 		NOTIFICATION_EDITOR_POST_SAVE:
 			get_parent().set_meta(&"CameraAction", self)
+		
+		NOTIFICATION_PREDELETE:
+			debug_mesh.free()
