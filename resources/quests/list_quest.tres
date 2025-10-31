@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://dvcgwq835fx7x"]
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://dvcgwq835fx7x"]
 
 [ext_resource type="Script" uid="uid://ca2qxwleqmgfp" path="res://scripts/quest/quest.gd" id="1_nfp7l"]
 [ext_resource type="Script" uid="uid://dd1w40k58fh2o" path="res://scripts/quest/task.gd" id="2_aesus"]
@@ -16,9 +16,22 @@ priority = 1
 display_progress = true
 max_progress_value = 5.0
 
+[sub_resource type="Resource" id="Resource_4elss"]
+script = ExtResource("2_aesus")
+task_name = "get_food"
+task_display_string = "Get food"
+priority = 2
+
+[sub_resource type="Resource" id="Resource_pv2cx"]
+script = ExtResource("2_aesus")
+task_name = "feed_rats"
+task_display_string = "Feed Rats"
+priority = 3
+
 [resource]
 resource_name = "To Do List"
 script = ExtResource("1_nfp7l")
 quest_name = "To Do List"
-tasks = Array[ExtResource("2_aesus")]([SubResource("Resource_aesus"), SubResource("Resource_nfp7l")])
+auto_advance_tasks = true
+tasks = Array[ExtResource("2_aesus")]([SubResource("Resource_aesus"), SubResource("Resource_nfp7l"), SubResource("Resource_4elss"), SubResource("Resource_pv2cx")])
 metadata/_custom_type_script = "uid://ca2qxwleqmgfp"

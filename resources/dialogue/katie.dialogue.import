@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://kagfj37xlmce"
+path="res://.godot/imported/katie.dialogue-0d5f88391baeda214bfcd4b8df875d83.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/katie.dialogue"
+dest_files=["res://.godot/imported/katie.dialogue-0d5f88391baeda214bfcd4b8df875d83.tres"]
+
+[params]
+
+defaults=true

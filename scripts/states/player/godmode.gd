@@ -40,7 +40,7 @@ func on_unhandled_input(event: InputEvent) -> void:
 		transition_requested.emit("Interacting")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if OS.is_debug_build() and event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_G:
+	if OS.is_debug_build() and event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_G and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		transition_requested.emit("Moving" if active else name)
 		get_viewport().set_input_as_handled()
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=4 uid="uid://bd31f2ihbhefp"]
+[gd_scene load_steps=193 format=4 uid="uid://bd31f2ihbhefp"]
 
 [ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
 [ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://dkpw0asr0namu" path="res://scenes/objects/cleaning/chemical.tscn" id="22_xybae"]
 [ext_resource type="PackedScene" uid="uid://cg3ipsmqri2l4" path="res://scenes/objects/bath/soap_holder.tscn" id="23_2vlu1"]
 [ext_resource type="PackedScene" uid="uid://5c8gg0ssycbf" path="res://scenes/objects/decor/paintings/painting_04.tscn" id="23_61cpn"]
+[ext_resource type="PackedScene" uid="uid://reguk4uerfgy" path="res://scenes/basement/cage.tscn" id="23_jipp7"]
 [ext_resource type="PackedScene" uid="uid://dm86hx3j6xmvi" path="res://scenes/objects/cleaning/chemical_01.tscn" id="23_x4xix"]
 [ext_resource type="PackedScene" uid="uid://56k65j81g2ps" path="res://scenes/objects/animals/rat.tscn" id="24_2teac"]
 [ext_resource type="PackedScene" uid="uid://ds41dfdvqpget" path="res://scenes/objects/bath/soap_01.tscn" id="24_ard4k"]
@@ -111,7 +112,9 @@
 [ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="101_2ny8n"]
 [ext_resource type="Script" uid="uid://c24m8g0gpthfn" path="res://scripts/cutscene/wake_up_cutscene.gd" id="101_3g7p8"]
 [ext_resource type="Resource" uid="uid://y4500nlos4nx" path="res://resources/dialogue/wake_up.dialogue" id="102_i2n02"]
+[ext_resource type="PackedScene" uid="uid://stag5phfpkbm" path="res://scenes/objects/food/canned_food_10.tscn" id="103_dlm1g"]
 [ext_resource type="Resource" uid="uid://qxlaleuomcrk" path="res://resources/quests/teeth_quest.tres" id="103_v54r6"]
+[ext_resource type="Script" uid="uid://di2ix3jyycpps" path="res://scripts/quest/task_notifier.gd" id="104_ap5x0"]
 [ext_resource type="Script" uid="uid://cgd1e0mddu857" path="res://scripts/cutscene/alex_intro.gd" id="104_cc1o6"]
 [ext_resource type="Script" uid="uid://bregn5dn0afca" path="res://scripts/cutscene/brush_teeth_cutscene.gd" id="105_hkjfl"]
 [ext_resource type="AudioStream" uid="uid://cympwj1sgl6pe" path="res://assets/sounds/brush-teeth-field-recording-22405.mp3" id="106_4og01"]
@@ -127,6 +130,11 @@
 [ext_resource type="Script" uid="uid://uq0jtcjaaxqg" path="res://scripts/cutscene/me_time_cutscene.gd" id="123_ud4xj"]
 [ext_resource type="Resource" uid="uid://dca58uy812d21" path="res://resources/dialogue/me_time.dialogue" id="124_jipp7"]
 [ext_resource type="Resource" uid="uid://bp1d1b60u8c0r" path="res://resources/quests/me_time_quest.tres" id="125_dlm1g"]
+[ext_resource type="Script" uid="uid://b1ftwtvpy40tr" path="res://scripts/cutscene/katie_intro_cutscene.gd" id="129_yabcc"]
+[ext_resource type="Resource" uid="uid://kagfj37xlmce" path="res://resources/dialogue/katie.dialogue" id="130_4eylb"]
+[ext_resource type="AudioStream" uid="uid://l4vbbj7kgpk1" path="res://assets/sounds/insane_girl_laugh.wav" id="130_gm410"]
+[ext_resource type="AudioStream" uid="uid://dylp7fbq5uhe4" path="res://assets/sounds/giggle_echo.wav" id="132_7xxa2"]
+[ext_resource type="AudioStream" uid="uid://c0seuv2mx6ekr" path="res://assets/sounds/creepy_breathing.wav" id="132_h8ley"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -199,8 +207,20 @@ size = Vector3(0.575, 0.5, 1.15)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5722"]
 albedo_color = Color(0.101563, 0.0970662, 0.0970662, 1)
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_ud4xj"]
+_surfaces = [{
+"aabb": AABB(-3.8999999, 0.44999993, -2.7, 0.19999981, 2.2000003, 5.4),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AecIPwAAAAAB5wg/AACAPwAAgD+LLno/HLQXPIsuej8woX0/AACAPwAAAAAAAIA/AACAP/4x7j4AAAAAAACAPwAAgD+LLno/MKF9PwAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAecIPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAIsuej8ctBc8AACAPwAAgD/+Me4+AACAP/4x7j4AAAAAAACAPwAAAACdLro8HLQXPIsuej8ctBc8AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD/+Me4+AACAP/4x7j4AAAAAAAAAAAAAgD+LLno/MKF9P50uujwwoX0/AACAPwAAgD8AAAAAAACAPwAAgD/+Me4+AAAAAAAAgD+dLro8MKF9PwAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAAAAAACAPwAAgD/+Me4+AAAAAAAAgD8AAAAAAACAPwAAAAAAAAAAAAAAAJ0uujwctBc8AAAAAAAAgD8AAAAA/jHuPgAAgD/+Me4+AAAAAAAAAACdLro8MKF9P50uujwctBc8"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_u5722"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("mZl5wGRm5j7NzCzAmZl5wJqZKUDNzCzAmZl5wGRm5j7NzCxAmZl5wGRm5j7NzCzAmZl5wGRm5j7NzCxAzcxswGRm5j7NzCzAmZl5wGRm5j7NzCzAzcxswGRm5j7NzCzAmZl5wJqZKUDNzCzAmZl5wGRm5j7NzCxAmZl5wJqZKUDNzCzAmZl5wJqZKUDNzCxAmZl5wGRm5j7NzCxAmZl5wJqZKUDNzCxAzcxswJqZKUDNzCxAmZl5wJqZKUDNzCzAzcxswJqZKUDNzCxAmZl5wJqZKUDNzCxA2KdtwAAAAD+amSnAzcxswAAAAD+amSnAzcxswAAAAD+amSlAzcxswGRm5j7NzCzAzcxswAAAAD+amSlAzcxswAAAAD+amSnA2KdtwAAAAD+amSnA2KdtwGZmJkCamSnAzcxswAAAAD+amSnAzcxswGRm5j7NzCzAzcxswAAAAD+amSnAzcxswJqZKUDNzCzA2KdtwAAAAD+amSnA2KdtwAAAAD+amSlA2KdtwGZmJkCamSnAmZl5wGRm5j7NzCxAzcxswGRm5j7NzCxAzcxswGRm5j7NzCzAmZl5wGRm5j7NzCxAzcxswJqZKUDNzCxAzcxswGRm5j7NzCxA2KdtwAAAAD+amSnAzcxswAAAAD+amSlA2KdtwAAAAD+amSlAzcxswGRm5j7NzCzAzcxswGRm5j7NzCxAzcxswAAAAD+amSlA2KdtwAAAAD+amSlAzcxswAAAAD+amSlAzcxswGZmJkCamSlAzcxswGRm5j7NzCxAzcxswGZmJkCamSlAzcxswAAAAD+amSlAmZl5wJqZKUDNzCzAzcxswGRm5j7NzCzAzcxswJqZKUDNzCzAmZl5wJqZKUDNzCzAzcxswJqZKUDNzCzAzcxswJqZKUDNzCxA2KdtwGZmJkCamSnAzcxswGZmJkCamSnAzcxswAAAAD+amSnAzcxswJqZKUDNzCzAzcxswAAAAD+amSnAzcxswGZmJkCamSnA2KdtwGZmJkCamSnA2KdtwGZmJkCamSlAzcxswGZmJkCamSnAzcxswJqZKUDNzCzAzcxswGZmJkCamSnAzcxswJqZKUDNzCxA2KdtwAAAAD+amSlA2KdtwGZmJkCamSlA2KdtwGZmJkCamSnA2KdtwAAAAD+amSlAzcxswGZmJkCamSlA2KdtwGZmJkCamSlAzcxswGRm5j7NzCxAzcxswJqZKUDNzCxAzcxswGZmJkCamSlA2KdtwGZmJkCamSlAzcxswGZmJkCamSlAzcxswGZmJkCamSnAzcxswJqZKUDNzCxAzcxswGZmJkCamSnAzcxswGZmJkCamSlAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/3//////////f/////////9/////////////f/9//n////9//3/+f////3//f/5//3//fwAA/7//f/9/AAD/v/9//38AAP+/////f/9//n////9//3/+f////3//f/5/////f/9/AID///9//38AgP///3//fwCA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////////f/////////9/////////////f/9//n////9//3/+f////3//f/5//////wAA/7//////AAD/v/////8AAP+/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA/3//fwAA/7//f/9/AAD/v/9//38AAP+/////f/9//n////9//3/+f////3//f/5//38AAP//////fwAA//////9/AAD/////////f/9//n////9//3/+f////3//f/5/////f/9/AID///9//38AgP///3//fwCA/////wAA/7//////AAD/v/////8AAP+/////f/9//n////9//3/+f////3//f/5//38AAP//////fwAA//////9/AAD/////////f/9//n////9//3/+f////3//f/5/")
+}]
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_acber"]
-viewport_path = NodePath("Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport")
+viewport_path = NodePath("Environment/Basement/Decor/TV/TVScreen/TVScreenViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4t2j"]
 resource_local_to_scene = true
@@ -387,6 +407,9 @@ size = Vector3(0.6, 0.925, 0.075)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pos66"]
 size = Vector3(0.5, 0.825, 0.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ap5x0"]
+size = Vector3(1.9250001, 1.9, 1.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5wgl"]
 size = Vector3(6.975, 5.775, 1.375)
@@ -580,10 +603,12 @@ material = ExtResource("2_u5722")
 
 [node name="Door" parent="Environment/Basement/Holes/WorkRoom" instance=ExtResource("6_a54wy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -0.6)
+locked = true
 group = SubResource("Resource_84r38")
 
 [node name="Door2" parent="Environment/Basement/Holes/WorkRoom" instance=ExtResource("6_a54wy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.75, 0, -0.6)
+locked = true
 group = SubResource("Resource_84r38")
 opens_forward = false
 
@@ -665,29 +690,19 @@ transform = Transform3D(-1.7484555e-07, -3, -4.371139e-08, 0, -1.3113416e-07, 1,
 [node name="Books_001" parent="Environment/Basement/Decor/Table_36" instance=ExtResource("19_p2yxo")]
 transform = Transform3D(-0.012940954, 0.04829629, 2.111098e-09, -0.064395055, -0.017254608, -3.6683157e-09, -8.444392e-09, -1.1004946e-08, 0.2, -0.175, 0.066666126, 0.14811099)
 
-[node name="TVSetup" type="CSGCombiner3D" parent="Environment/Basement/Decor"]
+[node name="TV" type="MeshInstance3D" parent="Environment/Basement/Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6, 0.45, -0.7)
+mesh = SubResource("ArrayMesh_ud4xj")
 
-[node name="TV" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 1.55, -5.96046e-08)
-size = Vector3(0.2, 2.2, 5.4)
-material = SubResource("StandardMaterial3D_u5722")
-
-[node name="ScreenIndent" type="CSGBox3D" parent="Environment/Basement/Decor/TVSetup/TV"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09913063, 0, 0)
-operation = 2
-size = Vector3(0.025, 2.1, 5.3)
-material = SubResource("StandardMaterial3D_u5722")
-
-[node name="TVScreen" type="MeshInstance3D" parent="Environment/Basement/Decor/TVSetup"]
+[node name="TVScreen" type="MeshInstance3D" parent="Environment/Basement/Decor/TV"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7008686, 1.55, -5.9604645e-08)
 mesh = SubResource("QuadMesh_a5wgl")
-skeleton = NodePath("../TV/ScreenIndent")
+skeleton = NodePath("")
 
-[node name="TVScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/TVSetup/TVScreen"]
+[node name="TVScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/TV/TVScreen"]
 size = Vector2i(512, 256)
 
-[node name="TVScreen" type="Control" parent="Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport"]
+[node name="TVScreen" type="Control" parent="Environment/Basement/Decor/TV/TVScreen/TVScreenViewport"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -695,7 +710,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport/TVScreen"]
+[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/TV/TVScreen/TVScreenViewport/TVScreen"]
 material = SubResource("ShaderMaterial_v6wgs")
 layout_mode = 1
 anchors_preset = 15
@@ -704,7 +719,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Environment/Basement/Decor/TVSetup/TVScreen/TVScreenViewport/TVScreen"]
+[node name="Label" type="Label" parent="Environment/Basement/Decor/TV/TVScreen/TVScreenViewport/TVScreen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -864,6 +879,7 @@ transform = Transform3D(-0.49240404, 0, -0.08682393, -0.1302359, -3.278354e-08, 
 
 [node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1"]
 transform = Transform3D(0.66666657, 0, 1.8626451e-07, 0, 0.6666667, 0, -1.8626451e-07, 0, 0.66666657, 0, 0.324, 0.005)
+visible = false
 mesh = SubResource("QuadMesh_h1gqc")
 skeleton = NodePath("")
 
@@ -922,6 +938,7 @@ transform = Transform3D(-0.49240398, 0, 0.08682428, 0.13023642, -3.278354e-08, 0
 
 [node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor2"]
 transform = Transform3D(0.66666657, 0, 1.8626451e-07, 0, 0.6666667, 0, -1.8626451e-07, 0, 0.66666657, 0, 0.324, 0.005)
+visible = false
 mesh = SubResource("QuadMesh_kugrj")
 skeleton = NodePath("")
 
@@ -980,37 +997,34 @@ transform = Transform3D(5.962434e-09, 0.5, 2.1855694e-08, -0.75, 8.943653e-09, -
 
 [node name="Animals" type="Node3D" parent="Environment/Basement/Decor"]
 
-[node name="RatCage" type="Node3D" parent="Environment/Basement/Decor/Animals"]
+[node name="Cage" parent="Environment/Basement/Decor/Animals" node_paths=PackedStringArray("dialogue_action", "animals", "eating_positions") instance=ExtResource("23_jipp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.8, -4.25)
+dialogue_action = NodePath("DialogueAction")
+animals = [NodePath("Rat"), NodePath("Rat2")]
+eating_positions = [NodePath("EatingPosition"), NodePath("EatingPosition2")]
 
-[node name="Cage" type="MeshInstance3D" parent="Environment/Basement/Decor/Animals/RatCage"]
-cast_shadow = 0
-mesh = SubResource("ArrayMesh_0hk0g")
-skeleton = NodePath("../..")
-
-[node name="CageStaticBody3D" type="StaticBody3D" parent="Environment/Basement/Decor/Animals/RatCage"]
-collision_layer = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Animals/RatCage/CageStaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
-shape = SubResource("BoxShape3D_e67om")
-
-[node name="Rat" parent="Environment/Basement/Decor/Animals/RatCage" instance=ExtResource("24_2teac")]
-transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, -0.100000024, -0.5998535, 0.19999981)
-
-[node name="Rat2" parent="Environment/Basement/Decor/Animals/RatCage" instance=ExtResource("24_2teac")]
-transform = Transform3D(0.86602545, 0, -0.5, 0, 1, 0, 0.5, 0, 0.86602545, 0.27499998, -0.5998535, -0.025000095)
-
-[node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/RatCage" node_paths=PackedStringArray("collider_body")]
-script = ExtResource("7_olr0t")
-collider_body = NodePath("../CageStaticBody3D")
-auto_end_interaction = false
-metadata/_custom_type_script = "uid://nwwqfha6002f"
-
-[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/RatCage"]
+[node name="DialogueAction" type="Node" parent="Environment/Basement/Decor/Animals/Cage"]
 script = ExtResource("13_0hk0g")
 dialogue_resource = ExtResource("24_tsq33")
 metadata/_custom_type_script = "uid://buepc5xqp7mpu"
+
+[node name="Rat" parent="Environment/Basement/Decor/Animals/Cage" instance=ExtResource("24_2teac")]
+transform = Transform3D(0.98480785, 0, 0.17364824, 0, 1, 0, -0.17364824, 0, 0.98480785, -0.275, -0.6248535, 0.025000095)
+
+[node name="Rat2" parent="Environment/Basement/Decor/Animals/Cage" instance=ExtResource("24_2teac")]
+transform = Transform3D(0.90630776, 0, -0.4226182, 0, 1, 0, 0.4226182, 0, 0.90630776, 0.29999995, -0.6248535, 0)
+
+[node name="EatingPosition" type="Marker3D" parent="Environment/Basement/Decor/Animals/Cage"]
+transform = Transform3D(0.08715576, 0, 0.99619484, 0, 1, 0, -0.99619484, 0, 0.08715576, 0.17500001, -0.6248535, 0.4749999)
+
+[node name="EatingPosition2" type="Marker3D" parent="Environment/Basement/Decor/Animals/Cage"]
+transform = Transform3D(0.93969274, 0, 0.34202018, 0, 1, 0, -0.34202018, 0, 0.93969274, 0.39999998, -0.6248535, 0.17500019)
+
+[node name="TaskNotifier" type="Node" parent="Environment/Basement/Decor/Animals/Cage"]
+script = ExtResource("104_ap5x0")
+quest = ExtResource("108_ca65u")
+task_name = "feed_rats"
+metadata/_custom_type_script = "uid://di2ix3jyycpps"
 
 [node name="Cage2" type="Node3D" parent="Environment/Basement/Decor/Animals"]
 transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, 3.825, 0.8, -4.575)
@@ -1227,8 +1241,11 @@ metadata/_custom_type_script = "uid://dn831lxxn01ch"
 
 [node name="Door" parent="Environment/Basement" instance=ExtResource("6_a54wy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 1.4, 17.25)
+locked = true
 opens_forward = false
 max_rotation = 1.5708
+tween_duration_sec = 0.1
+tween_trans = 1
 
 [node name="Bedroom" type="Node3D" parent="Environment"]
 metadata/_edit_lock_ = true
@@ -1680,6 +1697,38 @@ transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.2
 [node name="TrashCanFull" parent="Environment/Kitchenette" instance=ExtResource("48_1jl2y")]
 transform = Transform3D(0.7, 0, 0, 0, -2.6226834e-08, 0.8, 0, -0.6, -3.4969112e-08, -1.7749996, 0.7130279, 2.6499996)
 
+[node name="Canned_food_10" parent="Environment/Kitchenette" instance=ExtResource("103_dlm1g")]
+transform = Transform3D(1.5748635e-16, 0.15, 6.5567085e-09, -6.5567103e-09, -6.5567085e-09, 0.15, 0.15, -4.440892e-16, 6.5567103e-09, 3.0249996, 3.097166, -1.7249999)
+
+[node name="Interactable" type="Node" parent="Environment/Kitchenette/Canned_food_10" node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../Area3D")
+icon = ExtResource("24_e67om")
+max_interaction_distance = 2.5
+interaction_text = "Grab Pet Food"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="Area3D" type="Area3D" parent="Environment/Kitchenette/Canned_food_10"]
+collision_layer = 5
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Kitchenette/Canned_food_10/Area3D"]
+transform = Transform3D(0.99999976, 4.2351647e-22, -1.4104273e-12, -1.00373404e-19, 0.99999976, -8.4199314e-13, 1.4104273e-12, 8.4199314e-13, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_ap5x0")
+metadata/_edit_lock_ = true
+
+[node name="TaskUpdater" type="Node" parent="Environment/Kitchenette/Canned_food_10"]
+script = ExtResource("37_nhk7v")
+quest = ExtResource("108_ca65u")
+task_name = "get_food"
+metadata/_custom_type_script = "uid://dn831lxxn01ch"
+
+[node name="TaskNotifier" type="Node" parent="Environment/Kitchenette/Canned_food_10"]
+script = ExtResource("104_ap5x0")
+quest = ExtResource("108_ca65u")
+task_name = "get_food"
+metadata/_custom_type_script = "uid://di2ix3jyycpps"
+
 [node name="Fitment" parent="Environment/Kitchenette" instance=ExtResource("49_ywg4u")]
 transform = Transform3D(-6.556708e-08, -1.5, -6.556708e-08, 0, -6.556708e-08, 1.5, -1.5, 6.556708e-08, 2.8660283e-15, -3.25, 1.4895232, -2.5)
 
@@ -1835,12 +1884,13 @@ transform = Transform3D(0.34202024, 0, 0.93969285, 0, 1, 0, -0.93969285, 0, 0.34
 camera_sensitivity = 2.0
 
 [node name="katie" parent="." instance=ExtResource("98_gmiao")]
-transform = Transform3D(-1.295053, 0, 0.11330229, 0, 1.3, 0, -0.11330229, 0, -1.295053, 6.975, 0.049213387, 17.775)
+transform = Transform3D(1.2999997, 0, 2.9802322e-07, 0, 1.2999996, 0, -2.9802322e-07, 0, 1.2999997, 1.0583317, 0.049213387, 10.479774)
 
 [node name="Asuka2" parent="." instance=ExtResource("24_inn26")]
-transform = Transform3D(-0.62500006, 0, -1.0825317, 0, 1.25, 0, 1.0825317, 0, -0.62500006, 8.450001, 0.1, 17.55)
+transform = Transform3D(0.80348444, 0, 0.9575553, 0, 1.25, 0, -0.9575553, 0, 0.80348444, -0.43333104, 0.1, 10.445225)
 
 [node name="Cutscenes" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="WakeUpCutscene" type="Node3D" parent="Cutscenes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
@@ -1915,7 +1965,6 @@ teeth_brushing_sound = ExtResource("106_4og01")
 gargle_sound = ExtResource("107_v58j2")
 brushing_quest = ExtResource("103_v54r6")
 task_name = "Teeth"
-play_brushing_sound = false
 
 [node name="QuestWaypoint" type="Node3D" parent="Cutscenes/BrushTeeth"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07500076, 0.044680238, 0)
@@ -2037,9 +2086,72 @@ list_quest = ExtResource("108_ca65u")
 dialogue = ExtResource("124_jipp7")
 me_time_quest = ExtResource("125_dlm1g")
 
+[node name="KatieIntro" type="Node3D" parent="Cutscenes"]
+metadata/_edit_lock_ = true
+
+[node name="KatieIntroCutscene" type="Node" parent="Cutscenes/KatieIntro" node_paths=PackedStringArray("katie", "door", "cam_action", "start")]
+script = ExtResource("129_yabcc")
+katie = NodePath("../Katie")
+door = NodePath("../../../Environment/Basement/Door")
+dialogue = ExtResource("130_4eylb")
+cam_action = NodePath("../CameraAction")
+sting = ExtResource("110_akcph")
+creepy_laugh = ExtResource("130_gm410")
+giggle_echo = ExtResource("132_7xxa2")
+breathing = ExtResource("132_h8ley")
+start = NodePath("../Start")
+
+[node name="Katie" parent="Cutscenes/KatieIntro" instance=ExtResource("98_gmiao")]
+transform = Transform3D(-0.6499999, 0, -1.1258328, 0, 1.2999996, 0, 1.1258328, 0, -0.6499999, -6.775, 0.049213447, 17.499998)
+
+[node name="Start" type="Marker3D" parent="Cutscenes/KatieIntro"]
+transform = Transform3D(-0.6499999, 0, -1.1258328, 0, 1.2999996, 0, 1.1258328, 0, -0.6499999, -6.775, 0.049213447, 17.499998)
+metadata/_edit_lock_ = true
+
+[node name="CameraAction" type="Marker3D" parent="Cutscenes/KatieIntro"]
+transform = Transform3D(-0.74564904, 0, -1.064897, 0, 1.2999989, 0, 1.064897, 0, -0.74564904, -7.075, 2.1242135, 17.3)
+script = ExtResource("101_2ny8n")
+tween_duration_sec = 0.4
+trans_type = 0
+camera_properties = {
+"attributes": null,
+"compositor": null,
+"cull_mask": 1048575,
+"current": false,
+"doppler_tracking": 0,
+"environment": null,
+"far": 4000.0,
+"fov": 75.0,
+"frustum_offset": Vector2(0, 0),
+"h_offset": 0.0,
+"keep_aspect": 1,
+"near": 0.05,
+"projection": 0,
+"size": 1.0,
+"v_offset": 0.0
+}
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+attributes = null
+compositor = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://p6kvdxghlvhe"
+
 [node name="Quests" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Sweep" type="Node3D" parent="Quests"]
+metadata/_edit_lock_ = true
 
 [node name="DirtSpot" parent="Quests/Sweep" node_paths=PackedStringArray("broom") instance=ExtResource("123_h71fb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.675, 0.075, 0.5)
@@ -2074,10 +2186,19 @@ editor_only = true
 transform = Transform3D(-0.965926, 0.224144, -0.12941, 0, 0.5, 0.866025, 0.258819, 0.836516, -0.482963, -26.2, 9.6, 16.1)
 editor_only = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="EditorLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5250001, 2.85, 12.9)
+shadow_enabled = true
+
 [node name="AlexHiddenMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)
 
+[connection signal="task_started" from="Environment/Basement/Decor/Animals/Cage/TaskNotifier" to="Environment/Basement/Decor/Animals/Cage" method="set_feed_mode_active" flags=6 binds= [true]]
 [connection signal="interaction_started" from="Environment/Basement/Decor/MainLightSwitch/Interactable" to="Environment/Basement/Decor/MainLightSwitch/TaskUpdater" method="update_task" flags=6 unbinds=1]
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]
+[connection signal="interaction_started" from="Environment/Kitchenette/Canned_food_10/Interactable" to="Environment/Kitchenette/Canned_food_10/TaskUpdater" method="update_task" unbinds=1]
+[connection signal="task_completed" from="Environment/Kitchenette/Canned_food_10/TaskNotifier" to="Environment/Kitchenette/Canned_food_10" method="hide" flags=6]
+[connection signal="task_completed" from="Environment/Kitchenette/Canned_food_10/TaskNotifier" to="Environment/Kitchenette/Canned_food_10/Interactable" method="set_disabled" flags=6 binds= [true]]
 [connection signal="interaction_started" from="Environment/Kitchenette/Broom_02/Interactable" to="Environment/Kitchenette/Broom_02/TaskUpdater" method="update_task" flags=6 unbinds=1]
 [connection signal="interaction_started" from="Cutscenes/BrushTeeth/Interactable" to="Cutscenes/BrushTeeth/BrushTeethCutscene" method="play" unbinds=1]
+[connection signal="sweeping_finished" from="Quests/Sweep/DirtSpot3" to="Cutscenes/KatieIntro/KatieIntroCutscene" method="play"]

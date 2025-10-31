@@ -57,11 +57,10 @@ func play_sweeping_animation() -> void:
 	
 	await tw.finished
 	
-	broom.hide()
 	task_updater.update_task()
-	hide()
 	Global.player.set_state("Moving")
-	#tw.tween_callback(broom.hide)
-	#tw.tween_callback(task_updater.update_task)
-	#tw.tween_callback(hide)
 	
+	broom.hide()
+	hide()
+	
+	sweeping_finished.emit()

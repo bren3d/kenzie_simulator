@@ -2,7 +2,7 @@
 extends Cutscene
 
 @export var list_quest: Quest
-@export var task_name: String = "sweep"
+#@export var task_name: String = "sweep"
 
 @export var dialogue: DialogueResource
 
@@ -11,12 +11,7 @@ extends Cutscene
 func _ready() -> void:
 	super()
 	if not Engine.is_editor_hint():
-		list_quest.task_updated.connect(_on_task_updated)
-
-func _on_task_updated(t: Task) -> void:
-	if t.task_name == task_name and t.is_completed():
-		list_quest.task_updated.disconnect(_on_task_updated)
-		play()
+		list_quest.finished.connect(play, CONNECT_ONE_SHOT)
 
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return

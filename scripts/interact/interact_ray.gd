@@ -8,6 +8,8 @@ signal hover_changed(obj: Object)
 @export var interaction_label: Label
 @export var interaction_texture_rect: TextureRect
 
+var is_interaction_enabled: bool = true
+
 var hovered_interactable: Interactable:
 	set(val):
 		if hovered_interactable == val: return
@@ -44,6 +46,10 @@ func _ready() -> void:
 			DialogueManager.dialogue_ended.connect(%UI.show.unbind(1))
 
 func _physics_process(delta: float) -> void:
+	if not is_interaction_enabled:
+		hovered_interactable = null
+		return
+	
 	var collider:= get_collider()
 	
 	var interactable: Interactable = collider.get_meta(&"Interactable") if collider and collider.has_meta(&"Interactable") else null

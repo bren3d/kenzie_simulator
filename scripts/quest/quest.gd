@@ -12,7 +12,8 @@ signal tasks_changed
 		quest_name = val
 		resource_name = val
 
-#@export var auto_advance_tasks: bool = true
+@export var auto_advance_tasks: bool = false
+@export var auto_complete_quest: bool = true
 
 @export var tasks: Array[Task] : set = set_tasks
 
@@ -30,7 +31,9 @@ func advance_task() -> void:
 		if t and t.priority == priority and not t.is_started():
 			t.status = Task.STATUS_IN_PROGRESS
 			task_updated.emit(t)
-
+	
+	if auto_complete_quest and get_active_tasks().is_empty():
+		finish()
 
 func start() -> void:
 	advance_task()
@@ -46,10 +49,13 @@ func is_tasks_completed() -> bool:
 	return tasks.all(func(t: Task) -> bool: return t.status == Task.STATUS_COMPLETED)
 
 func update_task_status(task_name: String, status: int) -> void:
-	var t := get_task(task_name)
+	set_task_status(get_task(task_name), status)
+
+func set_task_status(t: Task, status: int) -> void:
 	t.status = status
 	task_updated.emit(t)
-
+	if auto_advance_tasks and get_active_tasks().is_empty():
+		advance_task()
 
 func add_task_progress(task_name: String, additional_progress: float) -> void:
 	var t := get_task(task_name)
@@ -63,7 +69,10 @@ func set_task_progress(t: Task, progress_value: float) -> void:
 	if t.auto_complete:
 		if not Engine.is_editor_hint() and \
 		(t.current_progress_value >= t.max_progress_value) or is_equal_approx(t.current_progress_value, t.max_progress_value):
-			t.status = Task.STATUS_COMPLETED
+			# Call this function as to check for auto_advance_task accordingly
+			set_task_status(t, Task.STATUS_COMPLETED) 
+			return
+	
 	task_updated.emit(t)
 
 func add_task(t: Task) -> void:
@@ -78,6 +87,12 @@ func get_task(task_name: String) -> Task:
 	push_warning("Task with name '%s' not found." % task_name)
 	return null
 
+func get_active_tasks() -> Array[Task]:
+	var active_tasks: Array[Task]
+	for t: Task in tasks:
+		if t.is_active():
+			active_tasks.push_back(t)
+	return active_tasks
 
 func set_tasks(val: Array[Task]) -> void:
 	for i: int in val.size():

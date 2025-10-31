@@ -19,7 +19,7 @@ hide_until_started = true
 [sub_resource type="Resource" id="Resource_nhk7v"]
 script = ExtResource("2_0oc0f")
 task_name = "list"
-task_display_string = "Find List"
+task_display_string = "Read List"
 priority = 1
 hide_until_started = true
 metadata/_custom_type_script = "uid://dd1w40k58fh2o"

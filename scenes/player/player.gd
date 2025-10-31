@@ -31,7 +31,7 @@ var camera_active: bool = true
 var sprinting: bool = false
 var input_dir: Vector2 = Vector2.ZERO
 
-var can_interact: bool = true
+var can_interact: bool = true: set = set_interaction_active
 var can_cough: bool = true
 
 var can_die: bool = true
@@ -124,6 +124,10 @@ func set_state(state_name: String) -> void:
 
 func set_input_active(act: bool) -> void:
 	input_active = act
+
+func set_interaction_active(val: bool) -> void:
+	can_interact = val
+	interact_ray.is_interaction_enabled = val
 
 func show_message(text: String) -> void:
 	const FADE_IN_OUT_DURATION_SEC: float = 0.4

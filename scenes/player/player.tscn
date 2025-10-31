@@ -34,6 +34,7 @@ collision_layer = 9
 script = ExtResource("1_8afob")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
@@ -43,7 +44,7 @@ mesh = SubResource("CapsuleMesh_8afob")
 skeleton = NodePath("../..")
 
 [node name="CameraController" type="Node3D" parent="." node_paths=PackedStringArray("player", "camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 script = ExtResource("2_5gtgg")
 player = NodePath("..")
 camera = NodePath("../Camera3D")
@@ -51,7 +52,7 @@ debug = false
 metadata/_custom_type_script = "uid://bcgef6mdo78ue"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
 unique_name_in_owner = true
