@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3pgs8qgiescg"]
+[gd_scene load_steps=22 format=3 uid="uid://c3pgs8qgiescg"]
 
 [ext_resource type="Script" uid="uid://ttc2nvo6lgj7" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bcgef6mdo78ue" path="res://scripts/components/camera_controller.gd" id="2_5gtgg"]
@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://c3ggxgpal6yej" path="res://assets/sounds/female_cough.wav" id="11_je7p5"]
 [ext_resource type="AudioStream" uid="uid://46p2jn5ofqhp" path="res://assets/sounds/soda_open.wav" id="12_fm80t"]
 [ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="13_gx1jg"]
+[ext_resource type="Script" uid="uid://bfttpfemu6n36" path="res://scenes/player/footstep_audio_stream.gd" id="17_kvlxm"]
+[ext_resource type="AudioStream" uid="uid://be3iupa3iy74v" path="res://assets/sounds/footstep/footstep_indoor.mp3" id="18_uf5tr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
@@ -79,6 +81,10 @@ script = ExtResource("2_qek5x")
 exceptions = [NodePath("../..")]
 interaction_label = NodePath("../../UI/InteractUI/InteractLabel")
 interaction_texture_rect = NodePath("../../UI/InteractUI/InteractIcon")
+
+[node name="FloorRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32500002, 0)
+target_position = Vector3(0, -0.5, 0)
 
 [node name="StateDebugLabel" type="Label" parent="."]
 top_level = true
@@ -296,6 +302,17 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
+
+[node name="FootstepAudioStream" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player_collider", "floor_raycast")]
+max_polyphony = 4
+bus = &"SFX"
+script = ExtResource("17_kvlxm")
+player_collider = NodePath("..")
+floor_raycast = NodePath("../FloorRaycast")
+default_stream = ExtResource("18_uf5tr")
+max_velocity = 10.0
+max_delay_sec = 1.0
+min_delay_sec = 0.25
 
 [connection signal="changed" from="cough" to="UI/ProgressGrid/CoughProgressBar" method="set_value"]
 [connection signal="empty" from="cough" to="." method="kill"]

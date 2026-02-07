@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=4 uid="uid://bd31f2ihbhefp"]
+[gd_scene load_steps=194 format=4 uid="uid://bd31f2ihbhefp"]
 
 [ext_resource type="Texture2D" uid="uid://dhtf327beh1dq" path="res://assets/textures/materials/Wood/wood_planks_modern_01.jpg" id="1_wuaeu"]
 [ext_resource type="Texture2D" uid="uid://dtwnmqvtiqigy" path="res://assets/textures/materials/Wood/wood_rustic_2.png" id="2_apig6"]
@@ -26,6 +26,7 @@
 [ext_resource type="Shader" uid="uid://bq5ax7r4w3u8b" path="res://resources/materials/tv_static.gdshader" id="14_v6wgs"]
 [ext_resource type="FontFile" uid="uid://ybyr3xj5636i" path="res://assets/fonts/HomeVideo-BLG6G.ttf" id="15_acber"]
 [ext_resource type="Script" uid="uid://b256oh8o7fr1o" path="res://scripts/action/action_basic.gd" id="16_mey60"]
+[ext_resource type="VideoStream" uid="uid://bd2341ncrodv2" path="res://assets/video/mouse-movie.ogv" id="19_7xxa2"]
 [ext_resource type="PackedScene" uid="uid://cjnirb20mi6wa" path="res://scenes/objects/books/books_001.tscn" id="19_p2yxo"]
 [ext_resource type="PackedScene" uid="uid://culi7jmlkt5so" path="res://scenes/objects/storage/nightstand.tscn" id="21_1jl2y"]
 [ext_resource type="PackedScene" uid="uid://di6a0n6a461g2" path="res://scenes/objects/bath/medicine_cabinet.tscn" id="21_8skbo"]
@@ -735,6 +736,20 @@ theme_override_font_sizes/font_size = 42
 text = "NO SIGNAL"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Environment/Basement/Decor/TV/TVScreen/TVScreenViewport/TVScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("19_7xxa2")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+bus = &"SFX"
 
 [node name="Desks" type="Node3D" parent="Environment/Basement/Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 8)
