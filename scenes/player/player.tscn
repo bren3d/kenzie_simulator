@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3pgs8qgiescg"]
+[gd_scene format=3 uid="uid://c3pgs8qgiescg"]
 
 [ext_resource type="Script" uid="uid://ttc2nvo6lgj7" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bcgef6mdo78ue" path="res://scripts/components/camera_controller.gd" id="2_5gtgg"]
@@ -31,21 +31,21 @@ material = SubResource("StandardMaterial3D_8afob")
 radial_segments = 16
 rings = 4
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1328712720 groups=["Player"]]
 collision_layer = 9
 script = ExtResource("1_8afob")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1635854217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1611988184]
 layers = 2
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_8afob")
 skeleton = NodePath("../..")
 
-[node name="CameraController" type="Node3D" parent="." node_paths=PackedStringArray("player", "camera")]
+[node name="CameraController" type="Node3D" parent="." unique_id=1749667188 node_paths=PackedStringArray("player", "camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 script = ExtResource("2_5gtgg")
 player = NodePath("..")
@@ -53,10 +53,10 @@ camera = NodePath("../Camera3D")
 debug = false
 metadata/_custom_type_script = "uid://bcgef6mdo78ue"
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1281814579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D" unique_id=734709638]
 unique_name_in_owner = true
 visible = false
 light_size = 100.0
@@ -71,7 +71,7 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 spot_angle_attenuation = 0.4
 
-[node name="InteractRay" type="RayCast3D" parent="Camera3D" node_paths=PackedStringArray("exceptions", "interaction_label", "interaction_texture_rect")]
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=335738337 node_paths=PackedStringArray("exceptions", "interaction_label", "interaction_texture_rect")]
 unique_name_in_owner = true
 visible = false
 target_position = Vector3(0, 0, -4096)
@@ -82,11 +82,11 @@ exceptions = [NodePath("../..")]
 interaction_label = NodePath("../../UI/InteractUI/InteractLabel")
 interaction_texture_rect = NodePath("../../UI/InteractUI/InteractIcon")
 
-[node name="FloorRaycast" type="RayCast3D" parent="."]
+[node name="FloorRaycast" type="RayCast3D" parent="." unique_id=1975898283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32500002, 0)
 target_position = Vector3(0, -0.5, 0)
 
-[node name="StateDebugLabel" type="Label" parent="."]
+[node name="StateDebugLabel" type="Label" parent="." unique_id=265214856]
 top_level = true
 anchors_preset = 3
 anchor_left = 1.0
@@ -101,11 +101,11 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "STATE DEBUG"
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1776163197]
 unique_name_in_owner = true
 layer = 5
 
-[node name="ProgressGrid" type="GridContainer" parent="UI"]
+[node name="ProgressGrid" type="GridContainer" parent="UI" unique_id=514412620]
 custom_minimum_size = Vector2(160, 0)
 anchors_preset = 2
 anchor_top = 1.0
@@ -117,14 +117,14 @@ offset_bottom = -8.0
 grow_vertical = 0
 columns = 2
 
-[node name="Cough" type="Label" parent="UI/ProgressGrid"]
+[node name="Cough" type="Label" parent="UI/ProgressGrid" unique_id=557431103]
 visible = false
 material = ExtResource("3_qek5x")
 layout_mode = 2
 text = "Cough"
 horizontal_alignment = 2
 
-[node name="CoughProgressBar" type="ProgressBar" parent="UI/ProgressGrid"]
+[node name="CoughProgressBar" type="ProgressBar" parent="UI/ProgressGrid" unique_id=945286791]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -133,14 +133,14 @@ value = 100.0
 rounded = true
 show_percentage = false
 
-[node name="Soda" type="Label" parent="UI/ProgressGrid"]
+[node name="Soda" type="Label" parent="UI/ProgressGrid" unique_id=1637246480]
 visible = false
 material = ExtResource("3_qek5x")
 layout_mode = 2
 text = "Diet Soda"
 horizontal_alignment = 2
 
-[node name="SodaProgressBar" type="ProgressBar" parent="UI/ProgressGrid"]
+[node name="SodaProgressBar" type="ProgressBar" parent="UI/ProgressGrid" unique_id=1111879048]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -149,7 +149,7 @@ value = 100.0
 rounded = true
 show_percentage = false
 
-[node name="MessageLabel" type="Label" parent="UI"]
+[node name="MessageLabel" type="Label" parent="UI" unique_id=1879091513]
 unique_name_in_owner = true
 anchors_preset = 14
 anchor_top = 0.5
@@ -165,7 +165,7 @@ text = "Message text here..."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="InteractUI" type="Control" parent="UI"]
+[node name="InteractUI" type="Control" parent="UI" unique_id=1779126831]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -176,7 +176,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="InteractLabel" type="Label" parent="UI/InteractUI"]
+[node name="InteractLabel" type="Label" parent="UI/InteractUI" unique_id=1015325690]
 material = ExtResource("3_qek5x")
 layout_mode = 1
 anchors_preset = 8
@@ -198,7 +198,7 @@ vertical_alignment = 2
 clip_text = true
 metadata/_edit_lock_ = true
 
-[node name="InteractIcon" type="TextureRect" parent="UI/InteractUI"]
+[node name="InteractIcon" type="TextureRect" parent="UI/InteractUI" unique_id=556663906]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 1
 anchors_preset = 8
@@ -215,57 +215,57 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="QuestUI" parent="UI" instance=ExtResource("5_myrg7")]
+[node name="QuestUI" parent="UI" unique_id=1103819635 instance=ExtResource("5_myrg7")]
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("debug_label")]
+[node name="StateMachine" type="Node" parent="." unique_id=2141080514 node_paths=PackedStringArray("debug_label")]
 script = ExtResource("2_p47bc")
 initial_state = "Moving"
 debug_label = NodePath("../StateDebugLabel")
 metadata/_custom_type_script = "uid://bq6bav7hc4c24"
 
-[node name="Moving" type="Node" parent="StateMachine"]
+[node name="Moving" type="Node" parent="StateMachine" unique_id=932598046]
 script = ExtResource("3_75vfm")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
-[node name="Cursor" type="Node" parent="StateMachine"]
+[node name="Cursor" type="Node" parent="StateMachine" unique_id=150290716]
 script = ExtResource("4_0owmy")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
-[node name="Godmode" type="Node" parent="StateMachine"]
+[node name="Godmode" type="Node" parent="StateMachine" unique_id=1402340815]
 script = ExtResource("5_qek5x")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
-[node name="Interacting" type="Node" parent="StateMachine"]
+[node name="Interacting" type="Node" parent="StateMachine" unique_id=212000088]
 script = ExtResource("8_qek5x")
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("camera_action")]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=388404050 node_paths=PackedStringArray("camera_action")]
 script = ExtResource("10_ugbui")
 camera_action = NodePath("../../DeadCameraAction")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
-[node name="Cutscene" type="Node" parent="StateMachine"]
+[node name="Cutscene" type="Node" parent="StateMachine" unique_id=1978038731]
 script = ExtResource("11_fcs02")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
-[node name="cough" type="Node" parent="."]
+[node name="cough" type="Node" parent="." unique_id=1564435469]
 script = ExtResource("10_h17s1")
 stat_name = "cough"
 delta_sec = 5.0
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
-[node name="soda" type="Node" parent="."]
+[node name="soda" type="Node" parent="." unique_id=455595847]
 script = ExtResource("10_h17s1")
 stat_name = "soda"
 delta_sec = 0.5
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
-[node name="CoughAudioStream" type="AudioStreamPlayer" parent="."]
+[node name="CoughAudioStream" type="AudioStreamPlayer" parent="." unique_id=1871983140]
 stream = ExtResource("11_je7p5")
 
-[node name="SodaAudioStream" type="AudioStreamPlayer" parent="."]
+[node name="SodaAudioStream" type="AudioStreamPlayer" parent="." unique_id=2047298437]
 stream = ExtResource("12_fm80t")
 
-[node name="DeadCameraAction" type="Marker3D" parent="."]
+[node name="DeadCameraAction" type="Marker3D" parent="." unique_id=288384477]
 transform = Transform3D(0.80536246, 0.5685574, 0.16773126, -0.5698815, 0.8204968, -0.044943456, -0.16317593, -0.05939117, 0.98480785, 0, -0.75237197, -0.06946607)
 script = ExtResource("13_gx1jg")
 ease_type = 0
@@ -303,7 +303,7 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
 
-[node name="FootstepAudioStream" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player_collider", "floor_raycast")]
+[node name="FootstepAudioStream" type="AudioStreamPlayer" parent="." unique_id=1678497294 node_paths=PackedStringArray("player_collider", "floor_raycast")]
 max_polyphony = 4
 bus = &"SFX"
 script = ExtResource("17_kvlxm")

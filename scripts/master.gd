@@ -21,6 +21,9 @@ var is_changing_scenes: bool
 func _initialize() -> void:
 	if Engine.is_editor_hint(): return
 	
+	# Workaround to avoid error messages on game launch.
+	ThemeDB.get_project_theme().set_theme_item(Theme.DATA_TYPE_STYLEBOX, &"focus", &"Button", load("res://resources/styleboxes/pointer_stylebox.tres"))
+	
 	# Only runs when running the main scene.
 	# AS OF 4.5: ["--scene", "uid://bd31f2ihbhefp", "some_var", "value"]
 	#if not "uid" in OS.get_cmdline_args()[0]:

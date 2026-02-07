@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=2 format=4 uid="uid://cplfes50hf6dj"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://cplfes50hf6dj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb282"]
 no_depth_test = true

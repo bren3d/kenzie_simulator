@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://lp4e4omgu5ri"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://lp4e4omgu5ri"]
 
 [ext_resource type="Shader" uid="uid://ywnapuf8wasy" path="res://scripts/shaders/ice.gdshader" id="1_ukmie"]
 

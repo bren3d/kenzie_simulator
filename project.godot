@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="hor"
 run/main_scene="uid://xwh1e8prdtms"
 run/main_loop_type="Master"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/show_image=false
 config/scene_transition_duration_sec=0.75
 

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://vxa7by78ukgl"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vxa7by78ukgl"]
 
 [ext_resource type="Texture2D" uid="uid://cgbcc0644877a" path="res://assets/textures/materials/stucco/wall_stucco_01.jpg" id="1_ma6ln"]
 [ext_resource type="Texture2D" uid="uid://bywnxqtug2b3e" path="res://assets/textures/materials/stucco/wall_stucco_02.jpg" id="2_5b8h6"]
