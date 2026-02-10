@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://o8m6j35khqv1"]
+
+[ext_resource type="Texture2D" uid="uid://c27o80k30nfpx" path="res://assets/textures/materials/Bricks066_1K-JPG/Bricks066_1K-JPG_Color.jpg" id="1_f3rsf"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_n32al"]
+plane = Plane(0, 0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3p6n"]
+shading_mode = 0
+albedo_texture = ExtResource("1_f3rsf")
+uv1_scale = Vector3(50, 5, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bi635"]
+material = SubResource("StandardMaterial3D_g3p6n")
+size = Vector2(100, 10)
+orientation = 2
+
+[node name="Wall" type="Node3D" unique_id=462791260]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1263675314]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=845820008]
+shape = SubResource("WorldBoundaryShape3D_n32al")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=864593177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("PlaneMesh_bi635")

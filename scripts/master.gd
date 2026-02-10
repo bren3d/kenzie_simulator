@@ -102,7 +102,7 @@ func _on_root_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo(): return
 	
 	# For web build...
-	Input.mouse_mode = mouse_mode 
+	#Input.mouse_mode = mouse_mode 
 	
 	if event is InputEventKey:
 		match event.keycode:

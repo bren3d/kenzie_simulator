@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bihvojn3h4xdv"]
+
+[ext_resource type="Texture2D" uid="uid://bfk2ubwdyjjsr" path="res://assets/textures/materials/Facade002_1K-PNG/Facade002_1K-PNG_Color.png" id="1_pauc4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dbd75"]
+size = Vector3(10, 30, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ankjw"]
+shading_mode = 0
+albedo_color = Color(0.23958331, 0.23958331, 0.23958331, 1)
+albedo_texture = ExtResource("1_pauc4")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_gupn8"]
+material = SubResource("StandardMaterial3D_ankjw")
+size = Vector3(10, 30, 10)
+
+[node name="Skyscraper" type="Node3D" unique_id=1820457169]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=665400991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2071049068]
+shape = SubResource("BoxShape3D_dbd75")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=788191879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.6, 0)
+mesh = SubResource("BoxMesh_gupn8")
+skeleton = NodePath("../..")

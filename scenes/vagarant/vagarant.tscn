@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://b2m0jdgpflfst"]
+
+[ext_resource type="Script" uid="uid://35t0bpu7iwlv" path="res://scenes/vagarant/targeting_handle.gd" id="1_jt3j1"]
+[ext_resource type="Texture2D" uid="uid://ev5kp1da17mj" path="res://assets/textures/sky/Fuzzy_Sky-Night_04-512x512.png" id="1_yh07n"]
+[ext_resource type="Texture2D" uid="uid://ci5kiaqd17611" path="res://assets/textures/materials/PavingStones135_1K-JPG/PavingStones135_1K-JPG_Color.jpg" id="2_1e8u0"]
+[ext_resource type="PackedScene" uid="uid://o8m6j35khqv1" path="res://scenes/vagarant/wall.tscn" id="2_dbd75"]
+[ext_resource type="PackedScene" uid="uid://bihvojn3h4xdv" path="res://scenes/vagarant/skyscraper.tscn" id="3_s68da"]
+[ext_resource type="Script" uid="uid://dn1yywxreoi1q" path="res://scenes/vagarant/vagarant_player.gd" id="4_kwihj"]
+[ext_resource type="Script" uid="uid://cmj67vhtvupfe" path="res://scenes/vagarant/gun.gd" id="4_rq54f"]
+[ext_resource type="Texture2D" uid="uid://dqt2y5alo5ufp" path="res://assets/textures/materials/gun-png-40744.png" id="4_s68da"]
+[ext_resource type="Script" uid="uid://x6fja5arvckq" path="res://scenes/vagarant/crosshair.gd" id="5_qe3i6"]
+[ext_resource type="Texture2D" uid="uid://b14o0sbx58jif" path="res://assets/textures/materials/muzzle-flash-desktop-wallpaper-clip-art-background-flashing-92f396df1976663b4d4c97d422a42a1e.png" id="6_5wva0"]
+[ext_resource type="Script" uid="uid://bjlxw13bd1m2c" path="res://scenes/vagarant/combatant.gd" id="9_3r77n"]
+[ext_resource type="AudioStream" uid="uid://b7anbp75e2ge7" path="res://assets/sounds/ak47_shot.wav" id="9_ankjw"]
+[ext_resource type="Texture2D" uid="uid://bn8p3cyo3kkwq" path="res://assets/textures/materials/enemy.webp" id="9_fln13"]
+[ext_resource type="Script" uid="uid://b8s1mv836gjb6" path="res://scenes/vagarant/damage_texture.gd" id="11_dbd75"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4gau"]
+shading_mode = 0
+albedo_texture = ExtResource("1_yh07n")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1e8u0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s68da"]
+shading_mode = 0
+albedo_texture = ExtResource("2_1e8u0")
+uv1_scale = Vector3(100, 100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qe3i6"]
+material = SubResource("StandardMaterial3D_s68da")
+size = Vector2(1000, 1000)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1e8u0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwihj"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s68da"]
+material = SubResource("StandardMaterial3D_kwihj")
+
+[sub_resource type="Gradient" id="Gradient_gupn8"]
+offsets = PackedFloat32Array(0.5424528, 1)
+colors = PackedColorArray(0.99607843, 0, 0, 0, 0.99607843, 0, 0, 0.20392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dbd75"]
+gradient = SubResource("Gradient_gupn8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jt3j1"]
+
+[node name="Vagarant" type="Node3D" unique_id=562130839]
+
+[node name="TargetingHandle" type="Node" parent="." unique_id=596522785 node_paths=PackedStringArray("ally_parent", "enemy_parent")]
+script = ExtResource("1_jt3j1")
+ally_parent = NodePath("../Allies")
+enemy_parent = NodePath("../Enemies")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1081573692]
+
+[node name="SkyBox" type="CSGBox3D" parent="Environment" unique_id=715781842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+flip_faces = true
+size = Vector3(1000, 1000, 1000)
+material = SubResource("StandardMaterial3D_f4gau")
+
+[node name="Wall" parent="Environment" unique_id=462791260 instance=ExtResource("2_dbd75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="Wall2" parent="Environment" unique_id=1670604108 instance=ExtResource("2_dbd75")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 50, 0, 0)
+
+[node name="Wall3" parent="Environment" unique_id=1694261379 instance=ExtResource("2_dbd75")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 50)
+
+[node name="Wall4" parent="Environment" unique_id=1416037300 instance=ExtResource("2_dbd75")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -50, 0, 0)
+
+[node name="Floor" type="Node3D" parent="Environment" unique_id=118529669]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Floor" unique_id=560641255]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor/StaticBody3D" unique_id=30894596]
+shape = SubResource("WorldBoundaryShape3D_1e8u0")
+
+[node name="Ground" type="MeshInstance3D" parent="Environment/Floor" unique_id=2045476007]
+mesh = SubResource("PlaneMesh_qe3i6")
+skeleton = NodePath("../../..")
+
+[node name="Obstacles" type="Node3D" parent="Environment" unique_id=1235625751]
+
+[node name="Skyscraper" parent="Environment/Obstacles" unique_id=1820457169 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52500004, -13.825)
+
+[node name="Skyscraper2" parent="Environment/Obstacles" unique_id=1561867898 instance=ExtResource("3_s68da")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.52500004, 39.975)
+
+[node name="Skyscraper3" parent="Environment/Obstacles" unique_id=496869176 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.45, 0.52500004, 28.125)
+
+[node name="Skyscraper4" parent="Environment/Obstacles" unique_id=163529198 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7, 0.52500004, 33.875)
+
+[node name="Skyscraper5" parent="Environment/Obstacles" unique_id=595887575 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7, 0.52500004, 8.875)
+
+[node name="Skyscraper6" parent="Environment/Obstacles" unique_id=1525667135 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.95, 0.52500004, 8.875)
+
+[node name="Skyscraper7" parent="Environment/Obstacles" unique_id=496118338 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.200001, 0.52500004, -23.125)
+
+[node name="Skyscraper8" parent="Environment/Obstacles" unique_id=956822749 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7, 0.52500004, -18.375)
+
+[node name="Skyscraper9" parent="Environment/Obstacles" unique_id=671447086 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.95, 0.52500004, -44.125)
+
+[node name="Skyscraper10" parent="Environment/Obstacles" unique_id=310221794 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2, 0.52500004, -44.125)
+
+[node name="Skyscraper11" parent="Environment/Obstacles" unique_id=569601531 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3, 0.52500004, -40.625)
+
+[node name="Skyscraper12" parent="Environment/Obstacles" unique_id=901867175 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.799999, 0.52500004, -35.875)
+
+[node name="Skyscraper13" parent="Environment/Obstacles" unique_id=694905523 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0.52500004, 15.925)
+
+[node name="Skyscraper14" parent="Environment/Obstacles" unique_id=1722618321 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450001, 0.52500004, 6.625)
+
+[node name="Skyscraper15" parent="Environment/Obstacles" unique_id=745303827 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8, 0.52500004, 9.125)
+
+[node name="Skyscraper16" parent="Environment/Obstacles" unique_id=1487469933 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.55, 0.52500004, -10.125)
+
+[node name="Skyscraper17" parent="Environment/Obstacles" unique_id=1943814814 instance=ExtResource("3_s68da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.55, 0.52500004, 33.875)
+
+[node name="Allies" type="Node3D" parent="." unique_id=801808222]
+
+[node name="VagarantPlayer" type="CharacterBody3D" parent="Allies" unique_id=759796646 node_paths=PackedStringArray("camera", "gun", "health_label", "damage_texture", "targeting_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.175, 0)
+script = ExtResource("4_kwihj")
+camera = NodePath("Camera3D")
+gun = NodePath("Camera3D/Gun")
+health_label = NodePath("PlayerUI/HealthLabel")
+damage_texture = NodePath("PlayerUI/DamageTexture")
+targeting_handle = NodePath("../../TargetingHandle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Allies/VagarantPlayer" unique_id=1950669649]
+shape = SubResource("CapsuleShape3D_1e8u0")
+debug_color = Color(0.7019608, 0, 0.62352943, 0.54901963)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Allies/VagarantPlayer/CollisionShape3D" unique_id=457878184]
+layers = 2
+mesh = SubResource("CapsuleMesh_s68da")
+
+[node name="Camera3D" type="Camera3D" parent="Allies/VagarantPlayer" unique_id=775703739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+cull_mask = 1048573
+
+[node name="Gun" type="Node3D" parent="Allies/VagarantPlayer/Camera3D" unique_id=739437734 node_paths=PackedStringArray("pivot", "gun_sprite", "flash_sprite", "audio_stream")]
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 0.65000004, -0.75, -1.5749999)
+script = ExtResource("4_rq54f")
+pivot = NodePath("Pivot")
+gun_sprite = NodePath("Pivot/GunSprite")
+flash_sprite = NodePath("Pivot/GunSprite/MuzzleFlashSprite")
+audio_stream = NodePath("AudioStreamPlayer")
+recoil_amount = 0.06981317007977318
+recoil_return_speed = 1.5707963267948966
+
+[node name="Pivot" type="Node3D" parent="Allies/VagarantPlayer/Camera3D/Gun" unique_id=2119532534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03837, -0.35000002, 0.2782305)
+
+[node name="GunSprite" type="Sprite3D" parent="Allies/VagarantPlayer/Camera3D/Gun/Pivot" unique_id=658689157]
+transform = Transform3D(0.4975196, 0.04973721, -0.0006646216, -0.04973721, 0.49734154, -0.013327047, -0.0006646216, 0.013327047, 0.4998219, -1.0383701, 0.35000002, -0.2782305)
+no_depth_test = true
+texture = ExtResource("4_s68da")
+
+[node name="MuzzleFlashSprite" type="Sprite3D" parent="Allies/VagarantPlayer/Camera3D/Gun/Pivot/GunSprite" unique_id=667839267]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.155, 0.263, 0)
+visible = false
+flip_h = true
+no_depth_test = true
+texture = ExtResource("6_5wva0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Allies/VagarantPlayer/Camera3D/Gun" unique_id=1611462031]
+stream = ExtResource("9_ankjw")
+max_polyphony = 10
+
+[node name="PlayerUI" type="CanvasLayer" parent="Allies/VagarantPlayer" unique_id=1534909283]
+
+[node name="Crosshair" type="Control" parent="Allies/VagarantPlayer/PlayerUI" unique_id=208641809]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_qe3i6")
+
+[node name="HealthLabel" type="Label" parent="Allies/VagarantPlayer/PlayerUI" unique_id=1195505059]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -33.0
+offset_right = 97.0
+offset_bottom = -9.0
+grow_vertical = 0
+text = "HP: 100"
+vertical_alignment = 1
+
+[node name="DamageTexture" type="TextureRect" parent="Allies/VagarantPlayer/PlayerUI" unique_id=917183301]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_dbd75")
+script = ExtResource("11_dbd75")
+
+[node name="Enemies" type="Node3D" parent="." unique_id=1543316052]
+
+[node name="Combatant" type="CharacterBody3D" parent="Enemies" unique_id=292350944 node_paths=PackedStringArray("visibility_notifier", "audio_player", "sprite", "flash_sprite", "vagarant_player", "targeting_handle", "shooting_ray")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.075, 1.375, -1.325)
+script = ExtResource("9_3r77n")
+visibility_notifier = NodePath("VisibleOnScreenNotifier3D")
+audio_player = NodePath("AudioStreamPlayer3D")
+sprite = NodePath("Sprite")
+flash_sprite = NodePath("MuzzleFlashSprite")
+vagarant_player = NodePath("../../Allies/VagarantPlayer")
+targeting_handle = NodePath("../../TargetingHandle")
+shooting_ray = NodePath("ShootingRay")
+metadata/_custom_type_script = "uid://bjlxw13bd1m2c"
+
+[node name="MuzzleFlashSprite" type="Sprite3D" parent="Enemies/Combatant" unique_id=115556157]
+transform = Transform3D(0.010352764, -7.450581e-11, -0.03863704, -0.0039789765, 0.039787326, -0.001066164, 0.03843161, 0.00411934, 0.010297719, 0, 0.70000005, 0)
+flip_h = true
+pixel_size = 0.02
+billboard = 2
+render_priority = 1
+texture = ExtResource("6_5wva0")
+region_enabled = true
+region_rect = Rect2(-240, 168, 744, 192)
+
+[node name="Sprite" type="Sprite3D" parent="Enemies/Combatant" unique_id=2005042674]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 2
+texture = ExtResource("9_fln13")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Enemies/Combatant" unique_id=479315059]
+aabb = AABB(-0.275, -0.625, -0.425, 0.55, 1.25, 0.85)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enemies/Combatant" unique_id=2119965775]
+stream = ExtResource("9_ankjw")
+max_polyphony = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Combatant" unique_id=1334247093]
+shape = SubResource("CapsuleShape3D_jt3j1")
+
+[node name="ShootingRay" type="RayCast3D" parent="Enemies/Combatant" unique_id=1765290206]
