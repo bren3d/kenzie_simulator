@@ -1,20 +1,21 @@
 @tool
 class_name Combatant extends CharacterBody3D
 
-signal dead
+signal dead(killer: Node3D)
 
-const SPEED: float = 5.0
+const SPEED: float = 7.5
 const MAX_SHOT_COUNT: int = 4
 
 const COLOR_ALLY: Color = Color.LIME_GREEN
 const COLOR_ENEMY: Color = Color.ORANGE_RED
 
+@export_placeholder("FredMustard") 
+var display_name: String = ""
+
 @export var visibility_notifier: VisibleOnScreenNotifier3D
 @export var audio_player: AudioStreamPlayer3D
 @export var sprite: Sprite3D
 @export var flash_sprite: Sprite3D
-@export var vagarant_player: VagarantPlayer
-@export var targeting_handle: TargetingHandle
 @export var shooting_ray: RayCast3D
 
 @export var is_ally: bool = false:
@@ -23,12 +24,14 @@ const COLOR_ENEMY: Color = Color.ORANGE_RED
 		if not Engine.is_editor_hint():
 			set_modulate(COLOR_ALLY if is_ally else COLOR_ENEMY)
 
-var movement_target: Node3D:
-	set(val):
-		movement_target = val
-		print("MOVEMENT TARGET: ", movement_target)
+var targeting_handle: TargetingHandle
+var event_handle: VagarantEventHandle
+
+var movement_target: Node3D
 
 var shooting_target: Node3D
+var kill_target: Node3D
+
 var is_shooting: bool = false
 var is_dead: bool = false
 
@@ -38,9 +41,25 @@ func _ready() -> void:
 	flash_sprite.hide()
 	is_ally = is_ally
 
-func start(target_handle: TargetingHandle) -> void:
-	targeting_handle = target_handle
+func start() -> void:
+	assert(targeting_handle)
 	movement_target = targeting_handle.get_movement_target(self)
+	create_tween().set_loops().tween_callback(update_movement_target).set_delay(2.0)
+
+func end() -> void:
+	pass
+
+func update_movement_target() -> void:
+	if movement_target: return
+	movement_target = targeting_handle.get_movement_target(self)
+
+func _on_combatant_dead(combatant: Combatant, killer: Node3D) -> void:
+	if combatant == movement_target:
+		movement_target = null
+		movement_target = targeting_handle.get_movement_target(self)
+	
+	if combatant == shooting_target:
+		shooting_target = null
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
@@ -48,15 +67,11 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	
 	if movement_target and not shooting_target:
 		var dir: Vector3 = ((movement_target.global_position - global_position)* Vector3(1.0, 0.0, 1.0)).normalized()
 		velocity = dir * SPEED
-		print(velocity)
 	
 	else:
-		if shooting_target is VagarantPlayer and not visibility_notifier.is_on_screen():
-			shooting_target = null
 		
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -73,7 +88,8 @@ func shoot(shot_count: int = 1) -> void:
 	tw.tween_interval(Gun.MUZZLE_FLASH_DURATION)
 	tw.tween_callback(flash_sprite.hide)
 	tw.tween_interval(Gun.SHOOT_DELAY - Gun.MUZZLE_FLASH_DURATION)
-	tw.finished.connect(_on_tw_finished, CONNECT_ONE_SHOT)
+	tw.finished.connect(_on_shoot_tween_finished, CONNECT_ONE_SHOT)
+
 
 func damage_target() -> void:
 	if not shooting_target is VagarantPlayer: return
@@ -81,14 +97,15 @@ func damage_target() -> void:
 
 
 func kill(attacker: Node3D) -> void:
-	is_dead = true
-	dead.emit()
+	dead.emit(attacker)
 	queue_free()
 
-func _on_tw_finished() -> void:
+func _on_shoot_tween_finished() -> void:
 	is_shooting = false
-	if not shooting_target or shooting_target is VagarantPlayer or is_dead: return
-	shooting_target.kill(self)
+	if not kill_target: return
+	
+	kill_target.kill(self)
+	#print("%s Killed %s" % [self.get_display_name(), kill_target.get_display_name()])
 
 func is_shootable(attacker: Node3D = null) -> bool:
 	shooting_ray.target_position = attacker.global_position - global_position
@@ -103,6 +120,9 @@ func set_modulate(val: Color) -> void:
 
 func get_shot_count() -> int:
 	return (randi() % MAX_SHOT_COUNT) + 1
+
+func get_display_name() -> String:
+	return display_name
 
 func _input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo(): return

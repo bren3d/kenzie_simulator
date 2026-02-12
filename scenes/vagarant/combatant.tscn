@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b6vrqifabxahk"]
+
+[ext_resource type="Script" uid="uid://bjlxw13bd1m2c" path="res://scenes/vagarant/combatant.gd" id="1_rsc4h"]
+[ext_resource type="Texture2D" uid="uid://b14o0sbx58jif" path="res://assets/textures/materials/muzzle-flash-desktop-wallpaper-clip-art-background-flashing-92f396df1976663b4d4c97d422a42a1e.png" id="2_m0vxx"]
+[ext_resource type="Texture2D" uid="uid://bn8p3cyo3kkwq" path="res://assets/textures/materials/enemy.webp" id="3_ipbs3"]
+[ext_resource type="AudioStream" uid="uid://b7anbp75e2ge7" path="res://assets/sounds/ak47_shot.wav" id="4_1mkji"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jt3j1"]
+
+[node name="Combatant" type="CharacterBody3D" unique_id=376548537 node_paths=PackedStringArray("visibility_notifier", "audio_player", "sprite", "flash_sprite", "shooting_ray")]
+wall_min_slide_angle = 0.0
+floor_stop_on_slope = false
+script = ExtResource("1_rsc4h")
+display_name = "Combatant"
+visibility_notifier = NodePath("VisibleOnScreenNotifier3D")
+audio_player = NodePath("AudioStreamPlayer3D")
+sprite = NodePath("Sprite")
+flash_sprite = NodePath("MuzzleFlashSprite")
+shooting_ray = NodePath("ShootingRay")
+metadata/_custom_type_script = "uid://bjlxw13bd1m2c"
+
+[node name="MuzzleFlashSprite" type="Sprite3D" parent="." unique_id=1959536574]
+transform = Transform3D(0.010352764, -7.450581e-11, -0.03863704, -0.0039789765, 0.039787326, -0.001066164, 0.03843161, 0.00411934, 0.010297719, 0, 0.70000005, 0)
+flip_h = true
+pixel_size = 0.02
+billboard = 2
+render_priority = 1
+texture = ExtResource("2_m0vxx")
+region_enabled = true
+region_rect = Rect2(-240, 168, 744, 192)
+
+[node name="Sprite" type="Sprite3D" parent="." unique_id=2046298231]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 2
+texture = ExtResource("3_ipbs3")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=2067042941]
+aabb = AABB(-0.275, -0.625, -0.425, 0.55, 1.25, 0.85)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=625317342]
+stream = ExtResource("4_1mkji")
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=92204804]
+shape = SubResource("CapsuleShape3D_jt3j1")
+
+[node name="ShootingRay" type="RayCast3D" parent="." unique_id=1212423295]

@@ -4,6 +4,9 @@ class_name Gun extends Node3D
 const MUZZLE_FLASH_DURATION: float = 0.04
 const SHOOT_DELAY: float = 0.075
 
+signal shot
+
+
 @export_tool_button("Shoot") 
 var shoot_callable: Callable = shoot
 
@@ -29,6 +32,8 @@ func shoot() -> void:
 	audio_stream.play()
 	
 	shoot_cooldown_timer = shoot_delay_sec
+	
+	shot.emit()
 	
 
 func play_muzzle_flash() -> void:

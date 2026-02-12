@@ -26,7 +26,7 @@ var camera_sensitivity: float = 0.7
 @onready var interact_ray: InteractRay = $Camera3D/InteractRay
 
 var input_active: bool = true: set = set_input_active
-var camera_active: bool = true
+#var camera_active: bool = true
 
 var sprinting: bool = false
 var input_dir: Vector2 = Vector2.ZERO
@@ -166,3 +166,6 @@ func drink_soda() -> void:
 func kill() -> void:
 	if not can_die: return
 	set_state("Dead")
+
+func make_camera_current() -> void:
+	camera.make_current()

@@ -51,12 +51,14 @@
 [ext_resource type="Resource" uid="uid://c08w8apu3mk7p" path="res://resources/dialogue/rat.dialogue" id="24_tsq33"]
 [ext_resource type="PackedScene" uid="uid://bjihmnoa2of4c" path="res://scenes/objects/decor/plants/flower_vase.tscn" id="24_x7uff"]
 [ext_resource type="PackedScene" uid="uid://pa0hp25rbb4r" path="res://scenes/objects/bath/toothbrush.tscn" id="25_ard4k"]
+[ext_resource type="PackedScene" uid="uid://b2m0jdgpflfst" path="res://scenes/vagarant/vagarant.tscn" id="25_ieh3c"]
 [ext_resource type="PackedScene" uid="uid://pebxolltd2x6" path="res://scenes/objects/cleaning/chemical_06.tscn" id="25_lmw6d"]
 [ext_resource type="PackedScene" uid="uid://dhsgx6kd7v8mn" path="res://scenes/objects/animals/monster.tscn" id="25_tsq33"]
 [ext_resource type="PackedScene" uid="uid://5bekn1hmicx3" path="res://scenes/objects/animals/deer.tscn" id="25_ukdwj"]
 [ext_resource type="PackedScene" uid="uid://bc7um6cavmf47" path="res://scenes/objects/bath/toothbrush_02.tscn" id="26_1e4gd"]
 [ext_resource type="PackedScene" uid="uid://gsmjhq28yne2" path="res://scenes/objects/cleaning/chemical_05.tscn" id="26_y0d5t"]
 [ext_resource type="PackedScene" uid="uid://b0fww0k7t66jb" path="res://scenes/objects/bath/toothpaste_02.tscn" id="27_dfxl1"]
+[ext_resource type="Texture2D" uid="uid://dmepiaasm55sx" path="res://assets/icons/icon_puzzle.png" id="27_lxo07"]
 [ext_resource type="PackedScene" uid="uid://8y25cbidjvs4" path="res://scenes/objects/cleaning/soap_powder.tscn" id="27_qngax"]
 [ext_resource type="PackedScene" uid="uid://ctnodbu5nofwf" path="res://scenes/objects/beds/bed_01.tscn" id="27_t00mq"]
 [ext_resource type="Resource" uid="uid://bw5kdfdg308tm" path="res://resources/dialogue/deer.dialogue" id="27_x1tur"]
@@ -140,6 +142,9 @@
 [ext_resource type="AudioStream" uid="uid://c0seuv2mx6ekr" path="res://assets/sounds/creepy_breathing.wav" id="132_h8ley"]
 [ext_resource type="Script" uid="uid://cd877lsf0gf6n" path="res://scripts/cutscene/tv_cutscene.gd" id="135_xcb1r"]
 [ext_resource type="Script" uid="uid://dd1w40k58fh2o" path="res://scripts/quest/task.gd" id="136_5e5bb"]
+[ext_resource type="Script" uid="uid://6o4bbpcbg0ps" path="res://scripts/cutscene/vagarant_cutscene.gd" id="140_fbk1w"]
+[ext_resource type="Script" uid="uid://bbrj1aeanpp8" path="res://scripts/cutscene/craig_death_cutscene.gd" id="142_r41mk"]
+[ext_resource type="Shader" uid="uid://caeabqcmlvso2" path="res://scripts/shaders/fade.gdshader" id="143_ivg7c"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -296,7 +301,7 @@ size = Vector2(1.05, 0.55)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_inn26"]
 resource_name = "_albedo"
-viewport_path = NodePath("Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/ScreenViewport")
+viewport_path = NodePath("Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdtkv"]
 resource_local_to_scene = true
@@ -443,6 +448,55 @@ size = Vector3(1.475, 2.675, 0.075)
 script = ExtResource("136_5e5bb")
 task_name = "mouse_movies"
 task_display_string = "Watch animated mouse movies"
+
+[sub_resource type="Resource" id="Resource_fbk1w"]
+script = ExtResource("136_5e5bb")
+task_name = "computer_games"
+task_display_string = "Play Computer Games"
+
+[sub_resource type="Gradient" id="Gradient_iori0"]
+colors = PackedColorArray(0.5625, 0.1538086, 0.1538086, 1, 0.25490198, 0.007843138, 0.007843138, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r41mk"]
+seed = 1
+frequency = 0.0201
+fractal_lacunarity = 1.899
+fractal_gain = 0.601
+fractal_weighted_strength = 0.32
+cellular_distance_function = 3
+cellular_return_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ivg7c"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_r41mk")
+color_ramp = SubResource("Gradient_iori0")
+in_3d_space = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivg7c"]
+render_priority = 0
+shader = ExtResource("143_ivg7c")
+shader_parameter/fade_end = 0.2
+shader_parameter/fade_size = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iori0"]
+next_pass = SubResource("ShaderMaterial_ivg7c")
+transparency = 1
+albedo_texture = SubResource("NoiseTexture2D_ivg7c")
+
+[sub_resource type="QuadMesh" id="QuadMesh_r41mk"]
+material = SubResource("StandardMaterial3D_iori0")
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6anrw"]
+render_priority = 0
+shader = ExtResource("143_ivg7c")
+shader_parameter/fade_end = 0.2
+shader_parameter/fade_size = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_2avaa"]
+material = SubResource("ShaderMaterial_6anrw")
+orientation = 1
 
 [node name="Basement" type="Node3D" unique_id=1379192347]
 
@@ -716,7 +770,6 @@ transform = Transform3D(1, 0, 1.6358324e-20, 0, 1, 2.783862e-23, 0, 2.5055613e-2
 mesh = SubResource("BoxMesh_7xxa2")
 
 [node name="MouseDVDStaticBody" type="StaticBody3D" parent="Environment/Basement/Decor/Table_36/MouseDVD" unique_id=849929276]
-collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Table_36/MouseDVD/MouseDVDStaticBody" unique_id=706602598]
 shape = SubResource("BoxShape3D_7xxa2")
@@ -784,7 +837,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("19_7xxa2")
-volume_db = 11.999998
+volume_db = 11.999996
 expand = true
 bus = &"SFX"
 
@@ -940,55 +993,30 @@ visible = false
 mesh = SubResource("QuadMesh_h1gqc")
 skeleton = NodePath("")
 
-[node name="ScreenViewport" type="SubViewport" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen" unique_id=797111309]
-size = Vector2i(512, 256)
+[node name="VagarantViewport" type="SubViewport" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen" unique_id=797111309]
+own_world_3d = true
+transparent_bg = true
+audio_listener_enable_3d = true
+size = Vector2i(640, 360)
 
-[node name="Screen1" type="Control" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/ScreenViewport" unique_id=410208300]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Vagarant" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantViewport" unique_id=562130839 instance=ExtResource("25_ieh3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
+visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/ScreenViewport/Screen1" unique_id=703577934]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture2D_n7hqg")
-expand_mode = 1
-stretch_mode = 1
+[node name="VagarantCamera" type="Camera3D" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen" unique_id=776625042]
+transform = Transform3D(0.9999998, 2.3044378e-16, 2.9802322e-08, -1.8197973e-23, 0.9999999, -4.6649874e-15, -4.4703484e-08, 1.2705494e-21, 0.9999999, 6.043911e-05, 0, 0.43156528)
+metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/ScreenViewport/Screen1" unique_id=890198562]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.57)
+[node name="Chair_10" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen" unique_id=2115551765 instance=ExtResource("11_56uno")]
+transform = Transform3D(0.26047206, -1.4772115, -6.4570955e-08, -1.5423015e-16, -6.556707e-08, 1.4999999, -1.4772115, -0.26047206, -1.1385596e-08, 0.29270864, -1.031476, 1.1368523)
 
-[node name="Label" type="Label" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/ScreenViewport/Screen1" unique_id=1948602566]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_constants/shadow_outline_size = 11
-theme_override_fonts/font = ExtResource("8_n7hqg")
-theme_override_font_sizes/font_size = 64
-text = "Player Computer Monitor 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-clip_text = true
+[node name="VagarantInteractable" type="Node" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/Chair_10" unique_id=383117467 node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+disabled = true
+collider_body = NodePath("../StaticBody3D")
+icon = ExtResource("27_lxo07")
+interaction_text = "Play on the Computer"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
 
 [node name="PlayerMonitor2" parent="Environment/Basement/Decor/Desks/DeskPlayer" unique_id=376676076 instance=ExtResource("14_inn26")]
 transform = Transform3D(-0.49240398, 0, 0.08682428, 0.13023642, -3.278354e-08, 0.738606, 6.506074e-09, 0.8571429, 3.6897706e-08, -0.22100782, -0.06306982, 0.115822256)
@@ -1048,9 +1076,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
-
-[node name="Chair_10" parent="Environment/Basement/Decor/Desks/DeskPlayer" unique_id=2115551765 instance=ExtResource("11_56uno")]
-transform = Transform3D(5.962434e-09, 0.5, 2.1855694e-08, -0.75, 8.943653e-09, -3.278354e-08, -3.7466904e-08, -3.7466904e-08, 0.8571429, 0.01666677, 0.4749999, -0.19587833)
 
 [node name="Animals" type="Node3D" parent="Environment/Basement/Decor" unique_id=286246601]
 
@@ -1201,9 +1226,6 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16250002, 0)
 shape = SubResource("BoxShape3D_e67om")
 metadata/_edit_lock_ = true
-
-[node name="Deer" parent="Environment/Basement/Decor/Animals/DeerCage" unique_id=1477389057 instance=ExtResource("25_ukdwj")]
-transform = Transform3D(0.34472, 0, -0.3213938, 0, 0.82, 0, 0.2892544, 0, 0.38302225, -0.012500048, -0.62632686, 0.018749982)
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Animals/DeerCage" unique_id=297601426 node_paths=PackedStringArray("collider_body")]
 script = ExtResource("7_olr0t")
@@ -2022,6 +2044,7 @@ teeth_brushing_sound = ExtResource("106_4og01")
 gargle_sound = ExtResource("107_v58j2")
 brushing_quest = ExtResource("103_v54r6")
 task_name = "Teeth"
+is_skippable = true
 
 [node name="QuestWaypoint" type="Node3D" parent="Cutscenes/BrushTeeth" unique_id=239865615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07500076, 0.044680238, 0)
@@ -2137,12 +2160,6 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
 
-[node name="MeTime" type="Node" parent="Cutscenes" unique_id=2048414004]
-script = ExtResource("123_ud4xj")
-list_quest = ExtResource("108_ca65u")
-dialogue = ExtResource("124_jipp7")
-me_time_quest = ExtResource("125_dlm1g")
-
 [node name="KatieIntro" type="Node3D" parent="Cutscenes" unique_id=1303949301]
 metadata/_edit_lock_ = true
 
@@ -2204,16 +2221,54 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
 
-[node name="TV" type="Node3D" parent="Cutscenes" unique_id=715981245]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.27587, 0.7249999, -0.70000005)
+[node name="MeTime" type="Node3D" parent="Cutscenes" unique_id=1406591490]
 
-[node name="TVCutscene" type="Node" parent="Cutscenes/TV" unique_id=1999303475 node_paths=PackedStringArray("tv_cam", "dvd_interactable", "stream")]
+[node name="MeTimeStart" type="Node" parent="Cutscenes/MeTime" unique_id=2048414004]
+script = ExtResource("123_ud4xj")
+list_quest = ExtResource("108_ca65u")
+dialogue = ExtResource("124_jipp7")
+me_time_quest = ExtResource("125_dlm1g")
+
+[node name="TVCutscene" type="Node" parent="Cutscenes/MeTime" unique_id=1999303475 node_paths=PackedStringArray("tv_cam", "dvd_interactable", "stream")]
 script = ExtResource("135_xcb1r")
 tv_cam = NodePath("../../../Environment/Basement/Decor/TV/TVScreen/TVCamera")
 dvd_interactable = NodePath("../../../Environment/Basement/Decor/Table_36/MouseDVD/Interactable")
 quest = ExtResource("125_dlm1g")
 task = SubResource("Resource_vcjtt")
 stream = NodePath("../../../Environment/Basement/Decor/TV/TVScreen/TVScreenViewport/TVScreen/MouseMoviePlayer")
+
+[node name="VagarantCutscene" type="Node" parent="Cutscenes/MeTime" unique_id=2025234659 node_paths=PackedStringArray("vagarant", "vagarant_viewport", "computer_interactable", "computer_cam")]
+script = ExtResource("140_fbk1w")
+quest = ExtResource("125_dlm1g")
+task = SubResource("Resource_fbk1w")
+vagarant = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantViewport/Vagarant")
+vagarant_viewport = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantViewport")
+computer_interactable = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/Chair_10/VagarantInteractable")
+computer_cam = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantCamera")
+
+[node name="DeerDeath" type="Node3D" parent="Cutscenes" unique_id=37328103]
+transform = Transform3D(0.73536146, 0, -0.67321616, 0, 1, 0, 0.61704147, 0, 0.8023079, 5.7, 0.07261145, 1.8249999)
+
+[node name="CraigDeathCutscene" type="Node" parent="Cutscenes/DeerDeath" unique_id=2093745463 node_paths=PackedStringArray("deer", "deer_target_location", "lights")]
+script = ExtResource("142_r41mk")
+deer = NodePath("../Deer")
+deer_target_location = NodePath("../DeerTarget")
+lights = NodePath("../../../Lights")
+
+[node name="Deer" parent="Cutscenes/DeerDeath" unique_id=1477389057 instance=ExtResource("25_ukdwj")]
+transform = Transform3D(1.8751051, 0, 0, 0, 1.476, 0, 0, 0, 1.9096024, 0, 0, 0)
+
+[node name="DeerTarget" type="Marker3D" parent="Cutscenes/DeerDeath" unique_id=474580369]
+transform = Transform3D(0.09606732, 0.538064, 1.7755034, -1.8568567, 0.2054195, 0, -0.24263838, -1.3589945, 0.7029716, 0, 0, 0)
+
+[node name="BloodSplat" type="MeshInstance3D" parent="Cutscenes/DeerDeath" unique_id=1907173987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+visible = false
+mesh = SubResource("QuadMesh_r41mk")
+
+[node name="BloodSplat2" type="MeshInstance3D" parent="Cutscenes/DeerDeath" unique_id=160729290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("QuadMesh_2avaa")
 
 [node name="Quests" type="Node3D" parent="." unique_id=1322436249]
 metadata/_edit_lock_ = true
@@ -2261,7 +2316,7 @@ shadow_enabled = true
 [node name="AlexHiddenMarker" type="Marker3D" parent="." unique_id=1671755126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)
 
-[connection signal="interaction_started" from="Environment/Basement/Decor/Table_36/MouseDVD/Interactable" to="Cutscenes/TV/TVCutscene" method="play" unbinds=1]
+[connection signal="interaction_started" from="Environment/Basement/Decor/Table_36/MouseDVD/Interactable" to="Cutscenes/MeTime/TVCutscene" method="play" unbinds=1]
 [connection signal="task_started" from="Environment/Basement/Decor/Animals/Cage/TaskNotifier" to="Environment/Basement/Decor/Animals/Cage" method="set_feed_mode_active" flags=6 binds= [true]]
 [connection signal="interaction_started" from="Environment/Basement/Decor/MainLightSwitch/Interactable" to="Environment/Basement/Decor/MainLightSwitch/TaskUpdater" method="update_task" flags=6 unbinds=1]
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]

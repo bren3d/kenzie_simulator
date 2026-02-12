@@ -8,9 +8,14 @@ script = ExtResource("2_d1t3l")
 task_name = "mouse_movies"
 task_display_string = "Watch animated mouse movies"
 
+[sub_resource type="Resource" id="Resource_d1t3l"]
+script = ExtResource("2_d1t3l")
+task_name = "computer_games"
+task_display_string = "Play Computer Games"
+
 [resource]
 resource_name = "Me Time"
 script = ExtResource("1_vcjtt")
 quest_name = "Me Time"
-tasks = Array[ExtResource("2_d1t3l")]([SubResource("Resource_vcjtt")])
+tasks = Array[ExtResource("2_d1t3l")]([SubResource("Resource_vcjtt"), SubResource("Resource_d1t3l")])
 metadata/_custom_type_script = "uid://ca2qxwleqmgfp"

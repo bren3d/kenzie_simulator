@@ -23,7 +23,12 @@ var max_rotation_angle: float = PI/6.0
 @export_range(1.0, 20.0, 1.0, "or_greater") 
 var sweep_cycle_count: int = 10
 
+@export var is_skippable: bool = true
+
+var tw: Tween
+
 func _ready() -> void:
+	set_process_input(false)
 	if Engine.is_editor_hint(): return
 	task_updater.quest.task_updated.connect(_on_task_updated)
 
@@ -37,30 +42,46 @@ func _on_interaction_started(interactor: Object) -> void:
 	Global.player.set_state.call_deferred("Cutscene")
 	waypoint.hide()
 	get_meta(&"Interactable").disabled = true
-	play_sweeping_animation()
+	play_animation()
 
-func play_sweeping_animation() -> void:
+func play_animation() -> void:
 	broom.global_position = broom_start_position.global_position
 	broom.rotation_degrees = broom_starting_rotation_deg
 	broom.show()
 	
-	var tw: Tween = create_tween()
+	set_process_input(is_skippable)
+	
+	tw = create_tween()
 	tw.tween_property(broom, ^"global_position", broom_lowered_position.global_position, lower_duration_sec)
 	tw.tween_callback(Audio.play_sfx.bind(sweep_audio_stream))
-	
-	await tw.finished
-	
+	tw.finished.connect(tween_sweep, CONNECT_ONE_SHOT)
+
+func tween_sweep() -> void:
 	var sweeping_duration_sec: float = sweep_audio_stream.get_length() / 2.0 / sweep_cycle_count
 	tw = create_tween().set_loops(sweep_cycle_count)
 	tw.tween_property(broom, ^"rotation:x", deg_to_rad(broom_starting_rotation_deg.x) + max_rotation_angle, sweeping_duration_sec)
 	tw.tween_property(broom, ^"rotation:x", deg_to_rad(broom_starting_rotation_deg.x) - max_rotation_angle, sweeping_duration_sec)
-	
-	await tw.finished
-	
+	tw.finished.connect(_on_sweeping_finished, CONNECT_ONE_SHOT)
+
+
+func _on_sweeping_finished() -> void:
+	set_process_input(false)
 	task_updater.update_task()
-	Global.player.set_state("Moving")
 	
 	broom.hide()
 	hide()
+	Global.player.set_state("Moving")
 	
 	sweeping_finished.emit()
+
+
+func skip() -> void:
+	if tw:
+		tw.kill()
+	Audio.sfx_stream.stop()
+	_on_sweeping_finished()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"skip"):
+		skip()
+		get_viewport().set_input_as_handled()

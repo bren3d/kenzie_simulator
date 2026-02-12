@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://4xny1x0waqm"]
+
+[ext_resource type="Script" uid="uid://dn1yywxreoi1q" path="res://scenes/vagarant/vagarant_player.gd" id="1_d2vgp"]
+[ext_resource type="Script" uid="uid://cmj67vhtvupfe" path="res://scenes/vagarant/gun.gd" id="2_bxeov"]
+[ext_resource type="Texture2D" uid="uid://dqt2y5alo5ufp" path="res://assets/textures/materials/gun-png-40744.png" id="3_me8av"]
+[ext_resource type="Texture2D" uid="uid://b14o0sbx58jif" path="res://assets/textures/materials/muzzle-flash-desktop-wallpaper-clip-art-background-flashing-92f396df1976663b4d4c97d422a42a1e.png" id="4_c87c5"]
+[ext_resource type="AudioStream" uid="uid://b7anbp75e2ge7" path="res://assets/sounds/ak47_shot.wav" id="5_jf7uj"]
+[ext_resource type="Script" uid="uid://x6fja5arvckq" path="res://scenes/vagarant/crosshair.gd" id="6_21e2d"]
+[ext_resource type="Script" uid="uid://b8s1mv836gjb6" path="res://scenes/vagarant/damage_texture.gd" id="7_xre34"]
+[ext_resource type="Script" uid="uid://bcaj0hx55j7ja" path="res://scenes/vagarant/kill_feed.gd" id="8_me8av"]
+[ext_resource type="Texture2D" uid="uid://dp4e2dn832i7a" path="res://assets/icons/headshot.svg" id="9_c87c5"]
+[ext_resource type="Texture2D" uid="uid://cs6ugkqd5s5w8" path="res://assets/icons/icon_bullet.png" id="9_jf7uj"]
+[ext_resource type="AudioStream" uid="uid://b6tu87htsbcbo" path="res://assets/sounds/headshot.ogg" id="11_jf7uj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1e8u0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwihj"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s68da"]
+material = SubResource("StandardMaterial3D_kwihj")
+
+[sub_resource type="Gradient" id="Gradient_gupn8"]
+offsets = PackedFloat32Array(0.5424528, 1)
+colors = PackedColorArray(0.99607843, 0, 0, 0, 0.99607843, 0, 0, 0.20392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dbd75"]
+gradient = SubResource("Gradient_gupn8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2vgp"]
+bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.5803922)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="VagarantPlayer" type="CharacterBody3D" unique_id=35005437 node_paths=PackedStringArray("camera", "gun", "health_label", "damage_texture", "start_label", "round_won_label", "kill_feed", "headshot_audio_stream")]
+script = ExtResource("1_d2vgp")
+camera = NodePath("Camera3D")
+gun = NodePath("Camera3D/Gun")
+health_label = NodePath("PlayerUI/HealthLabel")
+damage_texture = NodePath("PlayerUI/DamageTexture")
+start_label = NodePath("PlayerUI/StartLabel")
+round_won_label = NodePath("PlayerUI/RoundWonLabel")
+kill_feed = NodePath("PlayerUI/KillFeedPanel/KillFeed")
+headshot_audio_stream = NodePath("HeadshotAudioStream")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1663513167]
+shape = SubResource("CapsuleShape3D_1e8u0")
+debug_color = Color(0.7019608, 0, 0.62352943, 0.54901963)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1985329061]
+layers = 2
+mesh = SubResource("CapsuleMesh_s68da")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=35911197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+cull_mask = 1048573
+
+[node name="Gun" type="Node3D" parent="Camera3D" unique_id=546939938 node_paths=PackedStringArray("pivot", "gun_sprite", "flash_sprite", "audio_stream")]
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 0.65000004, -0.75, -1.5749999)
+script = ExtResource("2_bxeov")
+pivot = NodePath("Pivot")
+gun_sprite = NodePath("Pivot/GunSprite")
+flash_sprite = NodePath("Pivot/GunSprite/MuzzleFlashSprite")
+audio_stream = NodePath("GunAudioStream")
+recoil_amount = 0.06981317007977318
+recoil_return_speed = 1.5707963267948966
+
+[node name="Pivot" type="Node3D" parent="Camera3D/Gun" unique_id=1503748477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03837, -0.35000002, 0.2782305)
+
+[node name="GunSprite" type="Sprite3D" parent="Camera3D/Gun/Pivot" unique_id=621700171]
+transform = Transform3D(0.4975196, 0.04973721, -0.0006646216, -0.04973721, 0.49734154, -0.013327047, -0.0006646216, 0.013327047, 0.4998219, -1.0383701, 0.35000002, -0.2782305)
+no_depth_test = true
+texture = ExtResource("3_me8av")
+
+[node name="MuzzleFlashSprite" type="Sprite3D" parent="Camera3D/Gun/Pivot/GunSprite" unique_id=294665112]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.155, 0.263, 0)
+visible = false
+flip_h = true
+no_depth_test = true
+texture = ExtResource("4_c87c5")
+
+[node name="GunAudioStream" type="AudioStreamPlayer" parent="Camera3D/Gun" unique_id=90940647]
+stream = ExtResource("5_jf7uj")
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="PlayerUI" type="CanvasLayer" parent="." unique_id=642265427]
+
+[node name="Crosshair" type="Control" parent="PlayerUI" unique_id=2003367171]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_21e2d")
+
+[node name="HealthLabel" type="Label" parent="PlayerUI" unique_id=2031200763]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -33.0
+offset_right = 97.0
+offset_bottom = -9.0
+grow_vertical = 0
+text = "HP: 100"
+vertical_alignment = 1
+
+[node name="DamageTexture" type="TextureRect" parent="PlayerUI" unique_id=317394805]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_dbd75")
+script = ExtResource("7_xre34")
+
+[node name="StartLabel" type="Label" parent="PlayerUI" unique_id=702561715]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="RoundWonLabel" type="Label" parent="PlayerUI" unique_id=1160954388]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "ROUND WON"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="KillFeedPanel" type="PanelContainer" parent="PlayerUI" unique_id=897585280]
+custom_minimum_size = Vector2(120, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -167.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2vgp")
+
+[node name="KillFeed" type="GridContainer" parent="PlayerUI/KillFeedPanel" unique_id=1092641306 node_paths=PackedStringArray("label_a", "icon_texture_rect", "label_b")]
+layout_mode = 2
+columns = 3
+script = ExtResource("8_me8av")
+kill_icon = ExtResource("9_jf7uj")
+headshot_icon = ExtResource("9_c87c5")
+label_a = NodePath("LabelA")
+icon_texture_rect = NodePath("KillIcon")
+label_b = NodePath("LabelB")
+
+[node name="LabelA" type="Label" parent="PlayerUI/KillFeedPanel/KillFeed" unique_id=574583064]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Name 1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="KillIcon" type="TextureRect" parent="PlayerUI/KillFeedPanel/KillFeed" unique_id=1106570619]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+texture = ExtResource("9_c87c5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelB" type="Label" parent="PlayerUI/KillFeedPanel/KillFeed" unique_id=455936035]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Name 2"
+vertical_alignment = 1
+
+[node name="HeadshotAudioStream" type="AudioStreamPlayer" parent="." unique_id=1361330599]
+stream = ExtResource("11_jf7uj")
+volume_db = 8.0
+bus = &"SFX"

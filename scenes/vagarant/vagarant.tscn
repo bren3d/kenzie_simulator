@@ -1,19 +1,70 @@
 [gd_scene format=3 uid="uid://b2m0jdgpflfst"]
 
+[ext_resource type="Script" uid="uid://cyn8m0aiwhssd" path="res://scenes/vagarant/vagarant.gd" id="1_ankjw"]
 [ext_resource type="Script" uid="uid://35t0bpu7iwlv" path="res://scenes/vagarant/targeting_handle.gd" id="1_jt3j1"]
 [ext_resource type="Texture2D" uid="uid://ev5kp1da17mj" path="res://assets/textures/sky/Fuzzy_Sky-Night_04-512x512.png" id="1_yh07n"]
 [ext_resource type="Texture2D" uid="uid://ci5kiaqd17611" path="res://assets/textures/materials/PavingStones135_1K-JPG/PavingStones135_1K-JPG_Color.jpg" id="2_1e8u0"]
 [ext_resource type="PackedScene" uid="uid://o8m6j35khqv1" path="res://scenes/vagarant/wall.tscn" id="2_dbd75"]
+[ext_resource type="Script" uid="uid://ctd1qqb80wwl5" path="res://scenes/vagarant/vagarant_event_handle.gd" id="2_fln13"]
+[ext_resource type="Script" uid="uid://dqjcha7q5br8e" path="res://scenes/vagarant/vagarant_ui.gd" id="3_3r77n"]
 [ext_resource type="PackedScene" uid="uid://bihvojn3h4xdv" path="res://scenes/vagarant/skyscraper.tscn" id="3_s68da"]
-[ext_resource type="Script" uid="uid://dn1yywxreoi1q" path="res://scenes/vagarant/vagarant_player.gd" id="4_kwihj"]
-[ext_resource type="Script" uid="uid://cmj67vhtvupfe" path="res://scenes/vagarant/gun.gd" id="4_rq54f"]
-[ext_resource type="Texture2D" uid="uid://dqt2y5alo5ufp" path="res://assets/textures/materials/gun-png-40744.png" id="4_s68da"]
-[ext_resource type="Script" uid="uid://x6fja5arvckq" path="res://scenes/vagarant/crosshair.gd" id="5_qe3i6"]
-[ext_resource type="Texture2D" uid="uid://b14o0sbx58jif" path="res://assets/textures/materials/muzzle-flash-desktop-wallpaper-clip-art-background-flashing-92f396df1976663b4d4c97d422a42a1e.png" id="6_5wva0"]
-[ext_resource type="Script" uid="uid://bjlxw13bd1m2c" path="res://scenes/vagarant/combatant.gd" id="9_3r77n"]
-[ext_resource type="AudioStream" uid="uid://b7anbp75e2ge7" path="res://assets/sounds/ak47_shot.wav" id="9_ankjw"]
-[ext_resource type="Texture2D" uid="uid://bn8p3cyo3kkwq" path="res://assets/textures/materials/enemy.webp" id="9_fln13"]
-[ext_resource type="Script" uid="uid://b8s1mv836gjb6" path="res://scenes/vagarant/damage_texture.gd" id="11_dbd75"]
+[ext_resource type="Script" uid="uid://blbigvff5g5jn" path="res://scripts/UI/style_box_animation/stylebox_pointer.gd" id="5_dbd75"]
+[ext_resource type="Texture2D" uid="uid://cvcr1idfkvo1v" path="res://assets/textures/UI/hand_icon.png" id="6_jt3j1"]
+[ext_resource type="PackedScene" uid="uid://4xny1x0waqm" path="res://scenes/vagarant/vagarant_player.tscn" id="6_kwihj"]
+[ext_resource type="PackedScene" uid="uid://b6vrqifabxahk" path="res://scenes/vagarant/combatant.tscn" id="13_jt3j1"]
+[ext_resource type="Script" uid="uid://c65fo2cbimw1e" path="res://scenes/vagarant/combatant_spawn.gd" id="14_5j4vy"]
+[ext_resource type="Script" uid="uid://bdvhvd7x2uh46" path="res://scenes/vagarant/quip_player.gd" id="14_pxgb0"]
+[ext_resource type="AudioStream" uid="uid://deap16atvl6bt" path="res://assets/sounds/quips/nice_lets_go.mp3" id="15_fu17o"]
+[ext_resource type="AudioStream" uid="uid://blt18et0022mm" path="res://assets/sounds/quips/im_fucked.mp3" id="16_eqono"]
+[ext_resource type="AudioStream" uid="uid://bs7iduthcoi66" path="res://assets/sounds/quips/dead_giggle.mp3" id="17_opo3k"]
+[ext_resource type="AudioStream" uid="uid://dok6n23y2ktyi" path="res://assets/sounds/quips/oww.mp3" id="18_gyp50"]
+[ext_resource type="AudioStream" uid="uid://bwdaxir1vtopo" path="res://assets/sounds/quips/pat_said_what.mp3" id="19_j6efj"]
+[ext_resource type="AudioStream" uid="uid://oswo8oo1dibg" path="res://assets/sounds/quips/think_b.mp3" id="20_whhhe"]
+[ext_resource type="AudioStream" uid="uid://cmkwc68ireiir" path="res://assets/sounds/quips/coming_thru_mid.mp3" id="21_gdhr4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r77n"]
+bg_color = Color(0.4765625, 0.19112143, 0.19112143, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.11197919, 0.1099379, 0.1099379, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ankjw"]
+bg_color = Color(0.3333333, 0.13107638, 0.13107638, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.11197919, 0.1099379, 0.1099379, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBox" id="StyleBox_5j4vy"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("5_dbd75")
+texture = ExtResource("6_jt3j1")
+draw_on_right = false
+metadata/_custom_type_script = "uid://blbigvff5g5jn"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4gau"]
 shading_mode = 0
@@ -30,40 +81,165 @@ uv1_scale = Vector3(100, 100, 100)
 material = SubResource("StandardMaterial3D_s68da")
 size = Vector2(1000, 1000)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1e8u0"]
+[node name="Vagarant" type="Node3D" unique_id=562130839 node_paths=PackedStringArray("ui", "blackout_rect")]
+script = ExtResource("1_ankjw")
+ui = NodePath("UI")
+blackout_rect = NodePath("UI/BlackoutColorRect")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwihj"]
-shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_s68da"]
-material = SubResource("StandardMaterial3D_kwihj")
-
-[sub_resource type="Gradient" id="Gradient_gupn8"]
-offsets = PackedFloat32Array(0.5424528, 1)
-colors = PackedColorArray(0.99607843, 0, 0, 0, 0.99607843, 0, 0, 0.20392157)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dbd75"]
-gradient = SubResource("Gradient_gupn8")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jt3j1"]
-
-[node name="Vagarant" type="Node3D" unique_id=562130839]
-
-[node name="TargetingHandle" type="Node" parent="." unique_id=596522785 node_paths=PackedStringArray("ally_parent", "enemy_parent")]
+[node name="TargetingHandle" type="Node" parent="." unique_id=596522785]
 script = ExtResource("1_jt3j1")
-ally_parent = NodePath("../Allies")
-enemy_parent = NodePath("../Enemies")
+
+[node name="EventHandle" type="Node" parent="." unique_id=677971620 node_paths=PackedStringArray("targeting_handle", "spawners")]
+script = ExtResource("2_fln13")
+targeting_handle = NodePath("../TargetingHandle")
+spawners = [NodePath("../Allies/PlayerSpawn"), NodePath("../Allies/AllySpawn1"), NodePath("../Allies/AllySpawn2"), NodePath("../Allies/AllySpawn3"), NodePath("../Allies/AllySpawn4"), NodePath("../Enemies/EnemySpawn1"), NodePath("../Enemies/EnemySpawn2"), NodePath("../Enemies/EnemySpawn3"), NodePath("../Enemies/EnemySpawn4"), NodePath("../Enemies/EnemySpawn5")]
+
+[node name="QuipPlayer" type="AudioStreamPlayer" parent="." unique_id=906697908]
+volume_db = 24.0
+bus = &"SFX"
+script = ExtResource("14_pxgb0")
+congrats_pool = Array[AudioStream]([ExtResource("15_fu17o"), ExtResource("19_j6efj"), ExtResource("20_whhhe"), ExtResource("21_gdhr4")])
+dead_pool = Array[AudioStream]([ExtResource("16_eqono"), ExtResource("17_opo3k"), ExtResource("18_gyp50")])
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=365413897 node_paths=PackedStringArray("targeting_handle", "event_handle", "score_label", "victory_label", "color_rect", "menu", "play_button", "quit_button")]
+layer = 2
+script = ExtResource("3_3r77n")
+targeting_handle = NodePath("../TargetingHandle")
+event_handle = NodePath("../EventHandle")
+score_label = NodePath("ScoreLabel")
+victory_label = NodePath("VictoryLabel")
+color_rect = NodePath("VictoryColorRect")
+menu = NodePath("Menu")
+play_button = NodePath("Menu/PlayButton")
+quit_button = NodePath("Menu/QuitButton")
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=56873504]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "0 VS 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VictoryColorRect" type="ColorRect" parent="UI" unique_id=190809824]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="VictoryLabel" type="Label" parent="UI" unique_id=633380193]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+text = "VICTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Control" parent="UI" unique_id=1193097422]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UI/Menu" unique_id=1686373608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.11197919, 0.1099379, 0.1099379, 1)
+
+[node name="Title" type="Label" parent="UI/Menu" unique_id=2119792076]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.266
+offset_bottom = 52.239998
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 99
+text = "VAGARANT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="UI/Menu" unique_id=1412882892]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 178.0
+offset_right = 444.0
+offset_bottom = 256.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath(".")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3r77n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ankjw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3r77n")
+theme_override_styles/focus = SubResource("StyleBox_5j4vy")
+button_mask = 0
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="UI/Menu" unique_id=1826402944]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 303.0
+offset_right = 614.0
+offset_bottom = 341.0
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../PlayButton")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_3r77n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ankjw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3r77n")
+theme_override_styles/focus = SubResource("StyleBox_5j4vy")
+button_mask = 0
+text = "QUIT"
+
+[node name="BlackoutColorRect" type="ColorRect" parent="UI" unique_id=242313606]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node3D" parent="." unique_id=1081573692]
 
 [node name="SkyBox" type="CSGBox3D" parent="Environment" unique_id=715781842]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 274.5, 0)
 flip_faces = true
-size = Vector3(1000, 1000, 1000)
+size = Vector3(1000, 551, 1000)
 material = SubResource("StandardMaterial3D_f4gau")
 
 [node name="Wall" parent="Environment" unique_id=462791260 instance=ExtResource("2_dbd75")]
@@ -95,7 +271,7 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52500004, -13.825)
 
 [node name="Skyscraper2" parent="Environment/Obstacles" unique_id=1561867898 instance=ExtResource("3_s68da")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.52500004, 39.975)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.52500004, 45.5)
 
 [node name="Skyscraper3" parent="Environment/Obstacles" unique_id=496869176 instance=ExtResource("3_s68da")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.45, 0.52500004, 28.125)
@@ -116,7 +292,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.200001, 0.52500004, -23.12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7, 0.52500004, -18.375)
 
 [node name="Skyscraper9" parent="Environment/Obstacles" unique_id=671447086 instance=ExtResource("3_s68da")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.95, 0.52500004, -44.125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.95, 0.52500004, -47.625)
 
 [node name="Skyscraper10" parent="Environment/Obstacles" unique_id=310221794 instance=ExtResource("3_s68da")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2, 0.52500004, -44.125)
@@ -144,128 +320,114 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.55, 0.52500004, 33.875)
 
 [node name="Allies" type="Node3D" parent="." unique_id=801808222]
 
-[node name="VagarantPlayer" type="CharacterBody3D" parent="Allies" unique_id=759796646 node_paths=PackedStringArray("camera", "gun", "health_label", "damage_texture", "targeting_handle")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.175, 0)
-script = ExtResource("4_kwihj")
-camera = NodePath("Camera3D")
-gun = NodePath("Camera3D/Gun")
-health_label = NodePath("PlayerUI/HealthLabel")
-damage_texture = NodePath("PlayerUI/DamageTexture")
+[node name="PlayerSpawn" type="Marker3D" parent="Allies" unique_id=723978820 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 0, 8.25)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+is_player = true
+display_name = "Kenzo"
 targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Allies/VagarantPlayer" unique_id=1950669649]
-shape = SubResource("CapsuleShape3D_1e8u0")
-debug_color = Color(0.7019608, 0, 0.62352943, 0.54901963)
+[node name="AllySpawn1" type="Marker3D" parent="Allies" unique_id=2138787732 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 42.25)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+is_ally = true
+display_name = "Finn the Human"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Allies/VagarantPlayer/CollisionShape3D" unique_id=457878184]
-layers = 2
-mesh = SubResource("CapsuleMesh_s68da")
+[node name="AllySpawn2" type="Marker3D" parent="Allies" unique_id=640058041 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, 26.75)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+is_ally = true
+display_name = "The Lamb"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="Camera3D" type="Camera3D" parent="Allies/VagarantPlayer" unique_id=775703739]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-cull_mask = 1048573
+[node name="AllySpawn3" type="Marker3D" parent="Allies" unique_id=1161352742 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.725, 0, -41.95)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+is_ally = true
+display_name = "DripHyuka"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="Gun" type="Node3D" parent="Allies/VagarantPlayer/Camera3D" unique_id=739437734 node_paths=PackedStringArray("pivot", "gun_sprite", "flash_sprite", "audio_stream")]
-transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 0.65000004, -0.75, -1.5749999)
-script = ExtResource("4_rq54f")
-pivot = NodePath("Pivot")
-gun_sprite = NodePath("Pivot/GunSprite")
-flash_sprite = NodePath("Pivot/GunSprite/MuzzleFlashSprite")
-audio_stream = NodePath("AudioStreamPlayer")
-recoil_amount = 0.06981317007977318
-recoil_return_speed = 1.5707963267948966
-
-[node name="Pivot" type="Node3D" parent="Allies/VagarantPlayer/Camera3D/Gun" unique_id=2119532534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03837, -0.35000002, 0.2782305)
-
-[node name="GunSprite" type="Sprite3D" parent="Allies/VagarantPlayer/Camera3D/Gun/Pivot" unique_id=658689157]
-transform = Transform3D(0.4975196, 0.04973721, -0.0006646216, -0.04973721, 0.49734154, -0.013327047, -0.0006646216, 0.013327047, 0.4998219, -1.0383701, 0.35000002, -0.2782305)
-no_depth_test = true
-texture = ExtResource("4_s68da")
-
-[node name="MuzzleFlashSprite" type="Sprite3D" parent="Allies/VagarantPlayer/Camera3D/Gun/Pivot/GunSprite" unique_id=667839267]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.155, 0.263, 0)
-visible = false
-flip_h = true
-no_depth_test = true
-texture = ExtResource("6_5wva0")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Allies/VagarantPlayer/Camera3D/Gun" unique_id=1611462031]
-stream = ExtResource("9_ankjw")
-max_polyphony = 10
-
-[node name="PlayerUI" type="CanvasLayer" parent="Allies/VagarantPlayer" unique_id=1534909283]
-
-[node name="Crosshair" type="Control" parent="Allies/VagarantPlayer/PlayerUI" unique_id=208641809]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_qe3i6")
-
-[node name="HealthLabel" type="Label" parent="Allies/VagarantPlayer/PlayerUI" unique_id=1195505059]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 43.0
-offset_top = -33.0
-offset_right = 97.0
-offset_bottom = -9.0
-grow_vertical = 0
-text = "HP: 100"
-vertical_alignment = 1
-
-[node name="DamageTexture" type="TextureRect" parent="Allies/VagarantPlayer/PlayerUI" unique_id=917183301]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_dbd75")
-script = ExtResource("11_dbd75")
+[node name="AllySpawn4" type="Marker3D" parent="Allies" unique_id=1022900149 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, -29.25)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+is_ally = true
+display_name = "FredMustard"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1543316052]
 
-[node name="Combatant" type="CharacterBody3D" parent="Enemies" unique_id=292350944 node_paths=PackedStringArray("visibility_notifier", "audio_player", "sprite", "flash_sprite", "vagarant_player", "targeting_handle", "shooting_ray")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.075, 1.375, -1.325)
-script = ExtResource("9_3r77n")
-visibility_notifier = NodePath("VisibleOnScreenNotifier3D")
-audio_player = NodePath("AudioStreamPlayer3D")
-sprite = NodePath("Sprite")
-flash_sprite = NodePath("MuzzleFlashSprite")
-vagarant_player = NodePath("../../Allies/VagarantPlayer")
+[node name="EnemySpawn1" type="Marker3D" parent="Enemies" unique_id=417723061 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8, 0, 40.95)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+display_name = "Enemy1"
 targeting_handle = NodePath("../../TargetingHandle")
-shooting_ray = NodePath("ShootingRay")
-metadata/_custom_type_script = "uid://bjlxw13bd1m2c"
+event_handle = NodePath("../../EventHandle")
 
-[node name="MuzzleFlashSprite" type="Sprite3D" parent="Enemies/Combatant" unique_id=115556157]
-transform = Transform3D(0.010352764, -7.450581e-11, -0.03863704, -0.0039789765, 0.039787326, -0.001066164, 0.03843161, 0.00411934, 0.010297719, 0, 0.70000005, 0)
-flip_h = true
-pixel_size = 0.02
-billboard = 2
-render_priority = 1
-texture = ExtResource("6_5wva0")
-region_enabled = true
-region_rect = Rect2(-240, 168, 744, 192)
+[node name="EnemySpawn2" type="Marker3D" parent="Enemies" unique_id=1819030424 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.375, 0, 23.4)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+display_name = "Enemy2"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="Sprite" type="Sprite3D" parent="Enemies/Combatant" unique_id=2005042674]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-billboard = 2
-texture = ExtResource("9_fln13")
+[node name="EnemySpawn3" type="Marker3D" parent="Enemies" unique_id=736125275 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.875, 0, 7.3)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+display_name = "Enemy3"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Enemies/Combatant" unique_id=479315059]
-aabb = AABB(-0.275, -0.625, -0.425, 0.55, 1.25, 0.85)
+[node name="EnemySpawn4" type="Marker3D" parent="Enemies" unique_id=525813106 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.45, 0, -10.2)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+display_name = "Enemy4"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enemies/Combatant" unique_id=2119965775]
-stream = ExtResource("9_ankjw")
-max_polyphony = 10
+[node name="EnemySpawn5" type="Marker3D" parent="Enemies" unique_id=1656192961 node_paths=PackedStringArray("targeting_handle", "event_handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.975, 0, -38.45)
+script = ExtResource("14_5j4vy")
+combatant_scene = ExtResource("13_jt3j1")
+player_scene = ExtResource("6_kwihj")
+display_name = "Enemy5"
+targeting_handle = NodePath("../../TargetingHandle")
+event_handle = NodePath("../../EventHandle")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Combatant" unique_id=1334247093]
-shape = SubResource("CapsuleShape3D_jt3j1")
-
-[node name="ShootingRay" type="RayCast3D" parent="Enemies/Combatant" unique_id=1765290206]
+[connection signal="enemies_defeated" from="TargetingHandle" to="EventHandle" method="_on_enemies_defeated"]
+[connection signal="combatant_died" from="EventHandle" to="TargetingHandle" method="_on_combatant_dead"]
+[connection signal="combatant_died" from="EventHandle" to="QuipPlayer" method="_on_combatant_died"]
+[connection signal="combatant_spawned" from="EventHandle" to="TargetingHandle" method="register_combatant"]
+[connection signal="match_ended" from="EventHandle" to="." method="_on_match_finished"]
+[connection signal="match_ended" from="EventHandle" to="UI" method="_on_match_ended"]
+[connection signal="round_ended" from="EventHandle" to="UI" method="_on_round_ended"]
+[connection signal="round_started" from="EventHandle" to="UI" method="_on_round_started"]
+[connection signal="menu_shown" from="UI" to="EventHandle" method="free_combatants"]
+[connection signal="play_pressed" from="UI" to="EventHandle" method="start_match"]
+[connection signal="quit_pressed" from="UI" to="." method="exit"]
+[connection signal="pressed" from="UI/Menu/PlayButton" to="UI" method="_on_play_button_pressed"]
+[connection signal="visibility_changed" from="UI/Menu/PlayButton" to="UI" method="_on_play_button_visibility_changed"]
+[connection signal="pressed" from="UI/Menu/QuitButton" to="UI" method="_on_quit_button_pressed"]

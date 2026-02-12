@@ -24,10 +24,10 @@ func _on_play() -> void:
 	stream.finished.connect(_on_stream_finished, CONNECT_ONE_SHOT)
 
 func _on_stream_finished() -> void:
-	tv_cam.clear_current()
+	Global.player.make_camera_current()
 	Global.player.set_state("Moving")
 	dvd_interactable.disabled = false
 	stream.visible = false
 
-func tween_camera(start_camera: Camera3D, end_camera: Camera3D) -> void:
-	pass
+#func tween_camera(start_camera: Camera3D, end_camera: Camera3D) -> void:
+	#pass

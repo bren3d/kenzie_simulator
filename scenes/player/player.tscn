@@ -243,8 +243,9 @@ script = ExtResource("10_ugbui")
 camera_action = NodePath("../../DeadCameraAction")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
-[node name="Cutscene" type="Node" parent="StateMachine" unique_id=1978038731]
+[node name="Cutscene" type="Node" parent="StateMachine" unique_id=1978038731 node_paths=PackedStringArray("quest_ui")]
 script = ExtResource("11_fcs02")
+quest_ui = NodePath("../../UI/QuestUI")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
 [node name="cough" type="Node" parent="." unique_id=1564435469]
