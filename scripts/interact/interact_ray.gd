@@ -7,6 +7,7 @@ signal hover_changed(obj: Object)
 @export var exceptions: Array[CollisionObject3D]
 @export var interaction_label: Label
 @export var interaction_texture_rect: TextureRect
+@export var message_texture_rect: TextureRect
 
 var is_interaction_enabled: bool = true
 
@@ -61,3 +62,12 @@ func _physics_process(delta: float) -> void:
 
 func can_interact() -> bool:
 	return hovered_interactable != null
+
+func set_interaction_text(text: String) -> void:
+	interaction_label.text = text
+	
+func set_interaction_icon(icon: Texture) -> void:
+	interaction_texture_rect.texture = icon
+
+func set_message_icon(icon: Texture) -> void:
+	message_texture_rect.texture = icon

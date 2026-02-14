@@ -55,6 +55,7 @@ metadata/_custom_type_script = "uid://bcgef6mdo78ue"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1281814579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+current = true
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D" unique_id=734709638]
 unique_name_in_owner = true
@@ -71,7 +72,7 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 spot_angle_attenuation = 0.4
 
-[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=335738337 node_paths=PackedStringArray("exceptions", "interaction_label", "interaction_texture_rect")]
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=335738337 node_paths=PackedStringArray("exceptions", "interaction_label", "interaction_texture_rect", "message_texture_rect")]
 unique_name_in_owner = true
 visible = false
 target_position = Vector3(0, 0, -4096)
@@ -79,8 +80,9 @@ collision_mask = 7
 collide_with_areas = true
 script = ExtResource("2_qek5x")
 exceptions = [NodePath("../..")]
-interaction_label = NodePath("../../UI/InteractUI/InteractLabel")
+interaction_label = NodePath("../../UI/InteractUI/InteractLabelHbox/InteractLabel")
 interaction_texture_rect = NodePath("../../UI/InteractUI/InteractIcon")
+message_texture_rect = NodePath("../../UI/InteractUI/InteractLabelHbox/MessageIcon")
 
 [node name="FloorRaycast" type="RayCast3D" parent="." unique_id=1975898283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32500002, 0)
@@ -176,27 +178,35 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="InteractLabel" type="Label" parent="UI/InteractUI" unique_id=1015325690]
-material = ExtResource("3_qek5x")
+[node name="InteractLabelHbox" type="HBoxContainer" parent="UI/InteractUI" unique_id=791745205]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -320.0
-offset_top = 4.0
 offset_right = 320.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MessageIcon" type="TextureRect" parent="UI/InteractUI/InteractLabelHbox" unique_id=1547498162]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="InteractLabel" type="Label" parent="UI/InteractUI/InteractLabelHbox" unique_id=1015325690]
+material = ExtResource("3_qek5x")
+layout_mode = 2
 size_flags_vertical = 1
 theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 0
 horizontal_alignment = 1
-vertical_alignment = 2
-clip_text = true
-metadata/_edit_lock_ = true
+vertical_alignment = 1
 
 [node name="InteractIcon" type="TextureRect" parent="UI/InteractUI" unique_id=556663906]
 custom_minimum_size = Vector2(16, 16)

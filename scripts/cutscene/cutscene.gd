@@ -10,10 +10,10 @@ signal finished
 
 var is_active: bool = false
 
-func _ready() -> void:
-	set_process_input(false)
-	if not Engine.is_editor_hint() and play_on_ready:
-		play()
+#func _ready() -> void:
+	#set_process_input(false)
+	#if not Engine.is_editor_hint() and play_on_ready:
+		#play()
 
 ## Will change player state to "Cutscene"
 func play() -> void:
@@ -42,3 +42,11 @@ func _input(event: InputEvent) -> void:
 		skip()
 		get_viewport().set_input_as_handled()
 		
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_READY:
+			set_process_input(false)
+			if not Engine.is_editor_hint() and play_on_ready:
+				play()
+	

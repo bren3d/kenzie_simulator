@@ -21,7 +21,6 @@ func enter() -> void:
 func exit() -> void:
 	player.unpause_timers()
 
-
 func update_physics_process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
 	player.velocity.x = move_toward(player.velocity.x, 0.0, player.ACCELERATION * delta)

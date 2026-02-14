@@ -21,7 +21,6 @@ extends Cutscene
 
 
 func _ready() -> void:
-	super()
 	if Engine.is_editor_hint(): return
 	list.hide()
 	list_interactable.disabled = true

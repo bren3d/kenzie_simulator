@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c4aso6h6vxil"
+path="res://.godot/imported/deer_death.dialogue-4049f9ff8224ca203d68e927f7423a9d.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/deer_death.dialogue"
+dest_files=["res://.godot/imported/deer_death.dialogue-4049f9ff8224ca203d68e927f7423a9d.tres"]
+
+[params]
+
+defaults=true

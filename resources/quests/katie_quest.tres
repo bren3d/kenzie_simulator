@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://by1b1usjvdcv1"]
+
+[ext_resource type="Script" uid="uid://ca2qxwleqmgfp" path="res://scripts/quest/quest.gd" id="1_uot0m"]
+[ext_resource type="Script" uid="uid://dd1w40k58fh2o" path="res://scripts/quest/task.gd" id="2_47eq5"]
+
+[sub_resource type="Resource" id="Resource_ccfva"]
+script = ExtResource("2_47eq5")
+task_name = "investigate"
+task_display_string = "Investigate Craig's Death"
+
+[sub_resource type="Resource" id="Resource_mv4rg"]
+script = ExtResource("2_47eq5")
+task_name = "kill_katie"
+task_display_string = "Kill Katie"
+priority = 1
+hide_until_started = true
+
+[resource]
+resource_name = "Avenge Craig"
+script = ExtResource("1_uot0m")
+quest_name = "Avenge Craig"
+tasks = Array[ExtResource("2_47eq5")]([SubResource("Resource_ccfva"), SubResource("Resource_mv4rg")])
+metadata/_custom_type_script = "uid://ca2qxwleqmgfp"

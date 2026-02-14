@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://5mnmtore2adp"]
+
+[ext_resource type="Texture2D" uid="uid://c108lf2na6dmt" path="res://assets/textures/materials/floor/carpet_lightgray_01.png" id="1_dgf3a"]
+[ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="3_atjq5"]
+[ext_resource type="Texture2D" uid="uid://c7hekse0l8lgy" path="res://assets/textures/materials/door_store_01.png" id="3_i4fbv"]
+[ext_resource type="PackedScene" uid="uid://bfgrqdem3vl0c" path="res://scenes/boss/cat/cat.tscn" id="4_0xsra"]
+[ext_resource type="Material" uid="uid://dhi7vhj7cg483" path="res://resources/materials/blood.tres" id="4_iva7r"]
+[ext_resource type="PackedScene" uid="uid://bsghxoswwx4ge" path="res://scenes/npc/katie/katie.tscn" id="5_iva7r"]
+[ext_resource type="Script" uid="uid://ccm51x52qgmsm" path="res://scenes/boss/cat/cat_spawner.gd" id="6_wf233"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dq6vu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdkbu"]
+next_pass = ExtResource("4_iva7r")
+albedo_color = Color(0.4322917, 0.1798753, 0.038275834, 1)
+albedo_texture = ExtResource("1_dgf3a")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wf233"]
+size = Vector3(0.1, 1.025, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iva7r"]
+albedo_color = Color(0.8125, 0.76383466, 0.76383466, 1)
+albedo_texture = ExtResource("3_i4fbv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i4fbv"]
+material = SubResource("StandardMaterial3D_iva7r")
+size = Vector2(0.8, 1)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4fbv"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wf233"]
+material = SubResource("StandardMaterial3D_i4fbv")
+size = Vector2(0.8, 1)
+orientation = 0
+
+[node name="boss" type="Node3D" unique_id=1477198617]
+
+[node name="Environment" type="Node3D" parent="." unique_id=1877800376]
+
+[node name="Floor" type="StaticBody3D" parent="Environment" unique_id=1207434331]
+collision_layer = 33
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor" unique_id=1616764817]
+shape = SubResource("WorldBoundaryShape3D_dq6vu")
+
+[node name="Wall1" type="StaticBody3D" parent="Environment" unique_id=268472984]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall1" unique_id=1487409680]
+shape = SubResource("WorldBoundaryShape3D_dq6vu")
+
+[node name="Wall2" type="StaticBody3D" parent="Environment" unique_id=806655497]
+transform = Transform3D(4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 0, -3.821371e-15, -8.742278e-08, -1, -15, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall2" unique_id=1487613896]
+shape = SubResource("WorldBoundaryShape3D_dq6vu")
+
+[node name="Wall3" type="StaticBody3D" parent="Environment" unique_id=1703957641]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall3" unique_id=39909580]
+shape = SubResource("WorldBoundaryShape3D_dq6vu")
+
+[node name="Wall4" type="StaticBody3D" parent="Environment" unique_id=676690556]
+transform = Transform3D(-5.7320566e-15, -1.3113416e-07, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, 1.3113416e-07, 0, 0, 30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall4" unique_id=1704079710]
+shape = SubResource("WorldBoundaryShape3D_dq6vu")
+
+[node name="Room" type="CSGBox3D" parent="Environment" unique_id=501321941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+flip_faces = true
+size = Vector3(30, 6, 60)
+material = SubResource("StandardMaterial3D_tdkbu")
+
+[node name="Catdoor" type="Node3D" parent="Environment/Room" unique_id=725920118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.949999, -1.9250002, 25.25)
+
+[node name="CatDoor" type="HingeJoint3D" parent="Environment/Room/Catdoor" unique_id=1330319061]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+node_a = NodePath("RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 2.268928
+angular_limit/lower = 0.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Environment/Room/Catdoor/CatDoor" unique_id=1450046916]
+collision_layer = 0
+collision_mask = 16
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+can_sleep = false
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/Catdoor/CatDoor/RigidBody3D" unique_id=2075812622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_wf233")
+
+[node name="CatdoorMesh" type="MeshInstance3D" parent="Environment/Room/Catdoor/CatDoor/RigidBody3D" unique_id=604740007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_i4fbv")
+skeleton = NodePath("../../../..")
+
+[node name="HoleMesh" type="MeshInstance3D" parent="Environment/Room/Catdoor" unique_id=930868922]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.024000168, -0.5, 0)
+mesh = SubResource("PlaneMesh_wf233")
+skeleton = NodePath("../CatDoor")
+
+[node name="CatSpawnEast" type="Marker3D" parent="Environment/Room/Catdoor" unique_id=1069991504]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.75, -1.0749998, -1.9073486e-06)
+
+[node name="CatdoorWest" type="Node3D" parent="Environment/Room" unique_id=53673329]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -14.950001, -1.9250002, 25.25)
+
+[node name="CatDoor" type="HingeJoint3D" parent="Environment/Room/CatdoorWest" unique_id=2119207228]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+node_a = NodePath("RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 2.268928
+angular_limit/lower = 0.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Environment/Room/CatdoorWest/CatDoor" unique_id=1587348744]
+collision_layer = 0
+collision_mask = 16
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+can_sleep = false
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/CatdoorWest/CatDoor/RigidBody3D" unique_id=670757799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_wf233")
+
+[node name="CatdoorMesh" type="MeshInstance3D" parent="Environment/Room/CatdoorWest/CatDoor/RigidBody3D" unique_id=807472724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_i4fbv")
+skeleton = NodePath("../../../..")
+
+[node name="HoleMesh" type="MeshInstance3D" parent="Environment/Room/CatdoorWest" unique_id=1830660653]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.024000168, -0.5, 0)
+mesh = SubResource("PlaneMesh_wf233")
+skeleton = NodePath("../CatDoor")
+
+[node name="CatSpawnWest" type="Marker3D" parent="Environment/Room/CatdoorWest" unique_id=1396744505]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.75, -1.0749998, -1.9073486e-06)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment" unique_id=112183795]
+transform = Transform3D(1, 0, 0, 0, 0.25881904, 0.9659259, 0, -0.9659259, 0.25881904, 0, 10, 25)
+spot_range = 44.0
+spot_attenuation = -0.86
+spot_angle = 60.748608
+
+[node name="Player" parent="." unique_id=1328712720 instance=ExtResource("3_atjq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29)
+
+[node name="Cats" type="Node3D" parent="." unique_id=334351272]
+
+[node name="PatrolPoints" type="Node3D" parent="Cats" unique_id=34992481]
+
+[node name="PatrolPoint1" type="Marker3D" parent="Cats/PatrolPoints" unique_id=1379621554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 24.25)
+
+[node name="PatrolPoint2" type="Marker3D" parent="Cats/PatrolPoints" unique_id=478352996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 24.25)
+
+[node name="CatSpawner" type="Node" parent="Cats" unique_id=1977298540 node_paths=PackedStringArray("spawn_locations", "patrol_points")]
+script = ExtResource("6_wf233")
+cat_scene = ExtResource("4_0xsra")
+spawn_locations = [NodePath("../../Environment/Room/Catdoor/CatSpawnEast"), NodePath("../../Environment/Room/CatdoorWest/CatSpawnWest")]
+patrol_points = [NodePath("../PatrolPoints/PatrolPoint1"), NodePath("../PatrolPoints/PatrolPoint2")]
+cat_spawn_delay_sec = null
+max_cat_count = null
+metadata/_custom_type_script = "uid://ccm51x52qgmsm"
+
+[node name="Katie" parent="." unique_id=424700864 instance=ExtResource("5_iva7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.25)

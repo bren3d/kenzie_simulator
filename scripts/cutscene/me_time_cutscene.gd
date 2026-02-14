@@ -9,7 +9,6 @@ extends Cutscene
 @export var me_time_quest: Quest
 
 func _ready() -> void:
-	super()
 	if not Engine.is_editor_hint():
 		list_quest.finished.connect(play, CONNECT_ONE_SHOT)
 

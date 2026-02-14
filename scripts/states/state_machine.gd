@@ -122,6 +122,9 @@ func on_mouse_entered() -> void:
 func on_mouse_exited() -> void:
 	if current_state: current_state.on_mouse_exited()
 
+func update_integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	if current_state: current_state.update_integrate_forces(state)
+
 #endregion
 
 func _validate_property(property: Dictionary) -> void:

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://pga6lccugk1d"]
+
+[ext_resource type="Texture2D" uid="uid://c2bbrywxabc7a" path="res://resources/models/katie_texture_bloody.png" id="1_bl0pp"]
+
+[resource]
+resource_name = "default"
+cull_mode = 2
+albedo_texture = ExtResource("1_bl0pp")

@@ -26,7 +26,6 @@ var camera_sensitivity: float = 0.7
 @onready var interact_ray: InteractRay = $Camera3D/InteractRay
 
 var input_active: bool = true: set = set_input_active
-#var camera_active: bool = true
 
 var sprinting: bool = false
 var input_dir: Vector2 = Vector2.ZERO

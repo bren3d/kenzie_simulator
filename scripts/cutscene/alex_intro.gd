@@ -20,7 +20,6 @@ extends Cutscene
 
 
 func _ready() -> void:
-	super()
 	if Engine.is_editor_hint(): return
 	alex.visible = false
 	alex.global_transform = alex_hidden_marker.global_transform

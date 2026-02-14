@@ -143,8 +143,14 @@
 [ext_resource type="Script" uid="uid://cd877lsf0gf6n" path="res://scripts/cutscene/tv_cutscene.gd" id="135_xcb1r"]
 [ext_resource type="Script" uid="uid://dd1w40k58fh2o" path="res://scripts/quest/task.gd" id="136_5e5bb"]
 [ext_resource type="Script" uid="uid://6o4bbpcbg0ps" path="res://scripts/cutscene/vagarant_cutscene.gd" id="140_fbk1w"]
+[ext_resource type="AudioStream" uid="uid://c2jsh06chmum1" path="res://assets/sounds/horse_whinny.wav" id="142_2avaa"]
 [ext_resource type="Script" uid="uid://bbrj1aeanpp8" path="res://scripts/cutscene/craig_death_cutscene.gd" id="142_r41mk"]
-[ext_resource type="Shader" uid="uid://caeabqcmlvso2" path="res://scripts/shaders/fade.gdshader" id="143_ivg7c"]
+[ext_resource type="Material" uid="uid://dhi7vhj7cg483" path="res://resources/materials/blood.tres" id="143_ivg7c"]
+[ext_resource type="AudioStream" uid="uid://bkrgtvlnvy8f3" path="res://assets/sounds/gore_splat.wav" id="143_pipw0"]
+[ext_resource type="AudioStream" uid="uid://tmug4ud8cbhy" path="res://assets/sounds/screech.mp3" id="144_m0boy"]
+[ext_resource type="Resource" uid="uid://c4aso6h6vxil" path="res://resources/dialogue/deer_death.dialogue" id="145_pipw0"]
+[ext_resource type="AudioStream" uid="uid://qh423kmnerb8" path="res://assets/sounds/suspense_horror.wav" id="145_qc8qu"]
+[ext_resource type="Resource" uid="uid://by1b1usjvdcv1" path="res://resources/quests/katie_quest.tres" id="146_m0boy"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -454,48 +460,9 @@ script = ExtResource("136_5e5bb")
 task_name = "computer_games"
 task_display_string = "Play Computer Games"
 
-[sub_resource type="Gradient" id="Gradient_iori0"]
-colors = PackedColorArray(0.5625, 0.1538086, 0.1538086, 1, 0.25490198, 0.007843138, 0.007843138, 0)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r41mk"]
-seed = 1
-frequency = 0.0201
-fractal_lacunarity = 1.899
-fractal_gain = 0.601
-fractal_weighted_strength = 0.32
-cellular_distance_function = 3
-cellular_return_type = 4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ivg7c"]
-width = 128
-height = 128
-noise = SubResource("FastNoiseLite_r41mk")
-color_ramp = SubResource("Gradient_iori0")
-in_3d_space = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivg7c"]
-render_priority = 0
-shader = ExtResource("143_ivg7c")
-shader_parameter/fade_end = 0.2
-shader_parameter/fade_size = 0.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iori0"]
-next_pass = SubResource("ShaderMaterial_ivg7c")
-transparency = 1
-albedo_texture = SubResource("NoiseTexture2D_ivg7c")
-
-[sub_resource type="QuadMesh" id="QuadMesh_r41mk"]
-material = SubResource("StandardMaterial3D_iori0")
-orientation = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6anrw"]
-render_priority = 0
-shader = ExtResource("143_ivg7c")
-shader_parameter/fade_end = 0.2
-shader_parameter/fade_size = 0.2
-
 [sub_resource type="QuadMesh" id="QuadMesh_2avaa"]
-material = SubResource("ShaderMaterial_6anrw")
+material = ExtResource("143_ivg7c")
+size = Vector2(3, 3)
 orientation = 1
 
 [node name="Basement" type="Node3D" unique_id=1379192347]
@@ -989,7 +956,6 @@ transform = Transform3D(-0.49240404, 0, -0.08682393, -0.1302359, -3.278354e-08, 
 
 [node name="Screen" type="MeshInstance3D" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1" unique_id=873579738]
 transform = Transform3D(0.66666657, 0, 1.8626451e-07, 0, 0.6666667, 0, -1.8626451e-07, 0, 0.66666657, 0, 0.324, 0.005)
-visible = false
 mesh = SubResource("QuadMesh_h1gqc")
 skeleton = NodePath("")
 
@@ -1001,7 +967,6 @@ size = Vector2i(640, 360)
 
 [node name="Vagarant" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantViewport" unique_id=562130839 instance=ExtResource("25_ieh3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
-visible = false
 
 [node name="VagarantCamera" type="Camera3D" parent="Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen" unique_id=776625042]
 transform = Transform3D(0.9999998, 2.3044378e-16, 2.9802322e-08, -1.8197973e-23, 0.9999999, -4.6649874e-15, -4.4703484e-08, 1.2705494e-21, 0.9999999, 6.043911e-05, 0, 0.43156528)
@@ -1962,7 +1927,7 @@ omni_attenuation = 0.5
 transform = Transform3D(0.34202024, 0, 0.93969285, 0, 1, 0, -0.93969285, 0, 0.34202024, -3.1000004, 1.05, 11.35)
 camera_sensitivity = 2.0
 
-[node name="katie" parent="." unique_id=358948426 instance=ExtResource("98_gmiao")]
+[node name="katie" parent="." unique_id=424700864 instance=ExtResource("98_gmiao")]
 transform = Transform3D(1.2999997, 0, 2.9802322e-07, 0, 1.2999996, 0, -2.9802322e-07, 0, 1.2999997, 1.0583317, 0.049213387, 10.479774)
 
 [node name="Asuka2" parent="." unique_id=146635420 instance=ExtResource("24_inn26")]
@@ -1973,7 +1938,6 @@ metadata/_edit_lock_ = true
 
 [node name="WakeUpCutscene" type="Node3D" parent="Cutscenes" unique_id=1030811251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="WakeUpCutscene" type="Node" parent="Cutscenes/WakeUpCutscene" unique_id=1943707566 node_paths=PackedStringArray("camera_target", "camera_action", "light_switch_interactable")]
@@ -1984,7 +1948,6 @@ camera_target = NodePath("../WakeUpCameraTarget")
 camera_action = NodePath("../CameraAction")
 wake_up_quest = ExtResource("103_v54r6")
 light_switch_interactable = NodePath("../../../Environment/Bedroom/Room/Decor/LightSwitch/Interactable")
-play_on_ready = true
 
 [node name="CameraAction" type="Marker3D" parent="Cutscenes/WakeUpCutscene" unique_id=1117431771]
 transform = Transform3D(0.70710665, 0.7071068, 0, -0.70710677, 0.7071067, 0, 0, 0, 0.99999994, 0.9000001, 1.7, 0)
@@ -2088,7 +2051,6 @@ metadata/_custom_type_script = "uid://nwwqfha6002f"
 
 [node name="AlexIntro" type="Node3D" parent="Cutscenes" unique_id=823171256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.725, 0, 13.875)
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="AlexIntroCutscene" type="Node" parent="Cutscenes/AlexIntro" unique_id=1791817156 node_paths=PackedStringArray("trigger_area", "alex", "alex_hidden_marker", "start_marker", "lean_marker", "cam_action")]
@@ -2175,7 +2137,7 @@ giggle_echo = ExtResource("132_7xxa2")
 breathing = ExtResource("132_h8ley")
 start = NodePath("../Start")
 
-[node name="Katie" parent="Cutscenes/KatieIntro" unique_id=19462446 instance=ExtResource("98_gmiao")]
+[node name="Katie" parent="Cutscenes/KatieIntro" unique_id=645393688 instance=ExtResource("98_gmiao")]
 transform = Transform3D(-0.6499999, 0, -1.1258328, 0, 1.2999996, 0, 1.1258328, 0, -0.6499999, -6.775, 0.049213447, 17.499998)
 
 [node name="Start" type="Marker3D" parent="Cutscenes/KatieIntro" unique_id=696217272]
@@ -2249,26 +2211,62 @@ computer_cam = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/Pl
 [node name="DeerDeath" type="Node3D" parent="Cutscenes" unique_id=37328103]
 transform = Transform3D(0.73536146, 0, -0.67321616, 0, 1, 0, 0.61704147, 0, 0.8023079, 5.7, 0.07261145, 1.8249999)
 
-[node name="CraigDeathCutscene" type="Node" parent="Cutscenes/DeerDeath" unique_id=2093745463 node_paths=PackedStringArray("deer", "deer_target_location", "lights")]
+[node name="CraigDeathCutscene" type="Node" parent="Cutscenes/DeerDeath" unique_id=2093745463 node_paths=PackedStringArray("deer", "deer_target_location", "lights", "spotlight", "blood_splat", "cam", "katie", "door", "katie_start_location", "katie_target_location", "dialogue_action", "audio_stream")]
 script = ExtResource("142_r41mk")
 deer = NodePath("../Deer")
 deer_target_location = NodePath("../DeerTarget")
 lights = NodePath("../../../Lights")
+spotlight = NodePath("../CraigDeathCam/CraigDeathSpotlight")
+blood_splat = [NodePath("../BloodSplat")]
+cam = NodePath("../CraigDeathCam")
+katie = NodePath("../Katie")
+door = NodePath("../../../Environment/Basement/Holes/WorkRoom/Door")
+katie_start_location = NodePath("../KatieStart")
+katie_target_location = NodePath("../KatieTarget")
+katie_movement_duration_sec = 1.0
+dialogue_action = NodePath("../../../Environment/Basement/Decor/Animals/DeerCage/DialogueAction")
+audio_stream = NodePath("../Katie/CraigAudioStream")
+sfx_whinny = ExtResource("142_2avaa")
+sfx_gore_splat = ExtResource("143_pipw0")
+sfx_screech = ExtResource("144_m0boy")
+music = ExtResource("145_qc8qu")
+dialogue_resource = ExtResource("145_pipw0")
+quest = ExtResource("146_m0boy")
 
 [node name="Deer" parent="Cutscenes/DeerDeath" unique_id=1477389057 instance=ExtResource("25_ukdwj")]
 transform = Transform3D(1.8751051, 0, 0, 0, 1.476, 0, 0, 0, 1.9096024, 0, 0, 0)
 
-[node name="DeerTarget" type="Marker3D" parent="Cutscenes/DeerDeath" unique_id=474580369]
-transform = Transform3D(0.09606732, 0.538064, 1.7755034, -1.8568567, 0.2054195, 0, -0.24263838, -1.3589945, 0.7029716, 0, 0, 0)
-
-[node name="BloodSplat" type="MeshInstance3D" parent="Cutscenes/DeerDeath" unique_id=1907173987]
+[node name="BloodSplat" type="MeshInstance3D" parent="Cutscenes/DeerDeath" unique_id=160729290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 visible = false
-mesh = SubResource("QuadMesh_r41mk")
-
-[node name="BloodSplat2" type="MeshInstance3D" parent="Cutscenes/DeerDeath" unique_id=160729290]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 mesh = SubResource("QuadMesh_2avaa")
+
+[node name="DeerTarget" type="Marker3D" parent="Cutscenes/DeerDeath" unique_id=474580369]
+transform = Transform3D(0.2557868, 1.4148569, 0.37054503, -1.8568566, 0.20541959, -1.2040032e-07, -0.052560806, -0.48137942, 1.8471663, -0.67968655, 5.2154064e-08, 0.1488154)
+
+[node name="KatieStart" type="Marker3D" parent="Cutscenes/DeerDeath" unique_id=1614869054]
+transform = Transform3D(0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071069, 0, 0.70710695, 2.4608097, 0, 2.6879697)
+
+[node name="KatieTarget" type="Marker3D" parent="Cutscenes/DeerDeath" unique_id=429067573]
+transform = Transform3D(0.25578684, 1.4148569, 0.3705451, -1.8568566, 0.20541959, -1.2040032e-07, -0.0525608, -0.48137945, 1.8471663, 7.74771, 5.2154064e-08, 6.754692)
+
+[node name="CraigDeathCam" type="Camera3D" parent="Cutscenes/DeerDeath" unique_id=72347454]
+transform = Transform3D(0.64569056, 0.08412883, -0.8105815, -0.020372069, 0.99599063, 0.08710624, 0.7582788, -0.035359807, 0.58233124, -3.832, 2, 7.808)
+cull_mask = 1048573
+fov = 27.0
+
+[node name="CraigDeathSpotlight" type="SpotLight3D" parent="Cutscenes/DeerDeath/CraigDeathCam" unique_id=2022798915]
+visible = false
+spot_range = 30.0
+spot_angle = 28.73
+spot_angle_attenuation = 0.43527538
+
+[node name="Katie" parent="Cutscenes/DeerDeath" unique_id=1951968506 instance=ExtResource("98_gmiao")]
+transform = Transform3D(0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071069, 0, 0.70710695, 2.4608097, 0, 2.6879697)
+
+[node name="CraigAudioStream" type="AudioStreamPlayer3D" parent="Cutscenes/DeerDeath/Katie" unique_id=1646271495]
+transform = Transform3D(0.7366109, 0, -0.6751463, 0, 1, 0, 0.7366108, 0, 0.67514616, 0.16062593, 0, -3.6407363)
+unit_size = 5.0
 
 [node name="Quests" type="Node3D" parent="." unique_id=1322436249]
 metadata/_edit_lock_ = true
@@ -2308,10 +2306,6 @@ editor_only = true
 [node name="EditorLight2" type="DirectionalLight3D" parent="EditorLights" unique_id=585292310]
 transform = Transform3D(-0.965926, 0.224144, -0.12941, 0, 0.5, 0.866025, 0.258819, 0.836516, -0.482963, -26.2, 9.6, 16.1)
 editor_only = true
-
-[node name="OmniLight3D" type="OmniLight3D" parent="EditorLights" unique_id=270141707]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5250001, 2.85, 12.9)
-shadow_enabled = true
 
 [node name="AlexHiddenMarker" type="Marker3D" parent="." unique_id=1671755126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)

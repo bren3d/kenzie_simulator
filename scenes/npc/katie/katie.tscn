@@ -1,20 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsghxoswwx4ge"]
+[gd_scene format=3 uid="uid://bsghxoswwx4ge"]
 
 [ext_resource type="PackedScene" uid="uid://dfp16b22utb70" path="res://resources/models/katie.blend" id="1_6ky5s"]
+[ext_resource type="Script" uid="uid://m8pdwueyylmr" path="res://scenes/npc/katie/katie.gd" id="2_p7d5s"]
+[ext_resource type="Texture2D" uid="uid://cwa7al53u87pt" path="res://resources/models/katie_texture.png" id="3_fbhxk"]
+[ext_resource type="Material" uid="uid://pga6lccugk1d" path="res://resources/models/default.tres" id="3_u7d11"]
+[ext_resource type="Texture2D" uid="uid://c2bbrywxabc7a" path="res://resources/models/katie_texture_bloody.png" id="4_u7d11"]
 
-[node name="Katie" instance=ExtResource("1_6ky5s")]
+[node name="Katie" unique_id=424700864 node_paths=PackedStringArray("anim_player") instance=ExtResource("1_6ky5s")]
+script = ExtResource("2_p7d5s")
+anim_player = NodePath("AnimationPlayer")
+mesh_material = ExtResource("3_u7d11")
+default_texture = ExtResource("3_fbhxk")
+bloody_texture = ExtResource("4_u7d11")
+crabwalk_speed = 2.0
 
-[node name="Skeleton3D" parent="rig" index="0"]
-bones/2/position = Vector3(6.140975e-13, 0.19930053, -2.57612e-06)
-bones/4/rotation = Quaternion(-0.1570842, 0.00046924845, 0.0014757013, 0.9875841)
-bones/6/rotation = Quaternion(-0.5433991, 0.31552678, -0.30720404, 0.7146929)
-bones/7/rotation = Quaternion(0.0021857778, 0.14800729, 0.0018889194, 0.988982)
-bones/8/rotation = Quaternion(-0.044659544, 0.050493944, -0.0032744198, 0.99772)
-bones/9/rotation = Quaternion(0.20150812, 0.9061055, 0.34664652, -0.13492043)
-bones/11/rotation = Quaternion(0.18072149, 0.9821286, 0.015550506, -0.050212946)
-bones/13/rotation = Quaternion(-0.52027386, -0.36573523, 0.34527272, 0.69017357)
-bones/14/rotation = Quaternion(0.0022089882, -0.14801006, -0.0025566139, 0.9889801)
-bones/15/rotation = Quaternion(-0.044659514, -0.05049396, 0.0032744068, 0.99772)
-
-[node name="AnimationPlayer" parent="." index="1"]
-autoplay = "idle"
+[node name="AnimationPlayer" parent="." index="1" unique_id=1491067080]
+autoplay = &"idle"

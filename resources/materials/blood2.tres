@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cd0hp677us22s"]
+
+[ext_resource type="Shader" uid="uid://caeabqcmlvso2" path="res://scripts/shaders/fade.gdshader" id="1_qga31"]
+
+[sub_resource type="Gradient" id="Gradient_iori0"]
+colors = PackedColorArray(0.5625, 0.1538086, 0.1538086, 1, 0.25490198, 0.007843138, 0.007843138, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r41mk"]
+seed = 1
+frequency = 0.0201
+fractal_lacunarity = 1.899
+fractal_gain = 0.601
+fractal_weighted_strength = 0.32
+cellular_distance_function = 3
+cellular_return_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ivg7c"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_r41mk")
+color_ramp = SubResource("Gradient_iori0")
+in_3d_space = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qga31")
+shader_parameter/noise = SubResource("NoiseTexture2D_ivg7c")
+shader_parameter/fade_end = 0.47999998927104
+shader_parameter/fade_size = 0.2

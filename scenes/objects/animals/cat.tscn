@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://cfkv5jopdkg0r"]
+[gd_scene format=4 uid="uid://cfkv5jopdkg0r"]
 
 [ext_resource type="Texture2D" uid="uid://cr1cl5060b54" path="res://scenes/objects/textures/Cat_baseColor.png" id="1_0m5i3"]
 
@@ -117,10 +117,10 @@ bind/27/name = &"Bone.020_end_026"
 bind/27/bone = -1
 bind/27/pose = Transform3D(100, 0, 0, 0, 100.00001, 0, 0, 0, 100.00001, 0, 0, 0)
 
-[node name="Cat" type="Node3D"]
+[node name="Cat" type="Node3D" unique_id=1242278147]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="."]
-transform = Transform3D(1, 2.568918e-16, 2.1929316e-16, -2.1929315e-16, 0.9876085, -0.1569378, -2.5689183e-16, 0.1569378, 0.9876085, 6.2198873e-16, 2.8011882, -1.3609011)
+[node name="Skeleton3D" type="Skeleton3D" parent="." unique_id=140358201]
+transform = Transform3D(1, 2.5689183e-16, 2.1929316e-16, -2.1929316e-16, 0.9876085, -0.1569378, -2.5689183e-16, 0.1569378, 0.9876085, 0, 2.8, 0)
 bones/0/name = "_rootJoint"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -318,6 +318,6 @@ bones/27/position = Vector3(5.551115e-17, 0.5747857, 0)
 bones/27/rotation = Quaternion(1.3877788e-17, 1.4889251e-23, -1.323489e-23, 1)
 bones/27/scale = Vector3(1, 1, 1)
 
-[node name="Object_7" type="MeshInstance3D" parent="Skeleton3D"]
+[node name="Object_7" type="MeshInstance3D" parent="Skeleton3D" unique_id=1368070540]
 mesh = SubResource("ArrayMesh_s13hj")
 skin = SubResource("Skin_qor1t")

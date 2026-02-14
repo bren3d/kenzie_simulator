@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bfgrqdem3vl0c"]
+
+[ext_resource type="Script" uid="uid://cqqlqyrlhycij" path="res://scenes/boss/cat/cat.gd" id="1_okfk7"]
+[ext_resource type="PackedScene" uid="uid://c6p0w2ie0wk04" path="res://resources/models/cat.blend" id="2_w7cle"]
+[ext_resource type="Texture2D" uid="uid://bpogy2snhewk7" path="res://assets/icons/icon_projectile.png" id="2_w7ijl"]
+[ext_resource type="Script" uid="uid://bq6bav7hc4c24" path="res://scripts/states/state_machine.gd" id="3_w7cle"]
+[ext_resource type="Texture2D" uid="uid://bp3jm0sxvjmxe" path="res://assets/icons/left_mouse_prompt.png" id="3_wmj8g"]
+[ext_resource type="Script" uid="uid://m2pvgoidhal3" path="res://scenes/boss/cat/rigidbody_movement.gd" id="4_1msk2"]
+[ext_resource type="Script" uid="uid://cb2di8kmc0rvk" path="res://scenes/boss/cat/states/patrol.gd" id="4_dt2e5"]
+[ext_resource type="Script" uid="uid://byg6bne0xxwh5" path="res://scenes/boss/cat/states/frozen.gd" id="7_wmj8g"]
+[ext_resource type="Script" uid="uid://byo8fr3p5ya3r" path="res://scenes/boss/cat/states/kicked.gd" id="8_wphgr"]
+[ext_resource type="AudioStream" uid="uid://cf0byaly1omdt" path="res://assets/sounds/cat_scream1.mp3" id="10_euxrx"]
+[ext_resource type="AudioStream" uid="uid://be2bvjambwc37" path="res://assets/sounds/cat_scream2.mp3" id="11_cd0b0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dt2e5"]
+friction = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cyi85"]
+size = Vector3(0.275, 0.5, 0.85)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dt2e5"]
+radius = 1.5
+
+[node name="Cat" type="RigidBody3D" unique_id=65276031 node_paths=PackedStringArray("anim_player", "state_machine", "kickable_area", "audio_player")]
+collision_layer = 16
+collision_mask = 33
+physics_material_override = SubResource("PhysicsMaterial_dt2e5")
+lock_rotation = true
+linear_velocity = Vector3(0, 0, 100)
+script = ExtResource("1_okfk7")
+anim_player = NodePath("cat/AnimationPlayer")
+state_machine = NodePath("StateMachine")
+kickable_area = NodePath("KickableArea")
+audio_player = NodePath("ScreamAudioStream")
+kick_icon = ExtResource("2_w7ijl")
+input_icon = ExtResource("3_wmj8g")
+metadata/_custom_type_script = "uid://cqqlqyrlhycij"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1898208390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.037499994)
+shape = SubResource("BoxShape3D_cyi85")
+
+[node name="MovementHandle" type="Node" parent="." unique_id=1069513907]
+script = ExtResource("4_1msk2")
+active = true
+target_global_position = Vector3(10, 0, 15)
+
+[node name="cat" parent="." unique_id=297115490 instance=ExtResource("2_w7cle")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="ScreamAudioStream" type="AudioStreamPlayer3D" parent="." unique_id=2139183816]
+
+[node name="KickableArea" type="Area3D" parent="." unique_id=1480299408]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KickableArea" unique_id=1003248001]
+shape = SubResource("SphereShape3D_dt2e5")
+
+[node name="StateMachine" type="Node" parent="." unique_id=2147439323]
+script = ExtResource("3_w7cle")
+initial_state = "patrol"
+metadata/_custom_type_script = "uid://bq6bav7hc4c24"
+
+[node name="patrol" type="Node" parent="StateMachine" unique_id=739985738 node_paths=PackedStringArray("movement")]
+script = ExtResource("4_dt2e5")
+movement = NodePath("../../MovementHandle")
+
+[node name="frozen" type="Node" parent="StateMachine" unique_id=968363666]
+script = ExtResource("7_wmj8g")
+
+[node name="kicked" type="Node" parent="StateMachine" unique_id=537509576]
+script = ExtResource("8_wphgr")
+cat_screams = Array[AudioStream]([ExtResource("10_euxrx"), ExtResource("11_cd0b0")])
+
+[connection signal="movement_finished" from="MovementHandle" to="." method="_on_movement_handle_movement_finished"]
+[connection signal="movement_started" from="MovementHandle" to="." method="_on_movement_handle_movement_started"]
+[connection signal="body_entered" from="KickableArea" to="." method="_on_kickable_area_body_entered"]
+[connection signal="body_exited" from="KickableArea" to="." method="_on_kickable_area_body_exited"]
