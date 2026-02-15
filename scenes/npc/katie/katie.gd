@@ -10,15 +10,11 @@ const DEFAULT_ANIMATION_SPEED: float = 1.0
 @export var crabwalk_speed: float = 1.0:
 	set(val):
 		crabwalk_speed = val
-		anim_player.speed_scale = crabwalk_speed if anim_player.current_animation == &"crabwalk" else DEFAULT_ANIMATION_SPEED
+		if anim_player: 
+			anim_player.speed_scale = crabwalk_speed if anim_player.current_animation == &"crabwalk" else DEFAULT_ANIMATION_SPEED
 
 func _ready() -> void:
 	anim_player.current_animation_changed.connect(_on_animation_changed)
-
-func play_crabwalk() -> void:
-	if Engine.is_editor_hint(): return
-	anim_player.play(&"crabwalk", -1.0, crabwalk_speed)
-	set_texture(bloody_texture)
 
 func set_texture(texture: Texture) -> void:
 	mesh_material.albedo_texture = texture
@@ -39,7 +35,7 @@ func _get_property_list() -> Array[Dictionary]:
 		hint = PROPERTY_HINT_ENUM_SUGGESTION,
 		hint_string = ",".join(anim_player.get_animation_list()) if anim_player else ""
 	})
-
+	
 	return props
 
 func _get(property: StringName) -> Variant:
@@ -51,6 +47,6 @@ func _get(property: StringName) -> Variant:
 func _set(property: StringName, value: Variant) -> bool:
 	match property:
 		&"current_animation" when anim_player:
-			anim_player.play(value)
+			if value: anim_player.play(value)
 			return true
 	return false

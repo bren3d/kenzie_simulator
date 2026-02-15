@@ -197,6 +197,7 @@ metadata/_edit_lock_ = true
 
 [node name="MessageIcon" type="TextureRect" parent="UI/InteractUI/InteractLabelHbox" unique_id=1547498162]
 layout_mode = 2
+mouse_filter = 2
 stretch_mode = 3
 
 [node name="InteractLabel" type="Label" parent="UI/InteractUI/InteractLabelHbox" unique_id=1015325690]
@@ -221,6 +222,7 @@ offset_top = -16.0
 offset_right = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
@@ -315,6 +317,7 @@ far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
 
 [node name="FootstepAudioStream" type="AudioStreamPlayer" parent="." unique_id=1678497294 node_paths=PackedStringArray("player_collider", "floor_raycast")]
+volume_db = 6.0
 max_polyphony = 4
 bus = &"SFX"
 script = ExtResource("17_kvlxm")

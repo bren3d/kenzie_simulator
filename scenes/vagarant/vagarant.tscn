@@ -429,5 +429,4 @@ event_handle = NodePath("../../EventHandle")
 [connection signal="play_pressed" from="UI" to="EventHandle" method="start_match"]
 [connection signal="quit_pressed" from="UI" to="." method="exit"]
 [connection signal="pressed" from="UI/Menu/PlayButton" to="UI" method="_on_play_button_pressed"]
-[connection signal="visibility_changed" from="UI/Menu/PlayButton" to="UI" method="_on_play_button_visibility_changed"]
 [connection signal="pressed" from="UI/Menu/QuitButton" to="UI" method="_on_quit_button_pressed"]

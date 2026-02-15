@@ -36,6 +36,7 @@ func _on_play() -> void:
 	
 	Audio.pause_music(true)
 	door.set_open(false)
+	door.set_locked(true)
 	cam_action.release_focus()
 	tw = create_tween()
 	tw.tween_interval(door.tween_duration_sec)

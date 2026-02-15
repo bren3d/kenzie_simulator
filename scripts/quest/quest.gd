@@ -32,8 +32,8 @@ func advance_task() -> void:
 			t.status = Task.STATUS_IN_PROGRESS
 			task_updated.emit(t)
 	
-	if auto_complete_quest and get_active_tasks().is_empty():
-		finish()
+	#if auto_complete_quest and get_active_tasks().is_empty():
+		#finish()
 
 func start() -> void:
 	advance_task()
@@ -43,9 +43,10 @@ func start() -> void:
 func finish() -> void:
 	finished.emit()
 
+
 ## Returns [code]true[/code] if all tasks are marked as completed,
 ## returns [code]false[/code] otherwise.
-func is_tasks_completed() -> bool:
+func is_completed() -> bool:
 	return tasks.all(func(t: Task) -> bool: return t.status == Task.STATUS_COMPLETED)
 
 func update_task_status(task_name: String, status: int) -> void:
@@ -56,6 +57,9 @@ func set_task_status(t: Task, status: int) -> void:
 	task_updated.emit(t)
 	if auto_advance_tasks and get_active_tasks().is_empty():
 		advance_task()
+	
+	if auto_complete_quest and is_completed():
+		finish()
 
 func add_task_progress(task_name: String, additional_progress: float) -> void:
 	var t := get_task(task_name)

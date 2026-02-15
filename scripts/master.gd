@@ -6,6 +6,7 @@ const TRANSITION_RECT_NAME: String = "MasterTransitionRect"
 const DEBUG_SCENE_PATHS:PackedStringArray = [
 	"res://scenes/world/world.tscn",
 	"res://scenes/basement/basement.tscn",
+	"res://scenes/boss/boss.tscn",
 ]
 
 var scene: Node : set = set_scene, get = get_scene
@@ -97,6 +98,9 @@ func change_scene(node: Node) -> void:
 
 func change_scene_path(path: String) -> void:
 	change_scene(load(path).instantiate())
+
+func change_scene_packed(packed: PackedScene) -> void:
+	change_scene(packed.instantiate())
 
 func _on_root_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo(): return

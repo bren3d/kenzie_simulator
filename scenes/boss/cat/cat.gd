@@ -8,6 +8,9 @@ const ANIM_FROZEN: StringName = &"frozen"
 @export var state_machine: StateMachine
 @export var kickable_area: Area3D
 @export var audio_player: AudioStreamPlayer3D
+@export var blood_explosion_audio_player: AudioStreamPlayer3D
+@export var cat_mesh: Node3D
+@export var particles: GPUParticles3D
 
 @export var patrol_points: Array[Node3D]
 
@@ -20,10 +23,12 @@ const ANIM_FROZEN: StringName = &"frozen"
 @export var kick_icon: Texture
 @export var input_icon: Texture
 
+func explode() -> void:
+	set_state(&"explode")
+
 func play_sound(sfx: AudioStream) -> void:
 	audio_player.stream = sfx
 	audio_player.play()
-
 
 func set_state(state: StringName) -> void:
 	state_machine.set_state(state)

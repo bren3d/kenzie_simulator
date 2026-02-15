@@ -41,6 +41,8 @@ var katie_movement_duration_sec: float = 0.5
 
 @export var quest: Quest
 
+@export var boss_scene: PackedScene
+
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	katie.hide()
@@ -103,7 +105,6 @@ func play_katie_escape() -> void:
 	tw.tween_callback(finish)
 	tw.tween_callback(spotlight.hide)
 	tw.tween_callback(Global.player.set_flashlight_active.bind(true))
-
 
 # TESTING
 func _unhandled_input(event: InputEvent) -> void:

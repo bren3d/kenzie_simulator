@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://5mnmtore2adp"]
 
 [ext_resource type="Texture2D" uid="uid://c108lf2na6dmt" path="res://assets/textures/materials/floor/carpet_lightgray_01.png" id="1_dgf3a"]
+[ext_resource type="Script" uid="uid://be6w1pn4nm0gr" path="res://scenes/boss/boss.gd" id="1_dlpkd"]
+[ext_resource type="AudioStream" uid="uid://d0pe4vshyuhbk" path="res://assets/sounds/intense_horror.wav" id="2_7kbl1"]
 [ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="3_atjq5"]
 [ext_resource type="Texture2D" uid="uid://c7hekse0l8lgy" path="res://assets/textures/materials/door_store_01.png" id="3_i4fbv"]
 [ext_resource type="PackedScene" uid="uid://bfgrqdem3vl0c" path="res://scenes/boss/cat/cat.tscn" id="4_0xsra"]
 [ext_resource type="Material" uid="uid://dhi7vhj7cg483" path="res://resources/materials/blood.tres" id="4_iva7r"]
-[ext_resource type="PackedScene" uid="uid://bsghxoswwx4ge" path="res://scenes/npc/katie/katie.tscn" id="5_iva7r"]
 [ext_resource type="Script" uid="uid://ccm51x52qgmsm" path="res://scenes/boss/cat/cat_spawner.gd" id="6_wf233"]
+[ext_resource type="PackedScene" uid="uid://dcwhgq3mrkwpf" path="res://scenes/boss/boss_katie/boss_katie.tscn" id="7_wf233"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dq6vu"]
 
@@ -36,7 +38,93 @@ material = SubResource("StandardMaterial3D_i4fbv")
 size = Vector2(0.8, 1)
 orientation = 0
 
+[sub_resource type="Curve3D" id="Curve3D_wf233"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_dlpkd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_7kbl1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_2mupd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_p4gry"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_xsifj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10, 0, 0, -1.8, 0, 0, -1.8, 0, 0, -6, 0, 31.25, 0, 0, 0, 0, 0, 0, 10, 0, 45),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_5bqv2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -10, 0, 0, 1.8, 0, 0, 1.8, 0, 0, 6, 0, 31.25, 0, 0, 0, 0, 0, 0, -10, 0, 45),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_jghey"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_wxk8e"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_r432h"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_tdkbu"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -14.875, 0, 28.175, 0, 0, 0, 0, 0, 0, -15.05, 0.1, 28.425, 0, 0, 0, 0, 0, 0, -14.875, 6, 32.675, 0, 0, 0, 0, 0, 0, -14.424, 6, 33.274998, 0, 0, 0, 0, 0, 0, -6, 6, 45),
+"tilts": PackedFloat32Array(0, 0, -1.5707964, -1.5707964, -3.1415927, -3.1415927)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_rrgoe"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -1, 0, 0, -21.275, 0, 8.5, 1, 0, 0, 1, 0, 0, -0.75, 0, 24, -1, 0, 0, -1, 0, 0, -22.75, 0, 37.25, 0, 0, 0, 0, 0, 0, 0, 0, 45),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="boss" type="Node3D" unique_id=1477198617]
+script = ExtResource("1_dlpkd")
+music_stream = ExtResource("2_7kbl1")
 
 [node name="Environment" type="Node3D" parent="." unique_id=1877800376]
 
@@ -149,13 +237,14 @@ skeleton = NodePath("../CatDoor")
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.75, -1.0749998, -1.9073486e-06)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment" unique_id=112183795]
-transform = Transform3D(1, 0, 0, 0, 0.25881904, 0.9659259, 0, -0.9659259, 0.25881904, 0, 10, 25)
+transform = Transform3D(1, 0, 0, 0, 0.25881904, 0.9659259, 0, -0.9659259, 0.25881904, 0, 12.475, 25)
 spot_range = 44.0
 spot_attenuation = -0.86
 spot_angle = 60.748608
 
 [node name="Player" parent="." unique_id=1328712720 instance=ExtResource("3_atjq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29)
+collision_mask = 9
 
 [node name="Cats" type="Node3D" parent="." unique_id=334351272]
 
@@ -172,9 +261,132 @@ script = ExtResource("6_wf233")
 cat_scene = ExtResource("4_0xsra")
 spawn_locations = [NodePath("../../Environment/Room/Catdoor/CatSpawnEast"), NodePath("../../Environment/Room/CatdoorWest/CatSpawnWest")]
 patrol_points = [NodePath("../PatrolPoints/PatrolPoint1"), NodePath("../PatrolPoints/PatrolPoint2")]
-cat_spawn_delay_sec = null
-max_cat_count = null
 metadata/_custom_type_script = "uid://ccm51x52qgmsm"
 
-[node name="Katie" parent="." unique_id=424700864 instance=ExtResource("5_iva7r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.25)
+[node name="Boss" type="Node3D" parent="." unique_id=1036411696]
+
+[node name="BossKatie" parent="Boss" unique_id=1844758243 node_paths=PackedStringArray("path_pools") instance=ExtResource("7_wf233")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -28.25)
+path_pools = [NodePath("../PathPools/Initial"), NodePath("../PathPools/Easy"), NodePath("../PathPools/Medium"), NodePath("../PathPools/Hard")]
+
+[node name="PathPools" type="Node3D" parent="Boss" unique_id=579943767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.5)
+
+[node name="Initial" type="Node3D" parent="Boss/PathPools" unique_id=1152263119]
+visible = false
+
+[node name="InitialPath1" type="Path3D" parent="Boss/PathPools/Initial" unique_id=1738706229]
+curve = SubResource("Curve3D_wf233")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Initial/InitialPath1" unique_id=1628388771]
+transform = Transform3D(1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, 1, 0, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Easy" type="Node3D" parent="Boss/PathPools" unique_id=1640573678]
+visible = false
+
+[node name="Path3D1" type="Path3D" parent="Boss/PathPools/Easy" unique_id=214810389]
+curve = SubResource("Curve3D_dlpkd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D1" unique_id=1518889634]
+transform = Transform3D(0.9999975, 0, 8.742238e-08, 0, 0.99999946, 0, -8.7422556e-08, 0, 0.9999954, 10, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path3D2" type="Path3D" parent="Boss/PathPools/Easy" unique_id=1361381961]
+curve = SubResource("Curve3D_7kbl1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D2" unique_id=224960146]
+transform = Transform3D(0.9999975, 0, 8.742237e-08, 0, 0.99999946, 0, -8.7422556e-08, 0, 0.99999535, -10, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path3D3" type="Path3D" parent="Boss/PathPools/Easy" unique_id=1735634]
+curve = SubResource("Curve3D_2mupd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D3" unique_id=1085761677]
+transform = Transform3D(0.9761846, 0, 0.21692933, 0, 0.99999946, 0, -0.21692981, 0, 0.9761825, -5, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path3D4" type="Path3D" parent="Boss/PathPools/Easy" unique_id=1183699503]
+curve = SubResource("Curve3D_p4gry")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D4" unique_id=577152145]
+transform = Transform3D(0.9761846, 0, -0.21692933, 0, 0.99999946, 0, 0.21692981, 0, 0.9761825, 5, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Medium" type="Node3D" parent="Boss/PathPools" unique_id=1964121221]
+visible = false
+
+[node name="Path3D1" type="Path3D" parent="Boss/PathPools/Medium" unique_id=992617020]
+curve = SubResource("Curve3D_xsifj")
+debug_custom_color = Color(1, 0, 0.984375, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D1" unique_id=1225477596]
+transform = Transform3D(0.86892337, 0, -0.49493745, 0, 0.9999995, 0, 0.49493882, 0, 0.868921, 10, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path3D2" type="Path3D" parent="Boss/PathPools/Medium" unique_id=906652258]
+curve = SubResource("Curve3D_5bqv2")
+debug_custom_color = Color(1, 0, 0.984375, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D2" unique_id=1074418711]
+transform = Transform3D(0.86892337, 0, 0.49493745, 0, 0.9999995, 0, -0.49493882, 0, 0.868921, -10, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path3D3" type="Path3D" parent="Boss/PathPools/Medium" unique_id=1074876075]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 15, 2.5, 0)
+curve = SubResource("Curve3D_jghey")
+debug_custom_color = Color(1, 0, 0.984375, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D3" unique_id=1450626999]
+transform = Transform3D(0.9999961, 0, 8.74222e-08, 0, 0.9999995, 0, -8.7422436e-08, 0, 0.9999934, 0, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path3D4" type="Path3D" parent="Boss/PathPools/Medium" unique_id=56359747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 0)
+curve = SubResource("Curve3D_wxk8e")
+debug_custom_color = Color(1, 0, 0.984375, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D4" unique_id=1476325665]
+transform = Transform3D(0.9999961, 0, 8.74222e-08, 0, 0.9999995, 0, -8.7422436e-08, 0, 0.9999934, 0, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Hard" type="Node3D" parent="Boss/PathPools" unique_id=813328650]
+visible = false
+
+[node name="Path1" type="Path3D" parent="Boss/PathPools/Hard" unique_id=1195432615]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 5.75, 0)
+curve = SubResource("Curve3D_r432h")
+debug_custom_color = Color(1, 0, 0.984375, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Hard/Path1" unique_id=1619712931]
+transform = Transform3D(0.9999961, 0, 8.74222e-08, 0, 0.9999995, 0, -8.7422436e-08, 0, 0.9999934, 0, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path2" type="Path3D" parent="Boss/PathPools/Hard" unique_id=413565269]
+curve = SubResource("Curve3D_tdkbu")
+debug_custom_color = Color(1, 0, 0.984375, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Hard/Path2" unique_id=392321814]
+transform = Transform3D(0.88431644, 0, -0.46687368, 0, 0.99999833, 0, 0.46687514, 0, 0.8843137, 0, 0, 0)
+use_model_front = true
+loop = false
+
+[node name="Path3" type="Path3D" parent="Boss/PathPools/Hard" unique_id=1955519210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.325, 0, 0)
+curve = SubResource("Curve3D_rrgoe")
+debug_custom_color = Color(1, 0, 0.984375, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Hard/Path3" unique_id=2118649782]
+transform = Transform3D(0.35651612, 0, -0.9342784, 0, 0.9999995, 0, 0.9342818, 0, 0.35651484, 0, 0, 0)
+use_model_front = true
+loop = false

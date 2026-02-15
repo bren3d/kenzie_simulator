@@ -55,15 +55,17 @@ func _on_round_started() -> void:
 
 func _on_match_ended() -> void:
 	score_label.hide()
+	score_label.text = "0 VS 0"
 	play_victory_screen()
 
 func _on_play_button_pressed() -> void:
 	play_pressed.emit()
 	hide_menu()
 
-func _on_play_button_visibility_changed() -> void:
-	if play_button.visible: 
-		play_button.grab_focus()
-
 func _on_quit_button_pressed() -> void:
 	quit_pressed.emit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if menu.visible and not play_button.has_focus() and not quit_button.has_focus():
+		play_button.grab_focus()
+		get_viewport().set_input_as_handled()

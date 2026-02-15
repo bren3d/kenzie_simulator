@@ -2,10 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dc8i8eo4dotpm" path="res://scenes/boss/boss_katie/boss_katie.gd" id="1_4cqye"]
 [ext_resource type="PackedScene" uid="uid://bsghxoswwx4ge" path="res://scenes/npc/katie/katie.tscn" id="1_t02c1"]
+[ext_resource type="AudioStream" uid="uid://b6lcj1tmi0qd4" path="res://assets/sounds/creepy_girl_giggle.wav" id="3_16gu7"]
+[ext_resource type="AudioStream" uid="uid://b7j67a5468qg8" path="res://assets/sounds/dino_scream1.wav" id="3_f0srq"]
 [ext_resource type="Script" uid="uid://bn655ck1br0v8" path="res://scenes/boss/boss_katie/movement_component.gd" id="3_gc1vu"]
+[ext_resource type="Script" uid="uid://bq6bav7hc4c24" path="res://scripts/states/state_machine.gd" id="4_ake6j"]
+[ext_resource type="Script" uid="uid://bugfbx6cgrsow" path="res://scenes/boss/boss_katie/katie_state_idle.gd" id="5_l8820"]
+[ext_resource type="Script" uid="uid://br1wt1buu6osp" path="res://scenes/boss/boss_katie/katie_state_charge.gd" id="6_n8qgq"]
+[ext_resource type="Script" uid="uid://c1vqfwqsbvg67" path="res://scenes/boss/boss_katie/katie_state_kill.gd" id="7_n8qgq"]
+[ext_resource type="Script" uid="uid://b4mbkoyogac61" path="res://scenes/boss/boss_katie/katie_state_damaged.gd" id="9_f0srq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t02c1"]
 size = Vector3(1.225, 1.025, 1.275)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16gu7"]
+size = Vector3(2, 1.25, 2.5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4cqye"]
 lifetime_randomness = 0.3
@@ -14,23 +24,27 @@ angle_max = 360.00003
 direction = Vector3(0, 1, 0)
 initial_velocity_max = 5.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc1vu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8qgq"]
 shading_mode = 0
 albedo_color = Color(0.7786458, 0.050693102, 0.050693102, 1)
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ake6j"]
-material = SubResource("StandardMaterial3D_gc1vu")
+material = SubResource("StandardMaterial3D_n8qgq")
 size = Vector2(0.1, 0.1)
 
-[node name="BossKatie" type="Node3D" unique_id=1844758243 node_paths=PackedStringArray("hitbox", "audio_player", "particles", "movement_component")]
+[node name="BossKatie" type="Node3D" unique_id=1844758243 node_paths=PackedStringArray("katie", "hitbox", "damaged_audio_player", "giggle_audio_player", "particles", "movement_component", "state_machine")]
 script = ExtResource("1_4cqye")
+katie = NodePath("Katie")
 hitbox = NodePath("Hitbox")
-audio_player = NodePath("AudioStreamPlayer3D")
+damaged_audio_player = NodePath("DamagedPlayer")
+giggle_audio_player = NodePath("GigglePlayer")
 particles = NodePath("GPUParticles3D")
 movement_component = NodePath("MovementComponent")
+state_machine = NodePath("StateMachine")
 
 [node name="Katie" parent="." unique_id=424700864 instance=ExtResource("1_t02c1")]
+crabwalk_speed = 1.0
 current_animation = &"crabwalk"
 
 [node name="Hitbox" type="Area3D" parent="." unique_id=586459730]
@@ -43,7 +57,25 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012499988, 0.087500006, 0.13749999)
 shape = SubResource("BoxShape3D_t02c1")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=507218160]
+[node name="KillBox" type="Area3D" parent="." unique_id=1414615144]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillBox" unique_id=146665720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52500004, 0.125)
+shape = SubResource("BoxShape3D_16gu7")
+
+[node name="GigglePlayer" type="AudioStreamPlayer3D" parent="." unique_id=1885112319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0.375)
+stream = ExtResource("3_16gu7")
+volume_db = 10.0
+unit_size = 15.0
+bus = &"SFX"
+
+[node name="DamagedPlayer" type="AudioStreamPlayer3D" parent="." unique_id=507218160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0.375)
+stream = ExtResource("3_f0srq")
+pitch_scale = 0.8
 bus = &"SFX"
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1287574515]
@@ -60,4 +92,24 @@ draw_pass_1 = SubResource("QuadMesh_ake6j")
 [node name="MovementComponent" type="Node" parent="." unique_id=1487794782]
 script = ExtResource("3_gc1vu")
 
+[node name="StateMachine" type="Node" parent="." unique_id=643638462]
+script = ExtResource("4_ake6j")
+initial_state = "charge"
+metadata/_custom_type_script = "uid://bq6bav7hc4c24"
+
+[node name="idle" type="Node" parent="StateMachine" unique_id=781564045]
+script = ExtResource("5_l8820")
+
+[node name="charge" type="Node" parent="StateMachine" unique_id=2063365773]
+script = ExtResource("6_n8qgq")
+charge_speeds = PackedFloat32Array(3, 2, 2.5, 3)
+
+[node name="kill" type="Node" parent="StateMachine" unique_id=1408899881]
+script = ExtResource("7_n8qgq")
+
+[node name="damaged" type="Node" parent="StateMachine" unique_id=565657197]
+script = ExtResource("9_f0srq")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]
 [connection signal="move_speed_changed" from="MovementComponent" to="." method="_on_move_speed_changed"]

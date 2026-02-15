@@ -42,7 +42,7 @@ func get_random_torque() -> Vector3:
 func update_physics_process(delta: float) -> void:
 	current_timeout_timer += delta
 	if cat.linear_velocity.length_squared() < LINEAR_VELOCITY_DESPAWN_LIMIT_SQUARED or current_timeout_timer > timeout_sec:
-		cat.queue_free()
+		cat.explode()
 
 func exit() -> void:
 	pass

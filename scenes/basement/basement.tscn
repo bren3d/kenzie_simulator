@@ -151,6 +151,8 @@
 [ext_resource type="Resource" uid="uid://c4aso6h6vxil" path="res://resources/dialogue/deer_death.dialogue" id="145_pipw0"]
 [ext_resource type="AudioStream" uid="uid://qh423kmnerb8" path="res://assets/sounds/suspense_horror.wav" id="145_qc8qu"]
 [ext_resource type="Resource" uid="uid://by1b1usjvdcv1" path="res://resources/quests/katie_quest.tres" id="146_m0boy"]
+[ext_resource type="PackedScene" uid="uid://5mnmtore2adp" path="res://scenes/boss/boss.tscn" id="148_gwt5m"]
+[ext_resource type="Script" uid="uid://d34k8e3jr2m2" path="res://scripts/cutscene/boss_portal_cutscene.gd" id="151_y32kp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
 panorama = ExtResource("6_wuaeu")
@@ -464,6 +466,9 @@ task_display_string = "Play Computer Games"
 material = ExtResource("143_ivg7c")
 size = Vector2(3, 3)
 orientation = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gwt5m"]
+radius = 1.85
 
 [node name="Basement" type="Node3D" unique_id=1379192347]
 
@@ -1927,11 +1932,8 @@ omni_attenuation = 0.5
 transform = Transform3D(0.34202024, 0, 0.93969285, 0, 1, 0, -0.93969285, 0, 0.34202024, -3.1000004, 1.05, 11.35)
 camera_sensitivity = 2.0
 
-[node name="katie" parent="." unique_id=424700864 instance=ExtResource("98_gmiao")]
-transform = Transform3D(1.2999997, 0, 2.9802322e-07, 0, 1.2999996, 0, -2.9802322e-07, 0, 1.2999997, 1.0583317, 0.049213387, 10.479774)
-
-[node name="Asuka2" parent="." unique_id=146635420 instance=ExtResource("24_inn26")]
-transform = Transform3D(0.80348444, 0, 0.9575553, 0, 1.25, 0, -0.9575553, 0, 0.80348444, -0.43333104, 0.1, 10.445225)
+[node name="Asuka" parent="." unique_id=146635420 instance=ExtResource("24_inn26")]
+transform = Transform3D(-1.2452431, 0, -0.108944535, 0, 1.25, 0, 0.108944535, 0, -1.2452431, 5.716669, 0.1, 16.095224)
 
 [node name="Cutscenes" type="Node3D" parent="." unique_id=1457119500]
 metadata/_edit_lock_ = true
@@ -1948,6 +1950,7 @@ camera_target = NodePath("../WakeUpCameraTarget")
 camera_action = NodePath("../CameraAction")
 wake_up_quest = ExtResource("103_v54r6")
 light_switch_interactable = NodePath("../../../Environment/Bedroom/Room/Decor/LightSwitch/Interactable")
+play_on_ready = true
 
 [node name="CameraAction" type="Marker3D" parent="Cutscenes/WakeUpCutscene" unique_id=1117431771]
 transform = Transform3D(0.70710665, 0.7071068, 0, -0.70710677, 0.7071067, 0, 0, 0, 0.99999994, 0.9000001, 1.7, 0)
@@ -2139,6 +2142,7 @@ start = NodePath("../Start")
 
 [node name="Katie" parent="Cutscenes/KatieIntro" unique_id=645393688 instance=ExtResource("98_gmiao")]
 transform = Transform3D(-0.6499999, 0, -1.1258328, 0, 1.2999996, 0, 1.1258328, 0, -0.6499999, -6.775, 0.049213447, 17.499998)
+current_animation = &""
 
 [node name="Start" type="Marker3D" parent="Cutscenes/KatieIntro" unique_id=696217272]
 transform = Transform3D(-0.6499999, 0, -1.1258328, 0, 1.2999996, 0, 1.1258328, 0, -0.6499999, -6.775, 0.049213447, 17.499998)
@@ -2199,7 +2203,7 @@ quest = ExtResource("125_dlm1g")
 task = SubResource("Resource_vcjtt")
 stream = NodePath("../../../Environment/Basement/Decor/TV/TVScreen/TVScreenViewport/TVScreen/MouseMoviePlayer")
 
-[node name="VagarantCutscene" type="Node" parent="Cutscenes/MeTime" unique_id=2025234659 node_paths=PackedStringArray("vagarant", "vagarant_viewport", "computer_interactable", "computer_cam")]
+[node name="VagarantCutscene" type="Node" parent="Cutscenes/MeTime" unique_id=2025234659 node_paths=PackedStringArray("vagarant", "vagarant_viewport", "computer_interactable", "computer_cam", "craig_cutscene", "craig_death_trigger_area")]
 script = ExtResource("140_fbk1w")
 quest = ExtResource("125_dlm1g")
 task = SubResource("Resource_fbk1w")
@@ -2207,6 +2211,8 @@ vagarant = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/Player
 vagarant_viewport = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantViewport")
 computer_interactable = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/Chair_10/VagarantInteractable")
 computer_cam = NodePath("../../../Environment/Basement/Decor/Desks/DeskPlayer/PlayerMonitor1/Screen/VagarantCamera")
+craig_cutscene = NodePath("../../DeerDeath/CraigDeathCutscene")
+craig_death_trigger_area = NodePath("../../DeerDeath/CraigDeathPlayerTriggerArea")
 
 [node name="DeerDeath" type="Node3D" parent="Cutscenes" unique_id=37328103]
 transform = Transform3D(0.73536146, 0, -0.67321616, 0, 1, 0, 0.61704147, 0, 0.8023079, 5.7, 0.07261145, 1.8249999)
@@ -2232,6 +2238,7 @@ sfx_screech = ExtResource("144_m0boy")
 music = ExtResource("145_qc8qu")
 dialogue_resource = ExtResource("145_pipw0")
 quest = ExtResource("146_m0boy")
+boss_scene = ExtResource("148_gwt5m")
 
 [node name="Deer" parent="Cutscenes/DeerDeath" unique_id=1477389057 instance=ExtResource("25_ukdwj")]
 transform = Transform3D(1.8751051, 0, 0, 0, 1.476, 0, 0, 0, 1.9096024, 0, 0, 0)
@@ -2263,10 +2270,37 @@ spot_angle_attenuation = 0.43527538
 
 [node name="Katie" parent="Cutscenes/DeerDeath" unique_id=1951968506 instance=ExtResource("98_gmiao")]
 transform = Transform3D(0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071069, 0, 0.70710695, 2.4608097, 0, 2.6879697)
+current_animation = &""
 
 [node name="CraigAudioStream" type="AudioStreamPlayer3D" parent="Cutscenes/DeerDeath/Katie" unique_id=1646271495]
 transform = Transform3D(0.7366109, 0, -0.6751463, 0, 1, 0, 0.7366108, 0, 0.67514616, 0.16062593, 0, -3.6407363)
 unit_size = 5.0
+
+[node name="CraigDeathPlayerTriggerArea" type="Area3D" parent="Cutscenes/DeerDeath" unique_id=1426475169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.385528, 0, 6.0313673)
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" unique_id=1929031218]
+shape = SubResource("SphereShape3D_gwt5m")
+
+[node name="BossPortal" type="Node3D" parent="Cutscenes" unique_id=1571051577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.975, 1.525, 14.575)
+
+[node name="BossPortalCutscene" type="Node" parent="Cutscenes/BossPortal" unique_id=984561757 node_paths=PackedStringArray("door")]
+script = ExtResource("151_y32kp")
+door = NodePath("../../../Environment/Basement/Holes/WorkRoom/Door")
+boss_scene = ExtResource("148_gwt5m")
+
+[node name="PlayerTriggerArea" type="Area3D" parent="Cutscenes/BossPortal" unique_id=183159401]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/BossPortal/PlayerTriggerArea" unique_id=43389792]
+shape = SubResource("SphereShape3D_gwt5m")
 
 [node name="Quests" type="Node3D" parent="." unique_id=1322436249]
 metadata/_edit_lock_ = true
@@ -2319,4 +2353,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)
 [connection signal="task_completed" from="Environment/Kitchenette/Canned_food_10/TaskNotifier" to="Environment/Kitchenette/Canned_food_10/Interactable" method="set_disabled" flags=6 binds= [true]]
 [connection signal="interaction_started" from="Environment/Kitchenette/Broom_02/Interactable" to="Environment/Kitchenette/Broom_02/TaskUpdater" method="update_task" flags=6 unbinds=1]
 [connection signal="interaction_started" from="Cutscenes/BrushTeeth/Interactable" to="Cutscenes/BrushTeeth/BrushTeethCutscene" method="play" unbinds=1]
+[connection signal="body_entered" from="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" to="Cutscenes/DeerDeath/CraigDeathCutscene" method="play" unbinds=1]
+[connection signal="body_entered" from="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" to="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" method="set_monitoring" unbinds=1 binds= [false]]
+[connection signal="body_entered" from="Cutscenes/BossPortal/PlayerTriggerArea" to="Cutscenes/BossPortal/BossPortalCutscene" method="play" unbinds=1]
+[connection signal="body_entered" from="Cutscenes/BossPortal/PlayerTriggerArea" to="Cutscenes/BossPortal/PlayerTriggerArea" method="set_monitoring" unbinds=1 binds= [false]]
 [connection signal="sweeping_finished" from="Quests/Sweep/DirtSpot3" to="Cutscenes/KatieIntro/KatieIntroCutscene" method="play"]
