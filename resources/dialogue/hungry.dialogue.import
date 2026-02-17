@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cv83mmlyhesqa"
+path="res://.godot/imported/hungry.dialogue-50aa55f5e960114e89ae43c0180ba79c.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/hungry.dialogue"
+dest_files=["res://.godot/imported/hungry.dialogue-50aa55f5e960114e89ae43c0180ba79c.tres"]
+
+[params]
+
+defaults=true

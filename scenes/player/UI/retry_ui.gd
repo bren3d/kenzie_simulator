@@ -1,5 +1,6 @@
 @tool
 class_name RetryUI extends CanvasLayer
+
 @export var rect: TextureRect
 @export var you_died_label: Label
 @export var death_message: Label

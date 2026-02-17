@@ -12,6 +12,8 @@ func update(door: Door) -> void:
 		group_changed.emit(&"locked", door.locked)
 	if sync_open:
 		group_changed.emit(&"open", door.open)
+	
+	group_changed.emit(&"slam_door_on_close", door.slam_door_on_close)
 
 func add_door(door: Door) -> void:
 	var doors:= get_group_doors()

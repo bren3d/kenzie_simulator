@@ -144,7 +144,7 @@
 [ext_resource type="AudioStream" uid="uid://l4vbbj7kgpk1" path="res://assets/sounds/insane_girl_laugh.wav" id="130_gm410"]
 [ext_resource type="AudioStream" uid="uid://dylp7fbq5uhe4" path="res://assets/sounds/giggle_echo.wav" id="132_7xxa2"]
 [ext_resource type="AudioStream" uid="uid://c0seuv2mx6ekr" path="res://assets/sounds/creepy_breathing.wav" id="132_h8ley"]
-[ext_resource type="Resource" uid="uid://cv83mmlyhesqa" path="res://resources/dialogue/hungry.tres.dialogue" id="134_yg434"]
+[ext_resource type="Resource" uid="uid://cv83mmlyhesqa" path="res://resources/dialogue/hungry.dialogue" id="134_yg434"]
 [ext_resource type="Script" uid="uid://cd877lsf0gf6n" path="res://scripts/cutscene/tv_cutscene.gd" id="135_xcb1r"]
 [ext_resource type="Script" uid="uid://dd1w40k58fh2o" path="res://scripts/quest/task.gd" id="136_5e5bb"]
 [ext_resource type="Script" uid="uid://6o4bbpcbg0ps" path="res://scripts/cutscene/vagarant_cutscene.gd" id="140_fbk1w"]
@@ -686,6 +686,7 @@ group = SubResource("Resource_84r38")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.75, 0, -0.6)
 locked = true
 group = SubResource("Resource_84r38")
+mute_sounds = true
 opens_forward = false
 
 [node name="Bedroom" type="CSGBox3D" parent="Environment/Basement/Holes" unique_id=44002162]
@@ -2350,7 +2351,6 @@ sfx_screech = ExtResource("144_m0boy")
 music = ExtResource("145_qc8qu")
 dialogue_resource = ExtResource("145_pipw0")
 quest = ExtResource("148_ny4ps")
-boss_scene = ExtResource("148_gwt5m")
 
 [node name="Deer" parent="Cutscenes/DeerDeath" unique_id=1477389057 instance=ExtResource("25_ukdwj")]
 transform = Transform3D(1.8751051, 0, 0, 0, 1.476, 0, 0, 0, 1.9096024, 0, 0, 0)
@@ -2402,10 +2402,15 @@ shape = SubResource("SphereShape3D_gwt5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.975, 1.525, 14.575)
 metadata/_edit_lock_ = true
 
-[node name="BossPortalCutscene" type="Node" parent="Cutscenes/BossPortal" unique_id=984561757 node_paths=PackedStringArray("door")]
+[node name="BossPortalCutscene" type="Node" parent="Cutscenes/BossPortal" unique_id=984561757 node_paths=PackedStringArray("door", "boss_portal_camera_action", "katie", "boss_portal_spot_light", "katie_target")]
 script = ExtResource("151_y32kp")
 door = NodePath("../../../Environment/Basement/Holes/WorkRoom/Door")
 boss_scene = ExtResource("148_gwt5m")
+boss_portal_camera_action = NodePath("../BossPortalCameraAction")
+katie = NodePath("../Katie")
+boss_portal_spot_light = NodePath("../BossPortalSpotLight")
+katie_target = NodePath("../BossPortalCameraAction/BossPortalKatieTarget")
+sting = ExtResource("110_akcph")
 
 [node name="PlayerTriggerArea" type="Area3D" parent="Cutscenes/BossPortal" unique_id=183159401]
 collision_layer = 0
@@ -2416,11 +2421,55 @@ monitorable = false
 shape = SubResource("SphereShape3D_gwt5m")
 
 [node name="BossPortalSpotLight" type="SpotLight3D" parent="Cutscenes/BossPortal" unique_id=2102389199]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.1500001, 2.75, 1.3500004)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.1500001, 2.75, -0.3249998)
 spot_range = 5.75
 spot_attenuation = 0.04
 spot_angle = 29.757689
+
+[node name="BossPortalCameraAction" type="Marker3D" parent="Cutscenes/BossPortal" unique_id=942687523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5750003, 0.17500007, -0.875)
+script = ExtResource("101_2ny8n")
+tween_duration_sec = 0.6
+camera_properties = {
+"attributes": null,
+"compositor": null,
+"cull_mask": 1048575,
+"current": false,
+"doppler_tracking": 0,
+"environment": null,
+"far": 4000.0,
+"fov": 75.0,
+"frustum_offset": Vector2(0, 0),
+"h_offset": 0.0,
+"keep_aspect": 1,
+"near": 0.05,
+"projection": 0,
+"size": 1.0,
+"v_offset": 0.0
+}
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+attributes = null
+compositor = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://p6kvdxghlvhe"
+
+[node name="BossPortalKatieTarget" type="Marker3D" parent="Cutscenes/BossPortal/BossPortalCameraAction" unique_id=1272917929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6006055, -0.27499962)
+
+[node name="Katie" parent="Cutscenes/BossPortal" unique_id=424700864 instance=ExtResource("98_gmiao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5750003, -3.4756055, -1.1499996)
+current_animation = &""
 
 [node name="Quests" type="Node3D" parent="." unique_id=1322436249]
 metadata/_edit_lock_ = true
@@ -2477,9 +2526,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)
 [connection signal="interaction_started" from="Cutscenes/BrushTeeth/Interactable" to="Cutscenes/BrushTeeth/BrushTeethCutscene" method="play" unbinds=1]
 [connection signal="finished" from="Cutscenes/DeerDeath/CraigDeathCutscene" to="Cutscenes/BossPortal/BossPortalSpotLight" method="show"]
 [connection signal="body_entered" from="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" to="Cutscenes/DeerDeath/CraigDeathCutscene" method="play" unbinds=1]
-[connection signal="body_entered" from="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" to="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" method="set_monitoring" unbinds=1 binds= [false]]
+[connection signal="body_entered" from="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" to="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" method="set_monitoring" flags=3 unbinds=1 binds= [false]]
 [connection signal="body_entered" from="Cutscenes/BossPortal/PlayerTriggerArea" to="Cutscenes/BossPortal/BossPortalCutscene" method="play" unbinds=1]
-[connection signal="body_entered" from="Cutscenes/BossPortal/PlayerTriggerArea" to="Cutscenes/BossPortal/PlayerTriggerArea" method="set_monitoring" unbinds=1 binds= [false]]
+[connection signal="body_entered" from="Cutscenes/BossPortal/PlayerTriggerArea" to="Cutscenes/BossPortal/PlayerTriggerArea" method="set_monitoring" flags=3 unbinds=1 binds= [false]]
 [connection signal="sweeping_finished" from="Quests/Sweep/DirtSpot3" to="Cutscenes/KatieIntro/KatieIntroCutscene" method="play"]
 
 [editable path="Environment/Kitchenette/Refrigerator_001"]

@@ -71,11 +71,12 @@ trans_type = 3
 ease_type = 0
 metadata/_custom_type_script = "uid://w1514drwwoy"
 
-[node name="Player" type="CharacterBody3D" unique_id=1328712720 node_paths=PackedStringArray("ui", "message_label", "cough_stat", "cough_audio_stream", "soda_stat", "soda_audio_stream", "pickle_stat", "pickle_stream_player") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1328712720 node_paths=PackedStringArray("ui", "message_label", "flashlight", "cough_stat", "cough_audio_stream", "soda_stat", "soda_audio_stream", "pickle_stat", "pickle_stream_player") groups=["Player"]]
 collision_layer = 8
 script = ExtResource("1_8afob")
 ui = NodePath("UI")
 message_label = NodePath("UI/MessageLabel")
+flashlight = NodePath("Camera3D/Flashlight")
 cough_stat = NodePath("cough")
 cough_audio_stream = NodePath("cough/CoughAudioStream")
 soda_stat = NodePath("soda")
@@ -227,8 +228,10 @@ show_percentage = false
 
 [node name="Pickle" type="Label" parent="UI/ProgressGrid" unique_id=6747008]
 visible = false
+material = ExtResource("3_qek5x")
 layout_mode = 2
 text = "Pickle"
+horizontal_alignment = 2
 
 [node name="PickleProgressBar" type="ProgressBar" parent="UI/ProgressGrid" unique_id=1989935298]
 visible = false

@@ -1,0 +1,7 @@
+Oh no, I"m in Katie's room.
+I have to get out of here fast...
+do player.play()
+do shaker.shake_camera()
+do wait(2.5)
+Katie: You're not going anywhere
+=> END

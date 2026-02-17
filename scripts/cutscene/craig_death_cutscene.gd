@@ -42,8 +42,6 @@ var katie_movement_duration_sec: float = 0.5
 
 @export var quest: Quest
 
-@export var boss_scene: PackedScene
-
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	katie.hide()
@@ -58,11 +56,11 @@ func _on_play() -> void:
 	cam.make_current()
 	
 	door.locked = false
-	door.mute_sounds = true
-	door2.mute_sounds = true
+	#door.mute_sounds = true
+	#door2.mute_sounds = true
 	door.set_open(true)
-	door.mute_sounds = false
-	door2.mute_sounds = false
+	#door.mute_sounds = false
+	#door2.mute_sounds = false
 	
 	Global.player.global_position = cam.global_position * Vector3(1.0, 0.0, 1.0)
 	Global.player.global_rotation.y = cam.global_rotation.y
@@ -92,8 +90,8 @@ func play_katie_escape() -> void:
 	katie.play(&"crabwalk")
 	katie.set_texture(katie.bloody_texture)
 	
-	door.slam_door_on_close = true
-	door2.slam_door_on_close = true
+	#door.slam_door_on_close = true
+	#door2.slam_door_on_close = true
 	
 	var tw: Tween = create_tween()
 	#tw.tween_callback(lights.show)
@@ -101,9 +99,9 @@ func play_katie_escape() -> void:
 	tw.tween_callback(spotlight.show)
 	
 	tw.tween_property(katie, ^"global_position", katie_target_location.global_position, katie_movement_duration_sec).from(katie_start_location.global_position)
-	tw.tween_callback(door.set_open.bind(false))
-	tw.tween_callback(door.set.bind(&"slam_door_on_close", false))
-	tw.tween_callback(door2.set.bind(&"slam_door_on_close", false))
+	tw.tween_callback(door.set_locked.bind(true))
+	#tw.tween_callback(door.set.bind(&"slam_door_on_close", false))
+	#tw.tween_callback(door2.set.bind(&"slam_door_on_close", false))
 	tw.tween_callback(katie.hide)
 	tw.tween_property(cam, ^"fov", Global.player.camera.fov, fov_tween_duration_sec)
 	

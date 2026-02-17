@@ -29,7 +29,10 @@
 [ext_resource type="PackedScene" uid="uid://x7cyy2prxj4h" path="res://scenes/objects/food/cabbage.tscn" id="18_cv0dg"]
 [ext_resource type="Texture2D" uid="uid://bytrkej3js2li" path="res://assets/textures/UI/icon_liquid.png" id="19_741g7"]
 [ext_resource type="PackedScene" uid="uid://cwk6icvkqwy4k" path="res://scenes/objects/food/cola_bottle.tscn" id="20_v1cwn"]
+[ext_resource type="Script" uid="uid://b7qw1j0jrl4ta" path="res://scripts/cutscene/boss_intro_cutscene.gd" id="26_twjql"]
+[ext_resource type="Resource" uid="uid://02trcvtg330e" path="res://resources/dialogue/boss.dialogue" id="27_2l1fi"]
 [ext_resource type="PackedScene" uid="uid://qnqhs2qkqpi2" path="res://scenes/game_end/end.tscn" id="27_mg536"]
+[ext_resource type="AudioStream" uid="uid://cbxwc4844p5hk" path="res://assets/sounds/alien_monster_roar.wav" id="27_wu8me"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dq6vu"]
 
@@ -149,11 +152,14 @@ _data = {
 }
 point_count = 5
 
-[node name="boss" type="Node3D" unique_id=1477198617 node_paths=PackedStringArray("player")]
+[node name="boss" type="Node3D" unique_id=1477198617 node_paths=PackedStringArray("player", "boss_intro_cutscene", "cat_spawner", "boss_katie")]
 script = ExtResource("1_dlpkd")
 music_stream = ExtResource("2_7kbl1")
 player = NodePath("Player")
+boss_intro_cutscene = NodePath("Cutscenes/BossIntroCutscene")
 kill_katie_quest = ExtResource("3_4jo18")
+cat_spawner = NodePath("Cats/CatSpawner")
+boss_katie = NodePath("Boss/BossKatie")
 
 [node name="Environment" type="Node3D" parent="." unique_id=1877800376]
 
@@ -411,6 +417,7 @@ script = ExtResource("6_wf233")
 cat_scene = ExtResource("4_0xsra")
 spawn_locations = [NodePath("../../Environment/Room/CatdoorEast/CatSpawnEast"), NodePath("../../Environment/Room/CatdoorWest/CatSpawnWest")]
 patrol_points = [NodePath("../PatrolPoints/PatrolPoint1"), NodePath("../PatrolPoints/PatrolPoint2")]
+active = false
 metadata/_custom_type_script = "uid://ccm51x52qgmsm"
 
 [node name="Boss" type="Node3D" parent="." unique_id=1036411696]
@@ -563,6 +570,21 @@ loop = false
 
 [node name="Cutscenes" type="Node3D" parent="." unique_id=561430094]
 
+[node name="BossIntroCutscene" type="Node" parent="Cutscenes" unique_id=412134927 node_paths=PackedStringArray("audio_player", "camera_shaker")]
+script = ExtResource("26_twjql")
+audio_player = NodePath("AudioStreamPlayer")
+camera_shaker = NodePath("CameraShaker")
+dialogue = ExtResource("27_2l1fi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Cutscenes/BossIntroCutscene" unique_id=465388534]
+stream = ExtResource("27_wu8me")
+bus = &"SFX"
+
+[node name="CameraShaker" type="Node" parent="Cutscenes/BossIntroCutscene" unique_id=893363503]
+script = ExtResource("10_2mupd")
+duration_sec = 2.5
+metadata/_custom_type_script = "uid://dp3bs1n1ku2uv"
+
 [node name="KatieDeathCutscene" type="Node" parent="Cutscenes" unique_id=632124819 node_paths=PackedStringArray("camera_shaker", "death_scream_player")]
 script = ExtResource("11_p4gry")
 camera_shaker = NodePath("CameraShaker")
@@ -591,5 +613,6 @@ sound_player = NodePath("../../Boss/BossKatie/LungeSoundPlayer3D")
 [connection signal="interaction_started" from="Environment/Room/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]
 [connection signal="dead" from="Boss/BossKatie" to="Cutscenes/KatieDeathCutscene" method="play"]
 [connection signal="hit_player" from="Boss/BossKatie" to="Cutscenes/KatieAttackCutscene" method="play"]
+[connection signal="finished" from="Cutscenes/BossIntroCutscene" to="." method="start_fight"]
 
 [editable path="Environment/Room/Refrigerator_001"]

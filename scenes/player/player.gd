@@ -36,6 +36,7 @@ var current_hit_count: int = 0
 @onready var kickable_area: Area3D = $KickableArea
 @export var ui: CanvasLayer
 @export var message_label: Label
+@export var flashlight: SpotLight3D
 
 @export var cough_stat: StatComponent
 @export var cough_audio_stream: AudioStreamPlayer

@@ -100,7 +100,7 @@ script = ExtResource("3_gc1vu")
 
 [node name="StateMachine" type="Node" parent="." unique_id=643638462]
 script = ExtResource("4_ake6j")
-initial_state = "charge"
+initial_state = "idle"
 metadata/_custom_type_script = "uid://bq6bav7hc4c24"
 
 [node name="idle" type="Node" parent="StateMachine" unique_id=781564045]

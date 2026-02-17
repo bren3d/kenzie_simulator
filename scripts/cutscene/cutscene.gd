@@ -37,15 +37,11 @@ func skip() -> void:
 @abstract func _on_play() -> void
 
 func _input(event: InputEvent) -> void:
-	if is_active and event.is_action_pressed(&"skip"):
+	if is_active and skippable and event.is_action_pressed(&"skip"):
 		skip()
 		get_viewport().set_input_as_handled()
-		
 
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_READY:
 			set_process_input(false)
-			#if not Engine.is_editor_hint() and play_on_ready:
-				#play()
-	

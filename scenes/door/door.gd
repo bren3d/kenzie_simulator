@@ -31,6 +31,7 @@ var locked_dialogue_text: String = "It's locked..."
 
 @export var mute_sounds: bool = false
 @export var slam_door_on_close: bool = false
+
 @export_group("Audio")
 @export var open_sound: AudioStream
 @export var close_sound: AudioStream

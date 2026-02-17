@@ -4,9 +4,10 @@ const SETTING_TRANSITION: String = "application/config/scene_transition_duration
 const TRANSITION_RECT_NAME: String = "MasterTransitionRect"
 
 const DEBUG_SCENE_PATHS:PackedStringArray = [
-	"res://scenes/world/world.tscn",
-	"res://scenes/basement/basement.tscn",
-	"res://scenes/boss/boss.tscn",
+	"uid://xwh1e8prdtms",	# Dream
+	"uid://bd31f2ihbhefp",	# Basement
+	"uid://5mnmtore2adp", 	# Boss
+	"uid://qnqhs2qkqpi2", 	# END
 ]
 
 var scene: Node : set = set_scene, get = get_scene
@@ -66,14 +67,12 @@ func _on_root_ready() -> void:
 	current_scene.reparent.call_deferred(vp, false)
 
 func change_scene(node: Node) -> void:
-	if is_changing_scenes:
-		print("Rejecting scene transisiton to %s" % node)
-		node.free()
-		return
+	while is_changing_scenes:
+		await process_frame
 	
 	is_changing_scenes = true
 	
-	print("CHANGING SCENE: %s => %s" % [scene, node])
+	print("CHANGING SCENE: %s => %s" % [scene.name if scene else "NULL", node.name if node else "NULL"])
 	
 	if tw:
 		tw.kill()
@@ -97,17 +96,13 @@ func change_scene(node: Node) -> void:
 	tw.tween_callback(set.bind(&"is_changing_scenes", false))
 
 func change_scene_path(path: String) -> void:
-	if is_changing_scenes:
-		push_error("Rejecting scene transisiton to path '%s'" % path)
-		return
-	
+	while is_changing_scenes:
+		await process_frame
 	change_scene(load(path).instantiate())
 
 func change_scene_packed(packed: PackedScene) -> void:
-	if is_changing_scenes:
-		push_error("Rejecting scene transisiton to PackedScene '%s'" % packed)
-		return
-	
+	while is_changing_scenes:
+		await process_frame
 	change_scene(packed.instantiate())
 
 func reload_scene() -> void:
@@ -158,12 +153,12 @@ func get_transition_rect() -> ColorRect:
 func get_mouse_mode() -> Input.MouseMode:
 	return mouse_mode
 
+func get_scene() -> Node:
+	return scene
+
 func set_mouse_mode(val: Input.MouseMode) -> void:
 	mouse_mode = val
 	Input.mouse_mode = val
-
-func get_scene() -> Node:
-	return scene
 
 func set_scene(val: Node) -> void:
 	assert(scene != val)
