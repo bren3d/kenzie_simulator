@@ -6,6 +6,7 @@ signal sweeping_finished
 @export var mesh_instance: MeshInstance3D
 @export var task_updater: TaskUpdater
 @export var waypoint: QuestWaypoint
+@export var player: AudioStreamPlayer3D
 
 @export var broom: Node3D
 
@@ -53,7 +54,7 @@ func play_animation() -> void:
 	
 	tw = create_tween()
 	tw.tween_property(broom, ^"global_position", broom_lowered_position.global_position, lower_duration_sec)
-	tw.tween_callback(Audio.play_sfx.bind(sweep_audio_stream))
+	tw.tween_callback(player.play)
 	tw.finished.connect(tween_sweep, CONNECT_ONE_SHOT)
 
 func tween_sweep() -> void:

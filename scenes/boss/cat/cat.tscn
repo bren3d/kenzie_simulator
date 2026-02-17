@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqqlqyrlhycij" path="res://scenes/boss/cat/cat.gd" id="1_okfk7"]
 [ext_resource type="PackedScene" uid="uid://c6p0w2ie0wk04" path="res://resources/models/cat.blend" id="2_w7cle"]
-[ext_resource type="Texture2D" uid="uid://bpogy2snhewk7" path="res://assets/icons/icon_projectile.png" id="2_w7ijl"]
 [ext_resource type="Script" uid="uid://bq6bav7hc4c24" path="res://scripts/states/state_machine.gd" id="3_w7cle"]
-[ext_resource type="Texture2D" uid="uid://bp3jm0sxvjmxe" path="res://assets/icons/left_mouse_prompt.png" id="3_wmj8g"]
 [ext_resource type="Script" uid="uid://m2pvgoidhal3" path="res://scenes/boss/cat/rigidbody_movement.gd" id="4_1msk2"]
 [ext_resource type="Script" uid="uid://cb2di8kmc0rvk" path="res://scenes/boss/cat/states/patrol.gd" id="4_dt2e5"]
 [ext_resource type="Script" uid="uid://byg6bne0xxwh5" path="res://scenes/boss/cat/states/frozen.gd" id="7_wmj8g"]
@@ -13,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://c73jwlk6hn4ye" path="res://assets/sounds/cat_scream2.wav" id="11_h7ruf"]
 [ext_resource type="Script" uid="uid://dtc6ategfn1mg" path="res://scenes/boss/cat/states/explode.gd" id="12_cd0b0"]
 [ext_resource type="AudioStream" uid="uid://crl547mflvt1o" path="res://assets/sounds/blood_explosion.wav" id="13_a71ad"]
+[ext_resource type="Script" uid="uid://dnq7vm2na3t6n" path="res://scenes/boss/cat/states/recover.gd" id="14_h7ruf"]
+[ext_resource type="Script" uid="uid://dtqaudxs27kga" path="res://scenes/boss/cat/states/wander.gd" id="15_d2j5y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dt2e5"]
 friction = 0.3
@@ -37,24 +37,22 @@ size = Vector2(0.1, 0.1)
 size = Vector3(0.275, 0.5, 0.85)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dt2e5"]
-radius = 1.5
+radius = 0.45000002
 
-[node name="Cat" type="RigidBody3D" unique_id=65276031 node_paths=PackedStringArray("anim_player", "state_machine", "kickable_area", "audio_player", "blood_explosion_audio_player", "cat_mesh", "particles")]
+[node name="Cat" type="RigidBody3D" unique_id=65276031 node_paths=PackedStringArray("anim_player", "state_machine", "movement", "kickable_area", "audio_player", "blood_explosion_audio_player", "cat_mesh", "particles")]
 collision_layer = 16
 collision_mask = 33
 physics_material_override = SubResource("PhysicsMaterial_dt2e5")
-lock_rotation = true
 linear_velocity = Vector3(0, 0, 100)
 script = ExtResource("1_okfk7")
 anim_player = NodePath("cat/AnimationPlayer")
 state_machine = NodePath("StateMachine")
+movement = NodePath("MovementHandle")
 kickable_area = NodePath("KickableArea")
 audio_player = NodePath("ScreamAudioStream")
 blood_explosion_audio_player = NodePath("BloodExplosionPlayer")
 cat_mesh = NodePath("cat")
 particles = NodePath("GPUParticles3D")
-kick_icon = ExtResource("2_w7ijl")
-input_icon = ExtResource("3_wmj8g")
 metadata/_custom_type_script = "uid://cqqlqyrlhycij"
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2095843352]
@@ -91,21 +89,20 @@ volume_db = 8.0
 bus = &"SFX"
 
 [node name="KickableArea" type="Area3D" parent="." unique_id=1480299408]
-collision_layer = 0
-collision_mask = 8
-monitorable = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22500001, 0)
+collision_layer = 16
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KickableArea" unique_id=1003248001]
 shape = SubResource("SphereShape3D_dt2e5")
 
 [node name="StateMachine" type="Node" parent="." unique_id=2147439323]
 script = ExtResource("3_w7cle")
-initial_state = "patrol"
+initial_state = "frozen"
 metadata/_custom_type_script = "uid://bq6bav7hc4c24"
 
-[node name="patrol" type="Node" parent="StateMachine" unique_id=739985738 node_paths=PackedStringArray("movement")]
+[node name="patrol" type="Node" parent="StateMachine" unique_id=739985738]
 script = ExtResource("4_dt2e5")
-movement = NodePath("../../MovementHandle")
 
 [node name="frozen" type="Node" parent="StateMachine" unique_id=968363666]
 script = ExtResource("7_wmj8g")
@@ -120,7 +117,12 @@ timeout_sec = 5.0
 [node name="explode" type="Node" parent="StateMachine" unique_id=18852524]
 script = ExtResource("12_cd0b0")
 
+[node name="recover" type="Node" parent="StateMachine" unique_id=1831097426]
+script = ExtResource("14_h7ruf")
+
+[node name="wander" type="Node" parent="StateMachine" unique_id=408742465]
+script = ExtResource("15_d2j5y")
+min_wander_delay_sec = 0.2
+
 [connection signal="movement_finished" from="MovementHandle" to="." method="_on_movement_handle_movement_finished"]
 [connection signal="movement_started" from="MovementHandle" to="." method="_on_movement_handle_movement_started"]
-[connection signal="body_entered" from="KickableArea" to="." method="_on_kickable_area_body_entered"]
-[connection signal="body_exited" from="KickableArea" to="." method="_on_kickable_area_body_exited"]

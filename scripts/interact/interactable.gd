@@ -3,14 +3,12 @@
 class_name Interactable extends Component
 const COLLISION_LAYER: int = 3
 
-const OUTLINE_MATERIAL: ShaderMaterial = preload("res://resources/materials/outline.tres")
-
-#static var hovered_object: Node
-static var active_interactable: Node
-
 ## [param interactor] refers to the entity that began this interaction.
 signal interaction_started(interactor: Object)
 signal interaction_ended
+
+@export_tool_button("Interact", "MainPlay") 
+var callable_toggle_interaction: Callable = toggle_interaction
 
 @export var disabled: bool: set = set_disabled
 
@@ -19,7 +17,6 @@ signal interaction_ended
 @export var icon: Texture2D = preload("uid://djsvoil117es0")
 
 @export var overlay_material: Material
-
 
 @export_range(0.0, 5.0, 0.1, "or_greater", "suffix:m")
 var max_interaction_distance: float = 2.0
@@ -33,13 +30,9 @@ var interaction_text: String = ""
 var is_hovered: bool = false: set = set_is_hovered
 var active: bool = false
 
-#func _ready() -> void:
-	#disabled = disabled
-
 ## Call to start interaction. Overwrite for custom behavior.
 func start_interaction(interactor: Object = null) -> void:
 	active = true
-	active_interactable = get_parent()
 	interaction_started.emit(interactor)
 	if auto_end_interaction:
 		end_interaction()
@@ -47,8 +40,6 @@ func start_interaction(interactor: Object = null) -> void:
 ## Call to exit interaction. Overwrite for custom behavior.
 func end_interaction() -> void:
 	active = false
-	if active_interactable == get_parent():
-		active_interactable = null
 	interaction_ended.emit()
 
 func set_is_hovered(val: bool) -> void:
@@ -66,6 +57,12 @@ func set_collider_body(val: CollisionObject3D) -> void:
 
 func set_disabled(val: bool) -> void:
 	disabled = val
+
+func toggle_interaction(interactor: Object = null) -> void:
+	if active:
+		end_interaction()
+	else:
+		start_interaction(interactor)
 
 func get_interaction_text() -> String:
 	return interaction_text

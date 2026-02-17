@@ -16,11 +16,25 @@ task_display_string = "Turn on Lights"
 priority = 1
 hide_until_started = true
 
+[sub_resource type="Resource" id="Resource_0oc0f"]
+script = ExtResource("2_0oc0f")
+task_name = "drink"
+task_display_string = "Drink Diet Soda"
+priority = 2
+hide_until_started = true
+
+[sub_resource type="Resource" id="Resource_njt5d"]
+script = ExtResource("2_0oc0f")
+task_name = "eat"
+task_display_string = "Eat Pickles"
+priority = 2
+hide_until_started = true
+
 [sub_resource type="Resource" id="Resource_nhk7v"]
 script = ExtResource("2_0oc0f")
 task_name = "list"
 task_display_string = "Read List"
-priority = 1
+priority = 3
 hide_until_started = true
 metadata/_custom_type_script = "uid://dd1w40k58fh2o"
 
@@ -28,5 +42,6 @@ metadata/_custom_type_script = "uid://dd1w40k58fh2o"
 resource_name = "Wake Up"
 script = ExtResource("1_u2acq")
 quest_name = "Wake Up"
-tasks = Array[ExtResource("2_0oc0f")]([SubResource("Resource_tp5rr"), SubResource("Resource_u2acq"), SubResource("Resource_nhk7v")])
+auto_advance_tasks = true
+tasks = Array[ExtResource("2_0oc0f")]([SubResource("Resource_tp5rr"), SubResource("Resource_u2acq"), SubResource("Resource_0oc0f"), SubResource("Resource_njt5d"), SubResource("Resource_nhk7v")])
 metadata/_custom_type_script = "uid://ca2qxwleqmgfp"

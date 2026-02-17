@@ -3,12 +3,33 @@
 [ext_resource type="Texture2D" uid="uid://c108lf2na6dmt" path="res://assets/textures/materials/floor/carpet_lightgray_01.png" id="1_dgf3a"]
 [ext_resource type="Script" uid="uid://be6w1pn4nm0gr" path="res://scenes/boss/boss.gd" id="1_dlpkd"]
 [ext_resource type="AudioStream" uid="uid://d0pe4vshyuhbk" path="res://assets/sounds/intense_horror.wav" id="2_7kbl1"]
+[ext_resource type="Resource" uid="uid://dg6jelbyik6rl" path="res://resources/quests/kill_katie_quest.tres" id="3_4jo18"]
 [ext_resource type="PackedScene" uid="uid://c3pgs8qgiescg" path="res://scenes/player/player.tscn" id="3_atjq5"]
 [ext_resource type="Texture2D" uid="uid://c7hekse0l8lgy" path="res://assets/textures/materials/door_store_01.png" id="3_i4fbv"]
 [ext_resource type="PackedScene" uid="uid://bfgrqdem3vl0c" path="res://scenes/boss/cat/cat.tscn" id="4_0xsra"]
 [ext_resource type="Material" uid="uid://dhi7vhj7cg483" path="res://resources/materials/blood.tres" id="4_iva7r"]
+[ext_resource type="PackedScene" uid="uid://bkvtfh2r41liy" path="res://scenes/objects/kitchen/refrigerator.tscn" id="6_27n7m"]
 [ext_resource type="Script" uid="uid://ccm51x52qgmsm" path="res://scenes/boss/cat/cat_spawner.gd" id="6_wf233"]
+[ext_resource type="PackedScene" uid="uid://bomhwjtk3lsrw" path="res://scenes/objects/food/pickel_jar.tscn" id="7_4jo18"]
 [ext_resource type="PackedScene" uid="uid://dcwhgq3mrkwpf" path="res://scenes/boss/boss_katie/boss_katie.tscn" id="7_wf233"]
+[ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="8_mg536"]
+[ext_resource type="Texture2D" uid="uid://ctdgeskc66xl6" path="res://assets/textures/UI/icon_hand.png" id="9_ropnh"]
+[ext_resource type="Script" uid="uid://dp3bs1n1ku2uv" path="res://scripts/components/camera_shaker.gd" id="10_2mupd"]
+[ext_resource type="PackedScene" uid="uid://8iuagmcrr4hn" path="res://scenes/objects/food/apple_001.tscn" id="10_twjql"]
+[ext_resource type="Script" uid="uid://dxgm0dpdjvqyg" path="res://scripts/cutscene/katie_death_cutscene.gd" id="11_p4gry"]
+[ext_resource type="PackedScene" uid="uid://b3pc018lv7jj" path="res://scenes/objects/food/milk_02.tscn" id="11_wu8me"]
+[ext_resource type="PackedScene" uid="uid://brs2vb8tfav5q" path="res://scenes/objects/food/egg.tscn" id="12_2l1fi"]
+[ext_resource type="AudioStream" uid="uid://dv6hltji0v5j0" path="res://assets/sounds/witch_death.wav" id="12_xsifj"]
+[ext_resource type="Script" uid="uid://bc21gxt276tgx" path="res://scripts/cutscene/katie_attack_cutscene.gd" id="13_5bqv2"]
+[ext_resource type="PackedScene" uid="uid://blcxrqaj3vlju" path="res://scenes/objects/food/sauce_02.tscn" id="13_43r1o"]
+[ext_resource type="PackedScene" uid="uid://csdosd2td1kgo" path="res://scenes/objects/food/asparagus.tscn" id="14_7s4nb"]
+[ext_resource type="PackedScene" uid="uid://b0wwfbqpwugf2" path="res://scenes/objects/food/burger_02.tscn" id="15_awewf"]
+[ext_resource type="PackedScene" uid="uid://bsjt3bra81fy" path="res://scenes/objects/food/water_01.tscn" id="16_u1281"]
+[ext_resource type="PackedScene" uid="uid://b6ycp1xnmgamj" path="res://scenes/objects/food/grape_01.tscn" id="17_qbnrf"]
+[ext_resource type="PackedScene" uid="uid://x7cyy2prxj4h" path="res://scenes/objects/food/cabbage.tscn" id="18_cv0dg"]
+[ext_resource type="Texture2D" uid="uid://bytrkej3js2li" path="res://assets/textures/UI/icon_liquid.png" id="19_741g7"]
+[ext_resource type="PackedScene" uid="uid://cwk6icvkqwy4k" path="res://scenes/objects/food/cola_bottle.tscn" id="20_v1cwn"]
+[ext_resource type="PackedScene" uid="uid://qnqhs2qkqpi2" path="res://scenes/game_end/end.tscn" id="27_mg536"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dq6vu"]
 
@@ -38,9 +59,15 @@ material = SubResource("StandardMaterial3D_i4fbv")
 size = Vector2(0.8, 1)
 orientation = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt8hl"]
+size = Vector3(1.4, 1.75, 1.475)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxfae"]
+size = Vector3(0.5, 0.825, 0.35)
+
 [sub_resource type="Curve3D" id="Curve3D_wf233"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 45),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -122,9 +149,11 @@ _data = {
 }
 point_count = 5
 
-[node name="boss" type="Node3D" unique_id=1477198617]
+[node name="boss" type="Node3D" unique_id=1477198617 node_paths=PackedStringArray("player")]
 script = ExtResource("1_dlpkd")
 music_stream = ExtResource("2_7kbl1")
+player = NodePath("Player")
+kill_katie_quest = ExtResource("3_4jo18")
 
 [node name="Environment" type="Node3D" parent="." unique_id=1877800376]
 
@@ -164,17 +193,17 @@ flip_faces = true
 size = Vector3(30, 6, 60)
 material = SubResource("StandardMaterial3D_tdkbu")
 
-[node name="Catdoor" type="Node3D" parent="Environment/Room" unique_id=725920118]
+[node name="CatdoorEast" type="Node3D" parent="Environment/Room" unique_id=725920118]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.949999, -1.9250002, 25.25)
 
-[node name="CatDoor" type="HingeJoint3D" parent="Environment/Room/Catdoor" unique_id=1330319061]
+[node name="CatDoor" type="HingeJoint3D" parent="Environment/Room/CatdoorEast" unique_id=1330319061]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 node_a = NodePath("RigidBody3D")
 angular_limit/enable = true
 angular_limit/upper = 2.268928
 angular_limit/lower = 0.0
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Environment/Room/Catdoor/CatDoor" unique_id=1450046916]
+[node name="RigidBody3D" type="RigidBody3D" parent="Environment/Room/CatdoorEast/CatDoor" unique_id=1450046916]
 collision_layer = 0
 collision_mask = 16
 axis_lock_linear_z = true
@@ -183,21 +212,21 @@ axis_lock_angular_y = true
 can_sleep = false
 continuous_cd = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/Catdoor/CatDoor/RigidBody3D" unique_id=2075812622]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/CatdoorEast/CatDoor/RigidBody3D" unique_id=2075812622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_wf233")
 
-[node name="CatdoorMesh" type="MeshInstance3D" parent="Environment/Room/Catdoor/CatDoor/RigidBody3D" unique_id=604740007]
+[node name="CatdoorMesh" type="MeshInstance3D" parent="Environment/Room/CatdoorEast/CatDoor/RigidBody3D" unique_id=604740007]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("PlaneMesh_i4fbv")
 skeleton = NodePath("../../../..")
 
-[node name="HoleMesh" type="MeshInstance3D" parent="Environment/Room/Catdoor" unique_id=930868922]
+[node name="HoleMesh" type="MeshInstance3D" parent="Environment/Room/CatdoorEast" unique_id=930868922]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.024000168, -0.5, 0)
 mesh = SubResource("PlaneMesh_wf233")
 skeleton = NodePath("../CatDoor")
 
-[node name="CatSpawnEast" type="Marker3D" parent="Environment/Room/Catdoor" unique_id=1069991504]
+[node name="CatSpawnEast" type="Marker3D" parent="Environment/Room/CatdoorEast" unique_id=1069991504]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.75, -1.0749998, -1.9073486e-06)
 
 [node name="CatdoorWest" type="Node3D" parent="Environment/Room" unique_id=53673329]
@@ -236,6 +265,127 @@ skeleton = NodePath("../CatDoor")
 [node name="CatSpawnWest" type="Marker3D" parent="Environment/Room/CatdoorWest" unique_id=1396744505]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.75, -1.0749998, -1.9073486e-06)
 
+[node name="Refrigerator_001" parent="Environment/Room" unique_id=847104622 instance=ExtResource("6_27n7m")]
+transform = Transform3D(-5.4639237e-08, -1.25, -5.4639237e-08, 0, -5.4639237e-08, 1.25, -1.25, 5.4639237e-08, 2.3883568e-15, -9.599998, -1.6154313, 29.6)
+
+[node name="PickelJar" parent="Environment/Room/Refrigerator_001/RefrigeratorDoor" parent_id_path=PackedInt32Array(847104622, 1474864273) index="2" unique_id=559258916 instance=ExtResource("7_4jo18")]
+transform = Transform3D(-0.1, 2.220446e-15, 1.3113416e-08, 1.3113416e-08, -9.016116e-16, 0.1, 2.220446e-15, 0.1, 7.374084e-16, -0.04055977, -0.5427575, 0.22914213)
+
+[node name="Interactable" type="Node" parent="Environment/Room/Refrigerator_001/RefrigeratorDoor/PickelJar" unique_id=2093282982 node_paths=PackedStringArray("collider_body")]
+script = ExtResource("8_mg536")
+collider_body = NodePath("../PickleArea3D")
+icon = ExtResource("9_ropnh")
+interaction_text = "eat pickle"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="PickleArea3D" type="Area3D" parent="Environment/Room/Refrigerator_001/RefrigeratorDoor/PickelJar" unique_id=1669556654]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/Refrigerator_001/RefrigeratorDoor/PickelJar/PickleArea3D" unique_id=463476667]
+transform = Transform3D(1, -3.1058807e-22, 0, -2.3881268e-22, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_rt8hl")
+
+[node name="Apple_001" parent="Environment/Room/Refrigerator_001" unique_id=1267864653 instance=ExtResource("10_twjql")]
+transform = Transform3D(0.1, 4.3711395e-09, -4.371141e-09, -4.3711395e-09, 0.1, 6.351578e-16, 4.3711412e-09, -4.440892e-16, 0.1, 0, -0.15999985, 0.22748327)
+
+[node name="Milk_02" parent="Environment/Room/Refrigerator_001" unique_id=1079785193 instance=ExtResource("11_wu8me")]
+transform = Transform3D(0.008715576, -8.328043e-09, 0.09961947, -0.09961947, -7.453092e-10, 0.008715576, 1.6636009e-11, -0.1, -8.361309e-09, 0, 0.26000214, 0.20748353)
+
+[node name="Egg" parent="Environment/Room/Refrigerator_001" unique_id=1981280557 instance=ExtResource("12_2l1fi")]
+transform = Transform3D(0.040000003, 1.7484564e-09, 1.7484558e-09, -1.7484557e-09, -1.7484557e-09, 0.040000003, 1.7484566e-09, -0.040000003, -1.7484556e-09, 0.1800003, 1.9073486e-06, 0.14952898)
+
+[node name="Egg2" parent="Environment/Room/Refrigerator_001" unique_id=167424321 instance=ExtResource("12_2l1fi")]
+transform = Transform3D(0.03276608, 3.4379977e-09, -0.022943057, 0.022943057, -1.1317362e-10, 0.03276608, 2.7513294e-09, -0.04, -2.06466e-09, 0.03999996, 1.9073486e-06, 0.14952898)
+
+[node name="Sauce_02" parent="Environment/Room/Refrigerator_001" unique_id=1543849120 instance=ExtResource("13_43r1o")]
+transform = Transform3D(0.03, 1.3113409e-09, -1.3113418e-09, -1.3113409e-09, 0.03, 1.1675436e-15, 1.3113418e-09, -1.110223e-15, 0.03, 0, -0.33999634, 0.20711601)
+
+[node name="Asparagus" parent="Environment/Room/Refrigerator_001" unique_id=1522448910 instance=ExtResource("14_7s4nb")]
+transform = Transform3D(0.025881903, -5.0448907e-09, 0.09659258, -0.09659258, 6.310146e-09, 0.025881903, -7.400847e-09, -0.1, -3.2398042e-09, 0.03999996, 0.26000023, -0.56000006)
+
+[node name="Burger_02" parent="Environment/Room/Refrigerator_001" unique_id=254202428 instance=ExtResource("15_awewf")]
+transform = Transform3D(0.8, 3.4969116e-08, -3.4969112e-08, -3.4969116e-08, 0.8, 5.081262e-15, 3.4969112e-08, -3.5527137e-15, 0.8, 0.119999886, 0, -0.52000004)
+
+[node name="Water_01" parent="Environment/Room/Refrigerator_001" unique_id=468120798 instance=ExtResource("16_u1281")]
+transform = Transform3D(-2.84124e-09, -5.68248e-09, 0.06499999, -0.06499999, 2.84124e-09, -2.8412395e-09, -2.84124e-09, -0.06499999, -5.682479e-09, 0.06000042, 0.32000732, -0.91999996)
+
+[node name="Water_02" parent="Environment/Room/Refrigerator_001" unique_id=626170583 instance=ExtResource("16_u1281")]
+transform = Transform3D(-2.84124e-09, -5.68248e-09, 0.06499999, -0.06499999, 2.84124e-09, -2.8412395e-09, -2.84124e-09, -0.06499999, -5.682479e-09, 0.06000042, 0.18000793, -0.91999996)
+
+[node name="Water_03" parent="Environment/Room/Refrigerator_001" unique_id=1480472680 instance=ExtResource("16_u1281")]
+transform = Transform3D(-2.84124e-09, -5.68248e-09, 0.06499999, -0.06499999, 2.84124e-09, -2.8412395e-09, -2.84124e-09, -0.06499999, -5.682479e-09, 0.06000042, 0.040008545, -0.92)
+
+[node name="Water_04" parent="Environment/Room/Refrigerator_001" unique_id=98338972 instance=ExtResource("16_u1281")]
+transform = Transform3D(-2.84124e-09, -5.68248e-09, 0.06499999, -0.06499999, 2.84124e-09, -2.8412395e-09, -2.84124e-09, -0.06499999, -5.682479e-09, 0.06000042, 0.10000992, -0.82)
+
+[node name="Water_05" parent="Environment/Room/Refrigerator_001" unique_id=1381902037 instance=ExtResource("16_u1281")]
+transform = Transform3D(-2.84124e-09, -5.68248e-09, 0.06499999, -0.06499999, 2.84124e-09, -2.8412395e-09, -2.84124e-09, -0.06499999, -5.682479e-09, 0.06000042, 0.24000931, -0.82)
+
+[node name="Grape_01" parent="Environment/Room/Refrigerator_001" unique_id=170012076 instance=ExtResource("17_qbnrf")]
+transform = Transform3D(0.105541624, -0.009535276, -0.075299606, -0.05020959, 0.0879477, -0.08151187, 0.056920543, 0.09525895, 0.067718394, 0.06000042, -0.2199955, -0.91999996)
+
+[node name="Cabbage" parent="Environment/Room/Refrigerator_001" unique_id=1233456704 instance=ExtResource("18_cv0dg")]
+transform = Transform3D(0.10648977, -1.027665e-09, 0.074564934, -0.074564934, -3.2593364e-09, 0.10648977, 1.0276655e-09, -0.13, -3.2593375e-09, 0.06000042, -0.23999596, -0.52000004)
+
+[node name="Cola" type="Node3D" parent="Environment/Room/Refrigerator_001" unique_id=1103769918]
+transform = Transform3D(0.90000004, -7.1054274e-15, 2.1175824e-22, 7.1054274e-15, 0.90000004, 7.1054274e-15, -3.1763736e-22, -7.1054274e-15, 0.90000004, 0.059999943, 0, -0.18000013)
+
+[node name="ColaArea3D" type="Area3D" parent="Environment/Room/Refrigerator_001/Cola" unique_id=136765583]
+transform = Transform3D(1, 0, 0, 0, 1, 8.351873e-23, 0, 8.3518736e-23, 1, 0, 0, 0)
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/Refrigerator_001/Cola/ColaArea3D" unique_id=1844011969]
+transform = Transform3D(1, 3.5527137e-15, 1.2027868e-19, -3.5527137e-15, 1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 0.025000095, 0, 0.07500005)
+shape = SubResource("BoxShape3D_fxfae")
+
+[node name="Interactable" type="Node" parent="Environment/Room/Refrigerator_001/Cola" unique_id=1602830499 node_paths=PackedStringArray("collider_body")]
+script = ExtResource("8_mg536")
+collider_body = NodePath("../ColaArea3D")
+icon = ExtResource("19_741g7")
+interaction_text = "Drink Diet Soda"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="ColaBottle" parent="Environment/Room/Refrigerator_001/Cola" unique_id=1595590975 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.313577e-09, 0.3, 0, -0.29999924, 0.059999943)
+
+[node name="ColaBottle2" parent="Environment/Room/Refrigerator_001/Cola" unique_id=2116663285 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0, -0.1800003, 0.060000002)
+
+[node name="ColaBottle3" parent="Environment/Room/Refrigerator_001/Cola" unique_id=791118115 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0, -0.05999756, 0.060000002)
+
+[node name="ColaBottle4" parent="Environment/Room/Refrigerator_001/Cola" unique_id=1226732197 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0, 0.060001373, 0.060000002)
+
+[node name="ColaBottle5" parent="Environment/Room/Refrigerator_001/Cola" unique_id=1406754652 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0, 0.1800003, 0.060000002)
+
+[node name="ColaBottle6" parent="Environment/Room/Refrigerator_001/Cola" unique_id=1035372629 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0, 0.30000305, 0.060000062)
+
+[node name="ColaBottle7" parent="Environment/Room/Refrigerator_001/Cola" unique_id=2020813321 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0.14000034, -0.2599945, 0.060000002)
+
+[node name="ColaBottle8" parent="Environment/Room/Refrigerator_001/Cola" unique_id=275181253 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0.14000034, -0.13999939, 0.060000002)
+
+[node name="ColaBottle9" parent="Environment/Room/Refrigerator_001/Cola" unique_id=320786766 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0.14000034, -0.019996643, 0.060000002)
+
+[node name="ColaBottle10" parent="Environment/Room/Refrigerator_001/Cola" unique_id=382180667 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0.14000034, 0.1000061, 0.060000002)
+
+[node name="ColaBottle11" parent="Environment/Room/Refrigerator_001/Cola" unique_id=262616373 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0.14000034, 0.22000122, 0.060000002)
+
+[node name="ColaBottle12" parent="Environment/Room/Refrigerator_001/Cola" unique_id=1422844825 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0.14000034, 0.34000397, 0.060000062)
+
+[node name="ColaBottle13" parent="Environment/Room/Refrigerator_001/Cola" unique_id=618532568 instance=ExtResource("20_v1cwn")]
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913267e-08, -8.313578e-09, 0.3, 0.14000034, -0.37998962, 0.059999943)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment" unique_id=112183795]
 transform = Transform3D(1, 0, 0, 0, 0.25881904, 0.9659259, 0, -0.9659259, 0.25881904, 0, 12.475, 25)
 spot_range = 44.0
@@ -259,7 +409,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 24.25)
 [node name="CatSpawner" type="Node" parent="Cats" unique_id=1977298540 node_paths=PackedStringArray("spawn_locations", "patrol_points")]
 script = ExtResource("6_wf233")
 cat_scene = ExtResource("4_0xsra")
-spawn_locations = [NodePath("../../Environment/Room/Catdoor/CatSpawnEast"), NodePath("../../Environment/Room/CatdoorWest/CatSpawnWest")]
+spawn_locations = [NodePath("../../Environment/Room/CatdoorEast/CatSpawnEast"), NodePath("../../Environment/Room/CatdoorWest/CatSpawnWest")]
 patrol_points = [NodePath("../PatrolPoints/PatrolPoint1"), NodePath("../PatrolPoints/PatrolPoint2")]
 metadata/_custom_type_script = "uid://ccm51x52qgmsm"
 
@@ -269,6 +419,14 @@ metadata/_custom_type_script = "uid://ccm51x52qgmsm"
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -28.25)
 path_pools = [NodePath("../PathPools/Initial"), NodePath("../PathPools/Easy"), NodePath("../PathPools/Medium"), NodePath("../PathPools/Hard")]
 
+[node name="FocusMarker" type="Marker3D" parent="Boss/BossKatie" unique_id=585089178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6375, 0.5625)
+
+[node name="RotationBase" type="Node3D" parent="Boss/BossKatie" unique_id=304327164]
+
+[node name="LungeSoundPlayer3D" type="AudioStreamPlayer3D" parent="Boss/BossKatie" unique_id=1161468359]
+bus = &"SFX"
+
 [node name="PathPools" type="Node3D" parent="Boss" unique_id=579943767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.5)
 
@@ -277,9 +435,10 @@ visible = false
 
 [node name="InitialPath1" type="Path3D" parent="Boss/PathPools/Initial" unique_id=1738706229]
 curve = SubResource("Curve3D_wf233")
+metadata/speed = 1.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Initial/InitialPath1" unique_id=1628388771]
-transform = Transform3D(1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, 1, 0, 0, 9)
 use_model_front = true
 loop = false
 
@@ -288,6 +447,7 @@ visible = false
 
 [node name="Path3D1" type="Path3D" parent="Boss/PathPools/Easy" unique_id=214810389]
 curve = SubResource("Curve3D_dlpkd")
+metadata/speed = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D1" unique_id=1518889634]
 transform = Transform3D(0.9999975, 0, 8.742238e-08, 0, 0.99999946, 0, -8.7422556e-08, 0, 0.9999954, 10, 0, 0)
@@ -296,6 +456,7 @@ loop = false
 
 [node name="Path3D2" type="Path3D" parent="Boss/PathPools/Easy" unique_id=1361381961]
 curve = SubResource("Curve3D_7kbl1")
+metadata/speed = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D2" unique_id=224960146]
 transform = Transform3D(0.9999975, 0, 8.742237e-08, 0, 0.99999946, 0, -8.7422556e-08, 0, 0.99999535, -10, 0, 0)
@@ -304,6 +465,7 @@ loop = false
 
 [node name="Path3D3" type="Path3D" parent="Boss/PathPools/Easy" unique_id=1735634]
 curve = SubResource("Curve3D_2mupd")
+metadata/speed = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D3" unique_id=1085761677]
 transform = Transform3D(0.9761846, 0, 0.21692933, 0, 0.99999946, 0, -0.21692981, 0, 0.9761825, -5, 0, 0)
@@ -312,6 +474,7 @@ loop = false
 
 [node name="Path3D4" type="Path3D" parent="Boss/PathPools/Easy" unique_id=1183699503]
 curve = SubResource("Curve3D_p4gry")
+metadata/speed = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Easy/Path3D4" unique_id=577152145]
 transform = Transform3D(0.9761846, 0, -0.21692933, 0, 0.99999946, 0, 0.21692981, 0, 0.9761825, 5, 0, 0)
@@ -324,6 +487,7 @@ visible = false
 [node name="Path3D1" type="Path3D" parent="Boss/PathPools/Medium" unique_id=992617020]
 curve = SubResource("Curve3D_xsifj")
 debug_custom_color = Color(1, 0, 0.984375, 1)
+metadata/speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D1" unique_id=1225477596]
 transform = Transform3D(0.86892337, 0, -0.49493745, 0, 0.9999995, 0, 0.49493882, 0, 0.868921, 10, 0, 0)
@@ -333,6 +497,7 @@ loop = false
 [node name="Path3D2" type="Path3D" parent="Boss/PathPools/Medium" unique_id=906652258]
 curve = SubResource("Curve3D_5bqv2")
 debug_custom_color = Color(1, 0, 0.984375, 1)
+metadata/speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D2" unique_id=1074418711]
 transform = Transform3D(0.86892337, 0, 0.49493745, 0, 0.9999995, 0, -0.49493882, 0, 0.868921, -10, 0, 0)
@@ -343,6 +508,7 @@ loop = false
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 15, 2.5, 0)
 curve = SubResource("Curve3D_jghey")
 debug_custom_color = Color(1, 0, 0.984375, 1)
+metadata/speed = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D3" unique_id=1450626999]
 transform = Transform3D(0.9999961, 0, 8.74222e-08, 0, 0.9999995, 0, -8.7422436e-08, 0, 0.9999934, 0, 0, 0)
@@ -350,9 +516,10 @@ use_model_front = true
 loop = false
 
 [node name="Path3D4" type="Path3D" parent="Boss/PathPools/Medium" unique_id=56359747]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 0)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -15, 2.5, 0)
 curve = SubResource("Curve3D_wxk8e")
 debug_custom_color = Color(1, 0, 0.984375, 1)
+metadata/speed = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Medium/Path3D4" unique_id=1476325665]
 transform = Transform3D(0.9999961, 0, 8.74222e-08, 0, 0.9999995, 0, -8.7422436e-08, 0, 0.9999934, 0, 0, 0)
@@ -366,6 +533,7 @@ visible = false
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 5.75, 0)
 curve = SubResource("Curve3D_r432h")
 debug_custom_color = Color(1, 0, 0.984375, 1)
+metadata/speed = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Hard/Path1" unique_id=1619712931]
 transform = Transform3D(0.9999961, 0, 8.74222e-08, 0, 0.9999995, 0, -8.7422436e-08, 0, 0.9999934, 0, 0, 0)
@@ -375,6 +543,7 @@ loop = false
 [node name="Path2" type="Path3D" parent="Boss/PathPools/Hard" unique_id=413565269]
 curve = SubResource("Curve3D_tdkbu")
 debug_custom_color = Color(1, 0, 0.984375, 1)
+metadata/speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Hard/Path2" unique_id=392321814]
 transform = Transform3D(0.88431644, 0, -0.46687368, 0, 0.99999833, 0, 0.46687514, 0, 0.8843137, 0, 0, 0)
@@ -385,8 +554,42 @@ loop = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.325, 0, 0)
 curve = SubResource("Curve3D_rrgoe")
 debug_custom_color = Color(1, 0, 0.984375, 1)
+metadata/speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Boss/PathPools/Hard/Path3" unique_id=2118649782]
 transform = Transform3D(0.35651612, 0, -0.9342784, 0, 0.9999995, 0, 0.9342818, 0, 0.35651484, 0, 0, 0)
 use_model_front = true
 loop = false
+
+[node name="Cutscenes" type="Node3D" parent="." unique_id=561430094]
+
+[node name="KatieDeathCutscene" type="Node" parent="Cutscenes" unique_id=632124819 node_paths=PackedStringArray("camera_shaker", "death_scream_player")]
+script = ExtResource("11_p4gry")
+camera_shaker = NodePath("CameraShaker")
+death_scream_player = NodePath("DeathPlayer")
+end = ExtResource("27_mg536")
+
+[node name="CameraShaker" type="Node" parent="Cutscenes/KatieDeathCutscene" unique_id=1252171988]
+script = ExtResource("10_2mupd")
+duration_sec = 5.4
+magnitude = 0.3
+metadata/_custom_type_script = "uid://dp3bs1n1ku2uv"
+
+[node name="DeathPlayer" type="AudioStreamPlayer" parent="Cutscenes/KatieDeathCutscene" unique_id=990976102]
+stream = ExtResource("12_xsifj")
+volume_db = 12.0
+bus = &"SFX"
+
+[node name="KatieAttackCutscene" type="Node" parent="Cutscenes" unique_id=1434356312 node_paths=PackedStringArray("katie", "katie_focus", "rotation_base", "sound_player")]
+script = ExtResource("13_5bqv2")
+katie = NodePath("../../Boss/BossKatie")
+katie_focus = NodePath("../../Boss/BossKatie/FocusMarker")
+rotation_base = NodePath("../../Boss/BossKatie/RotationBase")
+sound_player = NodePath("../../Boss/BossKatie/LungeSoundPlayer3D")
+
+[connection signal="interaction_started" from="Environment/Room/Refrigerator_001/RefrigeratorDoor/PickelJar/Interactable" to="Player" method="eat_pickle" unbinds=1]
+[connection signal="interaction_started" from="Environment/Room/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]
+[connection signal="dead" from="Boss/BossKatie" to="Cutscenes/KatieDeathCutscene" method="play"]
+[connection signal="hit_player" from="Boss/BossKatie" to="Cutscenes/KatieAttackCutscene" method="play"]
+
+[editable path="Environment/Room/Refrigerator_001"]

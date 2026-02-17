@@ -12,6 +12,7 @@ extends Cutscene
 @export var cam: Camera3D
 @export var katie: Katie
 @export var door: Door
+@export var door2: Door
 
 
 @export var katie_start_location: Marker3D
@@ -33,7 +34,7 @@ var katie_movement_duration_sec: float = 0.5
 
 @export var initial_delay_sec: float = 0.5
 @export var gore_delay_sec: float = 0.3
-#@export var movement_delay_sec: float = 1.2 # Accounts for screech time
+
 @export var dialogue_delay_sec: float = 0.4
 @export var dialogue_resource: DialogueResource
 
@@ -57,7 +58,11 @@ func _on_play() -> void:
 	cam.make_current()
 	
 	door.locked = false
+	door.mute_sounds = true
+	door2.mute_sounds = true
 	door.set_open(true)
+	door.mute_sounds = false
+	door2.mute_sounds = false
 	
 	Global.player.global_position = cam.global_position * Vector3(1.0, 0.0, 1.0)
 	Global.player.global_rotation.y = cam.global_rotation.y
@@ -85,6 +90,11 @@ func _on_play() -> void:
 func play_katie_escape() -> void:
 	katie.show()
 	katie.play(&"crabwalk")
+	katie.set_texture(katie.bloody_texture)
+	
+	door.slam_door_on_close = true
+	door2.slam_door_on_close = true
+	
 	var tw: Tween = create_tween()
 	#tw.tween_callback(lights.show)
 	tw.tween_callback(Audio.play_music.bind(music))
@@ -92,6 +102,8 @@ func play_katie_escape() -> void:
 	
 	tw.tween_property(katie, ^"global_position", katie_target_location.global_position, katie_movement_duration_sec).from(katie_start_location.global_position)
 	tw.tween_callback(door.set_open.bind(false))
+	tw.tween_callback(door.set.bind(&"slam_door_on_close", false))
+	tw.tween_callback(door2.set.bind(&"slam_door_on_close", false))
 	tw.tween_callback(katie.hide)
 	tw.tween_property(cam, ^"fov", Global.player.camera.fov, fov_tween_duration_sec)
 	
@@ -104,13 +116,5 @@ func play_katie_escape() -> void:
 	tw.tween_callback(QuestHandle.start_quest.bind(quest))
 	tw.tween_callback(finish)
 	tw.tween_callback(spotlight.hide)
+	tw.tween_callback(Global.player.set_flashlight_enabled.bind(true))
 	tw.tween_callback(Global.player.set_flashlight_active.bind(true))
-
-# TESTING
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_echo() or not event.is_pressed(): return
-	
-	if event is InputEventKey and event.keycode == KEY_P:
-		play()
-		print("PLAYING")
-		get_viewport().set_input_as_handled()

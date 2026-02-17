@@ -8,8 +8,11 @@
 [ext_resource type="Script" uid="uid://bq6bav7hc4c24" path="res://scripts/states/state_machine.gd" id="4_ake6j"]
 [ext_resource type="Script" uid="uid://bugfbx6cgrsow" path="res://scenes/boss/boss_katie/katie_state_idle.gd" id="5_l8820"]
 [ext_resource type="Script" uid="uid://br1wt1buu6osp" path="res://scenes/boss/boss_katie/katie_state_charge.gd" id="6_n8qgq"]
-[ext_resource type="Script" uid="uid://c1vqfwqsbvg67" path="res://scenes/boss/boss_katie/katie_state_kill.gd" id="7_n8qgq"]
+[ext_resource type="Script" uid="uid://c1vqfwqsbvg67" path="res://scenes/boss/boss_katie/katie_state_attack.gd" id="7_n8qgq"]
 [ext_resource type="Script" uid="uid://b4mbkoyogac61" path="res://scenes/boss/boss_katie/katie_state_damaged.gd" id="9_f0srq"]
+[ext_resource type="AudioStream" uid="uid://cgwf3jklybcee" path="res://assets/sounds/dino_scream2.wav" id="12_ryx4u"]
+[ext_resource type="AudioStream" uid="uid://drpi2pyx161f7" path="res://assets/sounds/dino_scream3.wav" id="13_kvtr7"]
+[ext_resource type="Script" uid="uid://dvmg4glybypep" path="res://scenes/boss/boss_katie/katie_state_dead.gd" id="14_kvtr7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t02c1"]
 size = Vector3(1.225, 1.025, 1.275)
@@ -33,10 +36,11 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_n8qgq")
 size = Vector2(0.1, 0.1)
 
-[node name="BossKatie" type="Node3D" unique_id=1844758243 node_paths=PackedStringArray("katie", "hitbox", "damaged_audio_player", "giggle_audio_player", "particles", "movement_component", "state_machine")]
+[node name="BossKatie" type="Node3D" unique_id=1844758243 node_paths=PackedStringArray("katie", "hitbox", "kill_box", "damaged_audio_player", "giggle_audio_player", "particles", "movement_component", "state_machine")]
 script = ExtResource("1_4cqye")
 katie = NodePath("Katie")
 hitbox = NodePath("Hitbox")
+kill_box = NodePath("KillBox")
 damaged_audio_player = NodePath("DamagedPlayer")
 giggle_audio_player = NodePath("GigglePlayer")
 particles = NodePath("GPUParticles3D")
@@ -58,8 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012499988, 0.087500006, 0.1
 shape = SubResource("BoxShape3D_t02c1")
 
 [node name="KillBox" type="Area3D" parent="." unique_id=1414615144]
-collision_layer = 8
-collision_mask = 0
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillBox" unique_id=146665720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52500004, 0.125)
@@ -68,13 +73,14 @@ shape = SubResource("BoxShape3D_16gu7")
 [node name="GigglePlayer" type="AudioStreamPlayer3D" parent="." unique_id=1885112319]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0.375)
 stream = ExtResource("3_16gu7")
-volume_db = 10.0
-unit_size = 15.0
+volume_db = 16.0
+unit_size = 20.0
 bus = &"SFX"
 
 [node name="DamagedPlayer" type="AudioStreamPlayer3D" parent="." unique_id=507218160]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0.375)
 stream = ExtResource("3_f0srq")
+volume_db = 16.0
 pitch_scale = 0.8
 bus = &"SFX"
 
@@ -102,13 +108,16 @@ script = ExtResource("5_l8820")
 
 [node name="charge" type="Node" parent="StateMachine" unique_id=2063365773]
 script = ExtResource("6_n8qgq")
-charge_speeds = PackedFloat32Array(3, 2, 2.5, 3)
 
-[node name="kill" type="Node" parent="StateMachine" unique_id=1408899881]
+[node name="attack" type="Node" parent="StateMachine" unique_id=1408899881]
 script = ExtResource("7_n8qgq")
 
 [node name="damaged" type="Node" parent="StateMachine" unique_id=565657197]
 script = ExtResource("9_f0srq")
+scream_audio_streams = Array[AudioStream]([ExtResource("3_f0srq"), ExtResource("12_ryx4u"), ExtResource("13_kvtr7")])
+
+[node name="dead" type="Node" parent="StateMachine" unique_id=343896204]
+script = ExtResource("14_kvtr7")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]

@@ -1,19 +1,14 @@
 ~ intro
-Katie: Heellllooooooo.
-Katie: I'm so happy to see you.
+Katie: I'm sooo happy to see you.
 Katie: I missed you so much it hurt me inside.
 Katie: I had to play with my puppets instead, but they're not as fun as you...
-Katie: I'm so glad were friends.
-Katie: Aren't you glad we're friends?
+Katie: I'm so glad were friends, aren't you glad we're friends?
 - Yes
-	do Audio.play_sfx(creepy_laugh)
+	do audio_player.play()
 	Katie: I'm so happy I could just explode.
 - No
-	do Audio.play_sfx(creepy_laugh)
+	do audio_player.play()
 	Katie: Oh you are such a kidder!
-- Suck a fat dick
-	do Audio.play_sfx(creepy_laugh)
-	Katie: Hee hee you are just sooo funny!
 Katie: I have to go, there are some matters that require my attention.
 Katie: See you around... 
 Katie: friend..

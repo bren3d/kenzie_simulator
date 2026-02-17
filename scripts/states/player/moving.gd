@@ -42,14 +42,17 @@ func on_unhandled_input(event: InputEvent) -> void:
 	
 	player.move_camera(event)
 	
-	if event.is_action_pressed(&"jump"):
+	if event.is_action_pressed(&"cough"):
+		player.cough()
+		
+	elif event.is_action_pressed(&"jump"):
 		attempting_jump = true
 	
 	elif event.is_action_pressed(&"interact") and player.interact_ray.can_interact():
 		transition_requested.emit("Interacting")
 	
-	elif event.is_action_pressed(&"flashlight"):
-		player.toggle_flashlight()
+	#elif event.is_action_pressed(&"flashlight"):
+		#player.toggle_flashlight()
 	
 	elif event.is_action(&"sprint"):
 		player.sprinting = event.is_pressed()

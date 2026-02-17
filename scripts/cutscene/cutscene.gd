@@ -5,8 +5,7 @@ extends Node
 signal started
 signal finished
 
-@export var play_on_ready: bool
-@export var is_skippable: bool
+@export var skippable: bool
 
 var is_active: bool = false
 
@@ -18,7 +17,7 @@ var is_active: bool = false
 ## Will change player state to "Cutscene"
 func play() -> void:
 	is_active = true
-	if is_skippable:
+	if skippable:
 		set_process_input(true)
 	Global.player.set_state.call_deferred("Cutscene")
 	started.emit()
@@ -47,6 +46,6 @@ func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_READY:
 			set_process_input(false)
-			if not Engine.is_editor_hint() and play_on_ready:
-				play()
+			#if not Engine.is_editor_hint() and play_on_ready:
+				#play()
 	

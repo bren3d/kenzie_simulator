@@ -10,6 +10,7 @@ const DEBUG_SCENE_PATHS:PackedStringArray = [
 ]
 
 var scene: Node : set = set_scene, get = get_scene
+var is_changing_scenes: bool
 
 var vp: Viewport
 var rect: ColorRect
@@ -17,7 +18,6 @@ var rect: ColorRect
 var mouse_mode: Input.MouseMode = Input.MouseMode.MOUSE_MODE_VISIBLE : get = get_mouse_mode, set = set_mouse_mode
 var tw: Tween
 
-var is_changing_scenes: bool
 
 func _initialize() -> void:
 	if Engine.is_editor_hint(): return
@@ -97,17 +97,45 @@ func change_scene(node: Node) -> void:
 	tw.tween_callback(set.bind(&"is_changing_scenes", false))
 
 func change_scene_path(path: String) -> void:
+	if is_changing_scenes:
+		push_error("Rejecting scene transisiton to path '%s'" % path)
+		return
+	
 	change_scene(load(path).instantiate())
 
 func change_scene_packed(packed: PackedScene) -> void:
+	if is_changing_scenes:
+		push_error("Rejecting scene transisiton to PackedScene '%s'" % packed)
+		return
+	
 	change_scene(packed.instantiate())
+
+func reload_scene() -> void:
+	if not scene:
+		push_error("No scene exists to reload.")
+		return
+	
+	change_scene_path(scene.scene_file_path)
+
+func unload_scene() -> void:
+	if not scene:
+		push_error("No scene exists to unload.")
+		return
+	
+	assert(scene.get_parent() == vp)
+	vp.remove_child(scene)
+	scene.queue_free()
+
+## Restarts the project from the beginning.
+func reset() -> void:
+	unload_scene()
+	root.propagate_call(&"reset")
+	change_scene_path.call_deferred(ProjectSettings.get_setting("application/run/main_scene"))
+
 
 func _on_root_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo(): return
-	
-	# For web build...
-	#Input.mouse_mode = mouse_mode 
-	
+
 	if event is InputEventKey:
 		match event.keycode:
 			# Jump to scene
@@ -119,6 +147,7 @@ func _on_root_input(event: InputEvent) -> void:
 			
 			KEY_EQUAL:
 				Node.print_orphan_nodes()
+				
 
 func get_transition_rect() -> ColorRect:
 	for i: int in root.get_child_count(true):

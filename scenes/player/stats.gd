@@ -35,7 +35,7 @@ var timer_value: float = 0.0
 func _ready() -> void:
 	assert(Engine.is_editor_hint() or stat_name, "No stat name set.")
 	# Set again so _process does not run
-	set_paused(paused) 
+	set_paused(!is_paused()) 
 
 func _process(delta: float) -> void:
 	#print("Blah")
@@ -70,11 +70,11 @@ func pause() -> void:
 
 func set_paused(val: bool) -> void:
 	paused = val
-	set_process(!paused) # and not Engine.is_editor_hint()
-	running_changed.emit(!paused)
+	set_process(!is_paused()) # and not Engine.is_editor_hint()
+	running_changed.emit(!is_paused())
 
 func is_paused() -> bool:
-	return paused
+	return paused or disabled
 
 func set_disabled(val: bool) -> void:
 	disabled = val

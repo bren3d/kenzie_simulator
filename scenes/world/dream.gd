@@ -1,10 +1,12 @@
 @tool
 extends Node3D
 
+@export var basement_scene: PackedScene
+
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	$AreaExit.body_exited.connect(_on_area_body_exited)
+	Global.play_wake_up_cutscene_on_ready = true
 
-func _on_area_body_exited(body: Node3D) -> void:
-	if body is Player and not get_tree().is_changing_scenes:
-		get_tree().change_scene(load("res://scenes/basement/basement.tscn").instantiate())
+func _on_area_exit_body_exited(body: Node3D) -> void:
+	if Engine.is_editor_hint() or not body is Player: return
+	get_tree().change_scene_packed(basement_scene)

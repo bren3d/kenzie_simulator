@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bkvtfh2r41liy"]
+[gd_scene format=4 uid="uid://bkvtfh2r41liy"]
 
 [ext_resource type="Texture2D" uid="uid://cbvj40jvsgg5c" path="res://scenes/objects/textures/Chest_drawers_01_22_baseColor.png" id="1_lns3i"]
 [ext_resource type="Script" uid="uid://nwwqfha6002f" path="res://scripts/interact/interactable.gd" id="2_qdpvj"]
@@ -121,80 +121,80 @@ size = Vector3(0.75, 0.925, 0.075)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dwhs0"]
 size = Vector3(0.6, 0.925, 0.05)
 
-[node name="Refrigerator_001" type="Node3D"]
+[node name="Refrigerator_001" type="Node3D" unique_id=847104622]
 transform = Transform3D(7.54979e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, -7.54979e-08, -3.300118e-15, 0, 0, 0)
 
-[node name="Refrigerator_001_Refrigerator_0" type="MeshInstance3D" parent="."]
+[node name="Refrigerator_001_Refrigerator_0" type="MeshInstance3D" parent="." unique_id=1604257456]
 mesh = SubResource("ArrayMesh_4nqct")
 skeleton = NodePath("")
 
-[node name="FreezerDoor" type="Node3D" parent="."]
+[node name="FreezerDoor" type="Node3D" parent="." unique_id=1723414477]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39724207, 0.46056938, 0.68473005)
 
-[node name="Refrigerator_Door_01_001_Refrigerator_0" type="MeshInstance3D" parent="FreezerDoor"]
+[node name="Refrigerator_Door_01_001_Refrigerator_0" type="MeshInstance3D" parent="FreezerDoor" unique_id=731152800]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_6da6r")
 skeleton = NodePath("")
 
-[node name="DoorInteractArea3D" type="Area3D" parent="FreezerDoor"]
+[node name="DoorInteractArea3D" type="Area3D" parent="FreezerDoor" unique_id=650060343]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FreezerDoor/DoorInteractArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FreezerDoor/DoorInteractArea3D" unique_id=1211868183]
 transform = Transform3D(1, 2.6147973e-12, 9.592537e-13, -2.6147973e-12, 1, -7.217249e-20, -9.592537e-13, 2.4914335e-22, 1, 0.049999207, -0.46249917, 0)
 shape = SubResource("BoxShape3D_m5eme")
 
-[node name="RefrigeratorDoor" type="Node3D" parent="."]
+[node name="RefrigeratorDoor" type="Node3D" parent="." unique_id=1474864273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39724207, 0.46056938, -0.30165863)
 
-[node name="Refrigerator_Door_001_Refrigerator_0" type="MeshInstance3D" parent="RefrigeratorDoor"]
+[node name="Refrigerator_Door_001_Refrigerator_0" type="MeshInstance3D" parent="RefrigeratorDoor" unique_id=766978143]
 mesh = SubResource("ArrayMesh_7mfbn")
 skeleton = NodePath("")
 
-[node name="DoorInteractArea3D" type="Area3D" parent="RefrigeratorDoor"]
+[node name="DoorInteractArea3D" type="Area3D" parent="RefrigeratorDoor" unique_id=265299600]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RefrigeratorDoor/DoorInteractArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RefrigeratorDoor/DoorInteractArea3D" unique_id=942128836]
 transform = Transform3D(1, 2.6148547e-12, 9.592537e-13, -2.6148547e-12, 1, -2.327299e-19, -9.592537e-13, 2.327274e-19, 1, 0.049999207, -0.46249917, -0.025000036)
 shape = SubResource("BoxShape3D_fg6s2")
 
-[node name="FridgeStaticBody3D" type="StaticBody3D" parent="."]
+[node name="FridgeStaticBody3D" type="StaticBody3D" parent="." unique_id=657107692]
 collision_layer = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=1920028759]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, 0.07499999, -0.45, -0.024999976)
 shape = SubResource("BoxShape3D_w3dw8")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=277642927]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, 0.075000055, 0.425, -0.024999937)
 shape = SubResource("BoxShape3D_w3dw8")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=1247414160]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, 0.05000005, -0.012500011, -1.0374999)
 shape = SubResource("BoxShape3D_u5tgb")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=1729915020]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, 0.05000005, -0.012500073, 0.36250007)
 shape = SubResource("BoxShape3D_u5tgb")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=524407706]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, -0.02499994, -0.012500029, -0.63749987)
 shape = SubResource("BoxShape3D_dwhs0")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=1373799838]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, -0.02499994, -0.012500046, -0.26249987)
 shape = SubResource("BoxShape3D_dwhs0")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=147003678]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, -0.02499994, -0.012500061, 0.087500125)
 shape = SubResource("BoxShape3D_dwhs0")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="FridgeStaticBody3D"]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="FridgeStaticBody3D" unique_id=866978005]
 transform = Transform3D(1, 0, 0, 0, 1, 2.4915199e-22, 0, 2.4915199e-22, 1, -0.02499994, -0.012500087, 0.6875001)
 shape = SubResource("BoxShape3D_dwhs0")
 
-[node name="Interactable" type="Node" parent="." node_paths=PackedStringArray("collider_body", "mesh")]
+[node name="Interactable" type="Node" parent="." unique_id=2108068125 node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("2_qdpvj")
 collider_body = NodePath("../RefrigeratorDoor/DoorInteractArea3D")
 mesh = NodePath("../RefrigeratorDoor/Refrigerator_Door_001_Refrigerator_0")
@@ -202,7 +202,7 @@ icon = ExtResource("3_dwhs0")
 interaction_text = "Open"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
-[node name="TriggerProperty" type="Node" parent="." node_paths=PackedStringArray("target_node")]
+[node name="TriggerProperty" type="Node" parent="." unique_id=2057207165 node_paths=PackedStringArray("target_node")]
 script = ExtResource("5_dwhs0")
 target_node = NodePath("../RefrigeratorDoor")
 property_path = "rotation_degrees:z"
@@ -215,7 +215,7 @@ tw_ease = 1
 tw_trans = 9
 metadata/_custom_type_script = "uid://cvxjsg3gij30g"
 
-[node name="TriggerProperty2" type="Node" parent="." node_paths=PackedStringArray("target_node")]
+[node name="TriggerProperty2" type="Node" parent="." unique_id=791487178 node_paths=PackedStringArray("target_node")]
 script = ExtResource("5_dwhs0")
 target_node = NodePath("../Interactable")
 property_path = "interaction_text"

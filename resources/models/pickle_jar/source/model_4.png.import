@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs2fn6pbfsoow"
-path.s3tc="res://.godot/imported/terrorist.png-8277a8bc77f1c194631240aacc1f2d22.s3tc.ctex"
+uid="uid://dmu8xkhtjyccy"
+path.s3tc="res://.godot/imported/model_4.png-7fa61d85d648a00b2fbee1956febc835.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "44cd7f2924281d63d296cf1871224771"
+}
 
 [deps]
 
-source_file="res://assets/textures/materials/terrorist.png"
-dest_files=["res://.godot/imported/terrorist.png-8277a8bc77f1c194631240aacc1f2d22.s3tc.ctex"]
+source_file="res://resources/models/pickle_jar/source/model_4.png"
+dest_files=["res://.godot/imported/model_4.png-7fa61d85d648a00b2fbee1956febc835.s3tc.ctex"]
 
 [params]
 

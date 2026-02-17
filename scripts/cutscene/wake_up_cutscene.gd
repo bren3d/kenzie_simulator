@@ -10,6 +10,12 @@ var wake_up_delay: float = 1.5
 @export var wake_up_quest: Quest
 @export var light_switch_interactable: Interactable
 
+func _ready() -> void:
+	if not Engine.is_editor_hint() and Global.play_wake_up_cutscene_on_ready:
+		Global.play_wake_up_cutscene_on_ready = false
+		play()
+
+
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return
 	
@@ -34,7 +40,7 @@ func _on_play() -> void:
 	
 	wake_up_quest.task_updated.connect(_on_task_updated)
 	
-	player.set_state("Moving")
+	finish()
 	
 
 func _on_task_updated(t: Task) -> void:

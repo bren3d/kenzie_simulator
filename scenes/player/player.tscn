@@ -2,22 +2,32 @@
 
 [ext_resource type="Script" uid="uid://ttc2nvo6lgj7" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bcgef6mdo78ue" path="res://scripts/components/camera_controller.gd" id="2_5gtgg"]
+[ext_resource type="Script" uid="uid://bxadk1rppjy3i" path="res://scenes/player/kickable_area.gd" id="2_8ydkj"]
+[ext_resource type="AudioStream" uid="uid://dysgnv8sapfto" path="res://assets/sounds/bite1.wav" id="2_28m0y"]
 [ext_resource type="Script" uid="uid://bq6bav7hc4c24" path="res://scripts/states/state_machine.gd" id="2_p47bc"]
 [ext_resource type="Script" uid="uid://cv64jvy35hl0k" path="res://scripts/interact/interact_ray.gd" id="2_qek5x"]
 [ext_resource type="Script" uid="uid://3b7atary5jdb" path="res://scripts/states/player/moving.gd" id="3_75vfm"]
 [ext_resource type="Material" uid="uid://c226dleep4n07" path="res://resources/materials/text_wobble.tres" id="3_qek5x"]
+[ext_resource type="AudioStream" uid="uid://5xxuqfo5fkus" path="res://assets/sounds/bite2.ogg" id="3_uniwh"]
+[ext_resource type="Texture2D" uid="uid://dl5ljcbq2v8v8" path="res://assets/icons/kick.png" id="3_yj68g"]
 [ext_resource type="Script" uid="uid://2aoajcpaxxu" path="res://scripts/states/player/cursor.gd" id="4_0owmy"]
+[ext_resource type="Texture2D" uid="uid://bp3jm0sxvjmxe" path="res://assets/icons/left_mouse_prompt.png" id="4_ioxgp"]
+[ext_resource type="Shader" uid="uid://csqy2pm07fcob" path="res://scenes/player/white.gdshader" id="5_8ydkj"]
 [ext_resource type="PackedScene" uid="uid://coj2q8d0n6g0b" path="res://scenes/player/UI/quest_ui/quest_ui.tscn" id="5_myrg7"]
 [ext_resource type="Script" uid="uid://b1cexupi2kvio" path="res://scripts/states/player/godmode.gd" id="5_qek5x"]
 [ext_resource type="Script" uid="uid://csnxtmdq582x7" path="res://scripts/states/player/interacting.gd" id="8_qek5x"]
+[ext_resource type="PackedScene" uid="uid://3j3dousbvdft" path="res://scenes/player/UI/retry_ui.tscn" id="10_6cv16"]
 [ext_resource type="Script" uid="uid://cgixpkri85v2f" path="res://scenes/player/stats.gd" id="10_h17s1"]
 [ext_resource type="Script" uid="uid://bn46gsk3h3xow" path="res://scripts/states/player/dead.gd" id="10_ugbui"]
 [ext_resource type="Script" uid="uid://dfih44vlt8sbh" path="res://scripts/states/player/cutscene.gd" id="11_fcs02"]
 [ext_resource type="AudioStream" uid="uid://c3ggxgpal6yej" path="res://assets/sounds/female_cough.wav" id="11_je7p5"]
 [ext_resource type="AudioStream" uid="uid://46p2jn5ofqhp" path="res://assets/sounds/soda_open.wav" id="12_fm80t"]
 [ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="13_gx1jg"]
+[ext_resource type="Script" uid="uid://bsesb3ho4wvi6" path="res://scripts/states/player/hit.gd" id="17_ioxgp"]
 [ext_resource type="Script" uid="uid://bfttpfemu6n36" path="res://scenes/player/footstep_audio_stream.gd" id="17_kvlxm"]
 [ext_resource type="AudioStream" uid="uid://be3iupa3iy74v" path="res://assets/sounds/footstep/footstep_indoor.mp3" id="18_uf5tr"]
+[ext_resource type="Script" uid="uid://w1514drwwoy" path="res://scripts/tween_parameters.gd" id="19_j4nxn"]
+[ext_resource type="AudioStream" uid="uid://dku5ov86008ar" path="res://assets/sounds/hit_sound.wav" id="24_cnsyf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
@@ -31,9 +41,48 @@ material = SubResource("StandardMaterial3D_8afob")
 radial_segments = 16
 rings = 4
 
-[node name="Player" type="CharacterBody3D" unique_id=1328712720 groups=["Player"]]
-collision_layer = 9
+[sub_resource type="SphereShape3D" id="SphereShape3D_lgqa7"]
+radius = 1.5
+
+[sub_resource type="Gradient" id="Gradient_cnsyf"]
+offsets = PackedFloat32Array(0.5440313, 0.8023483, 1)
+colors = PackedColorArray(1, 0, 0, 0, 1, 0, 0, 0.111475386, 1, 0, 0, 0.19607843)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_007i1"]
+gradient = SubResource("Gradient_cnsyf")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yj68g"]
+shader = ExtResource("5_8ydkj")
+
+[sub_resource type="Resource" id="Resource_28m0y"]
+script = ExtResource("19_j4nxn")
+trans_type = 3
+ease_type = 1
+metadata/_custom_type_script = "uid://w1514drwwoy"
+
+[sub_resource type="Resource" id="Resource_6cv16"]
+script = ExtResource("19_j4nxn")
+trans_type = 3
+ease_type = 0
+metadata/_custom_type_script = "uid://w1514drwwoy"
+
+[node name="Player" type="CharacterBody3D" unique_id=1328712720 node_paths=PackedStringArray("ui", "message_label", "cough_stat", "cough_audio_stream", "soda_stat", "soda_audio_stream", "pickle_stat", "pickle_stream_player") groups=["Player"]]
+collision_layer = 8
 script = ExtResource("1_8afob")
+ui = NodePath("UI")
+message_label = NodePath("UI/MessageLabel")
+cough_stat = NodePath("cough")
+cough_audio_stream = NodePath("cough/CoughAudioStream")
+soda_stat = NodePath("soda")
+soda_audio_stream = NodePath("soda/SodaAudioStream")
+pickle_stat = NodePath("pickle")
+pickle_stream_player = NodePath("pickle/PickleStreamPlayer")
+pickle_sounds = Array[AudioStream]([ExtResource("2_28m0y"), ExtResource("3_uniwh")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1635854217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -45,6 +94,20 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_8afob")
 skeleton = NodePath("../..")
 
+[node name="KickableArea" type="Area3D" parent="." unique_id=387797468 node_paths=PackedStringArray("interact_ray", "interact_label", "message_icon", "interact_icon")]
+collision_layer = 64
+collision_mask = 16
+script = ExtResource("2_8ydkj")
+interact_ray = NodePath("../Camera3D/InteractRay")
+interact_label = NodePath("../UI/InteractUI/InteractLabelHbox/InteractLabel")
+message_icon = NodePath("../UI/InteractUI/InteractLabelHbox/MessageIcon")
+interact_icon = NodePath("../UI/InteractUI/InteractIcon")
+kick_icon = ExtResource("3_yj68g")
+input_icon = ExtResource("4_ioxgp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KickableArea" unique_id=1795498130]
+shape = SubResource("SphereShape3D_lgqa7")
+
 [node name="CameraController" type="Node3D" parent="." unique_id=1749667188 node_paths=PackedStringArray("player", "camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 script = ExtResource("2_5gtgg")
@@ -55,6 +118,7 @@ metadata/_custom_type_script = "uid://bcgef6mdo78ue"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1281814579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cull_mask = 1048573
 current = true
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D" unique_id=734709638]
@@ -107,6 +171,16 @@ text = "STATE DEBUG"
 unique_name_in_owner = true
 layer = 5
 
+[node name="HitTextureRect" type="TextureRect" parent="UI" unique_id=808181233]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_007i1")
+metadata/_edit_lock_ = true
+
 [node name="ProgressGrid" type="GridContainer" parent="UI" unique_id=514412620]
 custom_minimum_size = Vector2(160, 0)
 anchors_preset = 2
@@ -147,6 +221,21 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+value = 100.0
+rounded = true
+show_percentage = false
+
+[node name="Pickle" type="Label" parent="UI/ProgressGrid" unique_id=6747008]
+visible = false
+layout_mode = 2
+text = "Pickle"
+
+[node name="PickleProgressBar" type="ProgressBar" parent="UI/ProgressGrid" unique_id=1989935298]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
 value = 100.0
 rounded = true
 show_percentage = false
@@ -210,6 +299,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InteractIcon" type="TextureRect" parent="UI/InteractUI" unique_id=556663906]
+material = SubResource("ShaderMaterial_yj68g")
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 1
 anchors_preset = 8
@@ -228,6 +318,9 @@ stretch_mode = 5
 metadata/_edit_lock_ = true
 
 [node name="QuestUI" parent="UI" unique_id=1103819635 instance=ExtResource("5_myrg7")]
+
+[node name="RetryUI" parent="." unique_id=1556847030 instance=ExtResource("10_6cv16")]
+visible = false
 
 [node name="StateMachine" type="Node" parent="." unique_id=2141080514 node_paths=PackedStringArray("debug_label")]
 script = ExtResource("2_p47bc")
@@ -250,9 +343,10 @@ metadata/_custom_type_script = "uid://benwkf4v500kg"
 [node name="Interacting" type="Node" parent="StateMachine" unique_id=212000088]
 script = ExtResource("8_qek5x")
 
-[node name="Dead" type="Node" parent="StateMachine" unique_id=388404050 node_paths=PackedStringArray("camera_action")]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=388404050 node_paths=PackedStringArray("camera_action", "retry_ui")]
 script = ExtResource("10_ugbui")
 camera_action = NodePath("../../DeadCameraAction")
+retry_ui = NodePath("../../RetryUI")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
 [node name="Cutscene" type="Node" parent="StateMachine" unique_id=1978038731 node_paths=PackedStringArray("quest_ui")]
@@ -260,26 +354,48 @@ script = ExtResource("11_fcs02")
 quest_ui = NodePath("../../UI/QuestUI")
 metadata/_custom_type_script = "uid://benwkf4v500kg"
 
+[node name="Hit" type="Node" parent="StateMachine" unique_id=255990812 node_paths=PackedStringArray("hit_sound_player", "hit_texture_rect")]
+script = ExtResource("17_ioxgp")
+hit_sound_player = NodePath("../../HitStreamPlayer")
+hit_texture_rect = NodePath("../../UI/HitTextureRect")
+tween_in_params = SubResource("Resource_28m0y")
+tween_out_params = SubResource("Resource_6cv16")
+
 [node name="cough" type="Node" parent="." unique_id=1564435469]
 script = ExtResource("10_h17s1")
 stat_name = "cough"
 delta_sec = 5.0
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
+[node name="CoughAudioStream" type="AudioStreamPlayer" parent="cough" unique_id=1871983140]
+stream = ExtResource("11_je7p5")
+volume_db = 16.0
+bus = &"SFX"
+
 [node name="soda" type="Node" parent="." unique_id=455595847]
 script = ExtResource("10_h17s1")
 stat_name = "soda"
-delta_sec = 0.5
+delta_sec = 1.0
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
-[node name="CoughAudioStream" type="AudioStreamPlayer" parent="." unique_id=1871983140]
-stream = ExtResource("11_je7p5")
-
-[node name="SodaAudioStream" type="AudioStreamPlayer" parent="." unique_id=2047298437]
+[node name="SodaAudioStream" type="AudioStreamPlayer" parent="soda" unique_id=2047298437]
 stream = ExtResource("12_fm80t")
+volume_db = 8.0
+bus = &"SFX"
+
+[node name="pickle" type="Node" parent="." unique_id=1233304505]
+script = ExtResource("10_h17s1")
+stat_name = "pickle"
+delta_sec = 0.8000000000000007
+metadata/_custom_type_script = "uid://cgixpkri85v2f"
+
+[node name="PickleStreamPlayer" type="AudioStreamPlayer" parent="pickle" unique_id=1903313842]
+stream = ExtResource("2_28m0y")
+volume_db = 8.0
+bus = &"SFX"
 
 [node name="DeadCameraAction" type="Marker3D" parent="." unique_id=288384477]
-transform = Transform3D(0.80536246, 0.5685574, 0.16773126, -0.5698815, 0.8204968, -0.044943456, -0.16317593, -0.05939117, 0.98480785, 0, -0.75237197, -0.06946607)
+transform = Transform3D(0.80536246, 0.5685574, 0.16773126, -0.5698815, 0.8204968, -0.044943456, -0.16317593, -0.05939117, 0.98480785, 0, 0.1, 0)
 script = ExtResource("13_gx1jg")
 ease_type = 0
 camera_properties = {
@@ -317,7 +433,7 @@ far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
 
 [node name="FootstepAudioStream" type="AudioStreamPlayer" parent="." unique_id=1678497294 node_paths=PackedStringArray("player_collider", "floor_raycast")]
-volume_db = 6.0
+volume_db = 14.0
 max_polyphony = 4
 bus = &"SFX"
 script = ExtResource("17_kvlxm")
@@ -328,10 +444,19 @@ max_velocity = 10.0
 max_delay_sec = 1.0
 min_delay_sec = 0.25
 
+[node name="HitStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2025334678]
+stream = ExtResource("24_cnsyf")
+bus = &"SFX"
+
 [connection signal="changed" from="cough" to="UI/ProgressGrid/CoughProgressBar" method="set_value"]
-[connection signal="empty" from="cough" to="." method="kill"]
+[connection signal="empty" from="cough" to="." method="kill" binds= ["Don't forget to cough"]]
 [connection signal="running_changed" from="cough" to="UI/ProgressGrid/Cough" method="set_visible"]
 [connection signal="running_changed" from="cough" to="UI/ProgressGrid/CoughProgressBar" method="set_visible"]
 [connection signal="changed" from="soda" to="UI/ProgressGrid/SodaProgressBar" method="set_value"]
+[connection signal="empty" from="soda" to="." method="kill" binds= ["You need diet soda to survive"]]
 [connection signal="running_changed" from="soda" to="UI/ProgressGrid/Soda" method="set_visible"]
 [connection signal="running_changed" from="soda" to="UI/ProgressGrid/SodaProgressBar" method="set_visible"]
+[connection signal="changed" from="pickle" to="UI/ProgressGrid/PickleProgressBar" method="set_value"]
+[connection signal="empty" from="pickle" to="." method="kill" binds= ["You forgot the pickle"]]
+[connection signal="running_changed" from="pickle" to="UI/ProgressGrid/Pickle" method="set_visible"]
+[connection signal="running_changed" from="pickle" to="UI/ProgressGrid/PickleProgressBar" method="set_visible"]

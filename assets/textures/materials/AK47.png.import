@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3ve34bvmyi0a"
-path.s3tc="res://.godot/imported/AK47.png-7765b008b94c3966d0fb6eedf90a2973.s3tc.ctex"
+uid="uid://dqt2y5alo5ufp"
+path.s3tc="res://.godot/imported/ak47.png-4251b7f0ebef76a65c597a1ae134f17a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/materials/AK47.png"
-dest_files=["res://.godot/imported/AK47.png-7765b008b94c3966d0fb6eedf90a2973.s3tc.ctex"]
+source_file="res://assets/textures/materials/ak47.png"
+dest_files=["res://.godot/imported/ak47.png-4251b7f0ebef76a65c597a1ae134f17a.s3tc.ctex"]
 
 [params]
 

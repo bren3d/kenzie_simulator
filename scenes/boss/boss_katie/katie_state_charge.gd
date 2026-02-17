@@ -1,7 +1,9 @@
 @tool
 extends KatieState
 
-@export var charge_speeds: PackedFloat32Array
+const DEFAULT_CHARGE_SPEED: float = 1.0
+
+#@export var charge_speeds: PackedFloat32Array
 
 var boss_state: int = -1
 var path_pool: Array[PathFollow3D]
@@ -18,7 +20,6 @@ func enter() -> void:
 		return
 	
 	katie.movement_component.stop()
-	katie.movement_component.move_speed = charge_speeds[katie.boss_state]
 	katie.katie.play(&"crabwalk")
 	katie.is_damagable = true
 	
@@ -26,11 +27,14 @@ func enter() -> void:
 		update_path_pool()
 	
 	charge_path_follow = get_charge_path()
-	assert(charge_path_follow.loop == false)
+	katie.movement_component.move_speed = get_charge_speed()
+	
 	charge_path_follow.progress = 0.0
 	sync_path_follow()
 	
 	katie.giggle_audio_player.play()
+	
+	katie.set_killbox_active(true)
 
 func exit() -> void:
 	charge_path_follow = null
@@ -41,7 +45,7 @@ func update_physics_process(delta: float) -> void:
 		charge_path_follow.progress += katie.movement_component.move_speed * delta
 		sync_path_follow()
 		if charge_path_follow.progress_ratio >= 1.0:
-			transition_requested.emit(&"kill")
+			transition_requested.emit(&"attack")
 
 func sync_path_follow() -> void:
 	katie.global_position = charge_path_follow.global_position
@@ -64,3 +68,8 @@ func get_path_pool() -> Array[PathFollow3D]:
 		if not child is Path3D or not child.get_child_count(): continue
 		p.push_back(child.get_child(0))
 	return p
+
+func get_charge_speed() -> float:
+	if not charge_path_follow:
+		return DEFAULT_CHARGE_SPEED
+	return charge_path_follow.get_parent().get_meta(&"speed", DEFAULT_CHARGE_SPEED)

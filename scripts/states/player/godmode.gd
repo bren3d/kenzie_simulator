@@ -12,10 +12,13 @@ func _init() -> void:
 func enter() -> void:
 	active = true
 	player.input_active = true
+	player.can_die = false
 	player.input_dir = Input.get_vector(&"left", &"right", &"up", &"down")
+	lock_state.emit(true)
 
 func exit() -> void:
 	active = false
+	player.can_die = true
 	player.velocity = Vector3.ZERO
 	player.input_active = false
 	player.input_dir = Vector2.ZERO
@@ -41,6 +44,13 @@ func on_unhandled_input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if OS.is_debug_build() and event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_G and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		transition_requested.emit("Moving" if active else name)
+		
+		if active:
+			lock_state.emit(false)
+			transition_requested.emit("Moving")
+		
+		else:
+			transition_requested.emit(name)
+			
 		get_viewport().set_input_as_handled()
 	

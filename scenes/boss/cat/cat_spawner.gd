@@ -34,11 +34,11 @@ func spawn() -> void:
 	
 	add_sibling(cat)
 	
-	
 	if Engine.is_editor_hint():
 		cat.owner = owner
 		return
 	
+	cat.set_state(&"patrol")
 
 func get_spawn_transform() -> Transform3D:
 	return spawn_locations.pick_random().global_transform

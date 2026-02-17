@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bomhwjtk3lsrw"]
+
+[ext_resource type="PackedScene" uid="uid://7fx7rmn3mtn2" path="res://resources/models/pickle_jar/source/model.gltf" id="1_marwy"]
+
+[node name="PickelJar" unique_id=559258916 instance=ExtResource("1_marwy")]
+
+[node name="Node" parent="." index="0" unique_id=1755784220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
+
+[node name="PICKLEMAIN" parent="Node" index="0" unique_id=1578823480]
+transform = Transform3D(1, 0, 2.4492937e-16, 0, 1, 0, -2.4492937e-16, 0, 1, 0, 1.4375, 0.0125)

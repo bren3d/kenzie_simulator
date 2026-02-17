@@ -22,11 +22,12 @@ orientation = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_kca1m"]
 size = Vector3(1.875, 0.32500002, 1.775)
 
-[node name="DirtSpot" type="Node3D" unique_id=285544785 node_paths=PackedStringArray("mesh_instance", "task_updater", "waypoint", "broom_start_position", "broom_lowered_position")]
+[node name="DirtSpot" type="Node3D" unique_id=285544785 node_paths=PackedStringArray("mesh_instance", "task_updater", "waypoint", "player", "broom_start_position", "broom_lowered_position")]
 script = ExtResource("1_eqkyd")
 mesh_instance = NodePath("MeshInstance3D")
 task_updater = NodePath("TaskUpdater")
 waypoint = NodePath("QuestWaypoint")
+player = NodePath("AudioStreamPlayer3D")
 broom_start_position = NodePath("BroomStart")
 broom_lowered_position = NodePath("BroomLowered")
 sweep_audio_stream = ExtResource("2_mox12")
@@ -74,3 +75,8 @@ mesh = ExtResource("8_ek8t4")
 animated = true
 max_position_delta = Vector3(0, 0.8, 0)
 metadata/_custom_type_script = "uid://jx3w7aowxu8g"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1089571761]
+stream = ExtResource("2_mox12")
+volume_db = 32.0
+bus = &"SFX"

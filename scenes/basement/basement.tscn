@@ -113,12 +113,13 @@
 [ext_resource type="PackedScene" uid="uid://cr75mn5381ye1" path="res://scenes/objects/cleaning/bote.tscn" id="83_v4t2j"]
 [ext_resource type="Resource" uid="uid://bjd7uw36gtun" path="res://resources/dialogue/list.dialogue" id="83_x7oex"]
 [ext_resource type="AudioStream" uid="uid://cwxwbbtal8amk" path="res://assets/sounds/paper_pickup_1.wav" id="84_wtnnm"]
+[ext_resource type="PackedScene" uid="uid://bomhwjtk3lsrw" path="res://scenes/objects/food/pickel_jar.tscn" id="95_o5fxe"]
 [ext_resource type="PackedScene" uid="uid://bsghxoswwx4ge" path="res://scenes/npc/katie/katie.tscn" id="98_gmiao"]
 [ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="101_2ny8n"]
 [ext_resource type="Script" uid="uid://c24m8g0gpthfn" path="res://scripts/cutscene/wake_up_cutscene.gd" id="101_3g7p8"]
 [ext_resource type="Resource" uid="uid://y4500nlos4nx" path="res://resources/dialogue/wake_up.dialogue" id="102_i2n02"]
 [ext_resource type="PackedScene" uid="uid://stag5phfpkbm" path="res://scenes/objects/food/canned_food_10.tscn" id="103_dlm1g"]
-[ext_resource type="Resource" uid="uid://qxlaleuomcrk" path="res://resources/quests/teeth_quest.tres" id="103_v54r6"]
+[ext_resource type="Resource" uid="uid://qxlaleuomcrk" path="res://resources/quests/wake_up.tres" id="103_v54r6"]
 [ext_resource type="Script" uid="uid://di2ix3jyycpps" path="res://scripts/quest/task_notifier.gd" id="104_ap5x0"]
 [ext_resource type="Script" uid="uid://cgd1e0mddu857" path="res://scripts/cutscene/alex_intro.gd" id="104_cc1o6"]
 [ext_resource type="Script" uid="uid://bregn5dn0afca" path="res://scripts/cutscene/brush_teeth_cutscene.gd" id="105_hkjfl"]
@@ -131,15 +132,19 @@
 [ext_resource type="AudioStream" uid="uid://bu2deelx7wotx" path="res://assets/sounds/sting.wav" id="110_akcph"]
 [ext_resource type="Script" uid="uid://bchohp3vr2dv5" path="res://scenes/objects/cleaning/broom.gd" id="110_nhhcu"]
 [ext_resource type="Resource" uid="uid://bte7j56g7s47e" path="res://resources/dialogue/alex.dialogue" id="111_mgd7o"]
+[ext_resource type="PackedScene" uid="uid://bfgrqdem3vl0c" path="res://scenes/boss/cat/cat.tscn" id="118_ny4ps"]
 [ext_resource type="PackedScene" uid="uid://bac3yp5alb5a6" path="res://scenes/basement/dirt_spot.tscn" id="123_h71fb"]
 [ext_resource type="Script" uid="uid://uq0jtcjaaxqg" path="res://scripts/cutscene/me_time_cutscene.gd" id="123_ud4xj"]
 [ext_resource type="Resource" uid="uid://dca58uy812d21" path="res://resources/dialogue/me_time.dialogue" id="124_jipp7"]
+[ext_resource type="Script" uid="uid://bm04fkejwelun" path="res://scripts/cutscene/cough_cutscene.gd" id="125_6orvf"]
 [ext_resource type="Resource" uid="uid://bp1d1b60u8c0r" path="res://resources/quests/me_time_quest.tres" id="125_dlm1g"]
+[ext_resource type="Script" uid="uid://d2o7fehj6sxjv" path="res://scripts/cutscene/pickle_soda_cutscene.gd" id="129_gycbo"]
 [ext_resource type="Script" uid="uid://b1ftwtvpy40tr" path="res://scripts/cutscene/katie_intro_cutscene.gd" id="129_yabcc"]
 [ext_resource type="Resource" uid="uid://kagfj37xlmce" path="res://resources/dialogue/katie.dialogue" id="130_4eylb"]
 [ext_resource type="AudioStream" uid="uid://l4vbbj7kgpk1" path="res://assets/sounds/insane_girl_laugh.wav" id="130_gm410"]
 [ext_resource type="AudioStream" uid="uid://dylp7fbq5uhe4" path="res://assets/sounds/giggle_echo.wav" id="132_7xxa2"]
 [ext_resource type="AudioStream" uid="uid://c0seuv2mx6ekr" path="res://assets/sounds/creepy_breathing.wav" id="132_h8ley"]
+[ext_resource type="Resource" uid="uid://cv83mmlyhesqa" path="res://resources/dialogue/hungry.tres.dialogue" id="134_yg434"]
 [ext_resource type="Script" uid="uid://cd877lsf0gf6n" path="res://scripts/cutscene/tv_cutscene.gd" id="135_xcb1r"]
 [ext_resource type="Script" uid="uid://dd1w40k58fh2o" path="res://scripts/quest/task.gd" id="136_5e5bb"]
 [ext_resource type="Script" uid="uid://6o4bbpcbg0ps" path="res://scripts/cutscene/vagarant_cutscene.gd" id="140_fbk1w"]
@@ -150,8 +155,8 @@
 [ext_resource type="AudioStream" uid="uid://tmug4ud8cbhy" path="res://assets/sounds/screech.mp3" id="144_m0boy"]
 [ext_resource type="Resource" uid="uid://c4aso6h6vxil" path="res://resources/dialogue/deer_death.dialogue" id="145_pipw0"]
 [ext_resource type="AudioStream" uid="uid://qh423kmnerb8" path="res://assets/sounds/suspense_horror.wav" id="145_qc8qu"]
-[ext_resource type="Resource" uid="uid://by1b1usjvdcv1" path="res://resources/quests/katie_quest.tres" id="146_m0boy"]
 [ext_resource type="PackedScene" uid="uid://5mnmtore2adp" path="res://scenes/boss/boss.tscn" id="148_gwt5m"]
+[ext_resource type="Resource" uid="uid://bhcwsob73j54" path="res://resources/quests/avenge_craig.tres" id="148_ny4ps"]
 [ext_resource type="Script" uid="uid://d34k8e3jr2m2" path="res://scripts/cutscene/boss_portal_cutscene.gd" id="151_y32kp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olr0t"]
@@ -434,6 +439,9 @@ size = Vector2(0.6, 0.9)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kxoj"]
 size = Vector3(0.6, 0.925, 0.075)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yg434"]
+size = Vector3(1.4, 1.75, 1.475)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pos66"]
 size = Vector3(0.5, 0.825, 0.35)
 
@@ -441,7 +449,7 @@ size = Vector3(0.5, 0.825, 0.35)
 size = Vector3(1.9250001, 1.9, 1.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5wgl"]
-size = Vector3(6.975, 5.775, 1.375)
+size = Vector3(6.975, 5.775, 9.375)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ca65u"]
 size = Vector3(0.25, 0.175, 1.45)
@@ -451,6 +459,27 @@ size = Vector3(1.325, 0.3, 1.025)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i2n02"]
 size = Vector3(1.475, 2.675, 0.075)
+
+[sub_resource type="Resource" id="Resource_u2acq"]
+script = ExtResource("136_5e5bb")
+task_name = "lights"
+task_display_string = "Turn on Lights"
+priority = 1
+hide_until_started = true
+
+[sub_resource type="Resource" id="Resource_0oc0f"]
+script = ExtResource("136_5e5bb")
+task_name = "drink"
+task_display_string = "Drink Diet Soda"
+priority = 2
+hide_until_started = true
+
+[sub_resource type="Resource" id="Resource_njt5d"]
+script = ExtResource("136_5e5bb")
+task_name = "eat"
+task_display_string = "Eat Pickles"
+priority = 2
+hide_until_started = true
 
 [sub_resource type="Resource" id="Resource_vcjtt"]
 script = ExtResource("136_5e5bb")
@@ -1644,6 +1673,25 @@ transform = Transform3D(-2.1855694e-08, 0, 0.495, 0, 0.4, 0, -0.5, 0, -2.1637137
 [node name="Refrigerator_001" parent="Environment/Kitchenette" unique_id=75058691 instance=ExtResource("47_ndrht")]
 transform = Transform3D(-5.4639237e-08, -1.25, -5.4639237e-08, 0, -5.4639237e-08, 1.25, -1.25, 5.4639237e-08, 2.3883568e-15, -2.8249989, 1.3845687, 2.75)
 
+[node name="PickelJar" parent="Environment/Kitchenette/Refrigerator_001/RefrigeratorDoor" parent_id_path=PackedInt32Array(75058691, 1474864273) index="2" unique_id=559258916 instance=ExtResource("95_o5fxe")]
+transform = Transform3D(-0.1, 2.220446e-15, 1.3113416e-08, 1.3113416e-08, -9.016116e-16, 0.1, 2.220446e-15, 0.1, 7.374084e-16, -0.04055977, -0.5427575, 0.22914213)
+
+[node name="Interactable" type="Node" parent="Environment/Kitchenette/Refrigerator_001/RefrigeratorDoor/PickelJar" unique_id=586678805 node_paths=PackedStringArray("collider_body")]
+script = ExtResource("7_olr0t")
+collider_body = NodePath("../PickleArea3D")
+icon = ExtResource("24_e67om")
+interaction_text = "eat pickle"
+metadata/_custom_type_script = "uid://nwwqfha6002f"
+
+[node name="PickleArea3D" type="Area3D" parent="Environment/Kitchenette/Refrigerator_001/RefrigeratorDoor/PickelJar" unique_id=718184250]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Kitchenette/Refrigerator_001/RefrigeratorDoor/PickelJar/PickleArea3D" unique_id=1565047968]
+transform = Transform3D(1, -3.1058807e-22, 0, -2.3881268e-22, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_yg434")
+
 [node name="Apple_001" parent="Environment/Kitchenette/Refrigerator_001" unique_id=1871495710 instance=ExtResource("64_51q85")]
 transform = Transform3D(0.1, 4.3711395e-09, -4.371141e-09, -4.3711395e-09, 0.1, 6.351578e-16, 4.3711412e-09, -4.440892e-16, 0.1, 0, -0.15999985, 0.22748327)
 
@@ -1687,7 +1735,7 @@ transform = Transform3D(0.105541624, -0.009535276, -0.075299606, -0.05020959, 0.
 transform = Transform3D(0.10648977, -1.027665e-09, 0.074564934, -0.074564934, -3.2593364e-09, 0.10648977, 1.0276655e-09, -0.13, -3.2593375e-09, 0.06000042, -0.23999596, -0.52000004)
 
 [node name="Cola" type="Node3D" parent="Environment/Kitchenette/Refrigerator_001" unique_id=1093570782]
-transform = Transform3D(0.90000004, -3.5527137e-15, 2.1175824e-22, 3.5527137e-15, 0.90000004, 3.5527137e-15, -3.1763736e-22, -3.5527137e-15, 0.90000004, 0.059999943, 0, -0.18000013)
+transform = Transform3D(0.90000004, -7.1054274e-15, 2.1175824e-22, 7.1054274e-15, 0.90000004, 7.1054274e-15, -3.1763736e-22, -7.1054274e-15, 0.90000004, 0.059999943, 0, -0.18000013)
 
 [node name="ColaArea3D" type="Area3D" parent="Environment/Kitchenette/Refrigerator_001/Cola" unique_id=2103829044]
 transform = Transform3D(1, 0, 0, 0, 1, 8.351873e-23, 0, 8.3518736e-23, 1, 0, 0, 0)
@@ -1705,7 +1753,7 @@ interaction_text = "Drink Diet Soda"
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
 [node name="ColaBottle" parent="Environment/Kitchenette/Refrigerator_001/Cola" unique_id=322435537 instance=ExtResource("67_kmgim")]
-transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0, -0.29999924, 0.060000002)
+transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.313577e-09, 0.3, 0, -0.29999924, 0.059999943)
 
 [node name="ColaBottle2" parent="Environment/Kitchenette/Refrigerator_001/Cola" unique_id=1890965159 instance=ExtResource("67_kmgim")]
 transform = Transform3D(0.25980765, -0.14999999, -1.9670127e-08, 0.14999999, 0.25980765, -1.7568649e-09, 1.7913266e-08, -8.3135765e-09, 0.3, 0, -0.1800003, 0.060000002)
@@ -1869,9 +1917,10 @@ metadata/_custom_type_script = "uid://cvxjsg3gij30g"
 
 [node name="KitchenBoxesStaticBody" type="StaticBody3D" parent="Environment/Kitchenette" unique_id=1744960817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, -5.55)
+collision_layer = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Kitchenette/KitchenBoxesStaticBody" unique_id=2044083727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08749962, 0, 0.1875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08749962, 0, -3.1374998)
 shape = SubResource("BoxShape3D_a5wgl")
 
 [node name="Broom_02" parent="Environment/Kitchenette" unique_id=503971949 instance=ExtResource("107_x7oex")]
@@ -1899,6 +1948,29 @@ script = ExtResource("37_nhk7v")
 quest = ExtResource("108_ca65u")
 task_name = "broom"
 metadata/_custom_type_script = "uid://dn831lxxn01ch"
+
+[node name="Cats" type="Node3D" parent="." unique_id=1316043021]
+
+[node name="Cat" parent="Cats" unique_id=65276031 instance=ExtResource("118_ny4ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0.25, 0.8)
+cat_name = "Appa"
+
+[node name="kicked" parent="Cats/Cat/StateMachine" parent_id_path=PackedInt32Array(65276031, 2147439323) index="2" unique_id=537509576]
+next_state_name = &"recover"
+
+[node name="Cat2" parent="Cats" unique_id=2001951897 instance=ExtResource("118_ny4ps")]
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, -23.800001, 0.25, 5.45)
+cat_name = "Momo"
+
+[node name="kicked" parent="Cats/Cat2/StateMachine" parent_id_path=PackedInt32Array(2001951897, 2147439323) index="2" unique_id=537509576]
+next_state_name = &"recover"
+
+[node name="Cat3" parent="Cats" unique_id=1461536409 instance=ExtResource("118_ny4ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.25, 15.3)
+cat_name = "Nimh"
+
+[node name="kicked" parent="Cats/Cat3/StateMachine" parent_id_path=PackedInt32Array(1461536409, 2147439323) index="2" unique_id=537509576]
+next_state_name = &"recover"
 
 [node name="Lights" type="Node3D" parent="." unique_id=1977145566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 1.9)
@@ -1934,6 +2006,7 @@ camera_sensitivity = 2.0
 
 [node name="Asuka" parent="." unique_id=146635420 instance=ExtResource("24_inn26")]
 transform = Transform3D(-1.2452431, 0, -0.108944535, 0, 1.25, 0, 0.108944535, 0, -1.2452431, 5.716669, 0.1, 16.095224)
+visible = false
 
 [node name="Cutscenes" type="Node3D" parent="." unique_id=1457119500]
 metadata/_edit_lock_ = true
@@ -1950,7 +2023,6 @@ camera_target = NodePath("../WakeUpCameraTarget")
 camera_action = NodePath("../CameraAction")
 wake_up_quest = ExtResource("103_v54r6")
 light_switch_interactable = NodePath("../../../Environment/Bedroom/Room/Decor/LightSwitch/Interactable")
-play_on_ready = true
 
 [node name="CameraAction" type="Marker3D" parent="Cutscenes/WakeUpCutscene" unique_id=1117431771]
 transform = Transform3D(0.70710665, 0.7071068, 0, -0.70710677, 0.7071067, 0, 0, 0, 0.99999994, 0.9000001, 1.7, 0)
@@ -1997,20 +2069,28 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 metadata/_edit_lock_ = true
 
+[node name="CoughCutscene" type="Node3D" parent="Cutscenes" unique_id=2096071326]
+metadata/_edit_lock_ = true
+
+[node name="CoughCutscene" type="Node" parent="Cutscenes/CoughCutscene" unique_id=341265310 node_paths=PackedStringArray("door")]
+script = ExtResource("125_6orvf")
+door = NodePath("../../../Environment/Bedroom/Room/Door")
+
 [node name="BrushTeeth" type="Node3D" parent="Cutscenes" unique_id=881356362]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.900002, 1.35, 10.425)
 metadata/_edit_lock_ = true
 
-[node name="BrushTeethCutscene" type="Node" parent="Cutscenes/BrushTeeth" unique_id=545574852 node_paths=PackedStringArray("interactable", "quest_waypoint", "blackout_rect")]
+[node name="BrushTeethCutscene" type="Node" parent="Cutscenes/BrushTeeth" unique_id=545574852 node_paths=PackedStringArray("interactable", "quest_waypoint", "blackout_rect", "cats_parent")]
 script = ExtResource("105_hkjfl")
 interactable = NodePath("../Interactable")
 quest_waypoint = NodePath("../QuestWaypoint")
 blackout_rect = NodePath("../BlackoutFilter/ColorRect")
 teeth_brushing_sound = ExtResource("106_4og01")
 gargle_sound = ExtResource("107_v58j2")
+cats_parent = NodePath("../../../Cats")
 brushing_quest = ExtResource("103_v54r6")
 task_name = "Teeth"
-is_skippable = true
+skippable = true
 
 [node name="QuestWaypoint" type="Node3D" parent="Cutscenes/BrushTeeth" unique_id=239865615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07500076, 0.044680238, 0)
@@ -2125,10 +2205,23 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
 
+[node name="PickleSodaCutscene" type="Node3D" parent="Cutscenes" unique_id=1009637527]
+metadata/_edit_lock_ = true
+
+[node name="PickleSodaCutscene" type="Node" parent="Cutscenes/PickleSodaCutscene" unique_id=327459671 node_paths=PackedStringArray("pickle_interactable", "soda_interactable")]
+script = ExtResource("129_gycbo")
+quest = ExtResource("103_v54r6")
+lights_task = SubResource("Resource_u2acq")
+drink_task = SubResource("Resource_0oc0f")
+eat_task = SubResource("Resource_njt5d")
+dialogue = ExtResource("134_yg434")
+pickle_interactable = NodePath("../../../Environment/Kitchenette/Refrigerator_001/RefrigeratorDoor/PickelJar/Interactable")
+soda_interactable = NodePath("../../../Environment/Kitchenette/Refrigerator_001/Cola/Interactable")
+
 [node name="KatieIntro" type="Node3D" parent="Cutscenes" unique_id=1303949301]
 metadata/_edit_lock_ = true
 
-[node name="KatieIntroCutscene" type="Node" parent="Cutscenes/KatieIntro" unique_id=735918810 node_paths=PackedStringArray("katie", "door", "cam_action", "start")]
+[node name="KatieIntroCutscene" type="Node" parent="Cutscenes/KatieIntro" unique_id=735918810 node_paths=PackedStringArray("katie", "door", "cam_action", "start", "breathing_player", "giggle_player")]
 script = ExtResource("129_yabcc")
 katie = NodePath("../Katie")
 door = NodePath("../../../Environment/Basement/Door")
@@ -2139,6 +2232,8 @@ creepy_laugh = ExtResource("130_gm410")
 giggle_echo = ExtResource("132_7xxa2")
 breathing = ExtResource("132_h8ley")
 start = NodePath("../Start")
+breathing_player = NodePath("../BreathingStreamPlayer3D")
+giggle_player = NodePath("../GiggleStreamPlayer3D")
 
 [node name="Katie" parent="Cutscenes/KatieIntro" unique_id=645393688 instance=ExtResource("98_gmiao")]
 transform = Transform3D(-0.6499999, 0, -1.1258328, 0, 1.2999996, 0, 1.1258328, 0, -0.6499999, -6.775, 0.049213447, 17.499998)
@@ -2187,7 +2282,22 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://p6kvdxghlvhe"
 
+[node name="BreathingStreamPlayer3D" type="AudioStreamPlayer3D" parent="Cutscenes/KatieIntro" unique_id=2032481482]
+transform = Transform3D(-0.50000006, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.50000006, -6.775, 0.049213447, 17.499998)
+stream = ExtResource("132_h8ley")
+volume_db = 8.0
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="GiggleStreamPlayer3D" type="AudioStreamPlayer3D" parent="Cutscenes/KatieIntro" unique_id=1692252294]
+transform = Transform3D(-0.50000006, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.50000006, -6.775, 0.049213447, 17.499998)
+stream = ExtResource("130_gm410")
+volume_db = 8.0
+pitch_scale = 0.8
+bus = &"SFX"
+
 [node name="MeTime" type="Node3D" parent="Cutscenes" unique_id=1406591490]
+metadata/_edit_lock_ = true
 
 [node name="MeTimeStart" type="Node" parent="Cutscenes/MeTime" unique_id=2048414004]
 script = ExtResource("123_ud4xj")
@@ -2216,8 +2326,9 @@ craig_death_trigger_area = NodePath("../../DeerDeath/CraigDeathPlayerTriggerArea
 
 [node name="DeerDeath" type="Node3D" parent="Cutscenes" unique_id=37328103]
 transform = Transform3D(0.73536146, 0, -0.67321616, 0, 1, 0, 0.61704147, 0, 0.8023079, 5.7, 0.07261145, 1.8249999)
+metadata/_edit_lock_ = true
 
-[node name="CraigDeathCutscene" type="Node" parent="Cutscenes/DeerDeath" unique_id=2093745463 node_paths=PackedStringArray("deer", "deer_target_location", "lights", "spotlight", "blood_splat", "cam", "katie", "door", "katie_start_location", "katie_target_location", "dialogue_action", "audio_stream")]
+[node name="CraigDeathCutscene" type="Node" parent="Cutscenes/DeerDeath" unique_id=2093745463 node_paths=PackedStringArray("deer", "deer_target_location", "lights", "spotlight", "blood_splat", "cam", "katie", "door", "door2", "katie_start_location", "katie_target_location", "dialogue_action", "audio_stream")]
 script = ExtResource("142_r41mk")
 deer = NodePath("../Deer")
 deer_target_location = NodePath("../DeerTarget")
@@ -2227,6 +2338,7 @@ blood_splat = [NodePath("../BloodSplat")]
 cam = NodePath("../CraigDeathCam")
 katie = NodePath("../Katie")
 door = NodePath("../../../Environment/Basement/Holes/WorkRoom/Door")
+door2 = NodePath("../../../Environment/Basement/Holes/WorkRoom/Door2")
 katie_start_location = NodePath("../KatieStart")
 katie_target_location = NodePath("../KatieTarget")
 katie_movement_duration_sec = 1.0
@@ -2237,7 +2349,7 @@ sfx_gore_splat = ExtResource("143_pipw0")
 sfx_screech = ExtResource("144_m0boy")
 music = ExtResource("145_qc8qu")
 dialogue_resource = ExtResource("145_pipw0")
-quest = ExtResource("146_m0boy")
+quest = ExtResource("148_ny4ps")
 boss_scene = ExtResource("148_gwt5m")
 
 [node name="Deer" parent="Cutscenes/DeerDeath" unique_id=1477389057 instance=ExtResource("25_ukdwj")]
@@ -2288,6 +2400,7 @@ shape = SubResource("SphereShape3D_gwt5m")
 
 [node name="BossPortal" type="Node3D" parent="Cutscenes" unique_id=1571051577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.975, 1.525, 14.575)
+metadata/_edit_lock_ = true
 
 [node name="BossPortalCutscene" type="Node" parent="Cutscenes/BossPortal" unique_id=984561757 node_paths=PackedStringArray("door")]
 script = ExtResource("151_y32kp")
@@ -2301,6 +2414,13 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/BossPortal/PlayerTriggerArea" unique_id=43389792]
 shape = SubResource("SphereShape3D_gwt5m")
+
+[node name="BossPortalSpotLight" type="SpotLight3D" parent="Cutscenes/BossPortal" unique_id=2102389199]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.1500001, 2.75, 1.3500004)
+visible = false
+spot_range = 5.75
+spot_attenuation = 0.04
+spot_angle = 29.757689
 
 [node name="Quests" type="Node3D" parent="." unique_id=1322436249]
 metadata/_edit_lock_ = true
@@ -2347,14 +2467,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)
 [connection signal="interaction_started" from="Environment/Basement/Decor/Table_36/MouseDVD/Interactable" to="Cutscenes/MeTime/TVCutscene" method="play" unbinds=1]
 [connection signal="task_started" from="Environment/Basement/Decor/Animals/Cage/TaskNotifier" to="Environment/Basement/Decor/Animals/Cage" method="set_feed_mode_active" flags=6 binds= [true]]
 [connection signal="interaction_started" from="Environment/Basement/Decor/MainLightSwitch/Interactable" to="Environment/Basement/Decor/MainLightSwitch/TaskUpdater" method="update_task" flags=6 unbinds=1]
+[connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/RefrigeratorDoor/PickelJar/Interactable" to="Player" method="eat_pickle" unbinds=1]
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]
 [connection signal="interaction_started" from="Environment/Kitchenette/Canned_food_10/Interactable" to="Environment/Kitchenette/Canned_food_10/TaskUpdater" method="update_task" unbinds=1]
 [connection signal="task_completed" from="Environment/Kitchenette/Canned_food_10/TaskNotifier" to="Environment/Kitchenette/Canned_food_10" method="hide" flags=6]
 [connection signal="task_completed" from="Environment/Kitchenette/Canned_food_10/TaskNotifier" to="Environment/Kitchenette/Canned_food_10/Interactable" method="set_disabled" flags=6 binds= [true]]
 [connection signal="interaction_started" from="Environment/Kitchenette/Broom_02/Interactable" to="Environment/Kitchenette/Broom_02/TaskUpdater" method="update_task" flags=6 unbinds=1]
+[connection signal="finished" from="Cutscenes/WakeUpCutscene/WakeUpCutscene" to="Cutscenes/CoughCutscene/CoughCutscene" method="play"]
 [connection signal="interaction_started" from="Cutscenes/BrushTeeth/Interactable" to="Cutscenes/BrushTeeth/BrushTeethCutscene" method="play" unbinds=1]
+[connection signal="finished" from="Cutscenes/DeerDeath/CraigDeathCutscene" to="Cutscenes/BossPortal/BossPortalSpotLight" method="show"]
 [connection signal="body_entered" from="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" to="Cutscenes/DeerDeath/CraigDeathCutscene" method="play" unbinds=1]
 [connection signal="body_entered" from="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" to="Cutscenes/DeerDeath/CraigDeathPlayerTriggerArea" method="set_monitoring" unbinds=1 binds= [false]]
 [connection signal="body_entered" from="Cutscenes/BossPortal/PlayerTriggerArea" to="Cutscenes/BossPortal/BossPortalCutscene" method="play" unbinds=1]
 [connection signal="body_entered" from="Cutscenes/BossPortal/PlayerTriggerArea" to="Cutscenes/BossPortal/PlayerTriggerArea" method="set_monitoring" unbinds=1 binds= [false]]
 [connection signal="sweeping_finished" from="Quests/Sweep/DirtSpot3" to="Cutscenes/KatieIntro/KatieIntroCutscene" method="play"]
+
+[editable path="Environment/Kitchenette/Refrigerator_001"]
+[editable path="Cats/Cat"]
+[editable path="Cats/Cat2"]
+[editable path="Cats/Cat3"]

@@ -7,16 +7,18 @@ extends Cutscene
 @export var fade_duration: float = 0.5
 @export var teeth_brushing_sound: AudioStream
 @export var gargle_sound: AudioStream
+@export var cats_parent: Node3D
 
 @export var brushing_quest: Quest
 @export var task_name: String
-
-@export var play_brushing_sound: bool = true
 
 var tw: Tween
 
 func _ready() -> void:
 	set_process_input(false)
+	
+	if not Engine.is_editor_hint():
+		cats_parent.hide()
 
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return
@@ -30,9 +32,8 @@ func _on_play() -> void:
 	tw.tween_property(blackout_rect, ^"color:a", 1.0, fade_duration)
 	tw.tween_callback(set_process_input.bind(true))
 	
-	if play_brushing_sound:
-		tw.tween_callback(Audio.play_sfx.bind(teeth_brushing_sound))
-		tw.tween_interval(teeth_brushing_sound.get_length())
+	tw.tween_callback(Audio.play_sfx.bind(teeth_brushing_sound))
+	tw.tween_interval(teeth_brushing_sound.get_length())
 	
 	
 	tw.tween_callback(Audio.play_sfx.bind(gargle_sound))
@@ -41,6 +42,7 @@ func _on_play() -> void:
 	tw.finished.connect(_on_tween_finished)
 
 func _on_tween_finished() -> void:
+	activate_cats()
 	tw = create_tween()
 	tw.tween_property(blackout_rect, ^"color:a", 0.0, fade_duration)
 	
@@ -53,6 +55,12 @@ func skip() -> void:
 		tw.kill()
 	Audio.sfx_stream.stop()
 	_on_tween_finished()
+
+func activate_cats() -> void:
+	cats_parent.show()
+	for child in cats_parent.get_children():
+		if not child is Cat: continue
+		child.set_state(&"wander")
 
 #func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed(&"ui_cancel") and tw:

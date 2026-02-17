@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://xwh1e8prdtms"]
+[gd_scene format=3 uid="uid://xwh1e8prdtms"]
 
 [ext_resource type="Script" uid="uid://ed2bfwocyyav" path="res://scenes/world/dream.gd" id="1_1yooq"]
+[ext_resource type="PackedScene" uid="uid://bd31f2ihbhefp" path="res://scenes/basement/basement.tscn" id="2_5qq27"]
 [ext_resource type="Material" uid="uid://c725dpak600b7" path="res://resources/materials/water.tres" id="6_bq33v"]
 [ext_resource type="AudioStream" uid="uid://b26cwcpl0x7pi" path="res://assets/sounds/footstep/footstep_water.mp3" id="6_gb53w"]
 [ext_resource type="Script" uid="uid://bonm3nnrkoli1" path="res://scenes/world/whisper_player.gd" id="7_1yooq"]
@@ -20,13 +21,14 @@ size = Vector3(2000, 500, 2000)
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5ptc"]
 radius = 150.0
 
-[node name="Dream" type="Node3D"]
+[node name="Dream" type="Node3D" unique_id=887933985]
 script = ExtResource("1_1yooq")
+basement_scene = ExtResource("2_5qq27")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1290231102]
 environment = ExtResource("7_j2gmx")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1046040933]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 light_specular = 0.228
 shadow_enabled = true
@@ -36,15 +38,15 @@ directional_shadow_split_2 = 0.417
 directional_shadow_split_3 = 0.56
 sky_mode = 1
 
-[node name="Sea" type="MeshInstance3D" parent="."]
+[node name="Sea" type="MeshInstance3D" parent="." unique_id=162207217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -250, 0)
 mesh = SubResource("BoxMesh_umvgx")
 
-[node name="Player" parent="." instance=ExtResource("7_bq33v")]
+[node name="Player" parent="." unique_id=438097539 instance=ExtResource("7_bq33v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9407e-08, 1, 0)
 wall_min_slide_angle = 0.785398
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=770099418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
 visible = false
 gi_mode = 2
@@ -54,21 +56,24 @@ sides = 32
 ring_sides = 32
 material = ExtResource("8_j2gmx")
 
-[node name="WorldFloor" type="StaticBody3D" parent="."]
+[node name="WorldFloor" type="StaticBody3D" parent="." unique_id=1824792885]
 metadata/footstep = ExtResource("6_gb53w")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldFloor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldFloor" unique_id=940032909]
 shape = SubResource("WorldBoundaryShape3D_bq33v")
 debug_color = Color(0.879183, 0.0825467, 0.932292, 0.42)
 debug_fill = false
 
-[node name="AreaExit" type="Area3D" parent="."]
+[node name="AreaExit" type="Area3D" parent="." unique_id=135838442]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaExit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaExit" unique_id=522027361]
 shape = SubResource("SphereShape3D_t5ptc")
 debug_color = Color(0.8958333, 0.8958333, 0.8958333, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2065199520 node_paths=PackedStringArray("player")]
 stream = ExtResource("7_gb53w")
 max_polyphony = 2
 script = ExtResource("7_1yooq")
@@ -80,10 +85,12 @@ max_distance = 100.0
 music_ambient = ExtResource("8_1yooq")
 music_suspense = ExtResource("9_gb53w")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=321649424]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 16.5409, 0)
 light_energy = 10.0
 light_indirect_energy = 10.0
 spot_range = 30.0
 spot_angle = 60.0
 spot_angle_attenuation = 2.07053
+
+[connection signal="body_exited" from="AreaExit" to="." method="_on_area_exit_body_exited"]

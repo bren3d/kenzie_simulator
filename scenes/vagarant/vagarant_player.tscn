@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn1yywxreoi1q" path="res://scenes/vagarant/vagarant_player.gd" id="1_d2vgp"]
 [ext_resource type="Script" uid="uid://cmj67vhtvupfe" path="res://scenes/vagarant/gun.gd" id="2_bxeov"]
-[ext_resource type="Texture2D" uid="uid://dqt2y5alo5ufp" path="res://assets/textures/materials/gun-png-40744.png" id="3_me8av"]
+[ext_resource type="Texture2D" uid="uid://dqt2y5alo5ufp" path="res://assets/textures/materials/ak47.png" id="3_me8av"]
 [ext_resource type="Texture2D" uid="uid://b14o0sbx58jif" path="res://assets/textures/materials/muzzle-flash-desktop-wallpaper-clip-art-background-flashing-92f396df1976663b4d4c97d422a42a1e.png" id="4_c87c5"]
 [ext_resource type="AudioStream" uid="uid://b7anbp75e2ge7" path="res://assets/sounds/ak47_shot.wav" id="5_jf7uj"]
 [ext_resource type="Script" uid="uid://x6fja5arvckq" path="res://scenes/vagarant/crosshair.gd" id="6_21e2d"]

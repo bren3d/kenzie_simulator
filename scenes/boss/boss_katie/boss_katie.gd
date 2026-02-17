@@ -7,10 +7,12 @@ const EASY_TRESHOLD: int = 1
 const MEDIUM_TRESHOLD: int = 3
 const HARD_TRESHOLD: int = 6
 
+signal hit_player
 signal dead
 
 @export var katie: Katie
 @export var hitbox: Area3D
+@export var kill_box: Area3D
 @export var damaged_audio_player: AudioStreamPlayer3D
 @export var giggle_audio_player: AudioStreamPlayer3D
 @export var particles: GPUParticles3D
@@ -51,10 +53,14 @@ func _on_move_speed_changed(new_move_speed: float) -> void:
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	assert(body is Cat)
 	body.explode()
-	if is_damagable: state_machine.set_state(&"damaged")
+	if is_damagable: 
+		state_machine.set_state(&"damaged")
 
 func _on_kill_box_body_entered(body: Node3D) -> void:
-	set_state(&"kill")
+	set_state(&"attack")
+
+func set_killbox_active(val: bool) -> void:
+	kill_box.set_monitoring.call_deferred(val)
 
 func set_state(state: StringName) -> void:
 	state_machine.set_state(state)

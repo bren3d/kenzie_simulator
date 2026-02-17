@@ -2,6 +2,7 @@
 @tool
 class_name Door extends Node3D
 
+const SLAM_SOUND_DELAY_SEC: float = 0.4
 const HANDLE_ROTATION_RADS: float = deg_to_rad(-60.0)
 
 signal group_changed
@@ -28,6 +29,14 @@ var toggle_callable: Callable = toggle
 @export_placeholder("Locked...") 
 var locked_dialogue_text: String = "It's locked..."
 
+@export var mute_sounds: bool = false
+@export var slam_door_on_close: bool = false
+@export_group("Audio")
+@export var open_sound: AudioStream
+@export var close_sound: AudioStream
+@export var locked_sound: AudioStream
+@export var slam_sound: AudioStream
+
 @export_group("Animation")
 
 @export var disable_animation: bool:
@@ -48,18 +57,18 @@ var max_rotation: float = PI/1.6:
 @export_range(0.0, 2.0, 0.05, "or_greater", "suffix:s") var tween_duration_sec: float = 0.6
 @export var tween_trans: Tween.TransitionType = Tween.TRANS_ELASTIC
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
+@export_range(0.0, 1.0, 0.05, "or_greater", "suffix:s") var slam_duration_sec: float = 0.25
 
-func interact(interactor: Object = null) -> void:
-	# TODO - add unlock check/action
-	pass
-	
 
 func toggle(interactor: Object = null) -> void:
 	if locked:
 		animate_locked()
 		return
 	
-	open = !is_open()
+	if slam_door_on_close and open:
+		slam_door()
+	else:
+		open = !is_open()
 
 func _update_group() -> void:
 	if not group: return
@@ -67,17 +76,10 @@ func _update_group() -> void:
 	group.update(self)
 	set_block_signals(false)
 
-#func attempt_unlock(interactor: Object = null) -> void:
-	## TODO - add unlock check
-	#
-	#print("Cannot toggle door open/closed while it is locked.")
-	#if locked_dialogue_text and interactor and interactor.has_method(&"show_message"):
-		#interactor.call(&"show_message", locked_dialogue_text)
-
 ## Played when trying to enter locked door
 func animate_locked() -> void:
 	
-	# TODO - Play locked sound
+	play_sound(locked_sound)
 	
 	const LOCKED_ANIMATION_DURATION_SEC: float = 0.4
 	const LOCKED_ROTATION_RADS: float = HANDLE_ROTATION_RADS / 5.0
@@ -87,7 +89,6 @@ func animate_locked() -> void:
 	tw.tween_property(handles, ^"rotation:y", 0.0, LOCKED_ANIMATION_DURATION_SEC/4.0)
 	tw.tween_property(handles, ^"rotation:y", LOCKED_ROTATION_RADS, LOCKED_ANIMATION_DURATION_SEC/4.0)
 	tw.tween_property(handles, ^"rotation:y", 0.0, LOCKED_ANIMATION_DURATION_SEC/4.0)
-	
 
 
 func set_open(val: bool) -> void:
@@ -102,8 +103,12 @@ func set_open(val: bool) -> void:
 		animate_open_close.call_deferred()
 	
 	if open:
-		opened.emit()  
+		if not mute_sounds:
+			play_sound(open_sound)
+		opened.emit()
 	else:
+		if not slam_door_on_close and not mute_sounds:
+			play_sound(close_sound)
 		closed.emit()
 	
 	_update_group()
@@ -149,6 +154,29 @@ func get_interaction_text() -> String:
 	if open:
 		return "close"
 	return "open"
+
+func play_sound(audio_stream: AudioStream) -> void:
+	if not is_node_ready(): return
+	var player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+	player.stream = audio_stream
+	player.play()
+
+func play_slam() -> void:
+	play_sound(slam_sound)
+
+func slam_door() -> void:
+	if not open or disable_animation:
+		push_warning("Cannot slam closed or animation disabled door.")
+		return
+	
+	disable_animation = true
+	set_open(false)
+	disable_animation = false
+	
+	var tw:= create_tween().set_parallel()
+	tw.tween_property($Hinge, ^"rotation:y", get_target_rotation(), slam_duration_sec)
+	if not mute_sounds:
+		tw.tween_callback(play_sound.bind(slam_sound))
 
 func _validate_property(property: Dictionary) -> void:
 	if not disable_animation: return

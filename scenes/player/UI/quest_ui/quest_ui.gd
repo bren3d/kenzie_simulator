@@ -21,7 +21,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	task_label_example.hide()
-	set_active_quest(null)
+	set_active_quest(QuestHandle.active_quest)
 	QuestHandle.quest_started.connect(_on_quest_started)
 
 func toggle_task_example_completed() -> void:

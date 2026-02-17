@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cmb552vu5t1wu"]
+
+[ext_resource type="Texture2D" uid="uid://dhakm0haa3jum" path="res://resources/models/pickle_jar/source/model_5.png" id="1_dnhyv"]
+
+[resource]
+resource_name = "material_5"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_dnhyv")
+texture_filter = 0
+texture_repeat = false

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://qnqhs2qkqpi2"]
+
+[ext_resource type="Script" uid="uid://b3vo6lu1h65te" path="res://scenes/game_end/end.gd" id="1_ktqxx"]
+
+[node name="End" type="Control" unique_id=477175729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktqxx")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1486998476]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="WinLabel" type="Label" parent="." unique_id=865143836]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -48.39583
+offset_right = 169.0
+offset_bottom = 48.395844
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 101
+text = "YOU WIN"
+
+[node name="ReplayButton" type="Button" parent="." unique_id=736143408]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.371875
+anchor_top = 0.71944445
+anchor_right = 0.628125
+anchor_bottom = 0.8472222
+grow_horizontal = 2
+grow_vertical = 0
+text = "Play Again"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="CreditLabel" type="Label" parent="." unique_id=715660043]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -25.0
+offset_right = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "A game by Hugo"
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="ReplayButton" to="." method="_on_replay_button_pressed"]

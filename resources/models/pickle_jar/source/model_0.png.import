@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqt2y5alo5ufp"
-path.s3tc="res://.godot/imported/gun-png-40744.png-7e09ac0b1aecc1f9a3ae064015158f66.s3tc.ctex"
+uid="uid://78v05ht6gnal"
+path.s3tc="res://.godot/imported/model_0.png-b729fa88af7cf2e52f855dcd99083efe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "30258cb618314ec3cba091a96b4b0734"
+}
 
 [deps]
 
-source_file="res://assets/textures/materials/gun-png-40744.png"
-dest_files=["res://.godot/imported/gun-png-40744.png-7e09ac0b1aecc1f9a3ae064015158f66.s3tc.ctex"]
+source_file="res://resources/models/pickle_jar/source/model_0.png"
+dest_files=["res://.godot/imported/model_0.png-b729fa88af7cf2e52f855dcd99083efe.s3tc.ctex"]
 
 [params]
 

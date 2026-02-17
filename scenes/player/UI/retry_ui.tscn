@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://3j3dousbvdft"]
+
+[ext_resource type="Script" uid="uid://dc4vdv6d8kcfx" path="res://scenes/player/UI/retry_ui.gd" id="1_a6qyf"]
+[ext_resource type="Script" uid="uid://w1514drwwoy" path="res://scripts/tween_parameters.gd" id="2_x0yon"]
+
+[sub_resource type="Resource" id="Resource_qgoig"]
+script = ExtResource("2_x0yon")
+metadata/_custom_type_script = "uid://w1514drwwoy"
+
+[sub_resource type="Resource" id="Resource_db0sy"]
+script = ExtResource("2_x0yon")
+metadata/_custom_type_script = "uid://w1514drwwoy"
+
+[sub_resource type="Resource" id="Resource_x0yon"]
+script = ExtResource("2_x0yon")
+metadata/_custom_type_script = "uid://w1514drwwoy"
+
+[sub_resource type="Gradient" id="Gradient_a6qyf"]
+colors = PackedColorArray(0, 0, 0, 0.16470589, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x0yon"]
+gradient = SubResource("Gradient_a6qyf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[node name="RetryUI" type="CanvasLayer" unique_id=1556847030 node_paths=PackedStringArray("rect", "you_died_label", "death_message", "retry_button", "quit_button", "button_h_box")]
+layer = 8
+script = ExtResource("1_a6qyf")
+rect = NodePath("RetryScreen/TextureRect")
+you_died_label = NodePath("RetryScreen/VBoxContainer/YouDiedLabel")
+death_message = NodePath("RetryScreen/VBoxContainer/DeathMessage")
+retry_button = NodePath("RetryScreen/VBoxContainer/ButtonHBox/RetryButton")
+quit_button = NodePath("RetryScreen/VBoxContainer/ButtonHBox/QuitButton")
+button_h_box = NodePath("RetryScreen/VBoxContainer/ButtonHBox")
+rect_tween_params = SubResource("Resource_qgoig")
+message_tween_params = SubResource("Resource_db0sy")
+but_tween_params = SubResource("Resource_x0yon")
+
+[node name="RetryScreen" type="Control" parent="." unique_id=204849907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="RetryScreen" unique_id=507561373]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_x0yon")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RetryScreen" unique_id=236661218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="YouDiedLabel" type="Label" parent="RetryScreen/VBoxContainer" unique_id=962503318]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "You Died"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="RetryScreen/VBoxContainer" unique_id=2142408081]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DeathMessage" type="Label" parent="RetryScreen/VBoxContainer" unique_id=1700278316]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Don't forget to Cough!"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="RetryScreen/VBoxContainer" unique_id=1794373632]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ButtonHBox" type="HBoxContainer" parent="RetryScreen/VBoxContainer" unique_id=1725303314]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="RetryScreen/VBoxContainer/ButtonHBox" unique_id=102826808]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 33
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="RetryScreen/VBoxContainer/ButtonHBox" unique_id=603893178]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 33
+text = "Quit"
+
+[connection signal="pressed" from="RetryScreen/VBoxContainer/ButtonHBox/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="RetryScreen/VBoxContainer/ButtonHBox/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -31,7 +31,7 @@ func _on_task_updated(t: Task) -> void:
 	setup_cutscene()
 
 func setup_cutscene() -> void:
-	trigger_area.monitoring = true
+	trigger_area.set_monitoring.call_deferred(true)
 	alex.global_transform = start_marker.global_transform
 	trigger_area.body_entered.connect(play.unbind(1))
 
@@ -57,13 +57,9 @@ func _on_play() -> void:
 	tw.tween_callback(alex.set_global_transform.bind(alex_hidden_marker.global_transform))
 	tw.tween_callback(cam_action.release_focus)
 	
-	#tw.tween_callback(brush_teeth_quest.add_task.bind(list_task))
-	
 	# Advance to light & list tasks
 	tw.tween_callback(brush_teeth_quest.advance_task)
 	
 	tw.tween_interval(cam_action.tween_duration_sec)
 	
-	tw.tween_callback(player.set_state.bind("Moving"))
-
-	# TODO Add quest update...
+	tw.tween_callback(finish)

@@ -236,13 +236,12 @@ skip={
 kick={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(297, 24),"global_position":Vector2(311, 97),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://resources/dialogue/rat.dialogue", "res://resources/dialogue/deer.dialogue", "res://resources/dialogue/wake_up.dialogue", "res://resources/dialogue/alex.dialogue", "res://resources/dialogue/list.dialogue", "res://resources/dialogue/me_time.dialogue", "res://resources/dialogue/katie.dialogue", "res://resources/dialogue/test.dialogue", "res://resources/dialogue/deer_death.dialogue")
+locale/translations_pot_files=PackedStringArray("res://resources/dialogue/rat.dialogue", "res://resources/dialogue/deer.dialogue", "res://resources/dialogue/wake_up.dialogue", "res://resources/dialogue/alex.dialogue", "res://resources/dialogue/list.dialogue", "res://resources/dialogue/me_time.dialogue", "res://resources/dialogue/katie.dialogue", "res://resources/dialogue/test.dialogue", "res://resources/dialogue/deer_death.dialogue", "res://resources/dialogue/hungry.tres.dialogue")
 
 [layer_names]
 
@@ -252,6 +251,7 @@ locale/translations_pot_files=PackedStringArray("res://resources/dialogue/rat.di
 3d_physics/layer_4="player"
 3d_physics/layer_5="cats"
 3d_physics/layer_6="bossfloor"
+3d_physics/layer_7="kick_area"
 
 [rendering]
 

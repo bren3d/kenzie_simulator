@@ -26,7 +26,6 @@ func _ready() -> void:
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return
 	set_process_input(true)
-	#get_tree().root.window_input.connect(vagarant_viewport.push_input)
 	computer_cam.make_current()
 	vagarant.enter()
 
@@ -36,15 +35,10 @@ func _on_quest_started() -> void:
 
 func _on_request_exit() -> void:
 	set_process_input(false)
-	#get_tree().root.window_input.disconnect(vagarant_viewport.push_input)
-	is_active = false
-	Global.player.make_camera_current()
-	Global.player.set_state("Moving")
-	
+	finish()
 
 func _input(event: InputEvent) -> void:
 	vagarant_viewport.push_input(event)
 
 func _on_quest_finished() -> void:
-	print("TRIGGERED!!")
-	craig_death_trigger_area.monitoring = true
+	craig_death_trigger_area.set_monitoring.call_deferred(true)

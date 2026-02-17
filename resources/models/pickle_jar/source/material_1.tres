@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dnq3ttauurk"]
+
+[ext_resource type="Texture2D" uid="uid://cfvnnxb0jqwf0" path="res://resources/models/pickle_jar/source/model_1.png" id="1_jjmwd"]
+
+[resource]
+resource_name = "material_1"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_jjmwd")
+texture_filter = 0
+texture_repeat = false
