@@ -4,7 +4,7 @@ const SETTING_TRANSITION: String = "application/config/scene_transition_duration
 const TRANSITION_RECT_NAME: String = "MasterTransitionRect"
 
 const DEBUG_SCENE_PATHS:PackedStringArray = [
-	"uid://xwh1e8prdtms",	# Dream
+	"uid://xr0bqqpuy43l",	# Main Menu
 	"uid://bd31f2ihbhefp",	# Basement
 	"uid://5mnmtore2adp", 	# Boss
 	"uid://qnqhs2qkqpi2", 	# END

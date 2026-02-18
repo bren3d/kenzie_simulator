@@ -21,10 +21,10 @@ size = Vector3(2000, 500, 2000)
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5ptc"]
 radius = 150.0
 
-[node name="Dream" type="Node3D" unique_id=887933985 node_paths=PackedStringArray("area_exit")]
+[node name="Dream" type="Node3D" unique_id=887933985]
 script = ExtResource("1_o0juw")
 basement_scene = ExtResource("2_blb1s")
-area_exit = NodePath("AreaExit")
+player_scene = ExtResource("5_tpu4d")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1290231102]
 environment = ExtResource("3_lt7nq")
@@ -42,9 +42,6 @@ sky_mode = 1
 [node name="Sea" type="MeshInstance3D" parent="." unique_id=162207217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -250, 0)
 mesh = SubResource("BoxMesh_umvgx")
-
-[node name="Player" parent="." unique_id=438097539 instance=ExtResource("5_tpu4d")]
-wall_min_slide_angle = 0.785398
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=770099418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
@@ -73,11 +70,10 @@ monitorable = false
 shape = SubResource("SphereShape3D_t5ptc")
 debug_color = Color(0.8958333, 0.8958333, 0.8958333, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2065199520 node_paths=PackedStringArray("player")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2065199520]
 stream = ExtResource("8_ja722")
 max_polyphony = 2
 script = ExtResource("9_grmik")
-player = NodePath("../Player")
 min_volume = 0.0
 max_volume = 1.1
 min_distance = 50.0

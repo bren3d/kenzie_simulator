@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://wep2kethpavb"]
+
+[ext_resource type="Script" uid="uid://1xlvqsg5lof2" path="res://scenes/main_menu/settings/settings_menu.gd" id="1_ghis8"]
+[ext_resource type="Script" uid="uid://c31rljvf5rm4i" path="res://scripts/settings/settings_property.gd" id="2_xeewh"]
+[ext_resource type="Resource" uid="uid://ce5l3sg4y3oa3" path="res://resources/settings/master_volume.tres" id="3_m5u22"]
+[ext_resource type="Resource" uid="uid://btawm36ecg1fx" path="res://resources/settings/sfx.tres" id="5_b2eku"]
+[ext_resource type="Script" uid="uid://0nv4lofftccg" path="res://scenes/main_menu/settings/settings_ui.gd" id="6_rg0bc"]
+[ext_resource type="Script" uid="uid://b5sipp3xhaih0" path="res://scripts/settings/settings_display.gd" id="7_cxqq0"]
+[ext_resource type="Resource" uid="uid://ds4tahw8spshu" path="res://resources/settings/music_volume.tres" id="7_xeewh"]
+[ext_resource type="Resource" uid="uid://8r0pidxbur0g" path="res://resources/settings/display_settings/master_volume.tres" id="8_b2eku"]
+[ext_resource type="Resource" uid="uid://bx6f8uo10sd1p" path="res://resources/settings/display_settings/sfx_volume.tres" id="9_c75u1"]
+[ext_resource type="Resource" uid="uid://n4v014hjb7yh" path="res://resources/settings/display_settings/music_volume.tres" id="10_rg0bc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ebjn"]
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[node name="Settings" type="Control" unique_id=2029017470 node_paths=PackedStringArray("settings_ui")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ghis8")
+settings_ui = NodePath("MainVBox/VBoxContainer/ScrollContainer/SettingsVBox")
+bus_volume_setting_properties = Dictionary[ExtResource("2_xeewh"), int]({
+ExtResource("3_m5u22"): 0,
+ExtResource("7_xeewh"): 1,
+ExtResource("5_b2eku"): 2
+})
+
+[node name="MainVBox" type="VBoxContainer" parent="." unique_id=402088491]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainVBox" unique_id=873901594]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsTitleLabel" type="Label" parent="MainVBox/VBoxContainer" unique_id=1925459374]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ebjn")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainVBox/VBoxContainer" unique_id=1205555903]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsVBox" type="VBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer" unique_id=1415272886 node_paths=PackedStringArray("settings_hbox")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("6_rg0bc")
+settings_display_properties = Array[ExtResource("7_cxqq0")]([ExtResource("8_b2eku"), ExtResource("9_c75u1"), ExtResource("10_rg0bc")])
+settings_hbox = NodePath("SettingHBox")
+
+[node name="SettingHBox" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=729097032]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="SettingNameLabel" type="Label" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox" unique_id=86530950]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "Master Volume"
+horizontal_alignment = 2
+clip_text = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox" unique_id=2067450062]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox/HBoxContainer" unique_id=1906089183]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SpinBox" type="SpinBox" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox/HBoxContainer" unique_id=506533710]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MainVBox" unique_id=1887747873]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="BackButton" type="Button" parent="MainVBox/MarginContainer" unique_id=1835948393]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Back"
+
+[connection signal="pressed" from="MainVBox/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

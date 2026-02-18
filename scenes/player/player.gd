@@ -45,6 +45,7 @@ var current_hit_count: int = 0
 @export var pickle_stat: StatComponent
 @export var pickle_stream_player: AudioStreamPlayer
 @export var pickle_sounds: Array[AudioStream]
+@export var pause_menu: PauseMenu
 
 var death_message: String = ""
 

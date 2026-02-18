@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://c3ggxgpal6yej" path="res://assets/sounds/female_cough.wav" id="11_je7p5"]
 [ext_resource type="AudioStream" uid="uid://46p2jn5ofqhp" path="res://assets/sounds/soda_open.wav" id="12_fm80t"]
 [ext_resource type="Script" uid="uid://p6kvdxghlvhe" path="res://scripts/components/camera_action.gd" id="13_gx1jg"]
+[ext_resource type="PackedScene" uid="uid://c60jsh1f5sq7i" path="res://scenes/pause/pause_menu.tscn" id="13_uniwh"]
 [ext_resource type="Script" uid="uid://bsesb3ho4wvi6" path="res://scripts/states/player/hit.gd" id="17_ioxgp"]
 [ext_resource type="Script" uid="uid://bfttpfemu6n36" path="res://scenes/player/footstep_audio_stream.gd" id="17_kvlxm"]
 [ext_resource type="AudioStream" uid="uid://be3iupa3iy74v" path="res://assets/sounds/footstep/footstep_indoor.mp3" id="18_uf5tr"]
@@ -71,7 +72,7 @@ trans_type = 3
 ease_type = 0
 metadata/_custom_type_script = "uid://w1514drwwoy"
 
-[node name="Player" type="CharacterBody3D" unique_id=1328712720 node_paths=PackedStringArray("ui", "message_label", "flashlight", "cough_stat", "cough_audio_stream", "soda_stat", "soda_audio_stream", "pickle_stat", "pickle_stream_player") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1328712720 node_paths=PackedStringArray("ui", "message_label", "flashlight", "cough_stat", "cough_audio_stream", "soda_stat", "soda_audio_stream", "pickle_stat", "pickle_stream_player", "pause_menu") groups=["Player"]]
 collision_layer = 8
 script = ExtResource("1_8afob")
 ui = NodePath("UI")
@@ -84,6 +85,7 @@ soda_audio_stream = NodePath("soda/SodaAudioStream")
 pickle_stat = NodePath("pickle")
 pickle_stream_player = NodePath("pickle/PickleStreamPlayer")
 pickle_sounds = Array[AudioStream]([ExtResource("2_28m0y"), ExtResource("3_uniwh")])
+pause_menu = NodePath("PauseMenu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1635854217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -166,11 +168,12 @@ offset_right = -6.0
 offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "STATE DEBUG"
+text = "Dead"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1776163197]
 unique_name_in_owner = true
 layer = 5
+visible = false
 
 [node name="HitTextureRect" type="TextureRect" parent="UI" unique_id=808181233]
 modulate = Color(1, 1, 1, 0)
@@ -206,7 +209,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
 rounded = true
 show_percentage = false
 
@@ -222,7 +224,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
+value = 81.0
 rounded = true
 show_percentage = false
 
@@ -239,7 +241,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
-value = 100.0
+value = 85.0
 rounded = true
 show_percentage = false
 
@@ -322,8 +324,9 @@ metadata/_edit_lock_ = true
 
 [node name="QuestUI" parent="UI" unique_id=1103819635 instance=ExtResource("5_myrg7")]
 
+[node name="PauseMenu" parent="." unique_id=492217648 instance=ExtResource("13_uniwh")]
+
 [node name="RetryUI" parent="." unique_id=1556847030 instance=ExtResource("10_6cv16")]
-visible = false
 
 [node name="StateMachine" type="Node" parent="." unique_id=2141080514 node_paths=PackedStringArray("debug_label")]
 script = ExtResource("2_p47bc")
@@ -367,6 +370,7 @@ tween_out_params = SubResource("Resource_6cv16")
 [node name="cough" type="Node" parent="." unique_id=1564435469]
 script = ExtResource("10_h17s1")
 stat_name = "cough"
+value = 0.0
 delta_sec = 5.0
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
@@ -378,6 +382,7 @@ bus = &"SFX"
 [node name="soda" type="Node" parent="." unique_id=455595847]
 script = ExtResource("10_h17s1")
 stat_name = "soda"
+value = 81.0
 delta_sec = 1.0
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
@@ -389,6 +394,7 @@ bus = &"SFX"
 [node name="pickle" type="Node" parent="." unique_id=1233304505]
 script = ExtResource("10_h17s1")
 stat_name = "pickle"
+value = 84.80000000000005
 delta_sec = 0.8000000000000007
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 

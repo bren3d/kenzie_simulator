@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SettingsPropertyDisplay" format=3 uid="uid://8r0pidxbur0g"]
+
+[ext_resource type="Script" uid="uid://b5sipp3xhaih0" path="res://scripts/settings/settings_display.gd" id="1_8hrjx"]
+[ext_resource type="Resource" uid="uid://ce5l3sg4y3oa3" path="res://resources/settings/master_volume.tres" id="2_j0a80"]
+
+[resource]
+script = ExtResource("1_8hrjx")
+settings_property = ExtResource("2_j0a80")
+mode = 2
+max_value = 100.0
+metadata/_custom_type_script = "uid://b5sipp3xhaih0"

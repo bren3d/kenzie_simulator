@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func open(death_msg: String = "") -> void:
 	show()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	death_message.text = death_msg
 	rect_tween_params.create_tween_bound(self).tween_property(rect, ^"modulate:a", 1.0, rect_fade_sec)

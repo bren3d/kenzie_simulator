@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c60jsh1f5sq7i"]
+
+[ext_resource type="Script" uid="uid://cfp4ii5nrtkxj" path="res://scenes/pause/pause_menu.gd" id="1_46rar"]
+[ext_resource type="PackedScene" uid="uid://wep2kethpavb" path="res://scenes/main_menu/settings/settings_menu.tscn" id="1_j3iyk"]
+
+[node name="PauseMenu" type="Control" unique_id=492217648 node_paths=PackedStringArray("settings_menu", "color_rect", "button_container")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46rar")
+settings_menu = NodePath("Settings")
+color_rect = NodePath("ColorRect")
+button_container = NodePath("ButtonContainer")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=683183493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Settings" parent="." unique_id=2029017470 instance=ExtResource("1_j3iyk")]
+layout_mode = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=637827480]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 18
+
+[node name="Resume" type="Button" parent="ButtonContainer" unique_id=1004457937]
+layout_mode = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="ButtonContainer" unique_id=1780764816]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="ButtonContainer" unique_id=58143699]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="ButtonContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ButtonContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonContainer/Quit" to="." method="_on_quit_pressed"]

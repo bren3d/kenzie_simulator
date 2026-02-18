@@ -24,4 +24,5 @@ func exit() -> void:
 	player.ui.show()
 	player.refill_stats()
 	player.unpause_timers()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	

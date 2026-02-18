@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SettingsProperty" format=3 uid="uid://ds4tahw8spshu"]
+
+[ext_resource type="Script" uid="uid://c31rljvf5rm4i" path="res://scripts/settings/settings_property.gd" id="1_td3yi"]
+
+[resource]
+script = ExtResource("1_td3yi")
+name = "music"
+section = "Audio"
+value = 20.0
+metadata/_custom_type_script = "uid://c31rljvf5rm4i"

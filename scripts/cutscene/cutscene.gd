@@ -39,6 +39,7 @@ func skip() -> void:
 func _input(event: InputEvent) -> void:
 	if is_active and skippable and event.is_action_pressed(&"skip"):
 		skip()
+		get_tree().root.set_input_as_handled()
 		get_viewport().set_input_as_handled()
 
 func _notification(what: int) -> void:

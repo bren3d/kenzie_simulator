@@ -2,6 +2,7 @@ extends Node
 
 enum {BUS_MASTER = 0, BUS_MUSIC = 1, BUS_SFX = 2,}
 
+
 const BUS_SFX_NAME: StringName = &"SFX"
 const BUS_MUSIC_NAME: StringName = &"Music"
 
@@ -17,34 +18,21 @@ func _init() -> void:
 	const MAX_MUSIC_COUNT: int = 1
 	
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
-	AudioServer.add_bus(BUS_MUSIC)
-	AudioServer.set_bus_name(BUS_MUSIC, BUS_MUSIC_NAME)
-	
-	AudioServer.add_bus(BUS_SFX)
-	AudioServer.set_bus_name(BUS_SFX, BUS_SFX_NAME)
-	
+
 	music_stream = AudioStreamPlayer.new()
-	music_stream.bus = BUS_MUSIC_NAME
-	music_stream.max_polyphony = MAX_MUSIC_COUNT
 	add_child(music_stream)
+	music_stream.max_polyphony = MAX_MUSIC_COUNT
+	music_stream.set_bus.call_deferred(AudioServer.get_bus_name(BUS_MUSIC))
 	
 	sfx_stream = AudioStreamPlayer.new()
-	sfx_stream.volume_db
-	sfx_stream.bus = BUS_SFX_NAME
-	sfx_stream.max_polyphony = MAX_SFX_COUNT
 	add_child(sfx_stream)
+	sfx_stream.max_polyphony = MAX_SFX_COUNT
+	sfx_stream.set_bus.call_deferred(AudioServer.get_bus_name(BUS_SFX))
 
 
-func change_bus_volume(bus: int, linear_value: float) -> void:
-	
-	match bus:
-		
-		BUS_MUSIC:
-			music_stream.volume_linear = linear_value
-		
-		BUS_SFX:
-			sfx_stream.volume_linear = linear_value
+func set_bus_volume(bus: int, linear_value: float) -> void:
+	AudioServer.set_bus_volume_linear(bus, linear_value)
+
 
 func play_sfx(track: AudioStream) -> void:
 	sfx_stream.stream = track
@@ -54,8 +42,6 @@ func stop_sfx() -> void:
 	sfx_stream.stop()
 
 func play_music(track: AudioStream) -> void:
-	if music_stream.stream == track: return
-	
 	if music_stream.stream != track:
 		music_stream.stream = track
 	

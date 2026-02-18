@@ -578,6 +578,7 @@ dialogue = ExtResource("27_2l1fi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Cutscenes/BossIntroCutscene" unique_id=465388534]
 stream = ExtResource("27_wu8me")
+volume_db = 8.0
 bus = &"SFX"
 
 [node name="CameraShaker" type="Node" parent="Cutscenes/BossIntroCutscene" unique_id=893363503]

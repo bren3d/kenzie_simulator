@@ -1,8 +1,6 @@
 @tool
 extends AudioStreamPlayer
 
-@export var player: Player
-
 @export_range(0.0, 1.0, 0.01)
 var min_volume: float = 0.1
 
@@ -32,7 +30,6 @@ var is_suspense_playing: bool
 func _ready() -> void:
 	if Engine.is_editor_hint() or not stream: return
 	
-	Audio.change_bus_volume(Audio.BUS_MUSIC, music_volume_min)
 	Audio.play_music(music_ambient)
 	Audio.unpause_music()
 	
@@ -43,11 +40,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Engine.is_editor_hint(): return
+	if Engine.is_editor_hint() or not Global.player: return
+	var player: Player  = Global.player
 	var t: float = clampf(inverse_lerp(min_distance, max_distance, player.position.length()), 0.0, 1.0)
 	volume_linear = lerpf(min_volume, max_volume, t)
-	
-	Audio.change_bus_volume(Audio.BUS_MUSIC, lerpf(music_volume_min, music_volume_max, t))
 	
 	if not is_suspense_playing and t > music_change_threshold:
 		Audio.play_music(music_suspense)
