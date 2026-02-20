@@ -85,7 +85,7 @@ soda_audio_stream = NodePath("soda/SodaAudioStream")
 pickle_stat = NodePath("pickle")
 pickle_stream_player = NodePath("pickle/PickleStreamPlayer")
 pickle_sounds = Array[AudioStream]([ExtResource("2_28m0y"), ExtResource("3_uniwh")])
-pause_menu = NodePath("PauseMenu")
+pause_menu = NodePath("PauseUI/PauseMenu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1635854217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -324,14 +324,20 @@ metadata/_edit_lock_ = true
 
 [node name="QuestUI" parent="UI" unique_id=1103819635 instance=ExtResource("5_myrg7")]
 
-[node name="PauseMenu" parent="." unique_id=492217648 instance=ExtResource("13_uniwh")]
-
 [node name="RetryUI" parent="." unique_id=1556847030 instance=ExtResource("10_6cv16")]
+
+[node name="PauseUI" type="CanvasLayer" parent="." unique_id=1735097286]
+process_mode = 3
+layer = 10
+
+[node name="PauseMenu" parent="PauseUI" unique_id=492217648 instance=ExtResource("13_uniwh")]
+top_level = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=2141080514 node_paths=PackedStringArray("debug_label")]
 script = ExtResource("2_p47bc")
 initial_state = "Moving"
 debug_label = NodePath("../StateDebugLabel")
+debug_mode = true
 metadata/_custom_type_script = "uid://bq6bav7hc4c24"
 
 [node name="Moving" type="Node" parent="StateMachine" unique_id=932598046]

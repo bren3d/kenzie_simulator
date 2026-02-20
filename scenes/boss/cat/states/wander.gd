@@ -61,8 +61,8 @@ func get_random_target() -> Vector3:
 func get_random_delay() -> float:
 	return randf_range(min_wander_delay_sec, max_wander_delay_sec)
 
-func on_unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"kick") and cat.is_kickable():
-		cat.movement.stop()
-		transition_requested.emit(&"kicked")
-		get_viewport().set_input_as_handled()
+#func on_unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed(&"kick") and cat.is_kickable():
+		#cat.movement.stop()
+		#transition_requested.emit(&"kicked")
+		#get_viewport().set_input_as_handled()

@@ -73,6 +73,7 @@ debug_color = Color(0.8958333, 0.8958333, 0.8958333, 1)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2065199520]
 stream = ExtResource("8_ja722")
 max_polyphony = 2
+bus = &"SFX"
 script = ExtResource("9_grmik")
 min_volume = 0.0
 max_volume = 1.1

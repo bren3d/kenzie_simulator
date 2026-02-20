@@ -21,11 +21,13 @@ signal sweeping_finished
 var max_rotation_angle: float = PI/6.0
 
 @export var lower_duration_sec: float = 0.7
+
 @export_range(1.0, 20.0, 1.0, "or_greater") 
 var sweep_cycle_count: int = 10
 
 @export var is_skippable: bool = true
 
+var active: bool = false
 var tw: Tween
 
 func _ready() -> void:
@@ -40,7 +42,8 @@ func _on_task_updated(t: Task) -> void:
 		get_meta(&"Interactable").disabled = false
 
 func _on_interaction_started(interactor: Object) -> void:
-	Global.player.set_state.call_deferred("Cutscene")
+	Global.player.set_state("Cutscene")
+	active = true
 	waypoint.hide()
 	get_meta(&"Interactable").disabled = true
 	play_animation()
@@ -66,8 +69,10 @@ func tween_sweep() -> void:
 
 
 func _on_sweeping_finished() -> void:
+	active = false
 	set_process_input(false)
 	task_updater.update_task()
+	player.stop()
 	
 	broom.hide()
 	hide()
@@ -83,7 +88,7 @@ func skip() -> void:
 	_on_sweeping_finished()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"skip"):
+	if active and event.is_action_pressed(&"skip"):
 		skip()
 		get_viewport().set_input_as_handled()
 		get_tree().root.set_input_as_handled()

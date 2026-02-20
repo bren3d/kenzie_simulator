@@ -39,7 +39,7 @@ func on_unhandled_input(event: InputEvent) -> void:
 	
 	player.move_camera(event)
 	
-	if event.is_action(&"pause"):
+	if event.is_action_pressed(&"pause"):
 		player.pause_menu.open()
 	
 	elif event.is_action_pressed(&"cough"):
@@ -51,8 +51,8 @@ func on_unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed(&"interact") and player.interact_ray.can_interact():
 		transition_requested.emit("Interacting")
 	
-	#elif event.is_action_pressed(&"flashlight"):
-		#player.toggle_flashlight()
+	elif event.is_action_pressed(&"kick"):
+		player.kick()
 	
 	elif event.is_action(&"sprint"):
 		player.sprinting = event.is_pressed()

@@ -26,14 +26,10 @@ func _initialize() -> void:
 	# Workaround to avoid error messages on game launch.
 	ThemeDB.get_project_theme().set_theme_item(Theme.DATA_TYPE_STYLEBOX, &"focus", &"Button", load("res://resources/styleboxes/pointer_stylebox.tres"))
 	
-	# Only runs when running the main scene.
-	# AS OF 4.5: ["--scene", "uid://bd31f2ihbhefp", "some_var", "value"]
-	#if not "uid" in OS.get_cmdline_args()[0]:
-		#scene = current_scene
-		#return
-	
 	var svc: SubViewportContainer = SubViewportContainer.new()
+	svc.mouse_target = true
 	svc.stretch = true
+	svc.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	svc.material = preload("res://resources/materials/main_viewport.tres")
 	svc.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -41,7 +37,7 @@ func _initialize() -> void:
 	
 	vp = SubViewport.new()
 	vp.audio_listener_enable_3d = true
-	vp.handle_input_locally = false
+	vp.process_mode = Node.PROCESS_MODE_PAUSABLE
 	vp.physics_object_picking = true
 	svc.add_child(vp, true)
 	

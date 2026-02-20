@@ -98,3 +98,4 @@ action = SubResource("Resource_5ht72")
 metadata/_custom_type_script = "uid://bqfvl3jtmmfg1"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=427766110]
+bus = &"SFX"

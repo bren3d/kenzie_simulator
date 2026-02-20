@@ -25,6 +25,7 @@ func _init() -> void:
 	name = &"kicked"
 
 func enter() -> void:
+	cat.movement.stop()
 	cat.kickable = false
 	current_timeout_timer = 0.0
 	kick()

@@ -16,6 +16,7 @@ content_margin_top = 8.0
 content_margin_bottom = 8.0
 
 [node name="Settings" type="Control" unique_id=2029017470 node_paths=PackedStringArray("settings_ui")]
+process_mode = 3
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -27,8 +28,8 @@ script = ExtResource("1_ghis8")
 settings_ui = NodePath("MainVBox/VBoxContainer/ScrollContainer/SettingsVBox")
 bus_volume_setting_properties = Dictionary[ExtResource("2_xeewh"), int]({
 ExtResource("3_m5u22"): 0,
-ExtResource("7_xeewh"): 1,
-ExtResource("5_b2eku"): 2
+ExtResource("7_xeewh"): 2,
+ExtResource("5_b2eku"): 1
 })
 
 [node name="MainVBox" type="VBoxContainer" parent="." unique_id=402088491]

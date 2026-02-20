@@ -46,6 +46,7 @@ giggle_audio_player = NodePath("GigglePlayer")
 particles = NodePath("GPUParticles3D")
 movement_component = NodePath("MovementComponent")
 state_machine = NodePath("StateMachine")
+max_hp = 9
 
 [node name="Katie" parent="." unique_id=424700864 instance=ExtResource("1_t02c1")]
 crabwalk_speed = 1.0

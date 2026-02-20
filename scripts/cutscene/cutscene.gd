@@ -37,10 +37,11 @@ func skip() -> void:
 @abstract func _on_play() -> void
 
 func _input(event: InputEvent) -> void:
-	if is_active and skippable and event.is_action_pressed(&"skip"):
-		skip()
+	if is_active and event.is_action_pressed(&"skip"):
 		get_tree().root.set_input_as_handled()
 		get_viewport().set_input_as_handled()
+		if skippable:
+			skip()
 
 func _notification(what: int) -> void:
 	match what:

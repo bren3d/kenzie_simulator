@@ -4,6 +4,11 @@ extends Control
 @export var replay_button: Button
 @export var quit_button: Button
 
+func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	replay_button.grab_focus()
+
 func _on_replay_button_pressed() -> void:
 	get_tree().reset()
 

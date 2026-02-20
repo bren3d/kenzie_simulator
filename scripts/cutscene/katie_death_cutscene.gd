@@ -8,6 +8,7 @@ extends Cutscene
 func _on_play() -> void:
 	if Engine.is_editor_hint(): return
 	Global.player.set_state(&"Moving")
+	Audio.pause_music(true)
 	death_scream_player.play()
 	camera_shaker.shake_camera()
 	create_tween().tween_callback(get_tree().change_scene_packed.bind(end)).set_delay(death_scream_player.stream.get_length())

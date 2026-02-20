@@ -70,6 +70,7 @@
 [ext_resource type="PackedScene" uid="uid://cymxl51g4molk" path="res://scenes/objects/bath/toilet_paper_01.tscn" id="31_13o2s"]
 [ext_resource type="PackedScene" uid="uid://canv40eewtksa" path="res://scenes/objects/bath/shower_knob_2.tscn" id="31_baiga"]
 [ext_resource type="Texture2D" uid="uid://b7810lx8y7cjw" path="res://resources/models/textures/tiles_vintage.jpg" id="32_fvkfw"]
+[ext_resource type="Texture2D" uid="uid://pyjbfy2n1s4n" path="res://assets/textures/materials/light-switch.jpg" id="37_hlw6b"]
 [ext_resource type="Script" uid="uid://dn831lxxn01ch" path="res://scripts/quest/task_updater.gd" id="37_nhk7v"]
 [ext_resource type="PackedScene" uid="uid://cxwl8gw05x5qs" path="res://scenes/objects/decor/trash_can.tscn" id="39_3qesw"]
 [ext_resource type="PackedScene" uid="uid://qwyv45d8qme7" path="res://scenes/objects/bath/hand_towel_hanger.tscn" id="39_hpdqy"]
@@ -383,11 +384,14 @@ size = Vector3(1.4250001, 1.575, 1.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_olr0t"]
 size = Vector3(0.2, 0.3, 0.2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fs4t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gcsf"]
+shading_mode = 0
+albedo_texture = ExtResource("37_hlw6b")
 
-[sub_resource type="BoxMesh" id="BoxMesh_6yijy"]
-material = SubResource("StandardMaterial3D_5fs4t")
-size = Vector3(0.2, 0.3, 0.2)
+[sub_resource type="PlaneMesh" id="PlaneMesh_wxjbl"]
+material = SubResource("StandardMaterial3D_0gcsf")
+size = Vector2(0.2, 0.3)
+orientation = 0
 
 [sub_resource type="Resource" id="Resource_56uno"]
 script = ExtResource("16_mey60")
@@ -395,6 +399,15 @@ target_node = NodePath("../../../../../Lights")
 property_name = "visible"
 toggle_mode = true
 metadata/_custom_type_script = "uid://b256oh8o7fr1o"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fs4t"]
+shading_mode = 0
+albedo_texture = ExtResource("37_hlw6b")
+uv1_scale = Vector3(3, 2, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6yijy"]
+material = SubResource("StandardMaterial3D_5fs4t")
+size = Vector3(0.2, 0.3, 0.2)
 
 [sub_resource type="Resource" id="Resource_k78io"]
 script = ExtResource("16_mey60")
@@ -595,7 +608,7 @@ material = ExtResource("2_u5722")
 metadata/_edit_lock_ = true
 
 [node name="Trim4" type="CSGBox3D" parent="Environment/Basement/Walls/Wall4" unique_id=1472173386]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0224993, -0.95, -0.0999985)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.022499084, -0.95, -0.099998474)
 cast_shadow = 0
 size = Vector3(24.3, 1.6, 0.01)
 material = SubResource("StandardMaterial3D_wuaeu")
@@ -1286,7 +1299,8 @@ metadata/_edit_lock_ = true
 shape = SubResource("BoxShape3D_olr0t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Basement/Decor/MainLightSwitch" unique_id=2074548147]
-mesh = SubResource("BoxMesh_6yijy")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.06)
+mesh = SubResource("PlaneMesh_wxjbl")
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/MainLightSwitch" unique_id=2029330839 node_paths=PackedStringArray("collider_body", "mesh")]
 script = ExtResource("7_olr0t")
@@ -2003,7 +2017,6 @@ omni_attenuation = 0.5
 
 [node name="Player" parent="." unique_id=887494584 instance=ExtResource("4_gpc5m")]
 transform = Transform3D(0.34202024, 0, 0.93969285, 0, 1, 0, -0.93969285, 0, 0.34202024, -3.1000004, 1.05, 11.35)
-camera_sensitivity = 2.0
 
 [node name="Asuka" parent="." unique_id=146635420 instance=ExtResource("24_inn26")]
 transform = Transform3D(-1.2452431, 0, -0.108944535, 0, 1.25, 0, 0.108944535, 0, -1.2452431, 5.716669, 0.1, 16.095224)
@@ -2390,7 +2403,7 @@ volume_db = 12.0
 bus = &"SFX"
 
 [node name="CraigDeathPlayerTriggerArea" type="Area3D" parent="Cutscenes/DeerDeath" unique_id=1426475169]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.385528, 0, 6.0313673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8375134, 0, 5.5376587)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
@@ -2502,6 +2515,7 @@ broom = NodePath("../../../Environment/Kitchenette/Broom_02")
 transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1.0000001, 0, 0.7071068, 0, 0.7071067, 0, 1.4500002, 0)
 
 [node name="EditorLights" type="Node3D" parent="." unique_id=1344950343]
+visible = false
 
 [node name="EditorLight1" type="DirectionalLight3D" parent="EditorLights" unique_id=1573086447]
 transform = Transform3D(0.965926, -0.224144, 0.12941, 0, 0.5, 0.866025, -0.258819, -0.836516, 0.482963, -26.2, 9.6, 16.1)
@@ -2517,6 +2531,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.025, 16.975)
 [connection signal="interaction_started" from="Environment/Basement/Decor/Table_36/MouseDVD/Interactable" to="Cutscenes/MeTime/TVCutscene" method="play" unbinds=1]
 [connection signal="task_started" from="Environment/Basement/Decor/Animals/Cage/TaskNotifier" to="Environment/Basement/Decor/Animals/Cage" method="set_feed_mode_active" flags=6 binds= [true]]
 [connection signal="interaction_started" from="Environment/Basement/Decor/MainLightSwitch/Interactable" to="Environment/Basement/Decor/MainLightSwitch/TaskUpdater" method="update_task" flags=6 unbinds=1]
+[connection signal="interaction_started" from="Environment/Basement/Decor/MainLightSwitch/Interactable" to="Environment/Basement/Decor/MainLightSwitch/Interactable" method="set_disabled" flags=6 unbinds=1 binds= [true]]
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/RefrigeratorDoor/PickelJar/Interactable" to="Player" method="eat_pickle" unbinds=1]
 [connection signal="interaction_started" from="Environment/Kitchenette/Refrigerator_001/Cola/Interactable" to="Player" method="drink_soda" unbinds=1]
 [connection signal="interaction_started" from="Environment/Kitchenette/Canned_food_10/Interactable" to="Environment/Kitchenette/Canned_food_10/TaskUpdater" method="update_task" unbinds=1]

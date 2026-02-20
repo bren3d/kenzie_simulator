@@ -1,20 +1,17 @@
 @tool
 class_name PauseMenu extends Control
 
-const MAX_ALPHA: float = 0.3
-#const SETTINGS_MENU_SCENE: PackedScene = preload("res://scenes/menus/settings/settings_menu.tscn")
+const MAX_ALPHA: float = 0.7
 const FADE_DURATION_SEC: float = 0.6 
 
 @export var settings_menu: SettingsMenu
 @export var color_rect: ColorRect
 @export var button_container: Control
 
+var active: bool = false: set = set_active, get = is_active
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	
-	get_parent().tree_exiting.connect(queue_free)
-	self.reparent.call_deferred(get_tree().root)
 	
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
@@ -24,12 +21,13 @@ func _ready() -> void:
 
 func open() -> void:
 	if visible: return
-	get_tree().scene.process_mode = Node.PROCESS_MODE_DISABLED
 	
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	set_active(true)
+
 	tween(true)
 	button_container.show()
 	get_buttons()[0].grab_focus()
+	get_buttons()[0].grab_click_focus()
 	show()
 
 func close() -> void:
@@ -44,8 +42,9 @@ func close() -> void:
 		return
 	
 	button_container.hide()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	get_tree().scene.process_mode = Node.PROCESS_MODE_INHERIT
+
+	set_active(false)
+
 	tween(false).tween_callback(hide)
 
 func toggle() -> void:
@@ -62,9 +61,9 @@ func open_settings() -> void:
 	button_container.hide()
 
 func quit_to_main() -> void:
-	get_tree().scene.process_mode = Node.PROCESS_MODE_DISABLED
+	close()
+	active = false
 	get_tree().change_scene_path(ProjectSettings.get_setting("application/run/main_scene"))
-
 
 func get_buttons() -> Array[Control]:
 	var buts: Array[Control]
@@ -85,3 +84,12 @@ func _on_settings_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	quit_to_main()
+
+func set_active(val: bool) -> void:
+	active = val
+	if Engine.is_editor_hint(): return
+	get_tree().scene.process_mode = Node.PROCESS_MODE_DISABLED if active else Node.PROCESS_MODE_INHERIT
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if active else Input.MOUSE_MODE_CAPTURED
+
+func is_active() -> bool:
+	return active

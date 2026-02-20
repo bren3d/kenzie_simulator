@@ -15,14 +15,16 @@ func _ready() -> void:
 	area_entered.connect(update_ui.unbind(1))
 	area_exited.connect(update_ui.unbind(1))
 
+func kick() -> void:
+	var cat: Cat = get_kickable_cat()
+	if cat: cat.kick()
+
 func update_ui() -> void:
-	for area in get_overlapping_areas():
-		var cat: Cat = area.get_parent()
-		if cat and cat.kickable:
-			set_ui(cat)
-			return
-	
-	clear_ui()
+	var cat: Cat = get_kickable_cat()
+	if cat:
+		set_ui(cat)
+	else:
+		clear_ui()
 
 func set_ui(cat: Cat) -> void:
 	interact_ray.set_interaction_text("Kick %s" % cat.cat_name if cat.cat_name else "Kick" )
@@ -33,3 +35,10 @@ func clear_ui() -> void:
 	interact_ray.set_interaction_text("")
 	interact_ray.set_interaction_icon(null)
 	interact_ray.set_message_icon(null)
+
+func get_kickable_cat() -> Cat:
+	for area in get_overlapping_areas():
+		var cat: Cat = area.get_parent()
+		if cat and cat.kickable:
+			return cat
+	return null

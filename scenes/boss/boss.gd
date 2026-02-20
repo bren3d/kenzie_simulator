@@ -10,7 +10,7 @@ extends Node3D
 @export var cutscene_delay_sec: float = 0.7
 
 func _ready() -> void:
-	player.refill_stats()
+	
 	player.set_flashlight_enabled(false)
 	
 	if Global.boss_fight_active:

@@ -25,7 +25,7 @@ func move_to_patrol_index(idx: int) -> void:
 func _on_movement_finished() -> void:
 	move_to_patrol_index((path_index + 1) % cat.patrol_points.size())
 
-func on_unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"kick") and cat.is_kickable():
-		transition_requested.emit(&"kicked")
-		get_viewport().set_input_as_handled()
+#func on_unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed(&"kick") and cat.is_kickable():
+		#transition_requested.emit(&"kicked")
+		#get_viewport().set_input_as_handled()

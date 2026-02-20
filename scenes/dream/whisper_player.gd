@@ -30,6 +30,11 @@ var is_suspense_playing: bool
 func _ready() -> void:
 	if Engine.is_editor_hint() or not stream: return
 	
+	# Delay to avoid volume settings load/change while playing.
+	create_tween().tween_callback(start).set_delay(0.25) 
+
+func start() -> void:
+	
 	Audio.play_music(music_ambient)
 	Audio.unpause_music()
 	

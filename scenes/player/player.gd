@@ -21,7 +21,7 @@ var speed_mult: float = 1.0
 var speed: float = DEFAULT_SPEED
 
 @export_range(0.05, 10.0, 0.05, "or_greater", "exp" ) 
-var camera_sensitivity: float = 0.7
+var camera_sensitivity: float = 2.0
 
 @export_range(1, 10, 1, ) 
 var max_hp: int = 2 
@@ -62,12 +62,16 @@ var flashlight_enabled: bool = true: set = set_flashlight_enabled
 
 
 func _ready() -> void:
-	Global.player = self
 	if Engine.is_editor_hint(): return
-
-		
+	
+	if Global.player:
+		Global.player.queue_free()
+	
+	Global.player = self
 	
 	show_message("")
+	
+	refill_stats()
 	
 	cough_stat.set_disabled(!Global.active_stats.cough)
 	soda_stat.set_disabled(!Global.active_stats.soda)
@@ -75,12 +79,11 @@ func _ready() -> void:
 	
 	unpause_timers()
 	
-	# ALERT 
-	#can_die = not OS.is_debug_build()
+	
 	
 	# Turn on to get rid of stutter when loading...
-	set_flashlight_active(true)
-	create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.05)
+	#set_flashlight_active(true)
+	#create_tween().tween_callback(set_flashlight_active.bind(false)).set_delay(0.05)
 	
 
 func _process(delta: float) -> void:
@@ -220,3 +223,6 @@ func is_dead() -> bool:
 
 func make_camera_current() -> void:
 	camera.make_current()
+
+func kick() -> void:
+	kickable_area.kick()

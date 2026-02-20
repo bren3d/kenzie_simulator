@@ -26,6 +26,9 @@ const ANIM_FROZEN: StringName = &"frozen"
 func explode() -> void:
 	set_state(&"explode")
 
+func kick() -> void:
+	set_state(&"kicked")
+
 func is_kickable() -> bool:
 	return kickable and kickable_area.has_overlapping_areas()
 

@@ -1,10 +1,6 @@
 extends Node
 
-enum {BUS_MASTER = 0, BUS_MUSIC = 1, BUS_SFX = 2,}
-
-
-const BUS_SFX_NAME: StringName = &"SFX"
-const BUS_MUSIC_NAME: StringName = &"Music"
+enum {BUS_MASTER = 0, BUS_SFX = 1, BUS_MUSIC = 2,}
 
 var music_stream: AudioStreamPlayer
 var sfx_stream: AudioStreamPlayer
@@ -67,3 +63,11 @@ func unpause_music() -> void:
 	music_stream.volume_linear = 1.0
 	music_stream.stream_paused = false
 	
+
+func _input(event: InputEvent) -> void:
+	if event.is_pressed() and not event.is_echo() and event is InputEventKey:
+		if event.keycode == KEY_K:
+			for i: int in AudioServer.bus_count:
+				print("'%s' Bus index = %s" % [AudioServer.get_bus_name(i), i])
+				#print("MUSIC BUS = ", AudioServer.get_bus_index(&"Music"))
+				#print("SFX BUS = ", AudioServer.get_bus_index(&"Music"))
