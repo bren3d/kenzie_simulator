@@ -14,3 +14,8 @@ enum DisplayMode{
 
 @export var min_value: float = 0.0
 @export var max_value: float = 1.0
+@export var step: float = 1.0
+@export var exp_edit: bool = false
+@export var allow_greater: bool = false
+@export var allow_lesser: bool = false
+@export var rounded: bool = false

@@ -126,8 +126,8 @@ func reset() -> void:
 
 func _on_root_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo(): return
-
-	if event is InputEventKey:
+	
+	if event is InputEventKey and event.alt_pressed:
 		match event.keycode:
 			# Jump to scene
 			var kp_num when KEY_KP_0 <= kp_num and kp_num <= KEY_KP_9 and kp_num - KEY_KP_0 < DEBUG_SCENE_PATHS.size():

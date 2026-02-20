@@ -47,6 +47,8 @@ var current_hit_count: int = 0
 @export var pickle_sounds: Array[AudioStream]
 @export var pause_menu: PauseMenu
 
+@export var camera_sensitivity_setting: SettingsProperty
+
 var death_message: String = ""
 
 var input_active: bool = true: set = set_input_active
@@ -69,7 +71,11 @@ func _ready() -> void:
 	
 	Global.player = self
 	
-	show_message("")
+	camera_sensitivity_setting.changed.connect(_on_camera_sensitivity_changed)
+	_on_camera_sensitivity_changed()
+	
+	message_label.text = ""
+	message_label.modulate.a = 0.0
 	
 	refill_stats()
 	
@@ -226,3 +232,6 @@ func make_camera_current() -> void:
 
 func kick() -> void:
 	kickable_area.kick()
+
+func _on_camera_sensitivity_changed() -> void:
+	camera_sensitivity = camera_sensitivity_setting.get_value()

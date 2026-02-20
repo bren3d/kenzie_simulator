@@ -31,7 +31,19 @@ func create_control(spd: SettingsPropertyDisplay) -> Control:
 	
 	var slider: HSlider = hbox.get_child(1).get_child(0)
 	var spinbox: SpinBox = hbox.get_child(1).get_child(1)
+	
+	spinbox.min_value = spd.min_value
+	spinbox.max_value = spd.max_value
+	spinbox.step = spd.step
+	spinbox.exp_edit = spd.exp_edit
+	spinbox.allow_greater = spd.allow_greater
+	spinbox.allow_lesser = spd.allow_lesser
+	spinbox.rounded = spd.rounded
+	
 	spinbox.share(slider)
+	
+	spinbox.value = spd.settings_property.get_value()
+	
 	spinbox.value_changed.connect(_on_value_changed.bind(spd.settings_property))
 	settings_display_controls[spd] = spinbox
 	spd.settings_property.changed.connect(_on_settings_property_changed.bind(spd))

@@ -8,4 +8,5 @@ script = ExtResource("1_8hrjx")
 settings_property = ExtResource("2_j0a80")
 mode = 2
 max_value = 100.0
+step = 0.1
 metadata/_custom_type_script = "uid://b5sipp3xhaih0"

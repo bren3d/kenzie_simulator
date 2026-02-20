@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SettingsPropertyDisplay" format=3 uid="uid://u3x2vutkhm2i"]
+
+[ext_resource type="Script" uid="uid://b5sipp3xhaih0" path="res://scripts/settings/settings_display.gd" id="1_wgud4"]
+[ext_resource type="Resource" uid="uid://s6ufjiohagvv" path="res://resources/settings/camera_sensitivity.tres" id="2_gqh5x"]
+
+[resource]
+script = ExtResource("1_wgud4")
+settings_property = ExtResource("2_gqh5x")
+mode = 2
+min_value = 0.05
+max_value = 10.0
+step = 0.01
+exp_edit = true
+allow_greater = true
+metadata/_custom_type_script = "uid://b5sipp3xhaih0"

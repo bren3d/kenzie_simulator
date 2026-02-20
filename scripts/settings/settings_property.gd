@@ -25,6 +25,7 @@ func get_value() -> Variant:
 func read_file(cfg: ConfigFile) -> void:
 	if not cfg.has_section_key(section, name):
 		push_warning("Section (%s) - Key (%s) does not exist in file." % [section, name])
+		changed.emit()
 		return
 		
 	var file_value: Variant = cfg.get_value(section, name)
@@ -34,6 +35,7 @@ func read_file(cfg: ConfigFile) -> void:
 		return
 	
 	push_warning("Value type mismatch for setting %s. File: %s (%s) | Setting: %s (%s)" % [name, file_value, type_string(typeof(file_value)), value, type_string(typeof(value))])
+	changed.emit()
 
 ## Writes property to [param cfg].
 func write_file(cfg: ConfigFile) -> void:

@@ -2362,8 +2362,8 @@ sfx_whinny = ExtResource("142_2avaa")
 sfx_gore_splat = ExtResource("143_pipw0")
 sfx_screech = ExtResource("144_m0boy")
 music = ExtResource("145_qc8qu")
-dialogue_resource = ExtResource("145_pipw0")
 quest = ExtResource("148_ny4ps")
+dialogue_resource = ExtResource("145_pipw0")
 
 [node name="Deer" parent="Cutscenes/DeerDeath" unique_id=1477389057 instance=ExtResource("25_ukdwj")]
 transform = Transform3D(1.8751051, 0, 0, 0, 1.476, 0, 0, 0, 1.9096024, 0, 0, 0)

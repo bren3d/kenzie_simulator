@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://8r0pidxbur0g" path="res://resources/settings/display_settings/master_volume.tres" id="8_b2eku"]
 [ext_resource type="Resource" uid="uid://bx6f8uo10sd1p" path="res://resources/settings/display_settings/sfx_volume.tres" id="9_c75u1"]
 [ext_resource type="Resource" uid="uid://n4v014hjb7yh" path="res://resources/settings/display_settings/music_volume.tres" id="10_rg0bc"]
+[ext_resource type="Resource" uid="uid://u3x2vutkhm2i" path="res://resources/settings/display_settings/camera_sensitivity.tres" id="11_c75u1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ebjn"]
 content_margin_top = 8.0
@@ -61,7 +62,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("6_rg0bc")
-settings_display_properties = Array[ExtResource("7_cxqq0")]([ExtResource("8_b2eku"), ExtResource("9_c75u1"), ExtResource("10_rg0bc")])
+settings_display_properties = Array[ExtResource("7_cxqq0")]([ExtResource("8_b2eku"), ExtResource("9_c75u1"), ExtResource("10_rg0bc"), ExtResource("11_c75u1")])
 settings_hbox = NodePath("SettingHBox")
 
 [node name="SettingHBox" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=729097032]

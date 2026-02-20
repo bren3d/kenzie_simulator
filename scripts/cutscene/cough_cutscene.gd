@@ -22,6 +22,9 @@ func enable_cough() -> void:
 	Global.player.hide_message()
 	set_process_input(false)
 	finish()
+	create_tween().tween_callback(Global.player.show_message.bind("Press E to interact", 2.5))\
+		.set_delay(Player.MESSAGE_FADE_IN_OUT_DURATION_SEC)
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"cough"):

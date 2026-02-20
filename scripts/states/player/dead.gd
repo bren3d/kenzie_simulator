@@ -9,14 +9,17 @@ func _init() -> void:
 
 func enter() -> void:
 	#lock_state.emit(true)
+	player.velocity = Vector3.ZERO
 	player.pause_timers()
 	camera_action.focus()
 	
 	player.ui.hide()
 	
+	var death_message: String = Global.player.death_message
+	
 	var tw: Tween = create_tween()
 	tw.tween_callback(player.dead.emit).set_delay(camera_action.tween_duration_sec)
-	tw.tween_callback(retry_ui.open.bind(Global.player.death_message))
+	tw.tween_callback(retry_ui.open.bind(death_message))
 
 func exit() -> void:
 	camera_action.restore_camera()
