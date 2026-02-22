@@ -27,4 +27,3 @@ func _input(event: InputEvent) -> void:
 		event.is_action_pressed(&"down"):
 			Global.player.hide_message()
 			set_process_input(false)
-			print("Cancelled!")

@@ -37,6 +37,7 @@ var current_hit_count: int = 0
 @export var ui: CanvasLayer
 @export var message_label: Label
 @export var flashlight: SpotLight3D
+@export var state_debug_label: Label
 
 @export var cough_stat: StatComponent
 @export var cough_audio_stream: AudioStreamPlayer
@@ -62,7 +63,6 @@ var can_cough: bool = true
 var can_die: bool = true
 var flashlight_enabled: bool = true: set = set_flashlight_enabled
 
-
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
@@ -71,8 +71,8 @@ func _ready() -> void:
 	
 	Global.player = self
 	
-	camera_sensitivity_setting.changed.connect(_on_camera_sensitivity_changed)
-	_on_camera_sensitivity_changed()
+	camera_sensitivity_setting.value_changed.connect(set_camera_sensitivity)
+	set_camera_sensitivity(camera_sensitivity_setting.get_value())
 	
 	message_label.text = ""
 	message_label.modulate.a = 0.0
@@ -85,6 +85,7 @@ func _ready() -> void:
 	
 	unpause_timers()
 	
+	state_debug_label.visible = OS.is_debug_build()
 	
 	
 	# Turn on to get rid of stutter when loading...
@@ -216,7 +217,7 @@ func eat_pickle() -> void:
 		pickle_stream_player.play()
 
 func kill(death_msg: String = "") -> void:
-	if not can_die: return
+	if not can_die or Engine.is_editor_hint(): return
 	if death_msg:
 		death_message = death_msg
 	set_state("Dead")
@@ -233,5 +234,5 @@ func make_camera_current() -> void:
 func kick() -> void:
 	kickable_area.kick()
 
-func _on_camera_sensitivity_changed() -> void:
-	camera_sensitivity = camera_sensitivity_setting.get_value()
+func set_camera_sensitivity(val: float) -> void:
+	camera_sensitivity = val

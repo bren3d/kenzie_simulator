@@ -4,21 +4,22 @@
 [ext_resource type="Script" uid="uid://c31rljvf5rm4i" path="res://scripts/settings/settings_property.gd" id="2_xeewh"]
 [ext_resource type="Resource" uid="uid://ce5l3sg4y3oa3" path="res://resources/settings/master_volume.tres" id="3_m5u22"]
 [ext_resource type="Resource" uid="uid://btawm36ecg1fx" path="res://resources/settings/sfx.tres" id="5_b2eku"]
-[ext_resource type="Script" uid="uid://0nv4lofftccg" path="res://scenes/main_menu/settings/settings_ui.gd" id="6_rg0bc"]
-[ext_resource type="Script" uid="uid://b5sipp3xhaih0" path="res://scripts/settings/settings_display.gd" id="7_cxqq0"]
+[ext_resource type="Resource" uid="uid://s6ufjiohagvv" path="res://resources/settings/camera_sensitivity.tres" id="7_ghis8"]
 [ext_resource type="Resource" uid="uid://ds4tahw8spshu" path="res://resources/settings/music_volume.tres" id="7_xeewh"]
-[ext_resource type="Resource" uid="uid://8r0pidxbur0g" path="res://resources/settings/display_settings/master_volume.tres" id="8_b2eku"]
-[ext_resource type="Resource" uid="uid://bx6f8uo10sd1p" path="res://resources/settings/display_settings/sfx_volume.tres" id="9_c75u1"]
-[ext_resource type="Resource" uid="uid://n4v014hjb7yh" path="res://resources/settings/display_settings/music_volume.tres" id="10_rg0bc"]
-[ext_resource type="Resource" uid="uid://u3x2vutkhm2i" path="res://resources/settings/display_settings/camera_sensitivity.tres" id="11_c75u1"]
+[ext_resource type="Script" uid="uid://schwc0f3upsp" path="res://scripts/settings/settings_picker.gd" id="12_cxqq0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ebjn"]
 content_margin_top = 8.0
 content_margin_bottom = 8.0
 
-[node name="Settings" type="Control" unique_id=2029017470 node_paths=PackedStringArray("settings_ui")]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xeewh"]
+color = Color(0.20833331, 0.20833331, 0.20833331, 1)
+grow_begin = -16.0
+grow_end = -16.0
+thickness = 2
+
+[node name="Settings" type="Control" unique_id=2029017470]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ghis8")
-settings_ui = NodePath("MainVBox/VBoxContainer/ScrollContainer/SettingsVBox")
+settings_properties = Array[ExtResource("2_xeewh")]([ExtResource("3_m5u22"), ExtResource("5_b2eku"), ExtResource("7_xeewh"), ExtResource("7_ghis8")])
 bus_volume_setting_properties = Dictionary[ExtResource("2_xeewh"), int]({
 ExtResource("3_m5u22"): 0,
 ExtResource("7_xeewh"): 2,
@@ -53,44 +54,62 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_0ebjn")
 text = "Settings"
 horizontal_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="MainVBox/VBoxContainer" unique_id=1133297518]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_xeewh")
+
 [node name="ScrollContainer" type="ScrollContainer" parent="MainVBox/VBoxContainer" unique_id=1205555903]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SettingsVBox" type="VBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer" unique_id=1415272886 node_paths=PackedStringArray("settings_hbox")]
+[node name="SettingsVBox" type="VBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer" unique_id=1415272886]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("6_rg0bc")
-settings_display_properties = Array[ExtResource("7_cxqq0")]([ExtResource("8_b2eku"), ExtResource("9_c75u1"), ExtResource("10_rg0bc"), ExtResource("11_c75u1")])
-settings_hbox = NodePath("SettingHBox")
 
-[node name="SettingHBox" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=729097032]
+[node name="Label" type="Label" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=1548398324]
 layout_mode = 2
-size_flags_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="SettingsPicker" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=305312700]
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 12
+script = ExtResource("12_cxqq0")
+settings_property = ExtResource("3_m5u22")
+metadata/_custom_type_script = "uid://schwc0f3upsp"
 
-[node name="SettingNameLabel" type="Label" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox" unique_id=86530950]
+[node name="SettingsPicker2" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=197328144]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-text = "Master Volume"
-horizontal_alignment = 2
-clip_text = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox" unique_id=2067450062]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HSlider" type="HSlider" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox/HBoxContainer" unique_id=1906089183]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_constants/separation = 12
+script = ExtResource("12_cxqq0")
+settings_property = ExtResource("5_b2eku")
+metadata/_custom_type_script = "uid://schwc0f3upsp"
 
-[node name="SpinBox" type="SpinBox" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox/SettingHBox/HBoxContainer" unique_id=506533710]
+[node name="SettingsPicker3" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=839408177]
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 4
+theme_override_constants/separation = 12
+script = ExtResource("12_cxqq0")
+settings_property = ExtResource("7_xeewh")
+metadata/_custom_type_script = "uid://schwc0f3upsp"
+
+[node name="Label2" type="Label" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=275640234]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="SettingsPicker4" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=1174410824]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+script = ExtResource("12_cxqq0")
+settings_property = ExtResource("7_ghis8")
+metadata/_custom_type_script = "uid://schwc0f3upsp"
 
 [node name="MarginContainer" type="MarginContainer" parent="MainVBox" unique_id=1887747873]
 layout_mode = 2
