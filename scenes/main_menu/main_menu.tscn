@@ -55,14 +55,14 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="Menu" unique_id=1543592612]
+[node name="TitleLabel" type="Label" parent="Menu" unique_id=1543592612]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.34444445
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 59
-text = "DOYLE'S DAY"
+text = "KENZIE SIMULATOR"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
