@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://btawm36ecg1fx" path="res://resources/settings/sfx.tres" id="5_b2eku"]
 [ext_resource type="Resource" uid="uid://s6ufjiohagvv" path="res://resources/settings/camera_sensitivity.tres" id="7_ghis8"]
 [ext_resource type="Resource" uid="uid://ds4tahw8spshu" path="res://resources/settings/music_volume.tres" id="7_xeewh"]
+[ext_resource type="Resource" uid="uid://cax2bc7odxos2" path="res://resources/settings/display_mode.tres" id="8_xeewh"]
 [ext_resource type="Script" uid="uid://schwc0f3upsp" path="res://scripts/settings/settings_picker.gd" id="12_cxqq0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ebjn"]
@@ -27,12 +28,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ghis8")
-settings_properties = Array[ExtResource("2_xeewh")]([ExtResource("3_m5u22"), ExtResource("5_b2eku"), ExtResource("7_xeewh"), ExtResource("7_ghis8")])
+settings_properties = Array[ExtResource("2_xeewh")]([ExtResource("8_xeewh"), ExtResource("3_m5u22"), ExtResource("5_b2eku"), ExtResource("7_xeewh"), ExtResource("7_ghis8")])
 bus_volume_setting_properties = Dictionary[ExtResource("2_xeewh"), int]({
 ExtResource("3_m5u22"): 0,
 ExtResource("7_xeewh"): 2,
 ExtResource("5_b2eku"): 1
 })
+display_mode_setting_property = ExtResource("8_xeewh")
 
 [node name="MainVBox" type="VBoxContainer" parent="." unique_id=402088491]
 layout_mode = 1
@@ -66,8 +68,23 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 2
 
 [node name="Label" type="Label" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=1548398324]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Graphics"
+horizontal_alignment = 1
+
+[node name="SettingsPicker5" type="HBoxContainer" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=1409143911]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+script = ExtResource("12_cxqq0")
+settings_property = ExtResource("8_xeewh")
+metadata/_custom_type_script = "uid://schwc0f3upsp"
+
+[node name="Label3" type="Label" parent="MainVBox/VBoxContainer/ScrollContainer/SettingsVBox" unique_id=1389166041]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "Audio"

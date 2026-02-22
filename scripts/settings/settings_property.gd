@@ -12,7 +12,7 @@ enum DisplayMode{
 	CHECKBUTTON,
 	COLORPICKER,
 	LINE_EDIT,
-	 #ENUM, # TODO
+	ENUM,
 }
 
 @export_placeholder("master_volume") 
@@ -59,8 +59,25 @@ var name: String: set = set_property_name
 		allow_lesser = val
 		notify_property_list_changed()
 
-# TODO
-#@export_storage var enum_values: PackedStringArray
+#@export_storage var custom_enum: bool = false:
+	#set(val):
+		#custom_enum = val
+		#notify_property_list_changed()
+#@export_storage var enum_class: String:
+	#set(val):
+		#enum_class = val
+		#if get_display_mode() == DisplayMode.ENUM:
+			#notify_property_list_changed()
+#@export_storage var enum_name: String:
+	#set(val):
+		#enum_name = val
+		#notify_property_list_changed()
+
+@export_storage var enum_values: String
+
+@export_tool_button("Update Enum Values")
+var update_enum_func: Callable = notify_property_list_changed
+
 
 ## Sets value and emits changed signal.
 func set_value(val: Variant) -> void:
@@ -120,8 +137,10 @@ func is_display_mode_valid(disp_mode: DisplayMode) -> bool:
 	if disp_mode == DisplayMode.HIDDEN:
 		return true
 	match type:
-		TYPE_INT, TYPE_FLOAT:
-			return disp_mode == DisplayMode.SPINBOX or disp_mode == DisplayMode.SLIDER
+		TYPE_INT:
+			return disp_mode == DisplayMode.SPINBOX or disp_mode == DisplayMode.SLIDER or disp_mode == DisplayMode.ENUM
+		TYPE_FLOAT:
+			return disp_mode == DisplayMode.SPINBOX or disp_mode == DisplayMode.SLIDER 
 		TYPE_BOOL:
 			return disp_mode == DisplayMode.CHECKBOX or disp_mode == DisplayMode.CHECKBUTTON
 		TYPE_COLOR:
@@ -138,29 +157,55 @@ func _validate_property(property: Dictionary) -> void:
 		
 		match type:
 			TYPE_INT, TYPE_FLOAT:
-				property.hint = PROPERTY_HINT_RANGE
-				property.hint_string = "%s,%s,%s,%s%s%s" % [min_value, max_value, step,
-				"exp," if exp_edit else "",
-				"allow_greater," if allow_greater else "",
-				"allow_lesser," if allow_lesser else "",
-				]
+				if get_display_mode() == DisplayMode.ENUM:
+					property.hint = PROPERTY_HINT_ENUM
+					property.hint_string = enum_values
+				else:
+					property.hint = PROPERTY_HINT_RANGE
+					property.hint_string = "%s,%s,%s,%s%s%s" % [min_value, max_value, step,
+					"exp," if exp_edit else "",
+					"allow_greater," if allow_greater else "",
+					"allow_lesser," if allow_lesser else "",
+					]
 	
 	elif property.name == &"display_mode":
 		property.hint_string = "Hidden:0"
 		match type:
-			TYPE_FLOAT, TYPE_INT:
+			TYPE_FLOAT:
 				property.hint_string += ",Spinbox:1,Slider:2"
+			TYPE_INT:
+				property.hint_string += ",Spinbox:1,Slider:2,Enum:7"
 			TYPE_BOOL:
 				property.hint_string += ",Checkbox:3,Checkbutton:4"
 			TYPE_COLOR:
 				property.hint_string += ",Colorpicker:5"
 			TYPE_STRING:
 				property.hint_string += ",Line Edit:6"
-				
+	
 	
 	elif property.name == &"Property Details" and (type != TYPE_INT and type != TYPE_FLOAT):
 		property.usage = PROPERTY_USAGE_NONE
 	
+	elif property.name == &"enum_values" and get_display_mode() == DisplayMode.ENUM:
+		property.usage |= PROPERTY_USAGE_EDITOR
+	
+	elif property.name == &"update_enum_func" and get_display_mode() != DisplayMode.ENUM:
+		property.usage = PROPERTY_USAGE_NONE
+	
+		#match property.name:
+			#&"custom_enum":
+				#property.usage |= PROPERTY_USAGE_EDITOR
+			#&"enum_class" when not custom_enum:
+				#property.hint |= PROPERTY_HINT_ENUM_SUGGESTION
+				#property.hint_string = ",".join(ClassDB.get_class_list())
+				#property.usage |= PROPERTY_USAGE_EDITOR
+			#&"enum_name" when not custom_enum and enum_class:
+				#property.hint |= PROPERTY_HINT_ENUM_SUGGESTION
+				#property.hint_string = ",".join(ClassDB.class_get_enum_list(enum_class))
+				#property.usage |= PROPERTY_USAGE_EDITOR
+			#&"enum_values" when custom_enum:
+		
 	elif property.name in [&"min_value", &"max_value",  &"step", &"exp_edit", &"allow_greater", &"allow_lesser", &"rounded"]:
-		if (type == TYPE_INT or type == TYPE_FLOAT):
+		if (type == TYPE_INT or type == TYPE_FLOAT) and get_display_mode() != DisplayMode.ENUM:
 			property.usage |= PROPERTY_USAGE_EDITOR
+			

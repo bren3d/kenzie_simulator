@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SettingsProperty" format=3 uid="uid://cax2bc7odxos2"]
+
+[ext_resource type="Script" uid="uid://c31rljvf5rm4i" path="res://scripts/settings/settings_property.gd" id="1_t02k6"]
+
+[resource]
+script = ExtResource("1_t02k6")
+name = "display_mode"
+section = "Graphics"
+type = 2
+value = 0
+display_mode = 7
+max_value = 100.0
+enum_values = "Windowed:0,Fullscreen:3"
+metadata/_custom_type_script = "uid://c31rljvf5rm4i"

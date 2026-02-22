@@ -139,6 +139,24 @@ func update_picker() -> void:
 			settings_property.value_changed.connect(update_line_edit.bind(line_edit))
 			
 			picker_hbox.add_child(line_edit)
+			
+		SettingsProperty.DisplayMode.ENUM:
+			var option_but: OptionButton = OptionButton.new()
+			option_but.size_flags_horizontal = Control.SIZE_SHRINK_END
+			var enums: PackedStringArray = settings_property.enum_values.split(",")
+			for i: int in enums.size():
+				var idx: int = i
+				var slice_str: String = enums[i].get_slice(":", 1)
+				if slice_str.is_valid_int():
+					idx = slice_str.to_int()
+					option_but.add_item(enums[i].get_slice(":", 0), idx)
+				else:
+					option_but.add_item(enums[i])
+			
+			option_but.selected = option_but.get_item_index(settings_property.get_value())
+			option_but.item_selected.connect(_on_option_button_item_selected.bind(option_but))
+			settings_property.value_changed.connect(update_option_button.bind(option_but))
+			picker_hbox.add_child(option_but)
 	
 	for child in picker_hbox.get_children():
 		child.theme_type_variation = SETTINGS_PICKER_THEME_VARIATION
@@ -155,7 +173,6 @@ func mirror_settings_property(spinbox: SpinBox) -> void:
 	spinbox.allow_greater = settings_property.allow_greater
 	spinbox.allow_lesser = settings_property.allow_lesser
 
-
 func update_settings_value(val: Variant) -> void:
 	settings_property.set_value(val)
 
@@ -163,15 +180,16 @@ func update_color_picker(value: Variant, col_pick: ColorPickerButton) -> void:
 	set_block_signals(true)
 	col_pick.color = value
 	set_block_signals(false)
-	
+
 func update_line_edit(value: Variant, line_edit: ColorPickerButton) -> void:
 	set_block_signals(true)
 	line_edit.text = value
 	set_block_signals(false)
-	
 
-func update_button(but: BaseButton) -> void:
-	but.set_pressed_no_signal(settings_property.get_value())
+func update_option_button(value: Variant, but: OptionButton) -> void:
+	set_block_signals(true)
+	but.selected = but.get_item_index(value)
+	set_block_signals(false)
 
-func update_spinbox(spin: SpinBox) -> void:
-	spin.set_value_no_signal(settings_property.get_value())
+func _on_option_button_item_selected(idx: int, but: OptionButton) -> void:
+	settings_property.set_value(but.get_item_id(idx))
