@@ -237,7 +237,7 @@ material = SubResource("StandardMaterial3D_ieh3c")
 size = Vector3(0.075, 0.15, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xxa2"]
-size = Vector3(0.075, 0.15, 0.05)
+size = Vector3(0.1, 0.175, 0.075)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5722"]
 albedo_color = Color(0.101563, 0.0970662, 0.0970662, 1)
@@ -787,6 +787,7 @@ mesh = SubResource("BoxMesh_7xxa2")
 [node name="MouseDVDStaticBody" type="StaticBody3D" parent="Environment/Basement/Decor/Table_36/MouseDVD" unique_id=849929276]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Basement/Decor/Table_36/MouseDVD/MouseDVDStaticBody" unique_id=706602598]
+transform = Transform3D(1, 0, 0, 0, 1, 2.7838617e-23, 0, 2.5055613e-22, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_7xxa2")
 
 [node name="Interactable" type="Node" parent="Environment/Basement/Decor/Table_36/MouseDVD" unique_id=1079609747 node_paths=PackedStringArray("collider_body")]
@@ -794,6 +795,7 @@ script = ExtResource("7_olr0t")
 disabled = true
 collider_body = NodePath("../MouseDVDStaticBody")
 icon = ExtResource("17_aemrb")
+max_interaction_distance = 2.5
 interaction_text = "Watch \"Fever Goes East\""
 metadata/_custom_type_script = "uid://nwwqfha6002f"
 
@@ -2319,12 +2321,13 @@ list_quest = ExtResource("108_ca65u")
 dialogue = ExtResource("124_jipp7")
 me_time_quest = ExtResource("125_dlm1g")
 
-[node name="TVCutscene" type="Node" parent="Cutscenes/MeTime" unique_id=1999303475 node_paths=PackedStringArray("tv_cam", "dvd_interactable", "stream")]
+[node name="TVCutscene" type="Node" parent="Cutscenes/MeTime" unique_id=1999303475 node_paths=PackedStringArray("tv_cam", "dvd_interactable", "mouse_dvd", "stream")]
 script = ExtResource("135_xcb1r")
 tv_cam = NodePath("../../../Environment/Basement/Decor/TV/TVScreen/TVCamera")
 dvd_interactable = NodePath("../../../Environment/Basement/Decor/Table_36/MouseDVD/Interactable")
 quest = ExtResource("125_dlm1g")
 task = SubResource("Resource_vcjtt")
+mouse_dvd = NodePath("../../../Environment/Basement/Decor/Table_36/MouseDVD")
 stream = NodePath("../../../Environment/Basement/Decor/TV/TVScreen/TVScreenViewport/TVScreen/MouseMoviePlayer")
 
 [node name="VagarantCutscene" type="Node" parent="Cutscenes/MeTime" unique_id=2025234659 node_paths=PackedStringArray("vagarant", "vagarant_viewport", "computer_interactable", "computer_cam", "craig_cutscene", "craig_death_trigger_area")]
@@ -2515,7 +2518,6 @@ broom = NodePath("../../../Environment/Kitchenette/Broom_02")
 transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1.0000001, 0, 0.7071068, 0, 0.7071067, 0, 1.4500002, 0)
 
 [node name="EditorLights" type="Node3D" parent="." unique_id=1344950343]
-visible = false
 
 [node name="EditorLight1" type="DirectionalLight3D" parent="EditorLights" unique_id=1573086447]
 transform = Transform3D(0.965926, -0.224144, 0.12941, 0, 0.5, 0.866025, -0.258819, -0.836516, 0.482963, -26.2, 9.6, 16.1)

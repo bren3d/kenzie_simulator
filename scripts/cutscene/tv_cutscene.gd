@@ -5,13 +5,16 @@ extends Cutscene
 @export var dvd_interactable: Interactable
 @export var quest: Quest
 @export var task: Task
+@export var mouse_dvd: MeshInstance3D
 
 @export var stream: VideoStreamPlayer
 
 func _ready() -> void:
 	stream.visible = false
 	dvd_interactable.disabled = true
+	mouse_dvd.hide()
 	quest.started.connect(dvd_interactable.set_disabled.bind(false), CONNECT_ONE_SHOT)
+	quest.started.connect(mouse_dvd.show, CONNECT_ONE_SHOT)
 	stream.finished.connect(quest.update_task_status.bind(task.task_name, Task.STATUS_COMPLETED), CONNECT_ONE_SHOT)
 
 func _on_play() -> void:

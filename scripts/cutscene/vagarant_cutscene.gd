@@ -11,8 +11,6 @@ extends Cutscene
 @export var craig_cutscene: Cutscene
 @export var craig_death_trigger_area: Area3D
 
-#var is_active: bool = false
-
 func _ready() -> void:
 	vagarant.hide_menu()
 	computer_interactable.disabled = true

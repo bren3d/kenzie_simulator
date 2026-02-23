@@ -20,8 +20,6 @@ signal menu_shown
 @export var play_button: Button
 @export var quit_button: Button
 
-func _ready() -> void:
-	show_menu()
 
 func reset_ui() -> void:
 	color_rect.color.a = 0.0
@@ -35,6 +33,8 @@ func play_victory_screen() -> void:
 	tw.tween_callback(show_menu).set_delay(VICTORY_SCREEN_DURATION_SEC)
 
 func show_menu() -> void:
+	Input.set_mouse_mode.call_deferred(Input.MOUSE_MODE_VISIBLE)
+	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	menu.show()
 	reset_ui()
 	play_button.disabled = false
@@ -43,6 +43,7 @@ func show_menu() -> void:
 	play_button.grab_focus()
 
 func hide_menu() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	play_button.disabled = true
 	quit_button.disabled = true
 	menu.hide()
