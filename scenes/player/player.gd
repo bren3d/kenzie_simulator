@@ -1,6 +1,8 @@
 @tool
 class_name Player extends CharacterBody3D
 
+const SENSITIVIITY_SCALAR: float = 0.00038397243458548043006658879114174
+
 const RUN_SPEED_MULT: float = 1.5
 const DEFAULT_SPEED: float = 5.0
 
@@ -122,9 +124,9 @@ func set_camera_pitch(pitch: float) -> void:
 ## Moves camera based on given input event.
 func move_camera(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotation.y -= event.screen_relative.x / 1000 * camera_sensitivity
+		rotation.y -= event.screen_relative.x * SENSITIVIITY_SCALAR * camera_sensitivity
 		if camera: 
-			set_camera_pitch(camera.rotation.x - event.screen_relative.y / 1000 * camera_sensitivity)
+			set_camera_pitch(camera.rotation.x - event.screen_relative.y * SENSITIVIITY_SCALAR * camera_sensitivity)
 
 func focus_camera(focus_point: Vector3, zoom: float = 1.0) -> Tween:
 	if focus_point == camera.global_position:

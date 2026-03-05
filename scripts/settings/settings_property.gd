@@ -192,19 +192,6 @@ func _validate_property(property: Dictionary) -> void:
 	elif property.name == &"update_enum_func" and get_display_mode() != DisplayMode.ENUM:
 		property.usage = PROPERTY_USAGE_NONE
 	
-		#match property.name:
-			#&"custom_enum":
-				#property.usage |= PROPERTY_USAGE_EDITOR
-			#&"enum_class" when not custom_enum:
-				#property.hint |= PROPERTY_HINT_ENUM_SUGGESTION
-				#property.hint_string = ",".join(ClassDB.get_class_list())
-				#property.usage |= PROPERTY_USAGE_EDITOR
-			#&"enum_name" when not custom_enum and enum_class:
-				#property.hint |= PROPERTY_HINT_ENUM_SUGGESTION
-				#property.hint_string = ",".join(ClassDB.class_get_enum_list(enum_class))
-				#property.usage |= PROPERTY_USAGE_EDITOR
-			#&"enum_values" when custom_enum:
-		
 	elif property.name in [&"min_value", &"max_value",  &"step", &"exp_edit", &"allow_greater", &"allow_lesser", &"rounded"]:
 		if (type == TYPE_INT or type == TYPE_FLOAT) and get_display_mode() != DisplayMode.ENUM:
 			property.usage |= PROPERTY_USAGE_EDITOR

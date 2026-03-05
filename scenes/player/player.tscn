@@ -200,12 +200,14 @@ grow_vertical = 0
 columns = 2
 
 [node name="Cough" type="Label" parent="UI/ProgressGrid" unique_id=557431103]
+visible = false
 material = ExtResource("3_qek5x")
 layout_mode = 2
 text = "Cough"
 horizontal_alignment = 2
 
 [node name="CoughProgressBar" type="ProgressBar" parent="UI/ProgressGrid" unique_id=945286791]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -213,12 +215,14 @@ rounded = true
 show_percentage = false
 
 [node name="Soda" type="Label" parent="UI/ProgressGrid" unique_id=1637246480]
+visible = false
 material = ExtResource("3_qek5x")
 layout_mode = 2
 text = "Diet Soda"
 horizontal_alignment = 2
 
 [node name="SodaProgressBar" type="ProgressBar" parent="UI/ProgressGrid" unique_id=1111879048]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -226,12 +230,14 @@ rounded = true
 show_percentage = false
 
 [node name="Pickle" type="Label" parent="UI/ProgressGrid" unique_id=6747008]
+visible = false
 material = ExtResource("3_qek5x")
 layout_mode = 2
 text = "Pickle"
 horizontal_alignment = 2
 
 [node name="PickleProgressBar" type="ProgressBar" parent="UI/ProgressGrid" unique_id=1989935298]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -332,7 +338,6 @@ top_level = true
 script = ExtResource("2_p47bc")
 initial_state = "Moving"
 debug_label = NodePath("../StateDebugLabel")
-debug_mode = true
 metadata/_custom_type_script = "uid://bq6bav7hc4c24"
 
 [node name="Moving" type="Node" parent="StateMachine" unique_id=932598046]
@@ -373,7 +378,6 @@ script = ExtResource("10_h17s1")
 stat_name = "cough"
 value = 0.0
 delta_sec = 5.0
-paused = false
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
 [node name="CoughAudioStream" type="AudioStreamPlayer" parent="cough" unique_id=1871983140]
@@ -386,7 +390,6 @@ script = ExtResource("10_h17s1")
 stat_name = "soda"
 value = 0.0
 delta_sec = 1.0
-paused = false
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
 [node name="SodaAudioStream" type="AudioStreamPlayer" parent="soda" unique_id=2047298437]
@@ -399,7 +402,6 @@ script = ExtResource("10_h17s1")
 stat_name = "pickle"
 value = 8.800000000000221
 delta_sec = 0.8000000000000007
-paused = false
 metadata/_custom_type_script = "uid://cgixpkri85v2f"
 
 [node name="PickleStreamPlayer" type="AudioStreamPlayer" parent="pickle" unique_id=1903313842]

@@ -33,7 +33,7 @@ func open() -> void:
 func close() -> void:
 	
 	if visible and settings_menu.visible:
-		settings_menu.hide()
+		settings_menu.close()
 		button_container.show()
 		get_buttons()[0].grab_focus()
 		return
@@ -57,7 +57,7 @@ func tween(to_visible: bool) -> Tween:
 	return tw
 
 func open_settings() -> void:
-	settings_menu.show()
+	settings_menu.open()
 	button_container.hide()
 
 func quit_to_main() -> void:
