@@ -26,8 +26,8 @@ func add_door(door: Door) -> void:
 		group_changed.connect(door.set)
 
 func remove_door(door: Door) -> void:
-	if not group_changed.is_connected(door.set):
-		group_changed.connect(door.set)
+	if group_changed.is_connected(door.set):
+		group_changed.disconnect(door.set)
 
 func get_group_doors() -> Array[Door]:
 	var doors: Array[Door]

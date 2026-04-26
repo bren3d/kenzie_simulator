@@ -25,11 +25,12 @@ func _ready() -> void:
 	QuestHandle.quest_started.connect(_on_quest_started)
 
 func toggle_task_example_completed() -> void:
-	if task_label_example.draw.is_connected(_on_completed_task_label_draw):
-		task_label_example.draw.disconnect(_on_completed_task_label_draw)
+	var draw_callable: Callable = _get_completed_task_label_draw_callable(task_label_example)
+	if task_label_example.draw.is_connected(draw_callable):
+		task_label_example.draw.disconnect(draw_callable)
 		task_label_example.add_theme_color_override(&"font_color", font_color_active)
 	else:
-		task_label_example.draw.connect(_on_completed_task_label_draw.bind(task_label_example))
+		task_label_example.draw.connect(draw_callable)
 		task_label_example.add_theme_color_override(&"font_color", font_color_inactive)
 	
 	task_label_example.queue_redraw()
@@ -56,11 +57,17 @@ func update_task(t: Task) -> void:
 	
 	task_labels[t].add_theme_color_override(&"font_color", font_color_active if t.is_active() else font_color_inactive)
 	
+	var draw_callable: Callable = _get_completed_task_label_draw_callable(task_labels[t])
+
 	if t.is_completed():
-		task_labels[t].draw.connect(_on_completed_task_label_draw.bind(task_labels[t]))
+		if not task_labels[t].draw.is_connected(draw_callable):
+			task_labels[t].draw.connect(draw_callable)
 	
-	elif task_labels[t].draw.is_connected(_on_completed_task_label_draw):
-		task_labels[t].draw.disconnect(_on_completed_task_label_draw)
+	elif task_labels[t].draw.is_connected(draw_callable):
+		task_labels[t].draw.disconnect(draw_callable)
+
+func _get_completed_task_label_draw_callable(lbl: Label) -> Callable:
+	return _on_completed_task_label_draw.bind(lbl)
 
 func populate_tasks() -> void:
 	clear_tasks()
