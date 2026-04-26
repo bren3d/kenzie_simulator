@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	if not ignore_angle:
 		interpolate_angle(target_y_angle, delta)
 	
-	host.global_position = host.global_position.move_toward(target_position, move_speed)
+	host.global_position = host.global_position.move_toward(target_position, move_speed * delta)
 
 func set_move_speed(val: float) -> void:
 	move_speed = val

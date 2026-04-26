@@ -118,10 +118,10 @@ func get_tasks_hint_string() -> String:
 		task_names.push_back(t.task_name)
 	return ",".join(task_names)
 
-# ALERT UNUSED
 ## Resets all tasks. 
-func reset() -> void:
+func reset(emit_updates: bool = true) -> void:
 	for t: Task in tasks:
 		t.status = Task.STATUS_NOT_STARTED
 		t.current_progress_value = 0.0
-		task_updated.emit(t)
+		if emit_updates:
+			task_updated.emit(t)

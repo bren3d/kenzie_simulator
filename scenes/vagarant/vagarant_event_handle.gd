@@ -26,14 +26,44 @@ func _ready() -> void:
 func register_combatant(comb: Node3D) -> void:
 	assert(comb is VagarantPlayer or comb is Combatant)
 	
-	round_started.connect(comb.start)
-	round_ended.connect(comb.end)
-	combatant_died.connect(comb._on_combatant_dead)
+	var start_callable: Callable = Callable(comb, &"start")
+	var end_callable: Callable = Callable(comb, &"end")
+	var combatant_dead_callable: Callable = Callable(comb, &"_on_combatant_dead")
+
+	if not round_started.is_connected(start_callable):
+		round_started.connect(start_callable)
+	if not round_ended.is_connected(end_callable):
+		round_ended.connect(end_callable)
+	if not combatant_died.is_connected(combatant_dead_callable):
+		combatant_died.connect(combatant_dead_callable)
 	
-	if not comb is VagarantPlayer:
-		comb.dead.connect(_on_combatant_dead.bind(comb))
+	if comb is Combatant:
+		var combatant: Combatant = comb
+		var dead_callable: Callable = _on_combatant_dead.bind(combatant)
+		if not combatant.dead.is_connected(dead_callable):
+			combatant.dead.connect(dead_callable)
 	
 	combatant_spawned.emit(comb)
+
+func unregister_combatant(comb: Node3D) -> void:
+	if not is_instance_valid(comb): return
+
+	var start_callable: Callable = Callable(comb, &"start")
+	var end_callable: Callable = Callable(comb, &"end")
+	var combatant_dead_callable: Callable = Callable(comb, &"_on_combatant_dead")
+
+	if round_started.is_connected(start_callable):
+		round_started.disconnect(start_callable)
+	if round_ended.is_connected(end_callable):
+		round_ended.disconnect(end_callable)
+	if combatant_died.is_connected(combatant_dead_callable):
+		combatant_died.disconnect(combatant_dead_callable)
+
+	if comb is Combatant:
+		var combatant: Combatant = comb
+		var dead_callable: Callable = _on_combatant_dead.bind(combatant)
+		if combatant.dead.is_connected(dead_callable):
+			combatant.dead.disconnect(dead_callable)
 
 func reset_round() -> void:
 	free_combatants()
@@ -70,11 +100,12 @@ func _on_combatant_dead(killer: Node3D, comb: Combatant) -> void:
 	combatant_died.emit(comb, killer)
 
 func free_combatants() -> void:
-	for ally in targeting_handle.allies:
-		if ally: ally.queue_free()
+	for combatant: Node3D in targeting_handle.get_combatants():
+		if not is_instance_valid(combatant): continue
+		unregister_combatant(combatant)
+		combatant.queue_free()
 	
-	for enemy in targeting_handle.enemies:
-		if enemy: enemy.queue_free()
+	targeting_handle.clear_combatants()
 
 func spawn_combatants() -> void:
 	for spawner: CombatantSpawner in spawners:

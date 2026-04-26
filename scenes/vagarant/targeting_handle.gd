@@ -82,10 +82,15 @@ func get_movement_target(comb: Combatant) -> Node3D:
 func get_combatants() -> Array[Node3D]:
 	var combatants: Array[Node3D]
 	for ally in allies:
-		if ally: combatants.push_back(ally)
+		if is_instance_valid(ally): combatants.push_back(ally)
 	for enemy in enemies:
-		if enemy: combatants.push_back(enemy)
+		if is_instance_valid(enemy): combatants.push_back(enemy)
 	return combatants
+
+func clear_combatants() -> void:
+	allies.clear()
+	enemies.clear()
+	update_shoot_timer = UPDATE_SHOOT_DELAY_SEC
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint(): return

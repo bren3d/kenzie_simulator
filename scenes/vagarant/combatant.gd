@@ -69,7 +69,8 @@ func _physics_process(delta: float) -> void:
 	
 	if movement_target and not shooting_target:
 		var dir: Vector3 = ((movement_target.global_position - global_position)* Vector3(1.0, 0.0, 1.0)).normalized()
-		velocity = dir * SPEED
+		velocity.x = dir.x * SPEED
+		velocity.z = dir.z * SPEED
 	
 	else:
 		
